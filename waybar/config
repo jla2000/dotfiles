@@ -1,13 +1,32 @@
 {
   "layer": "top",
   "height": 35,
-  "modules-left": ["cpu", "temperature", "memory", "custom/gfx"],
-  "modules-center": ["hyprland/workspaces"],
-  "modules-right": ["pulseaudio", "battery", "network", "clock", "custom/power-menu"],
+  "modules-left": ["cpu", "memory", "temperature", "hyprland/workspaces"],
+  "modules-center": ["hyprland/window"],
+  "modules-right": ["tray", "backlight", "pulseaudio", "battery", "network", "clock"],
+
+  "hyprland/window": {
+    "format": "{title}"
+  },
+
+  "backlight": {
+    "format": "{icon}  {percent}%",
+    "format-icons": ["", "", "", "", "", "", "", "", ""]
+  },
+
+  "tray": {
+    "icon-size": 21,
+    "spacing": 10,
+  },
+
+  "wlr/taskbar": {
+    "on-click": "activate",
+    "icon-size": 21,
+  },
 
   "pulseaudio": {
     "format": "{icon}  {volume}%",
-    "format-muted": "",
+    "format-muted": "  {volume}%",
     "format-icons": {
       "default": ["", "", ""],
     }
@@ -23,7 +42,7 @@
   },
 
   "memory": {
-    "format": "  {}%",
+    "format": "  {}%",
   },
 
   "network": {
@@ -31,7 +50,7 @@
     "format-ethernet": "{ipaddr}/{cidr} ",
     "tooltip-format": "Connected to {essid}",
     "format-linked": "{ifname} (No IP) ",
-    "format-disconnected": "Disconnected ⚠",
+    "format-disconnected": "⚠ Disconnected",
     "format-alt": "{ifname}: {ipaddr}/{cidr}"
   },
 
@@ -51,18 +70,7 @@
   },
 
   "clock": {
+    "format": "  {:%H:%M}",
     "timezone": "Europe/Berlin",
-  },
-
-  "custom/power-menu": {
-    "format": "",
-  },
-
-  "custom/gfx": {
-    "format": " {}",
-    "interval": 3,
-    "return-type": "json",
-    "exec": "$HOME/.config/waybar/modules/gfx.sh",
-    "on-click": "$HOME/.config/waybar/modules/gfxmenu.sh"
   },
 }

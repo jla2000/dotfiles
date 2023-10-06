@@ -1,76 +1,73 @@
 @import "../../.cache/wal/colors-waybar.css";
 
 * {
-  font-family: "Fira Sans Semibold", "Font Awesome 5 Free";
+  font-family: "Fira Sans Semibold", "FontAwesome";
   font-size: 18px;
-  color: white;
+  color: @foreground;
 }
 
 window#waybar {
   background: @background;
+  padding: 10px 5px;
+}
+
+.modules-left {
+  margin: 5px 10px;
+  border-radius: 20px;
+}
+
+.modules-right {
+  margin-left: 10px;
 }
 
 label {
   padding: 0px 10px;
 }
 
+#tray {
+  border-radius: 10px;
+  margin: 4px;
+  padding: 0px 10px;
+}
+
 #cpu {
-  background: @color1;
   border-radius: 10px;
   margin: 4px;
 }
 
 #temperature {
-  background: @color1;
   border-radius: 10px;
   margin: 4px;
 }
 
 #memory {
-  background: @color1;
-  border-radius: 10px;
-  margin: 4px;
-}
-
-#custom-gfx {
-  background: @color9;
   border-radius: 10px;
   margin: 4px;
 }
 
 #pulseaudio {
-  background: @color1;
   border-radius: 10px;
   margin: 4px;
 }
 
 #battery {
-  background: @color1;
   border-radius: 10px;
   margin: 4px;
 }
 
 #network {
-  background-color: @color1;
-  border-radius: 10px;
   margin: 4px;
 }
 
 #clock {
-  background-color: @color1;
   border-radius: 10px;
   margin: 4px;
 }
 
-#power-menu {
-  background-color: @color1;
-}
-
 #workspaces button {
-  transition: ease-in-out;
   margin: 4px;
 }
 
 #workspaces button.active {
-  background-color: @color4;
+  background-color: @background;
 }
