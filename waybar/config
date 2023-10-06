@@ -1,0 +1,68 @@
+{
+  "layer": "top",
+  "height": 35,
+  "modules-left": ["cpu", "temperature", "memory", "custom/gfx"],
+  "modules-center": ["hyprland/workspaces"],
+  "modules-right": ["pulseaudio", "battery", "network", "clock", "custom/power-menu"],
+
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "",
+    "format-icons": {
+      "default": ["", "", ""],
+    }
+  },
+
+  "cpu": {
+    "format": "  {usage}%",
+  },
+
+  "temperature": {
+    "format": "{icon}  {temperatureC}°C",
+    "format-icons": ["", "", ""]
+  },
+
+  "memory": {
+    "format": "  {}%",
+  },
+
+  "network": {
+    "format-wifi": "  {essid}",
+    "format-ethernet": "{ipaddr}/{cidr} ",
+    "tooltip-format": "Connected to {essid}",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "Disconnected ⚠",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+  },
+
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon}  {capacity}%",
+    "format-charging": "{capacity}% ",
+    "format-plugged": "{capacity}% ",
+    "format-alt": "{time} {icon}",
+    // "format-good": "", // An empty format will hide the module
+    // "format-full": "",
+    "format-icons": ["", "", "", "", ""]
+  },
+
+  "clock": {
+    "timezone": "Europe/Berlin",
+  },
+
+  "custom/power-menu": {
+    "format": "",
+  },
+
+  "custom/gfx": {
+    "format": " {}",
+    "interval": 3,
+    "return-type": "json",
+    "exec": "$HOME/.config/waybar/modules/gfx.sh",
+    "on-click": "$HOME/.config/waybar/modules/gfxmenu.sh"
+  },
+}

@@ -1,0 +1,3 @@
+[submodule "lazyvim-config"]
+	path = lazyvim-config
+	url = git@github.com:jla2000/lazyvim-config.git
