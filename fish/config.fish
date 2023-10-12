@@ -5,6 +5,8 @@ if status is-interactive
     end
 end
 
+alias g /usr/bin/lazygit
+
 set -Ux EDITOR nvim
 
 fish_add_path ~/.cargo/bin
