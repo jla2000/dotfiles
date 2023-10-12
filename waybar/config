@@ -7,7 +7,7 @@
 
   "custom/updates": {
     "format": " {}",
-    "exec": "dnf check-update | grep -Ec ' updates$' | tr -d '\n'",
+    "exec": "dnf check-update | grep -Ec ' updates' | tr -d '\n'",
     "restart-interval": 60,
   },
 
