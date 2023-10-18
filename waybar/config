@@ -3,20 +3,20 @@
   "height": 35,
   "modules-left": ["cpu", "memory", "temperature", "hyprland/workspaces"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["tray", "custom/updates", "backlight", "pulseaudio", "battery", "network", "clock"],
+  "modules-right": ["tray", "backlight", "pulseaudio", "battery", "network", "clock"],
 
-  "custom/updates": {
+  /*"custom/updates": {
     "format": " {}",
     "exec": "dnf check-update | grep -Ec ' updates' | tr -d '\n'",
     "restart-interval": 60,
-  },
+  },*/
 
   "hyprland/window": {
     "format": "{title}"
   },
 
   "backlight": {
-    "format": "{icon}  {percent}%",
+    "format": "{icon}   {percent}%",
     "format-icons": ["", "", "", "", "", "", "", "", ""]
   },
 
@@ -31,7 +31,7 @@
   },
 
   "pulseaudio": {
-    "format": "{icon}  {volume}%",
+    "format": "{icon}   {volume}%",
     "format-muted": "  {volume}%",
     "format-icons": {
       "default": ["", "", ""],
@@ -39,7 +39,7 @@
   },
 
   "cpu": {
-    "format": "  {usage}%",
+    "format": "   {usage}%",
   },
 
   "temperature": {
@@ -52,7 +52,7 @@
   },
 
   "network": {
-    "format-wifi": "  {essid}",
+    "format-wifi": "    {essid}",
     "format-ethernet": "{ipaddr}/{cidr} ",
     "tooltip-format": "Connected to {essid}",
     "format-linked": "{ifname} (No IP) ",
@@ -66,7 +66,7 @@
       "warning": 30,
       "critical": 15
     },
-    "format": "{icon}  {capacity}%",
+    "format": "{icon}    {capacity}%",
     "format-charging": "  {capacity}%",
     "format-plugged": "  {capacity}%",
     "format-alt": "{time} {icon}",

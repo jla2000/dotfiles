@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 TOUCHPAD_DEVICE="asue120a:00-04f3:319b-touchpad"
 ENABLE_PROPERTY="device:$TOUCHPAD_DEVICE:enabled"

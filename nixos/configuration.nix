@@ -74,6 +74,8 @@
     supergfxctl
     nwg-look
     glib
+    htop
+    killall
   ];
 
   fonts.fonts = with pkgs; [
