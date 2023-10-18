@@ -5,7 +5,7 @@ if status is-interactive
     end
 end
 
-alias g /usr/bin/lazygit
+alias g lazygit
 
 set -Ux EDITOR nvim
 

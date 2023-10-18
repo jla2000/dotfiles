@@ -76,6 +76,7 @@
     glib
     htop
     killall
+    bibata-cursors
   ];
 
   fonts.fonts = with pkgs; [
