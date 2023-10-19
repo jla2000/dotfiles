@@ -35,7 +35,7 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.displayManager.defaultSession = "hyprland";
 
-  services.asusd.enable= true;
+  services.asusd.enable = true;
   services.asusd.enableUserService = true;
   services.supergfxd.enable = true;
   programs.rog-control-center.enable = true;
@@ -46,7 +46,7 @@
   users.users.jan = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
-    packages = with pkgs; [];
+    packages = with pkgs; [ ];
     shell = pkgs.fish;
   };
 
@@ -84,11 +84,6 @@
     fira
     font-awesome
   ];
-
-  # Copy the NixOS configuration file and link it from the resulting system
-  # (/run/current-system/configuration.nix). This is useful in case you
-  # accidentally delete configuration.nix.
-  system.copySystemConfiguration = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
