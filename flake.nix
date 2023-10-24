@@ -19,19 +19,27 @@
       neovimOverlay = prev: final: {
         neovim = neovim.packages.${system}.neovim;
       };
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [ neovimOverlay ];
+        config.allowUnfree = true;
+      };
     in
     {
       nixosConfigurations.zephyrus = nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = attrs;
+        specialArgs = {
+          inherit pkgs;
+        };
         modules = [
-          ({ config, pkgs, ... }: { nixpkgs.overlays = [ neovimOverlay ]; })
           ./configuration.nix
           home-manager.nixosModules.default
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.jan = import ./home.nix;
+            home-manager.users.jan = import ./home.nix {
+              inherit pkgs;
+            };
           }
         ];
       };

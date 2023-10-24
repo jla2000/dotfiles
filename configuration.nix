@@ -6,7 +6,6 @@
 
 {
   imports = [ ./hardware-configuration.nix ];
-
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;
@@ -16,6 +15,7 @@
       efiSupport = true;
       device = "nodev";
       useOSProber = true;
+
     };
   };
 
@@ -74,9 +74,13 @@
     htop
     killall
     bibata-cursors
+    spotify
   ];
 
-  fonts.fonts = with pkgs; [
+  # Force electron apps to use wayland
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     fira
     font-awesome
