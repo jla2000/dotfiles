@@ -33,6 +33,7 @@
         };
         modules = [
           ./configuration.nix
+
           home-manager.nixosModules.default
           {
             home-manager.useGlobalPkgs = true;
