@@ -1,3 +1,5 @@
+(include "./workspaces.yuck")
+
 (defwindow example
 	:monitor 0
 	:geometry (geometry :x "0%"
@@ -8,20 +10,3 @@
 	:stacking "fg"
   :exclusive true
   (workspaces))
-
-(deflisten workspaces :initial "[]" "./scripts/get-workspaces.sh")
-(deflisten current_workspace :initial "1" "./scripts/get-active-workspace.sh")
-(defwidget workspaces []
-  (eventbox :onscroll "./scripts/change-active-workspace.sh {} ${current_workspace}" :class "workspaces-widget"
-    (box :space-evenly true
-      (label :text "${workspaces}${current_workspace}" :visible false)
-      (for workspace in workspaces
-        (eventbox :onclick "hyprctl dispatch workspace ${workspace.id}"
-          (box :class "workspace-entry ${workspace.id == current_workspace ? "current" : ""} ${workspace.windows > 0 ? "occupied" : "empty"}"
-            (label :text "${workspace.id}")))))))
-
-(defwidget greeter [?text name]
-  (box :orientation "horizontal"
-    :halfalign "center"
-    text
-  (button :onclick "notify-send 'Hello' 'Hello, ${name}'" "Greet")))
