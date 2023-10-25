@@ -75,10 +75,14 @@
     killall
     bibata-cursors
     spotify
+    pciutils
   ];
 
   # Force electron apps to use wayland
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  # Enable flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
