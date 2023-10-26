@@ -15,7 +15,6 @@
       efiSupport = true;
       device = "nodev";
       useOSProber = true;
-
     };
   };
 
@@ -76,6 +75,7 @@
     bibata-cursors
     spotify
     pciutils
+    discord
   ];
 
   # Force electron apps to use wayland

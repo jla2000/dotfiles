@@ -13,7 +13,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, neovim, home-manager }@attrs:
+  outputs = { self, nixpkgs, neovim, home-manager }:
     let
       system = "x86_64-linux";
       neovimOverlay = prev: final: {

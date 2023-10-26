@@ -40,8 +40,6 @@ in
     package = pkgs.neovim;
   };
 
-  xdg.configFile."nvim".source = "${dotfiles}/nvim";
-
   programs.eww = {
     enable = true;
     configDir = "${dotfiles}/eww";
