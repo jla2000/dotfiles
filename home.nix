@@ -10,6 +10,13 @@ let
   };
 in
 {
+  home.pointerCursor = {
+    gtk.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Classic";
+    size = 32;
+  };
+
   programs.git = {
     enable = true;
     userName = "Jan Lafferton";

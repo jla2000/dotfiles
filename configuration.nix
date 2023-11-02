@@ -17,6 +17,14 @@
       useOSProber = true;
     };
   };
+  boot.initrd.systemd.enable = true;
+  boot.initrd.verbose = false;
+  boot.consoleLogLevel = 0;
+  boot.kernelParams = [ "quiet" "udev.log_level=0" ];
+  boot.plymouth = {
+    enable = true;
+    theme = "bgrt";
+  };
 
   networking.hostName = "zephyrus";
   networking.networkmanager.enable = true;
@@ -53,7 +61,7 @@
     swww
     waybar
     kitty
-    firefox
+    firefox-wayland
     wofi
     starship
     pywal
@@ -76,6 +84,9 @@
     spotify
     pciutils
     discord
+    libreoffice-fresh
+    gnome.nautilus
+    ventoy-full
   ];
 
   # Force electron apps to use wayland
