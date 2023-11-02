@@ -8,6 +8,8 @@ let
       cp -r ./ $out/
     '';
   };
+  cursorTheme = "Bibata-Modern-Classic";
+  cursorSize = 24;
 in
 {
   gtk = {
@@ -17,8 +19,8 @@ in
   home.pointerCursor = {
     gtk.enable = true;
     package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Classic";
-    size = 24;
+    name = cursorTheme;
+    size = cursorSize;
   };
 
   programs.git = {
@@ -78,7 +80,7 @@ in
 
       # Execute your favorite apps at launch
       # exec-once = waybar & hyprpaper & firefox
-      exec-once = hyprctl setcursor Bibata-Modern-Classic 24
+      exec-once = hyprctl setcursor ${cursorTheme} ${toString cursorSize}
       exec-once = waybar
       exec-once = swww init
 
