@@ -1,13 +1,5 @@
 { pkgs }:
 let
-  dotfiles = pkgs.stdenv.mkDerivation {
-    name = "dotfiles";
-    src = ./dotfiles;
-    installPhase = ''
-      mkdir -p $out/
-      cp -r ./ $out/
-    '';
-  };
   cursorTheme = "Bibata-Modern-Classic";
   cursorSize = 24;
 in
@@ -51,12 +43,6 @@ in
     enable = true;
     defaultEditor = true;
     package = pkgs.neovim;
-  };
-
-  programs.eww = {
-    enable = true;
-    configDir = "${dotfiles}/eww";
-    package = pkgs.eww-wayland;
   };
 
   wayland.windowManager.hyprland = {

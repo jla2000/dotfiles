@@ -17,6 +17,9 @@
       useOSProber = true;
     };
   };
+
+
+  # Setup plymouth
   boot.initrd.systemd.enable = true;
   boot.initrd.verbose = false;
   boot.consoleLogLevel = 0;
@@ -87,6 +90,7 @@
     libreoffice-fresh
     gnome.nautilus
     ventoy-full
+    thunderbird
   ];
 
   # Force electron apps to use wayland
