@@ -50,8 +50,9 @@ tiling_drag modifier titlebar
 
 # start a terminal
 bindsym $mod+Return exec kitty
-# Start firefox
-bindsym $mod+b exec firefox
+
+# Start a browser
+bindsym $mod+c exec google-chrome-stable --force-device-scale-factor=1.25
 
 # kill focused window
 bindsym $mod+Shift+q kill
