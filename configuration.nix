@@ -5,7 +5,10 @@
 { config, pkgs, home-manager, ... }:
 
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ./asus-rog.nix
+  ];
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;
@@ -18,17 +21,6 @@
     };
   };
 
-
-  # Setup plymouth
-  boot.initrd.systemd.enable = true;
-  boot.initrd.verbose = false;
-  boot.consoleLogLevel = 0;
-  boot.kernelParams = [ "quiet" "udev.log_level=0" ];
-  boot.plymouth = {
-    enable = true;
-    theme = "bgrt";
-  };
-
   networking.hostName = "zephyrus";
   networking.networkmanager.enable = true;
 
@@ -39,15 +31,19 @@
   hardware.pulseaudio.enable = true;
 
   services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.displayManager.defaultSession = "hyprland";
+  services.xserver.displayManager.lightdm.enable = true;
+  services.xserver.displayManager.defaultSession = "none+i3";
+  services.xserver.windowManager.i3 = {
+    enable = true;
+    extraPackages = with pkgs; [
+      dmenu
+      i3status
+      i3lock
+      networkmanagerapplet
+      dunst
+    ];
+  };
 
-  services.asusd.enable = true;
-  services.asusd.enableUserService = true;
-  services.supergfxd.enable = true;
-  programs.rog-control-center.enable = true;
-  programs.rog-control-center.autoStart = true;
-  programs.hyprland.enable = true;
   programs.fish.enable = true;
 
   users.users.jan = {
@@ -61,14 +57,9 @@
     neovim
     git
     lazygit
-    swww
-    waybar
     kitty
-    firefox-wayland
-    wofi
+    firefox
     starship
-    pywal
-    wlogout
     gcc
     cmake
     gnumake
@@ -77,24 +68,15 @@
     rustc
     unzip
     brightnessctl
-    asusctl
-    supergfxctl
-    nwg-look
-    glib
     htop
     killall
-    bibata-cursors
     spotify
     pciutils
     discord
     libreoffice-fresh
-    gnome.nautilus
     ventoy-full
     thunderbird
   ];
-
-  # Force electron apps to use wayland
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
