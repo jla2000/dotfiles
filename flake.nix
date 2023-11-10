@@ -31,18 +31,7 @@
         specialArgs = {
           inherit pkgs;
         };
-        modules = [
-          ./configuration.nix
-
-          home-manager.nixosModules.default
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.jan = import ./home.nix {
-              inherit pkgs;
-            };
-          }
-        ];
+        modules = [ ./configuration.nix ];
       };
     };
 }

@@ -31,6 +31,7 @@
   hardware.pulseaudio.enable = true;
 
   services.xserver.enable = true;
+  services.xserver.videoDrivers = [ "amdgpu" ];
   services.xserver.displayManager.lightdm.enable = true;
   services.xserver.displayManager.defaultSession = "none+i3";
   services.xserver.windowManager.i3 = {
@@ -76,6 +77,8 @@
     libreoffice-fresh
     ventoy-full
     thunderbird
+    meld
+    starship
   ];
 
   # Enable flakes
