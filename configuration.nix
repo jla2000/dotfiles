@@ -7,7 +7,6 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./asus-rog.nix
   ];
   boot.loader = {
     efi = {
@@ -32,6 +31,9 @@
 
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
+  services.xserver.deviceSection = ''
+    Option "VariableRefresh" "true"
+  '';
   services.xserver.displayManager.lightdm.enable = true;
   services.xserver.displayManager.defaultSession = "none+i3";
   services.xserver.windowManager.i3 = {
@@ -45,6 +47,11 @@
     ];
   };
 
+  services.asusd.enable = true;
+  services.asusd.enableUserService = true;
+  services.supergfxd.enable = true;
+  programs.rog-control-center.enable = true;
+  programs.rog-control-center.autoStart = true;
   programs.fish.enable = true;
 
   users.users.jan = {
