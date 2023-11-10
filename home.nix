@@ -1,9 +1,21 @@
 { pkgs }:
 {
+  home.packages = with pkgs; [
+    meld
+  ];
+
   programs.git = {
     enable = true;
     userName = "Jan Lafferton";
     userEmail = "jan@lafferton.de";
+    extraConfig = {
+      merge = {
+        tool = "meld";
+      };
+      diff = {
+        tool = "meld";
+      };
+    };
   };
 
   programs.kitty = {
@@ -15,6 +27,7 @@
     };
   };
 
+  programs.starship.enable = true;
   programs.fish = {
     enable = true;
     interactiveShellInit = "
