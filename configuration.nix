@@ -62,30 +62,31 @@
   };
 
   environment.systemPackages = with pkgs; [
-    neovim
-    git
-    lazygit
-    kitty
-    firefox
-    starship
-    gcc
-    cmake
-    gnumake
-    nodejs
-    cargo
-    rustc
-    unzip
     brightnessctl
+    cargo
+    cmake
+    discord
+    gcc
+    git
+    gnumake
+    google-chrome
     htop
     killall
-    spotify
-    pciutils
-    discord
+    kitty
+    lazygit
     libreoffice-fresh
-    ventoy-full
-    thunderbird
     meld
+    neovim
+    nodejs
+    pciutils
+    rustc
+    spotify
     starship
+    starship
+    thunderbird
+    unzip
+    ventoy-full
+    xorg.xev
   ];
 
   # Enable flakes
