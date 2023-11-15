@@ -3,3 +3,6 @@ font:
   normal:
     family: Monaspace Neon Var
     style: Medium
+  italic:
+    family: Monaspace Radon Var
+    style: Italic
