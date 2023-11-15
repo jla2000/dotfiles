@@ -47,6 +47,11 @@
     ];
   };
 
+  services.acpid = {
+    enable = true;
+    lidEventCommands = (builtins.readFile ./scripts/handle-lid.sh);
+  };
+
   services.asusd.enable = true;
   services.asusd.enableUserService = true;
   services.supergfxd.enable = true;
@@ -62,20 +67,23 @@
   };
 
   environment.systemPackages = with pkgs; [
+    alacritty
     brightnessctl
     cargo
     cmake
     discord
+    feh
+    firefox
     gcc
     git
     gnumake
     google-chrome
     htop
     killall
-    kitty
     lazygit
     libreoffice-fresh
     meld
+    neofetch
     neovim
     nodejs
     pciutils
@@ -84,6 +92,7 @@
     starship
     starship
     thunderbird
+    tmux
     unzip
     ventoy-full
     xorg.xev
