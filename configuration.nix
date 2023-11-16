@@ -113,9 +113,10 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   fonts.packages = with pkgs; [
+    # TODO: Install monaspace once it is available
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-    fira
     font-awesome
+    monaspace
   ];
 
   # This value determines the NixOS release from which the default
