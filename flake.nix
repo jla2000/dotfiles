@@ -15,13 +15,16 @@
       neovimOverlay = prev: final: {
         neovim = neovim.packages.${system}.neovim;
       };
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [ neovimOverlay ];
+        config.allowUnfree = true;
+      };
     in
     {
       nixosConfigurations.zephyrus = nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = {
-          overlays = [ neovimOverlay ];
-        };
+        specialArgs = { inherit pkgs; };
         modules = [ ./configuration.nix ];
       };
     };
