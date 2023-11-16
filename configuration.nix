@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
-{ config, pkgs, home-manager, ... }:
+{ config, pkgs, neovimOverlay, ... }:
 
 {
   imports = [
@@ -72,6 +72,12 @@
     shell = pkgs.fish;
   };
 
+
+  # Allow installation of unfree packages.
+  nixpkgs.config.allowUnfree = true;
+  # Apply overlays
+  nixpkgs.overlays = [ neovimOverlay ];
+
   environment.systemPackages = with pkgs; [
     alacritty
     brightnessctl
@@ -109,9 +115,6 @@
     ventoy-full
     xorg.xev
   ];
-
-  # Allow installation of unfree packages.
-  nixpkgs.config.allowUnfree = true;
 
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
