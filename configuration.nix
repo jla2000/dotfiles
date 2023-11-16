@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
-{ config, pkgs, neovimOverlay, ... }:
+{ config, pkgs, overlays, ... }:
 
 {
   imports = [
@@ -76,7 +76,7 @@
   # Allow installation of unfree packages.
   nixpkgs.config.allowUnfree = true;
   # Apply overlays
-  nixpkgs.overlays = [ neovimOverlay ];
+  nixpkgs.overlays = overlays;
 
   environment.systemPackages = with pkgs; [
     alacritty

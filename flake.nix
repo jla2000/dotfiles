@@ -20,7 +20,7 @@
       nixosConfigurations.zephyrus = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
-          inherit neovimOverlay;
+          overlays = [ neovimOverlay ];
         };
         modules = [ ./configuration.nix ];
       };
