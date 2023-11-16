@@ -59,6 +59,11 @@
   programs.rog-control-center.autoStart = true;
   programs.fish.enable = true;
 
+  nix.gc.automatic = true;
+  system.autoUpgrade = {
+    enable = true;
+    flake = "github:jla2000/nixos-flake";
+  };
   users.users.jan = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
@@ -82,15 +87,19 @@
     killall
     lazygit
     libreoffice-fresh
+    lua-language-server
     meld
     neofetch
+    neovide
     neovim
     nodejs
     pciutils
+    ripgrep
+    rust-analyzer
     rustc
     spotify
     starship
-    starship
+    stylua
     thunderbird
     tmux
     unzip
