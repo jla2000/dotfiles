@@ -64,6 +64,7 @@
     enable = true;
     flake = "github:jla2000/nixos-flake";
   };
+
   users.users.jan = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
@@ -95,6 +96,7 @@
     nodejs
     pciutils
     ripgrep
+    rnix-lsp
     rust-analyzer
     rustc
     spotify
