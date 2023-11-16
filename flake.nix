@@ -3,34 +3,15 @@
     nixpkgs = {
       url = "github:NixOS/nixpkgs/nixos-unstable";
     };
-    neovim = {
-      url = "github:neovim/neovim?dir=contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
     };
   };
 
-  outputs = { self, nixpkgs, neovim, home-manager }:
-    let
-      system = "x86_64-linux";
-      neovimOverlay = prev: final: {
-        neovim = neovim.packages.${system}.neovim;
-      };
-      pkgs = import nixpkgs {
-        inherit system;
-        overlays = [ neovimOverlay ];
-        config.allowUnfree = true;
-      };
-    in
+  outputs = { self, nixpkgs, neovim-nightly-overlay }:
     {
       nixosConfigurations.zephyrus = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = {
-          inherit pkgs;
-        };
+        system = "x86_64-linux";
         modules = [ ./configuration.nix ];
       };
     };

@@ -93,6 +93,7 @@
     neofetch
     neovide
     neovim
+    nodePackages.yaml-language-server
     nodejs
     pciutils
     ripgrep
@@ -108,6 +109,9 @@
     ventoy-full
     xorg.xev
   ];
+
+  # Allow installation of unfree packages.
+  nixpkgs.config.allowUnfree = true;
 
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
