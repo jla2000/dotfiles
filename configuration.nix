@@ -29,6 +29,9 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
+  hardware.opengl.enable = true;
+  hardware.opengl.driSupport = true;
+
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
   services.xserver.deviceSection = ''
@@ -47,10 +50,8 @@
     ];
   };
 
-  services.acpid = {
-    enable = true;
-    lidEventCommands = (builtins.readFile ./scripts/handle-lid.sh);
-  };
+  services.acpid.enable = true;
+  services.autorandr.enable = true;
 
   services.asusd.enable = true;
   services.asusd.enableUserService = true;
@@ -108,6 +109,10 @@
     unzip
     ventoy-full
     xorg.xev
+    xorg.libX11
+    xorg.libXi
+    zig
+    zls
   ];
 
   # Enable flakes
