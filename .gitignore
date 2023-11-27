@@ -1,2 +1,10 @@
 lazygit/
 fish/fish_variables
+dconf/
+evolution/
+google-chrome/
+htop/
+libreoffice/
+neofetch/
+pulse/
+user-dirs*

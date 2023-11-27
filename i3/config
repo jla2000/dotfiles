@@ -41,6 +41,10 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 bindsym XF86TouchpadToggle exec --no-startup-id ~/.config/i3/toggle-touchpad.sh
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 10%+
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%-
+bindsym XF86KbdBrightnessUp exec --no-startup-id asusctl --next-kbd-bright
+bindsym XF86KbdBrightnessDown exec --no-startup-id asusctl --prev-kbd-bright
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
