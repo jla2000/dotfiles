@@ -8,6 +8,8 @@
   imports = [
     ./hardware-configuration.nix
   ];
+
+  # Configure boot loader
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;
@@ -20,23 +22,27 @@
     };
   };
 
+  # Configure networking
   networking.hostName = "zephyrus";
   networking.networkmanager.enable = true;
 
+  # Configure locale
   time.timeZone = "Europe/Berlin";
-
   i18n.defaultLocale = "en_US.UTF-8";
+
+  # Configure sound and video
   sound.enable = true;
   hardware.pulseaudio.enable = true;
-
   hardware.opengl.enable = true;
   hardware.opengl.driSupport = true;
 
+
+  # Configure xserver settings
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
-  services.xserver.deviceSection = ''
-    Option "VariableRefresh" "true"
-  '';
+  services.xserver.deviceSection = "Option 'VariableRefresh' 'true'";
+
+  # Configure login manager and window manager
   services.xserver.displayManager.lightdm.enable = true;
   services.xserver.displayManager.defaultSession = "none+i3";
   services.xserver.windowManager.i3 = {
@@ -50,9 +56,15 @@
     ];
   };
 
-  services.acpid.enable = true;
-  services.autorandr.enable = true;
 
+  # Keep system clean and up to date
+  nix.gc.automatic = true;
+  system.autoUpgrade = {
+    enable = true;
+    flake = "github:jla2000/nixos-flake";
+  };
+
+  # Enable docker
   virtualisation.docker.enable = true;
   virtualisation.docker.storageDriver = "btrfs";
   virtualisation.docker.rootless = {
@@ -60,19 +72,17 @@
     setSocketVariable = true;
   };
 
+  # Enable AsusLinux stuff
   services.asusd.enable = true;
   services.asusd.enableUserService = true;
   services.supergfxd.enable = true;
   programs.rog-control-center.enable = true;
   programs.rog-control-center.autoStart = true;
+
+  # User shell
   programs.fish.enable = true;
 
-  nix.gc.automatic = true;
-  system.autoUpgrade = {
-    enable = true;
-    flake = "github:jla2000/nixos-flake";
-  };
-
+  # Default user
   users.users.jan = {
     isNormalUser = true;
     extraGroups = [ "wheel" "docker" ];
@@ -127,6 +137,7 @@
   # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  # Install some nice fonts
   fonts.packages = with pkgs; [
     # TODO: Install monaspace once it is available
     (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
