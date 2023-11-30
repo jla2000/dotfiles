@@ -53,6 +53,13 @@
   services.acpid.enable = true;
   services.autorandr.enable = true;
 
+  virtualisation.docker.enable = true;
+  virtualisation.docker.storageDriver = "btrfs";
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
+
   services.asusd.enable = true;
   services.asusd.enableUserService = true;
   services.supergfxd.enable = true;
@@ -68,17 +75,19 @@
 
   users.users.jan = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "docker" ];
     packages = with pkgs; [ ];
     shell = pkgs.fish;
   };
 
   environment.systemPackages = with pkgs; [
     alacritty
+    bat
     brightnessctl
     cargo
-    cmake
     discord
+    distrobox
+    eza
     feh
     firefox
     gcc
@@ -108,9 +117,9 @@
     tmux
     unzip
     ventoy-full
-    xorg.xev
     xorg.libX11
     xorg.libXi
+    xorg.xev
     zig
     zls
   ];
