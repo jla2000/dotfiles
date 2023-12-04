@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
-{ config, pkgs, ... }:
+{ lib, config, pkgs, ... }:
 
 {
   imports = [
@@ -36,7 +36,6 @@
   hardware.opengl.enable = true;
   hardware.opengl.driSupport = true;
 
-
   # Configure xserver settings
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
@@ -53,6 +52,7 @@
       i3lock
       networkmanagerapplet
       dunst
+      unclutter
     ];
   };
 
@@ -63,6 +63,11 @@
     enable = true;
     flake = "github:jla2000/nixos-flake";
   };
+
+  # Automatic btrfs scrub
+  services.btrfs.autoScrub.enable = lib.mkDefault
+    (builtins.any (filesystem: filesystem.fsType == "btrfs")
+      (builtins.attrValues config.fileSystems));
 
   # Enable docker
   virtualisation.docker.enable = true;
