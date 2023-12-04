@@ -35,7 +35,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id nm-applet
 
 # Hide mouse after 1 sec
-exec --no-startup-id unclutter -idle 1 -grab
+# exec --no-startup-id unclutter -idle 1 -grab
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
