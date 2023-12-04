@@ -6,6 +6,9 @@ if status is-interactive
 end
 
 alias g lazygit
+alias v nvim
+alias ls eza
+alias cat bat
 
 set -Ux EDITOR nvim
 
