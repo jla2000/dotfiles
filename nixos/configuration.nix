@@ -7,6 +7,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./asus-rog.nix
   ];
 
   # Configure boot loader
@@ -38,8 +39,6 @@
 
   # Configure xserver settings
   services.xserver.enable = true;
-  services.xserver.videoDrivers = [ "amdgpu" ];
-  #services.xserver.deviceSection = "Option 'VariableRefresh' 'true'";
 
   # Configure login manager and window manager
   services.xserver.displayManager.gdm.enable = true;
@@ -59,21 +58,6 @@
   services.btrfs.autoScrub.enable = lib.mkDefault
     (builtins.any (filesystem: filesystem.fsType == "btrfs")
       (builtins.attrValues config.fileSystems));
-
-  # Enable docker
-  virtualisation.docker.enable = true;
-  virtualisation.docker.storageDriver = "btrfs";
-  virtualisation.docker.rootless = {
-    enable = true;
-    setSocketVariable = true;
-  };
-
-  # Enable AsusLinux stuff
-  services.asusd.enable = true;
-  services.asusd.enableUserService = true;
-  services.supergfxd.enable = true;
-  programs.rog-control-center.enable = true;
-  programs.rog-control-center.autoStart = true;
 
   # User shell
   programs.fish.enable = true;
