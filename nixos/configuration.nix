@@ -65,7 +65,7 @@
   # Default user
   users.users.${globals.user} = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" ];
+    extraGroups = [ "wheel" ];
     shell = pkgs.fish;
   };
 

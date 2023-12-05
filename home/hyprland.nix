@@ -3,23 +3,6 @@ let
   monitorStr = m: "${m.name},${m.mode},${m.position},${toString m.scale}";
   primary-monitor = builtins.elemAt config.monitors 0;
 
-  touchpad = "asue120a:00-04f3:319b-touchpad";
-  enable-property = "device:${touchpad}:enabled";
-  timeout-property = "general:cursor_inactive_timeout";
-
-  toggle-touchpad = pkgs.writeShellApplication {
-    name = "toggle-touchpad.sh";
-    text = ''
-      if hyprctl getoption ${enable-property} | grep -q "int: 1"; then
-      	hyprctl keyword ${enable-property} false
-      	hyprctl keyword ${timeout-property} 1
-      else
-      	hyprctl keyword ${enable-property} true
-      	hyprctl keyword ${timeout-property} 0
-      fi
-    '';
-  };
-
   toggle-lid = pkgs.writeShellApplication {
     name = "toggle-lid.sh";
     text = ''
@@ -34,10 +17,14 @@ let
   };
 in
 {
+  imports = [ ./touchpad.nix ];
+
   home.packages = with pkgs; [
     brightnessctl
     wl-clipboard
   ];
+
+  touchpad-device = "asue120a:00-04f3:319b-touchpad";
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -84,7 +71,6 @@ in
           "${mod}, K, movefocus, u"
 
           # Media keys
-          ", XF86TouchpadToggle, exec, ${toggle-touchpad}/bin/toggle-touchpad.sh"
           ", XF86MonBrightnessUp, exec, brightnessctl set 10%+"
           ", XF86MonBrightnessDown, exec, brightnessctl set 10%-"
           ", XF86AudioLowerVolume, exec, amixer set Master 5%-"
