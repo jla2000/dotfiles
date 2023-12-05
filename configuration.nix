@@ -95,7 +95,6 @@
     distrobox
     eza
     feh
-    firefox
     fzf
     gcc
     git
