@@ -109,6 +109,7 @@
     neofetch
     neovide
     neovim
+    nil
     nodePackages.yaml-language-server
     nodejs
     pciutils
@@ -135,9 +136,7 @@
 
   # Install some nice fonts
   fonts.packages = with pkgs; [
-    # TODO: Install monaspace once it is available
     (nerdfonts.override { fonts = [ "JetBrainsMono" "Monaspace" ]; })
-    font-awesome
   ];
 
   # This value determines the NixOS release from which the default
