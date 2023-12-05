@@ -39,23 +39,14 @@
   # Configure xserver settings
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
-  services.xserver.deviceSection = "Option 'VariableRefresh' 'true'";
+  #services.xserver.deviceSection = "Option 'VariableRefresh' 'true'";
 
   # Configure login manager and window manager
-  services.xserver.displayManager.lightdm.enable = true;
-  services.xserver.displayManager.defaultSession = "none+i3";
-  services.xserver.windowManager.i3 = {
-    enable = true;
-    extraPackages = with pkgs; [
-      dmenu
-      i3status
-      i3lock
-      networkmanagerapplet
-      dunst
-      unclutter
-    ];
-  };
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.displayManager.defaultSession = "hyprland";
 
+  programs.hyprland.enable = true;
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Keep system clean and up to date
   nix.gc.automatic = true;
@@ -105,6 +96,7 @@
     eza
     feh
     firefox
+    fzf
     gcc
     git
     gnumake
@@ -145,9 +137,8 @@
   # Install some nice fonts
   fonts.packages = with pkgs; [
     # TODO: Install monaspace once it is available
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    (nerdfonts.override { fonts = [ "JetBrainsMono" "Monaspace" ]; })
     font-awesome
-    monaspace
   ];
 
   # This value determines the NixOS release from which the default
