@@ -66,7 +66,6 @@
   users.users.jan = {
     isNormalUser = true;
     extraGroups = [ "wheel" "docker" ];
-    packages = with pkgs; [ ];
     shell = pkgs.fish;
   };
 
