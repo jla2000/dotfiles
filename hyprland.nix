@@ -1,7 +1,4 @@
 { ... }:
-let
-  mod = "ALT";
-in 
 {
   wayland.windowManager.hyprland = {
     enable = true;
@@ -22,7 +19,11 @@ in
       };
 
       # Keybindings
-      bind = [
+      bind =
+      let
+        mod = "WIN";
+      in
+      [
         "${mod}, Return, exec, alacritty"
         "${mod}, F, exec, firefox"
         "${mod} SHIFT, Q, killactive"
@@ -34,6 +35,11 @@ in
         "${mod} SHIFT, 1, movetoworkspace, 1"
         "${mod} SHIFT, 2, movetoworkspace, 2"
         "${mod} SHIFT, 3, movetoworkspace, 3"
+
+        "${mod}, H, movefocus, l"
+        "${mod}, L, movefocus, r"
+        "${mod}, J, movefocus, d"
+        "${mod}, K, movefocus, u"
       ];
 
       # Window styling
