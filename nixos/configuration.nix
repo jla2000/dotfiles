@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
-{ lib, config, pkgs, ... }:
+{ lib, config, pkgs, globals, ... }:
 
 {
   imports = [
@@ -63,7 +63,7 @@
   programs.fish.enable = true;
 
   # Default user
-  users.users.jan = {
+  users.users.${globals.user} = {
     isNormalUser = true;
     extraGroups = [ "wheel" "docker" ];
     shell = pkgs.fish;

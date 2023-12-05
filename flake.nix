@@ -18,7 +18,7 @@
 
   outputs = { self, nixpkgs, home-manager, neovim, nur }:
     let
-      globals = rec {
+      globals = {
         user = "jan";
       };
       system = "x86_64-linux";
