@@ -34,6 +34,8 @@ in
       # Startup services
       exec-once = [
         "hyprpaper"
+        # Use waybar for now
+        "${pkgs.waybar}/bin/waybar"
       ];
 
       # Enable variable refresh rate

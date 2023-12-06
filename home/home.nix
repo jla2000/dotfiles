@@ -3,6 +3,7 @@
     ./monitors.nix
     ./hyprland.nix
     ./firefox.nix
+    ./alacritty.nix
   ];
 
   monitors = [
