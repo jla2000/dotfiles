@@ -71,12 +71,10 @@
 
   environment.systemPackages = with pkgs; [
     alacritty
-    bat
     brightnessctl
     cargo
     discord
     distrobox
-    eza
     feh
     fzf
     gcc
@@ -101,7 +99,6 @@
     rust-analyzer
     rustc
     spotify
-    starship
     stylua
     thunderbird
     tmux

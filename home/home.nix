@@ -4,6 +4,7 @@
     ./hyprland.nix
     ./firefox.nix
     ./alacritty.nix
+    ./fish.nix
   ];
 
   monitors = [
