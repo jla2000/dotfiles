@@ -7,6 +7,10 @@
     ./fish.nix
   ];
 
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
+
   monitors = [
     {
       name = "eDP-2";
