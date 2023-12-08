@@ -71,7 +71,6 @@
 
   environment.systemPackages = with pkgs; [
     alacritty
-    brightnessctl
     cargo
     discord
     distrobox
@@ -80,10 +79,8 @@
     gcc
     git
     gnumake
-    google-chrome
     htop
     killall
-    lazygit
     libreoffice-fresh
     lua-language-server
     meld
@@ -104,15 +101,13 @@
     tmux
     unzip
     ventoy-full
-    xorg.libX11
-    xorg.libXi
-    xorg.xev
-    zig
-    zls
   ];
 
   # Enable flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings = {
+    experimental-features = [ "nix-command" "flakes" ];
+    auto-optimise-store = true;
+  };
 
   # Install some nice fonts
   fonts.packages = with pkgs; [
