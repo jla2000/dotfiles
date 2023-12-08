@@ -1,11 +1,15 @@
+{ nix-colors, ... }:
 {
   imports = [
+    nix-colors.homeManagerModules.default
     ./monitors.nix
     ./hyprland.nix
     ./firefox.nix
     ./alacritty.nix
     ./fish.nix
   ];
+
+  colorScheme = nix-colors.colorSchemes.tokyo-city-dark;
 
   home.sessionVariables = {
     EDITOR = "nvim";

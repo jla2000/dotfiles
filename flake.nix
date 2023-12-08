@@ -14,9 +14,12 @@
     nur = {
       url = "github:nix-community/NUR";
     };
+    nix-colors = {
+      url = "github:misterio77/nix-colors";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, neovim, nur }:
+  outputs = { self, nixpkgs, home-manager, neovim, nur, nix-colors }:
     let
       globals = {
         user = "jan";
@@ -30,17 +33,20 @@
         overlays = [ neovimOverlay nur.overlay ];
         config.allowUnfree = true;
       };
-    in rec
+    in
+    rec
     {
       nixosConfigurations.zephyrus = nixpkgs.lib.nixosSystem {
         inherit system;
-        specialArgs = { inherit pkgs globals; };
-        modules = [ 
-          ./nixos/configuration.nix 
-          home-manager.nixosModules.home-manager {
+        specialArgs = { inherit pkgs globals nix-colors; };
+        modules = [
+          ./nixos/configuration.nix
+          home-manager.nixosModules.home-manager
+          {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.${globals.user} = import ./home/home.nix;
+            home-manager.extraSpecialArgs = { inherit nix-colors; };
           }
         ];
       };
