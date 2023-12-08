@@ -6,6 +6,7 @@
     ./firefox.nix
     ./alacritty.nix
     ./fish.nix
+    ./eww
   ];
 
   monitors = [
