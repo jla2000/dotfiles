@@ -9,6 +9,7 @@
     shellAliases = {
       ls = "${pkgs.eza}/bin/eza";
       cat = "${pkgs.bat}/bin/bat";
+      g = "${pkgs.lazygit}/bin/lazygit";
     };
   };
 }
