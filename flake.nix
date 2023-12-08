@@ -1,54 +1,41 @@
 {
   inputs = {
-    nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-23.11";
-    };
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
+    nur.url = "github:nix-community/NUR";
+    nix-colors.url = "github:misterio77/nix-colors";
     home-manager = {
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    neovim = {
+    neovim-nightly = {
       url = "github:neovim/neovim?dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nur = {
-      url = "github:nix-community/NUR";
-    };
-    nix-colors = {
-      url = "github:misterio77/nix-colors";
-    };
   };
 
-  outputs = { self, nixpkgs, home-manager, neovim, nur, nix-colors }:
+  outputs = { self, nixpkgs, home-manager, ... }@inputs:
     let
-      globals = {
-        user = "jan";
-      };
       system = "x86_64-linux";
-      neovimOverlay = prev: final: {
-        neovim = neovim.packages.${system}.neovim;
-      };
+      overlays = import ./overlays { inherit inputs; };
       pkgs = import nixpkgs {
         inherit system;
-        overlays = [ neovimOverlay nur.overlay ];
+        overlays = [
+          overlays.neovim-nightly-overlay
+          overlays.nur-overlay
+        ];
         config.allowUnfree = true;
       };
     in
-    rec
     {
-      nixosConfigurations.zephyrus = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit pkgs globals nix-colors; };
-        modules = [
-          ./nixos/configuration.nix
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.${globals.user} = import ./home/home.nix;
-            home-manager.extraSpecialArgs = { inherit nix-colors; };
-          }
-        ];
+      nixosConfigurations."zephyrus" = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs pkgs; };
+        modules = [ ./nixos/configuration.nix ];
+      };
+
+      homeConfigurations."jan@zephyrus" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = { inherit inputs; };
+        modules = [ ./home-manager/home.nix ];
       };
     };
 }

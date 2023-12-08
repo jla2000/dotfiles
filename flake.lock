@@ -55,7 +55,7 @@
         "type": "github"
       }
     },
-    "neovim": {
+    "neovim-nightly": {
       "inputs": {
         "flake-utils": "flake-utils",
         "nixpkgs": [
@@ -130,11 +130,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1702028344,
-        "narHash": "sha256-4x9G1ZDVD0//fnQc1ELZrE+s7114A7dUYd/MmoDpAaU=",
+        "lastModified": 1702043062,
+        "narHash": "sha256-Q4iifG2pgHJ09zrxHIeVbSPnhpGsP0ssRbA0x9rVM6s=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "677cef10a7ae871c821e9169250c7fe86340bffc",
+        "rev": "4ca441c58bbfaa1728c4a5b4115f79569f6ff186",
         "type": "github"
       },
       "original": {
@@ -146,7 +146,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "neovim": "neovim",
+        "neovim-nightly": "neovim-nightly",
         "nix-colors": "nix-colors",
         "nixpkgs": "nixpkgs",
         "nur": "nur"

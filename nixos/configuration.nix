@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
-{ lib, config, pkgs, globals, ... }:
+{ lib, config, pkgs, ... }:
 
 {
   imports = [
@@ -63,7 +63,7 @@
   programs.fish.enable = true;
 
   # Default user
-  users.users.${globals.user} = {
+  users.users.jan = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
     shell = pkgs.fish;
@@ -116,11 +116,13 @@
 
   # Install some nice fonts
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [
-      "FiraMono" 
-      "JetBrainsMono" 
-      #"Monaspace" 
-    ]; })
+    (nerdfonts.override {
+      fonts = [
+        "FiraMono"
+        "JetBrainsMono"
+        #"Monaspace" 
+      ];
+    })
     monaspace
   ];
 
