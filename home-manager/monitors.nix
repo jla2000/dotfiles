@@ -49,7 +49,7 @@ in
       {
         wayland.windowManager.hyprland.settings = {
           monitor = map monitorStr config.monitors;
-          bindl = ", swtich:Lid Switch, exec, ${toggle-lid}/bin/toggle-lid.sh";
+          bindl = ", switch:Lid Switch, exec, ${toggle-lid}/bin/toggle-lid.sh";
         };
       };
 }
