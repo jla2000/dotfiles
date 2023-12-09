@@ -1,21 +1,4 @@
-{ config, pkgs, ... }:
-let
-  monitorStr = m: "${m.name},${m.mode},${m.position},${toString m.scale}";
-  primary-monitor = builtins.elemAt config.monitors 0;
-
-  toggle-lid = pkgs.writeShellApplication {
-    name = "toggle-lid.sh";
-    text = ''
-      if grep open /proc/acpi/button/lid/LID/state; then
-        hyprctl keyword monitor ${monitorStr primary-monitor}
-      else
-        if [[ $(hyprctl monitors | grep -c "Monitor") != 1 ]]; then
-          hyprctl keyword monitor "${primary-monitor.name},disable"
-        fi
-      fi
-    '';
-  };
-in
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     brightnessctl
@@ -26,16 +9,11 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
-      monitor = map monitorStr (config.monitors);
-
       # Enable variable refresh rate
       misc = {
         vfr = true;
         vrr = 1;
       };
-
-      # Lid switch
-      bindl = ", swtich:Lid Switch, exec, ${toggle-lid}/bin/toggle-lid.sh";
 
       # Keybindings
       bind =
