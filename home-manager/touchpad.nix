@@ -3,7 +3,7 @@
   options = {
     touchpad-device = lib.mkOption {
       type = lib.types.str;
-      example = "libinput device id";
+      default = null;
     };
   };
 
@@ -24,9 +24,10 @@
         '';
       };
     in
-    {
-      wayland.windowManager.hyprland.settings.bind = [
-        ", XF86TouchpadToggle, exec, ${toggle-touchpad}/bin/toggle-touchpad.sh"
-      ];
-    };
+    lib.mkIf (config.touchpad-device != null)
+      {
+        wayland.windowManager.hyprland.settings.bind = [
+          ", XF86TouchpadToggle, exec, ${toggle-touchpad}/bin/toggle-touchpad.sh"
+        ];
+      };
 }

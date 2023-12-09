@@ -81,6 +81,7 @@
     gnumake
     htop
     killall
+    lazygit
     libreoffice-fresh
     lua-language-server
     meld

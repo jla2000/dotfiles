@@ -1,0 +1,19 @@
+* {
+  all: unset;
+}
+
+.workspaces {
+  /*background-color: red;*/
+}
+
+.workspace-entry {
+  padding: 10px;
+}
+
+.empty {
+  color: gray;
+}
+
+.active .empty {
+  color: white;
+}

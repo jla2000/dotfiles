@@ -7,8 +7,12 @@
     ./alacritty.nix
     ./fish.nix
     ./eww
+    ./wallpaper.nix
+    ./touchpad.nix
   ];
 
+  touchpad-device = "asue120a:00-04f3:319b-touchpad";
+  wallpaper = ./wallpapers/ice-castles-eclipse-3840x2160-13096.jpg;
   monitors = [
     {
       name = "eDP-2";
