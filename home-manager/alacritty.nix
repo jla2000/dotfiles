@@ -19,6 +19,13 @@
         };
       };
 
+      window = {
+        padding = {
+          x = 5;
+          y = 5;
+        };
+      };
+
       colors = {
         # Default colors
         primary = {

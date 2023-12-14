@@ -6,7 +6,7 @@
     ./firefox.nix
     ./alacritty.nix
     ./fish.nix
-    ./eww
+    ./eww.nix
     ./wallpaper.nix
     ./touchpad.nix
   ];
