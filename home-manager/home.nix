@@ -12,7 +12,7 @@
   ];
 
   touchpad-device = "asue120a:00-04f3:319b-touchpad";
-  wallpaper = ./wallpapers/ice-castles-eclipse-3840x2160-13096.jpg;
+  wallpaper = ./wallpapers/futuristic-3d-3840x2160-13107.jpg;
   monitors = [
     {
       name = "eDP-2";
