@@ -11,7 +11,7 @@
   (centerbox :class "bar"
     (left_bar)
     (clock)
-    (clock)))
+    (button :onclick "hyprctl dispatch exit" :halign "end" :class "power" "󰍃")))
 
 (defwidget left_bar []
   (box :space-evenly false :class "left"

@@ -4,5 +4,5 @@
     inputs.nix-colors.homeManagerModules.default
   ];
 
-  colorScheme = inputs.nix-colors.colorSchemes.everforest;
+  colorScheme = inputs.nix-colors.colorSchemes.dracula;
 }
