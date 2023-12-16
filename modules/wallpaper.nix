@@ -3,26 +3,29 @@ let
   change-wallpaper = pkgs.writeShellApplication {
     name = "change-wallpaper.sh";
     text = ''
-      swww img ${config.wallpaper.path};
+      IMG=$(find ${config.wallpaper} -type f | sort -R | head -n1)
+      swww img "$IMG";
     '';
   };
 in
 {
   options = {
-    wallpaper = {
-      enable = lib.mkEnableOption { };
-      path = lib.mkOption {
-        default = ./wallpapers;
-        type = lib.types.path;
-      };
+    wallpaper = lib.mkOption {
+      default = ./wallpapers;
+      type = lib.types.path;
     };
   };
 
-  config = lib.mkIf config.wallpaper.enable {
+  config = {
     home.packages = [ pkgs.swww change-wallpaper ];
-    wayland.windowManager.hyprland.settings.exec-once = [
-      "swww init"
-      "${change-wallpaper}/bin/change-wallpaper.sh"
-    ];
+    wayland.windowManager.hyprland.settings = {
+      exec-once = [
+        "swww init"
+        "${change-wallpaper}/bin/change-wallpaper.sh"
+      ];
+      bind = [
+        "${config.mod} SHIFT, W, exec, ${change-wallpaper}/bin/change-wallpaper.sh"
+      ];
+    };
   };
 }
