@@ -1,18 +1,17 @@
 {
   imports = [
-    ./monitors.nix
-    ./colors.nix
-    ./hyprland.nix
-    ./firefox.nix
-    ./alacritty.nix
-    ./fish.nix
-    ./eww.nix
-    ./wallpaper.nix
-    ./touchpad.nix
+    ../../modules/monitors.nix
+    ../../modules/colors.nix
+    ../../modules/hyprland.nix
+    ../../modules/firefox.nix
+    ../../modules/alacritty.nix
+    ../../modules/fish.nix
+    ../../modules/eww.nix
+    ../../modules/wallpaper.nix
+    ../../modules/touchpad.nix
   ];
 
   touchpad-device = "asue120a:00-04f3:319b-touchpad";
-  wallpaper = ./wallpapers/futuristic-3d-3840x2160-13107.jpg;
   monitors = [
     {
       name = "eDP-2";

@@ -30,13 +30,13 @@
       nixosConfigurations."zephyrus" = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs pkgs; };
         modules = [
-          ./nixos/configuration.nix
+          ./hosts/zephyrus/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.jan = import ./home-manager/home.nix;
+            home-manager.users.jan = import ./hosts/zephyrus/home.nix;
           }
         ];
       };
