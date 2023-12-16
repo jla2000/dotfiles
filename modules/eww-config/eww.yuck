@@ -11,12 +11,19 @@
   (centerbox :class "bar"
     (left_bar)
     (clock)
-    (button :onclick "hyprctl dispatch exit" :halign "end" :class "power" "󰍃")))
+    (right_bar)))
 
 (defwidget left_bar []
   (box :space-evenly false :class "left"
     (image :class "nix-icon" :image-height "30" :path "./nix-icon.svg")
     (workspaces)))
+
+(defwidget right_bar []
+  (box :space-evenly false :halign "end" :class "right"
+    (label :text " ${round(EWW_CPU.avg, 0)}%" :halign "end" :class "icon")
+    (label :text "󰍛 ${round(EWW_RAM.used_mem_perc, 0)}%" :halign "end" :class "icon")
+    (label :text "  ${EWW_BATTERY.BAT0.capacity}%" :halign "end" :class "icon")
+    (button :onclick "hyprctl dispatch exit" :halign "end" :class "icon" "󰍃")))
 
 (deflisten workspaces :initial "[]" "./scripts/get-workspaces.sh")
 (deflisten current_workspace :initial "1" "./scripts/get-active-workspace.sh")

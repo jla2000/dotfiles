@@ -37,3 +37,9 @@
 .power {
   margin-right: 15px;
 }
+
+.icon {
+  padding: 5px;
+  padding-right: 15px;
+  font-size: 18px;
+}
