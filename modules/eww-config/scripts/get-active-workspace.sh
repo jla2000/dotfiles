@@ -1,5 +1,4 @@
-#!/usr/bin/env nix-shell
-#!nix-shell -i bash -p jq socat
+#!/usr/bin/env bash
 
 hyprctl monitors -j | jq '.[] | select(.focused) | .activeWorkspace.id'
 
