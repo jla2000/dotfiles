@@ -1,3 +1,5 @@
+(include "./power-menu.yuck")
+
 (defwindow bar
   :monitor 0
   :geometry (geometry
@@ -22,8 +24,8 @@
   (box :space-evenly false :halign "end" :class "right"
     (label :text " ${round(EWW_CPU.avg, 0)}%" :halign "end" :class "icon")
     (label :text "󰍛 ${round(EWW_RAM.used_mem_perc, 0)}%" :halign "end" :class "icon")
-    (label :text "  ${EWW_BATTERY.BAT0.capacity}%" :halign "end" :class "icon")
-    (button :onclick "hyprctl dispatch exit" :halign "end" :class "icon power" "⏻")))
+    (label :text "${EWW_BATTERY.BAT0.capacity}%" :halign "end" :class "icon")
+    (button :onclick "eww open power-menu-closer && eww open power-menu" :halign "end" :class "icon power" "⏻")))
 
 (deflisten workspaces :initial "[]" "./scripts/get-workspaces.sh")
 (deflisten current_workspace :initial "1" "./scripts/get-active-workspace.sh")
