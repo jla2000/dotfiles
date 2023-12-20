@@ -7,7 +7,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ./asus-rog.nix
+    #./asus-rog.nix
   ];
 
   # Configure boot loader
@@ -22,6 +22,9 @@
       useOSProber = true;
     };
   };
+
+  # Allow switching graphics card
+  services.supergfxd.enable = true;
 
   # Use zen kernel
   boot.kernelPackages = pkgs.linuxPackages_zen;
