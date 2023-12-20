@@ -14,26 +14,18 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs:
+  outputs = { self, nixpkgs, ... }@inputs:
     let
-      system = "x86_64-linux";
-      overlays = import ./overlays { inherit inputs; };
-      pkgs = import nixpkgs {
-        inherit system;
-        overlays = [
-          overlays.neovim-nightly-overlay
-          overlays.nur-overlay
-        ];
-        config.allowUnfree = true;
-      };
+      inherit (self) outputs;
     in
     {
+      overlays = import ./overlays { inherit inputs; };
+
       nixosConfigurations."zephyrus" = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs pkgs; };
+        specialArgs = { inherit inputs outputs; };
         modules = [
           ./hosts/zephyrus/configuration.nix
-          inputs.nixos-hardware.nixosModules.asus-zephyrus-ga402
-          home-manager.nixosModules.home-manager
+          inputs.home-manager.nixosModules.home-manager
           {
             home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.useGlobalPkgs = true;

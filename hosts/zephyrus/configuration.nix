@@ -2,13 +2,21 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
-{ lib, config, pkgs, ... }:
+{ inputs, lib, config, pkgs, outputs, ... }:
 
 {
   imports = [
     ./hardware-configuration.nix
-    #./asus-rog.nix
+    inputs.nixos-hardware.nixosModules.asus-zephyrus-ga402
   ];
+
+  nixpkgs = {
+    overlays = [
+      outputs.overlays.nur-overlay
+      outputs.overlays.neovim-nightly-overlay
+    ];
+    config.allowUnfree = true;
+  };
 
   # Configure boot loader
   boot.loader = {
