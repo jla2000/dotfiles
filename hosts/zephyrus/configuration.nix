@@ -23,6 +23,9 @@
     };
   };
 
+  # Use zen kernel
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+
   # Configure networking
   networking.hostName = "zephyrus";
   networking.networkmanager.enable = true;
