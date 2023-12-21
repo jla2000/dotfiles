@@ -74,6 +74,12 @@
         decoration = {
           rounding = 10;
         };
+
+        # Disable annoying animations
+        animation = [
+          "workspaces,0"
+          "windows,0"
+        ];
       };
     };
   };
