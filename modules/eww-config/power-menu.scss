@@ -1,0 +1,40 @@
+.power-menu {
+  background-color: $bg-color;
+  border: 1px solid white;
+  border-radius: 20px;
+}
+
+.power-menu * {
+  font-size: 40px;
+  padding: 10px;
+}
+
+.logout:hover {
+  background-color: $black-bright-color;
+}
+
+.reboot:hover {
+  background-color: $black-bright-color;
+}
+
+.poweroff:hover {
+  background-color: $black-bright-color;
+}
+
+.logout {
+  color: $magenta-color;
+  padding: 30px;
+  border-radius: 20px;
+}
+
+.reboot {
+  color: $green-color;
+  padding: 30px;
+  border-radius: 20px;
+}
+
+.poweroff {
+  color: $cyan-bright-color;
+  padding: 30px;
+  border-radius: 20px;
+}
