@@ -7,6 +7,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./plymouth.nix
     inputs.nixos-hardware.nixosModules.asus-zephyrus-ga402
   ];
 
@@ -25,15 +26,10 @@
       efiSysMountPoint = "/boot/efi";
     };
     systemd-boot.enable = true;
-    timeout = 0;
   };
 
   # Nice boot logo :)
-  boot.initrd.systemd.enable = true;
-  boot.initrd.verbose = false;
-  boot.consoleLogLevel = 0;
-  boot.kernelParams = [ "quiet" "udev.log_level=0" ];
-  boot.plymouth.enable = true;
+  keepBootLogo.enable = true;
 
   # Allow switching graphics card
   services.supergfxd.enable = true;
