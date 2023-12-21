@@ -24,12 +24,16 @@
       canTouchEfiVariables = true;
       efiSysMountPoint = "/boot/efi";
     };
-    grub = {
-      efiSupport = true;
-      device = "nodev";
-      useOSProber = true;
-    };
+    systemd-boot.enable = true;
+    timeout = 0;
   };
+
+  # Nice boot logo :)
+  boot.initrd.systemd.enable = true;
+  boot.initrd.verbose = false;
+  boot.consoleLogLevel = 0;
+  boot.kernelParams = [ "quiet" "udev.log_level=0" ];
+  boot.plymouth.enable = true;
 
   # Allow switching graphics card
   services.supergfxd.enable = true;
