@@ -6,7 +6,7 @@
     :anchor "center")
   :stacking "fg"
   :focusable false
-  (centerbox :class "power-menu"
+  (box :class "power-menu" :space-evenly true
     (button :class "logout" :onclick "hyprctl dispatch exit" "󰍃")
     (button :class "reboot" :onclick "reboot" "")
     (button :class "poweroff" :onclick "poweroff" "⏻")))
