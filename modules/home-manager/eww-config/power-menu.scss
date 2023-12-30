@@ -1,5 +1,5 @@
 .power-menu {
-  background-color: $bg-color;
+  background-color: black;
   border: 1px solid white;
   border-radius: 20px;
 }
@@ -10,31 +10,31 @@
 }
 
 .logout:hover {
-  background-color: $black-bright-color;
+  background-color: gray;
 }
 
 .reboot:hover {
-  background-color: $black-bright-color;
+  background-color: gray;
 }
 
 .poweroff:hover {
-  background-color: $black-bright-color;
+  background-color: gray;
 }
 
 .logout {
-  color: $magenta-color;
+  color: white;
   padding: 30px;
   border-radius: 20px;
 }
 
 .reboot {
-  color: $green-color;
+  color: white;
   padding: 30px;
   border-radius: 20px;
 }
 
 .poweroff {
-  color: $cyan-bright-color;
+  color: white;
   padding: 30px;
   border-radius: 20px;
 }

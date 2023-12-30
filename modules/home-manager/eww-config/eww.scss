@@ -1,4 +1,3 @@
-@import "colors.scss";
 @import "power-menu.scss"
 
 * {
@@ -9,8 +8,8 @@
 }
 
 .bar {
-  background-color: $bg-color;
-  color: $fg-color;
+  background-color: black;
+  color: white;
 }
 
 .nix-icon {
@@ -24,11 +23,11 @@
 
 .workspace-entry {
   padding: 10px;
-  color: $green-color;
+  color: white;
 }
 
 .empty {
-  color: $blue-bright-color;
+  color: gray;
 }
 
 .clock {
@@ -37,7 +36,7 @@
 
 .power {
   margin-right: 10px;
-  color: $cyan-bright-color;
+  color: red;
 }
 
 .icon {

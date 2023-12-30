@@ -29,6 +29,7 @@
             "${config.mod}, F, exec, firefox"
             "${config.mod}, R, exec, rofi -show drun"
             "${config.mod} SHIFT, Q, killactive"
+            "${config.mod}, V, togglefloating"
 
             # Workspaces
             "${config.mod}, 1, workspace, 1"
@@ -84,6 +85,22 @@
         # Disable annoying animations
         animations = {
           enabled = false;
+        };
+
+        general = {
+          border_size = 2;
+          sensitivity = 0.3;
+          gaps_out = 10;
+        };
+
+        input = {
+          touchpad = {
+            clickfinger_behavior = true;
+          };
+
+          # Snappy keys
+          repeat_rate = 30;
+          repeat_delay = 200;
         };
       };
     };

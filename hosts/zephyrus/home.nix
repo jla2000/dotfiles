@@ -1,14 +1,15 @@
 {
   imports = [
-    ../../modules/home-manager/monitors.nix
-    ../../modules/home-manager/colors.nix
-    ../../modules/home-manager/hyprland.nix
-    ../../modules/home-manager/firefox.nix
     ../../modules/home-manager/alacritty.nix
-    ../../modules/home-manager/fish.nix
+    ../../modules/home-manager/colors.nix
+    ../../modules/home-manager/cursor.nix
     ../../modules/home-manager/eww.nix
-    ../../modules/home-manager/wallpaper.nix
+    ../../modules/home-manager/firefox.nix
+    ../../modules/home-manager/fish.nix
+    ../../modules/home-manager/hyprland.nix
+    ../../modules/home-manager/monitors.nix
     ../../modules/home-manager/touchpad.nix
+    ../../modules/home-manager/wallpaper.nix
   ];
 
   touchpad-device = "asue120a:00-04f3:319b-touchpad";
