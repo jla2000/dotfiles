@@ -19,6 +19,12 @@
       position = "auto";
       scale = 1.2;
     }
+    {
+      name = "DP-3";
+      mode = "3840x2160@144";
+      position = "auto";
+      scale = 1.2;
+    }
   ];
 
   home = {
