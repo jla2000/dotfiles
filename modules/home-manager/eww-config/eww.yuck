@@ -24,7 +24,18 @@
   (box :space-evenly false :halign "end" :class "right"
     (label :text " ${round(EWW_CPU.avg, 0)}%" :halign "end" :class "icon")
     (label :text "󰍛 ${round(EWW_RAM.used_mem_perc, 0)}%" :halign "end" :class "icon")
-    (label :text "  ${EWW_BATTERY.BAT0.capacity}%" :halign "end" :class "icon")
+    (label :text {
+      EWW_BATTERY.BAT0.capacity < 20 ? "  ${EWW_BATTERY.BAT0.capacity}%" :
+      EWW_BATTERY.BAT0.capacity < 40 ? "  ${EWW_BATTERY.BAT0.capacity}%" :
+      EWW_BATTERY.BAT0.capacity < 60 ? "  ${EWW_BATTERY.BAT0.capacity}%" :
+      EWW_BATTERY.BAT0.capacity < 80 ? "  ${EWW_BATTERY.BAT0.capacity}%" :
+      "  ${EWW_BATTERY.BAT0.capacity}%"} :halign "end" :class "icon")
+    (label :text {
+      wifi.essid == "" ? "󰤭" :
+      wifi.signal < 25 ? "󰤟" :
+      wifi.signal < 50 ? "󰤢" :
+      wifi.signal < 75 ? "󰤥" : "󰤨"
+    } :halign "end" :class "icon")
     (button :onclick "eww open power-menu-closer && eww open power-menu" :halign "end" :class "icon power" "⏻")))
 
 (deflisten workspaces :initial "[]" "./scripts/get-workspaces.sh")
@@ -36,6 +47,6 @@
         (label :text "${workspace.id == current_workspace ? "" : ""}")))))
 
 (defwidget clock []
-  (label :text time :class "clock"))
-(defpoll time :interval "10s"
-  "date '+%H:%M'")
+  (label :text {formattime(EWW_TIME, "%H:%M")} :class "clock"))
+
+(deflisten wifi :initial '{"essid": "", "signal": 0}' "./scripts/wifi.sh")

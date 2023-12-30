@@ -72,8 +72,6 @@
   services.btrfs.autoScrub.enable = lib.mkDefault
     (builtins.any (filesystem: filesystem.fsType == "btrfs")
       (builtins.attrValues config.fileSystems));
-
-  # User shell
   programs.fish.enable = true;
 
   # Default user
@@ -130,7 +128,7 @@
       fonts = [
         "FiraMono"
         "JetBrainsMono"
-        #"Monaspace" 
+        #"Monaspace"
       ];
     })
     monaspace
