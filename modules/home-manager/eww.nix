@@ -45,7 +45,7 @@ in
     $white-bright-color: #${config.colorScheme.colors.base07};
   '';
 
-  wayland.windowManager.hyprland.settings.exec-once = [
+  wayland.windowManager.hyprland.settings.exec = [
     "${launch-eww}/bin/launch-eww.sh"
   ];
 }
