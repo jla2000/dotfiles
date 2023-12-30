@@ -3,8 +3,8 @@ let
   change-wallpaper = pkgs.writeShellApplication {
     name = "change-wallpaper.sh";
     text = ''
-      IMG=$(find ${config.wallpaper} -type f | sort -R | head -n1)
-      swww img "$IMG";
+      wal -i ${config.wallpaper}
+      swww img "$(cat ~/.cache/wal/wal)" --transition-type grow --transition-fps 120
     '';
   };
 in
@@ -17,7 +17,11 @@ in
   };
 
   config = {
-    home.packages = [ pkgs.swww change-wallpaper ];
+    home.packages = [
+      pkgs.swww
+      pkgs.pywal
+      change-wallpaper
+    ];
     wayland.windowManager.hyprland.settings = {
       exec-once = [
         "swww init"
