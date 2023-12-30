@@ -70,16 +70,21 @@
             ", XF86Launch1, exec, rog-control-center"
           ];
 
+        # Mouse bindings
+        bindm = [
+          "${config.mod}, mouse:272, movewindow"
+          "${config.mod}, mouse:273, resizewindow"
+        ];
+
         # Window styling
         decoration = {
           rounding = 10;
         };
 
         # Disable annoying animations
-        animation = [
-          "workspaces,0"
-          "windows,0"
-        ];
+        animations = {
+          enabled = false;
+        };
       };
     };
   };
