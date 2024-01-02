@@ -9,6 +9,15 @@
     fzf
   ];
 
+  programs.tmux = {
+    prefix = "C-s";
+    enable = true;
+    newSession = true;
+    escapeTime = 10;
+    terminal = "tmux-256color";
+    extraConfig = ''set -ag terminal-overrides ",xterm-256color:RGB"'';
+  };
+
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
@@ -18,6 +27,8 @@
       if test -e ~/.cache/wal/sequences
         cat ~/.cache/wal/sequences
       end
+      
+      tmux a
     '';
     shellAliases = {
       ls = "eza";
