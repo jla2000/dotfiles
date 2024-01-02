@@ -11,10 +11,11 @@
   };
 
   home.packages = with pkgs; [
+    gcc
+    neofetch
     neovim
     nil
     rnix-lsp
-    neofetch
   ];
 
   home.stateVersion = "23.11";
