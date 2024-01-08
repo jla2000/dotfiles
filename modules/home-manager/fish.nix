@@ -2,6 +2,8 @@
 {
   home.packages = with pkgs; [
     lazygit
+    bat
+    eza
     fd
     fzf
   ];
@@ -15,9 +17,7 @@
     escapeTime = 10;
     terminal = "tmux-256color";
     extraConfig = ''set -ag terminal-overrides ",xterm-256color:RGB"'';
-    plugins = [
-      pkgs.tmuxPlugins.vim-tmux-navigator
-    ];
+    plugins = with pkgs.tmuxPlugins; [ vim-tmux-navigator ];
   };
 
   programs.fish = {
@@ -43,9 +43,9 @@
       g = "${pkgs.lazygit}/bin/lazygit";
       cat = "${pkgs.bat}/bin/bat";
     };
-    plugins = [
-      { name = "fzf-fish"; src = pkgs.fishPlugins.fzf-fish.src; }
-      { name = "bass"; src = pkgs.fishPlugins.bass.src; }
+    plugins = with pkgs.fishPlugins; [
+      { name = "fzf-fish"; src = fzf-fish.src; }
+      { name = "bass"; src = bass.src; }
     ];
   };
 }
