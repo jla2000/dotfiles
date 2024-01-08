@@ -23,15 +23,20 @@
   programs.fish = {
     enable = true;
     interactiveShellInit = /* fish */ ''
-      # Load session variables and nix stuff
-      bass source ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-      bass source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+      # WSL fixes
+      if test -e ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+        bass source ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+      end
+      if test -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+        bass source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+      end
 
       # Vim Bindings
       fish_hybrid_key_bindings
 
       # Nice prompt
       ${pkgs.starship}/bin/starship init fish | source
+      ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
 
       # Pywal theme
       if test -e ~/.cache/wal/sequences
