@@ -26,7 +26,7 @@
       };
 
       env = {
-        TERM = "xterm-256-color";
+        TERM = "xterm-256color";
       };
     };
   };

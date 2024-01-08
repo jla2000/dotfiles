@@ -23,10 +23,10 @@
 (defwidget right_bar []
   (box :space-evenly false :halign "end" :class "right"
     (label :text {
-      EWW_BATTERY.BAT0.capacity < 20 ? "" :
-      EWW_BATTERY.BAT0.capacity < 40 ? "" :
-      EWW_BATTERY.BAT0.capacity < 60 ? "" :
-      EWW_BATTERY.BAT0.capacity < 80 ? "" : ""}
+      EWW_BATTERY.BAT0.capacity < 00 ? "  ${round(EWW_BATTERY.BAT0.capacity, 0)}%" :
+      EWW_BATTERY.BAT0.capacity < 40 ? "  ${round(EWW_BATTERY.BAT0.capacity, 0)}%" :
+      EWW_BATTERY.BAT0.capacity < 60 ? "  ${round(EWW_BATTERY.BAT0.capacity, 0)}%" :
+      EWW_BATTERY.BAT0.capacity < 80 ? "  ${round(EWW_BATTERY.BAT0.capacity, 0)}%" : "  ${round(EWW_BATTERY.BAT0.capacity, 0)}%"}
       :halign "end"
       :class "icon")
     (label :text {
