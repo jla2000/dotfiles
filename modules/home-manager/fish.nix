@@ -42,6 +42,9 @@
       if test -e ~/.cache/wal/sequences
         ${pkgs.coreutils}/bin/cat ~/.cache/wal/sequences
       end
+
+      fish_add_path ~/scripts/
+      fish_add_path ~/.local/bin
     '';
     shellAliases = {
       ls = "${pkgs.eza}/bin/eza";
