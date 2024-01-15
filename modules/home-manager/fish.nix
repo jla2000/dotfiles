@@ -1,4 +1,12 @@
 { pkgs, ... }:
+let
+  catppuccin-fish = pkgs.fetchFromGitHub {
+    owner = "catppuccin";
+    repo = "fish";
+    rev = "0ce27b518e8ead555dec34dd8be3df5bd75cff8e";
+    hash = "sha256-Dc/zdxfzAUM5NX8PxzfljRbYvO9f9syuLO8yBr+R3qg=";
+  };
+in
 {
   home.packages = with pkgs; [
     lazygit
@@ -39,9 +47,12 @@
       ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
 
       # Pywal theme
-      if test -e ~/.cache/wal/sequences
-        ${pkgs.coreutils}/bin/cat ~/.cache/wal/sequences
-      end
+      #if test -e ~/.cache/wal/sequences
+      #  ${pkgs.coreutils}/bin/cat ~/.cache/wal/sequences
+      #end
+
+      # Catppuccin theme
+      fish_config theme choose "Catppuccin Frappe"
 
       fish_add_path ~/scripts/
       fish_add_path ~/.local/bin
@@ -56,4 +67,6 @@
       { name = "bass"; src = bass.src; }
     ];
   };
+
+  xdg.configFile."fish/themes/Catppuccin Frappe.theme".source = "${catppuccin-fish}/themes/Catppuccin Frappe.theme";
 }
