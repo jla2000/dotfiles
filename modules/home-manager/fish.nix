@@ -47,9 +47,9 @@ in
       ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
 
       # Pywal theme
-      #if test -e ~/.cache/wal/sequences
-      #  ${pkgs.coreutils}/bin/cat ~/.cache/wal/sequences
-      #end
+      if test -e ~/.cache/wal/sequences
+        ${pkgs.coreutils}/bin/cat ~/.cache/wal/sequences
+      end
 
       # Catppuccin theme
       fish_config theme choose "Catppuccin Frappe"
