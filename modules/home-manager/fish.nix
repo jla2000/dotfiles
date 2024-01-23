@@ -27,6 +27,7 @@ in
     extraConfig = ''set -ag terminal-overrides ",xterm-256color:RGB"'';
     plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator
+      catppuccin
     ];
   };
 
