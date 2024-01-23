@@ -25,7 +25,9 @@ in
     escapeTime = 10;
     terminal = "tmux-256color";
     extraConfig = ''set -ag terminal-overrides ",xterm-256color:RGB"'';
-    plugins = with pkgs.tmuxPlugins; [ vim-tmux-navigator ];
+    plugins = with pkgs.tmuxPlugins; [
+      vim-tmux-navigator
+    ];
   };
 
   programs.fish = {
@@ -47,9 +49,9 @@ in
       ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
 
       # Pywal theme
-      if test -e ~/.cache/wal/sequences
-        ${pkgs.coreutils}/bin/cat ~/.cache/wal/sequences
-      end
+      # if test -e ~/.cache/wal/sequences
+      #   ${pkgs.coreutils}/bin/cat ~/.cache/wal/sequences
+      # end
 
       # Catppuccin theme
       fish_config theme choose "Catppuccin Frappe"
