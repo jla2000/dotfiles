@@ -9,7 +9,10 @@
   home = {
     username = "jlafferton";
     homeDirectory = "/home/jlafferton";
-    packages = with pkgs; [];
+    packages = with pkgs; [
+      cargo
+      rustc
+    ];
     sessionVariables = {
       EDITOR = "nvim";
       USERDOMAIN = "VECTOR";

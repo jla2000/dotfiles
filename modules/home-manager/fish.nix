@@ -6,15 +6,34 @@ let
     rev = "0ce27b518e8ead555dec34dd8be3df5bd75cff8e";
     hash = "sha256-Dc/zdxfzAUM5NX8PxzfljRbYvO9f9syuLO8yBr+R3qg=";
   };
+  catppuccin-starship = pkgs.fetchFromGitHub {
+    owner = "catppuccin";
+    repo = "starship";
+    rev = "5629d2356f62a9f2f8efad3ff37476c19969bd4f";
+    hash = "sha256-nsRuxQFKbQkyEI4TXgvAjcroVdG+heKX5Pauq/4Ota0=";
+  };
 in
 {
   home.packages = with pkgs; [
-    lazygit
     bat
     eza
     fd
     fzf
   ];
+
+  programs.lazygit = {
+    enable = true;
+    settings = { };
+  };
+
+  programs.starship = {
+    enable = true;
+    settings = {
+      # Other config here
+      format = "$all"; # Remove this line to disable the default prompt format
+      palette = "catppuccin_frappe";
+    } // builtins.fromTOML (builtins.readFile (catppuccin-starship + /palettes/frappe.toml));
+  };
 
   programs.tmux = {
     prefix = "C-s";
@@ -24,10 +43,32 @@ in
     keyMode = "vi";
     escapeTime = 10;
     terminal = "tmux-256color";
-    extraConfig = ''set -ag terminal-overrides ",xterm-256color:RGB"'';
+    extraConfig = ''
+      set -ag terminal-overrides ",xterm-256color:RGB"
+    '';
     plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator
-      catppuccin
+      {
+        plugin = catppuccin;
+        extraConfig = ''
+          set -g @catppuccin_flavour 'frappe'
+
+          set -g @catppuccin_window_right_separator "█ "
+          set -g @catppuccin_window_number_position "right"
+          set -g @catppuccin_window_middle_separator " | "
+
+          set -g @catppuccin_window_default_fill "none"
+
+          set -g @catppuccin_window_current_fill "all"
+
+          set -g @catppuccin_status_modules "cpu date_time"
+          set -g @catppuccin_status_left_separator "█"
+          set -g @catppuccin_status_right_separator "█"
+
+          set -g @catppuccin_date_time_text "%Y-%m-%d %H:%M:%S"
+        '';
+      }
+      cpu
     ];
   };
 
@@ -46,13 +87,8 @@ in
       fish_hybrid_key_bindings
 
       # Nice prompt
-      ${pkgs.starship}/bin/starship init fish | source
+      starship init fish | source
       ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
-
-      # Pywal theme
-      # if test -e ~/.cache/wal/sequences
-      #   ${pkgs.coreutils}/bin/cat ~/.cache/wal/sequences
-      # end
 
       # Catppuccin theme
       fish_config theme choose "Catppuccin Frappe"
