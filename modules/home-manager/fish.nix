@@ -15,25 +15,23 @@ let
 in
 {
   home.packages = with pkgs; [
+    lazygit
     bat
     eza
     fd
     fzf
   ];
 
-  programs.lazygit = {
-    enable = true;
-    settings = { };
-  };
-
-  programs.starship = {
-    enable = true;
-    settings = {
-      # Other config here
-      format = "$all"; # Remove this line to disable the default prompt format
-      palette = "catppuccin_frappe";
-    } // builtins.fromTOML (builtins.readFile (catppuccin-starship + /palettes/frappe.toml));
-  };
+  /* nix */
+  # Just keeping this as a cool example
+  # programs.starship = {
+  #   enable = true;
+  #   settings = {
+  #     # Other config here
+  #     format = "$all"; # Remove this line to disable the default prompt format
+  #     palette = "catppuccin_frappe";
+  #   } // builtins.fromTOML (builtins.readFile (catppuccin-starship + /palettes/frappe.toml));
+  # };
 
   programs.tmux = {
     prefix = "C-s";
@@ -87,7 +85,7 @@ in
       fish_hybrid_key_bindings
 
       # Nice prompt
-      starship init fish | source
+      ${pkgs.starship}/bin/starship init fish | source
       ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
 
       # Catppuccin theme
