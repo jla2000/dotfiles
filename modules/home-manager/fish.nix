@@ -6,12 +6,6 @@ let
     rev = "0ce27b518e8ead555dec34dd8be3df5bd75cff8e";
     hash = "sha256-Dc/zdxfzAUM5NX8PxzfljRbYvO9f9syuLO8yBr+R3qg=";
   };
-  catppuccin-starship = pkgs.fetchFromGitHub {
-    owner = "catppuccin";
-    repo = "starship";
-    rev = "5629d2356f62a9f2f8efad3ff37476c19969bd4f";
-    hash = "sha256-nsRuxQFKbQkyEI4TXgvAjcroVdG+heKX5Pauq/4Ota0=";
-  };
 in
 {
   home.packages = with pkgs; [
@@ -93,6 +87,11 @@ in
 
       fish_add_path ~/scripts/
       fish_add_path ~/.local/bin
+
+      # Load tmux
+      if not set -q TMUX
+        exec tmux
+      end
     '';
     shellAliases = {
       ls = "${pkgs.eza}/bin/eza";
