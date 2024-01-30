@@ -16,17 +16,6 @@ in
     fzf
   ];
 
-  /* nix */
-  # Just keeping this as a cool example
-  # programs.starship = {
-  #   enable = true;
-  #   settings = {
-  #     # Other config here
-  #     format = "$all"; # Remove this line to disable the default prompt format
-  #     palette = "catppuccin_frappe";
-  #   } // builtins.fromTOML (builtins.readFile (catppuccin-starship + /palettes/frappe.toml));
-  # };
-
   programs.tmux = {
     prefix = "C-s";
     enable = true;
@@ -90,7 +79,7 @@ in
 
       # Load tmux
       if not set -q TMUX
-        exec tmux a
+        exec tmux
       end
     '';
     shellAliases = {
