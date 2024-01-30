@@ -90,7 +90,7 @@ in
 
       # Load tmux
       if not set -q TMUX
-        exec tmux
+        exec tmux a
       end
     '';
     shellAliases = {
