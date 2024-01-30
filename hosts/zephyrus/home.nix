@@ -5,7 +5,7 @@
     ../../modules/home-manager/cursor.nix
     ../../modules/home-manager/eww.nix
     ../../modules/home-manager/firefox.nix
-    ../../modules/home-manager/fish.nix
+    ../../modules/home-manager/shell.nix
     ../../modules/home-manager/git.nix
     ../../modules/home-manager/hyprland.nix
     ../../modules/home-manager/monitors.nix

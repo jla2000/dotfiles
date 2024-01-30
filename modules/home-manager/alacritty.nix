@@ -37,6 +37,6 @@ in
       env = {
         TERM = "xterm-256color";
       };
-    } // builtins.fromTOML (builtins.readFile (catppuccin-alacritty + /catppuccin-frappe.toml));
+    } // builtins.fromTOML (builtins.readFile (catppuccin-alacritty + /catppuccin-macchiato.toml));
   };
 }

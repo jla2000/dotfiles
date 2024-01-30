@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
-    ../../modules/home-manager/fish.nix
+    ../../modules/home-manager/shell.nix
   ];
 
   programs.home-manager.enable = true;

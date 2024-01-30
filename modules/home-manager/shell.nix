@@ -32,7 +32,7 @@ in
       {
         plugin = catppuccin;
         extraConfig = ''
-          set -g @catppuccin_flavour 'frappe'
+          set -g @catppuccin_flavour 'macchiato'
 
           set -g @catppuccin_window_right_separator "█ "
           set -g @catppuccin_window_number_position "right"
@@ -72,7 +72,7 @@ in
       ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
 
       # Catppuccin theme
-      fish_config theme choose "Catppuccin Frappe"
+      fish_config theme choose "Catppuccin Macchiato"
 
       fish_add_path ~/scripts/
       fish_add_path ~/.local/bin
@@ -93,5 +93,5 @@ in
     ];
   };
 
-  xdg.configFile."fish/themes/Catppuccin Frappe.theme".source = "${catppuccin-fish}/themes/Catppuccin Frappe.theme";
+  xdg.configFile."fish/themes/Catppuccin Macchiato.theme".source = "${catppuccin-fish}/themes/Catppuccin Macchiato.theme";
 }
