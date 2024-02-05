@@ -16,6 +16,10 @@
       url = "github:neovim/neovim?dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    pre-commit-hooks = {
+      url = "github:cachix/pre-commit-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -23,6 +27,9 @@
       inherit (self) outputs;
     in
     {
+      imports = [ inputs.pre-commit-hooks.flakeModule ];
+      pre-commit.settings = { hooks.nixpkgs-fmt.enable = true; };
+
       overlays = import ./overlays { inherit inputs; };
 
       nixosConfigurations."zephyrus" = nixpkgs.lib.nixosSystem {
