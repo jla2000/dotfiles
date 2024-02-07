@@ -6,11 +6,12 @@
     profiles = {
       default = {
         settings = {
-          "layout.css.devPixelsPerPx" = "2";
+          "layout.css.devPixelsPerPx" = "2.3";
         };
         extensions = with pkgs.nur.repos.rycee.firefox-addons; [
           ublock-origin
-          vimium
+          #vimium
+          surfingkeys
         ];
         bookmarks = [
           {
