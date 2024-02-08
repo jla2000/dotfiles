@@ -32,7 +32,7 @@ in
 
       bind-key -T copy-mode-vi v send-keys -X begin-selection
       bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
-      bind-key -T copy-mode-vi p send-keys -X paste-buffer
+      bind-key -T copy-mode-vi i send-keys -X cancel
     '';
     plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator
