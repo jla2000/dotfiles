@@ -43,6 +43,7 @@
       homeConfigurations."jlafferton@dell" = inputs.home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs { system = "x86_64-linux"; };
         modules = [ ./hosts/dell/home.nix ];
+        extraSpecialArgs = { inherit outputs; };
       };
     };
 }
