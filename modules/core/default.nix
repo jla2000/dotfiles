@@ -3,6 +3,7 @@
   imports = [
     ./tmux.nix
     ./fish.nix
+    ./neovim.nix
   ];
 
   home.packages = with pkgs;

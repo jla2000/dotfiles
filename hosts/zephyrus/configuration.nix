@@ -7,7 +7,7 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/nixos/plymouth.nix
+    ./plymouth.nix
     inputs.nixos-hardware.nixosModules.asus-zephyrus-ga402
   ];
 

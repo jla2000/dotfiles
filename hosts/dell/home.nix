@@ -1,10 +1,8 @@
 { pkgs, outputs, ... }:
 {
   imports = [
-    ../../modules/home-manager/shell/default.nix
+    ../../modules/core/default.nix
   ];
-
-  nixpkgs.overlays = [ outputs.overlays.neovim-nightly-overlay ];
 
   programs.home-manager.enable = true;
 
@@ -14,7 +12,6 @@
     packages = with pkgs; [
       cargo
       rustc
-      neovim
     ];
     sessionVariables = {
       EDITOR = "nvim";
