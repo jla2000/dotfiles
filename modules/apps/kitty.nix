@@ -2,7 +2,7 @@
   programs.kitty = {
     enable = true;
     font = {
-      name = "JetBrainsMono NFM SemiBold";
+      name = "JetBrainsMono NF SemiBold";
       size = 15;
     };
     environment = {
