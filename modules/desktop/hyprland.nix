@@ -25,7 +25,7 @@
         bind =
           [
             # General
-            "${config.mod}, Return, exec, alacritty"
+            "${config.mod}, Return, exec, kitty"
             "${config.mod}, F, exec, firefox"
             "${config.mod}, R, exec, rofi -show drun"
             "${config.mod} SHIFT, Q, killactive"

@@ -2,8 +2,7 @@
   programs.kitty = {
     enable = true;
     font = {
-      /* Not yet working */
-      name = "Monaspace Neon Var";
+      name = "JetBrainsMono NFM SemiBold";
       size = 15;
     };
     environment = {
