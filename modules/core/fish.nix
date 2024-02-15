@@ -24,7 +24,6 @@ in
 
       # Nice prompt
       ${pkgs.starship}/bin/starship init fish | source
-      ${pkgs.any-nix-shell}/bin/any-nix-shell fish --info-right | source
 
       # Catppuccin theme
       fish_config theme choose "Catppuccin Macchiato"

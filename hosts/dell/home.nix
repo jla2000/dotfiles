@@ -19,4 +19,10 @@
     };
     stateVersion = "23.11";
   };
+
+  # programs.git = {
+  #   enable = true;
+  #   userName = "Jan Lafferton";
+  #   userEmail = "jan.lafferton@vector.com";
+  # };
 }
