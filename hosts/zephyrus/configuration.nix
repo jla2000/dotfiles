@@ -15,6 +15,7 @@
     overlays = [
       outputs.overlays.nur-overlay
       outputs.overlays.neovim-nightly-overlay
+      outputs.overlays.unstable-overlay
     ];
     config.allowUnfree = true;
   };
@@ -126,15 +127,14 @@
   };
 
   # Install some nice fonts
-  fonts.packages = with pkgs; [
-    (nerdfonts.override {
+  fonts.packages = [
+    (pkgs.unstable.nerdfonts.override {
       fonts = [
         "FiraMono"
         "JetBrainsMono"
-        #"Monaspace"
+        "Monaspace"
       ];
     })
-    monaspace
   ];
 
   # This value determines the NixOS release from which the default

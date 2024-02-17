@@ -5,4 +5,8 @@
   };
 
   nur-overlay = inputs.nur.overlay;
+
+  unstable-overlay = final: prev: {
+    unstable = inputs.nixpkgs-unstable.legacyPackages.${prev.system};
+  };
 }
