@@ -6,12 +6,12 @@
     ./neovim.nix
   ];
 
-  home.packages = with pkgs;
-    [
-      lazygit
-      bat
-      eza
-      fd
-      fzf
-    ];
+  home.packages = with pkgs; [
+    lazygit
+    bat
+    eza
+    fd
+    fzf
+    zoxide
+  ];
 }
