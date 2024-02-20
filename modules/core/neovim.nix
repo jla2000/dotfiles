@@ -40,12 +40,6 @@ in
       cursorline = true;
     };
 
-    keymaps = [
-      { key = "<ESC>"; mode = [ "n" "x" "o" ]; action = "<cmd>noh<cr><ESC>"; }
-      { key = "-"; mode = [ "n" "x" "o" ]; action = "<cmd>Oil<cr>"; }
-      { key = "s"; mode = [ "n" "x" "o" ]; lua = true; action = "function() require('flash').jump() end"; }
-    ];
-
     plugins = {
       lualine.enable = true;
       better-escape.enable = true;
@@ -128,8 +122,12 @@ in
           "<leader>fr" = { action = "oldfiles"; desc = "Recent files"; };
           "<leader>ss" = { action = "lsp_document_symbols"; desc = "Document symbols"; };
           "<leader>sS" = { action = "lsp_dynamic_workspace_symbols"; desc = "Workspace symbols"; };
+          "gd" = { action = "lsp_definitions"; desc = "Goto definition"; };
+          "gr" = { action = "lsp_references"; desc = "Find references"; };
         };
       };
+
+      lint.enable = true;
 
       lsp = {
         enable = true;
@@ -142,6 +140,9 @@ in
           nil_ls.enable = true;
           rnix-lsp.enable = true;
           yamlls.enable = true;
+        };
+        keymaps.lspBuf = {
+          "<leader>ca" = "code_action";
         };
       };
     };
