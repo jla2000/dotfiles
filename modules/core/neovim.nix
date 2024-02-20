@@ -40,9 +40,15 @@ in
       cursorline = true;
     };
 
+    keymaps = [
+      { key = "jk"; mode = "i"; action = "<ESC>"; }
+      { key = "<ESC>"; mode = [ "n" "x" "o" ]; action = "<cmd>noh<cr><ESC>"; }
+      { key = "-"; mode = [ "n" "x" "o" ]; action = "<cmd>Oil<cr>"; }
+      { key = "s"; mode = [ "n" "x" "o" ]; lua = true; action = "function() require('flash').jump() end"; }
+    ];
+
     plugins = {
       lualine.enable = true;
-      better-escape.enable = true;
       illuminate.enable = true;
       # marks.enable = true;
       neorg.enable = true;
