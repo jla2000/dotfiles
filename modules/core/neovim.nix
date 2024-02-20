@@ -53,7 +53,8 @@ in
       # marks.enable = true;
       neorg.enable = true;
       nix-develop.enable = true;
-      # notify.enable = true;
+      notify.enable = true;
+      noice.enable = true;
       nvim-bqf.enable = true;
       oil.enable = true;
       tmux-navigator.enable = true;
@@ -70,7 +71,9 @@ in
         modules = {
           ai = { };
           comment = { };
-          indentscope = { };
+          indentscope = {
+            symbol = "│";
+          };
           pairs = { };
           bufremove = { };
         };
