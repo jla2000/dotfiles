@@ -47,7 +47,7 @@ in
       # marks.enable = true;
       neorg.enable = true;
       nix-develop.enable = true;
-      notify.enable = true;
+      # notify.enable = true;
       nvim-autopairs.enable = true;
       nvim-bqf.enable = true;
       oil.enable = true;
@@ -127,6 +127,14 @@ in
     extraPlugins = [
       vim-tpipeline
       cmake-tools-nvim
+    ];
+
+    extraConfigLuaPost = /* lua */ ''
+      require("cmake-tools").setup({})
+    '';
+
+    extraPackages = with pkgs; [
+      cmake
     ];
   };
 }
