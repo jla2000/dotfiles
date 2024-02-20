@@ -41,7 +41,9 @@ in
     };
 
     keymaps = [
-      { key = "-"; mode = "n"; action = "<cmd>Oil<cr>"; }
+      { key = "<ESC>"; mode = [ "n" "x" "o" ]; action = "<cmd>noh<cr><ESC>"; }
+      { key = "-"; mode = [ "n" "x" "o" ]; action = "<cmd>Oil<cr>"; }
+      { key = "s"; mode = [ "n" "x" "o" ]; lua = true; action = "function() require('flash').jump() end"; }
     ];
 
     plugins = {
@@ -59,6 +61,9 @@ in
       treesitter.enable = true;
       which-key.enable = true;
       # yanky.enable = true;
+      flash = {
+        enable = true;
+      };
 
       mini = {
         enable = true;
