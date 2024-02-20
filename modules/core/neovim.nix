@@ -40,6 +40,10 @@ in
       cursorline = true;
     };
 
+    keymaps = [
+      { key = "-"; mode = "n"; action = "<cmd>Oil<cr>"; }
+    ];
+
     plugins = {
       lualine.enable = true;
       better-escape.enable = true;
@@ -48,7 +52,6 @@ in
       neorg.enable = true;
       nix-develop.enable = true;
       # notify.enable = true;
-      nvim-autopairs.enable = true;
       nvim-bqf.enable = true;
       oil.enable = true;
       tmux-navigator.enable = true;
@@ -56,6 +59,17 @@ in
       treesitter.enable = true;
       which-key.enable = true;
       # yanky.enable = true;
+
+      mini = {
+        enable = true;
+        modules = {
+          ai = { };
+          comment = { };
+          indentscope = { };
+          pairs = { };
+          bufremove = { };
+        };
+      };
 
       indent-blankline = {
         enable = true;
@@ -129,7 +143,7 @@ in
       cmake-tools-nvim
     ];
 
-    extraConfigLuaPost = /* lua */ ''
+    extraConfigLua = /* lua */ ''
       require("cmake-tools").setup({})
     '';
 
