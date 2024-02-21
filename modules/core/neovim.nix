@@ -20,14 +20,7 @@ let
   };
 in
 {
-  imports = [ inputs.nixvim.homeManagerModules.nixvim ];
-
-  nixpkgs.overlays = [ outputs.overlays.neovim-nightly-overlay ];
-
-  programs.nixvim = {
-    enable = true;
-    package = pkgs.neovim;
-
+  config = {
     luaLoader.enable = true;
     colorschemes.tokyonight.enable = true;
 

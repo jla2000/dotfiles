@@ -4,21 +4,17 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    nixvim = {
-      url = "github:nix-community/nixvim/nixos-23.11";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     home-manager = {
       url = "github:nix-community/home-manager/release-23.11";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     neovim-nightly = {
       url = "github:neovim/neovim?dir=contrib";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     nixvim = {
-      url = "github:nix-community/nixvim/nixos-23.11";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
@@ -29,6 +25,7 @@
   outputs = { self, nixpkgs, ... }@inputs:
     let
       inherit (self) outputs;
+      system = "x86_64-linux";
     in
     {
       imports = [ inputs.pre-commit-hooks.flakeModule ];
@@ -49,9 +46,19 @@
           }
         ];
       };
+
       homeConfigurations."jlafferton@dell" = inputs.home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { system = "x86_64-linux"; };
+        pkgs = import nixpkgs { inherit system; };
         modules = [ ./hosts/dell/home.nix ];
+        extraSpecialArgs = { inherit inputs outputs; };
+      };
+
+      packages."${system}".nvim = inputs.nixvim.legacyPackages."${system}".makeNixvimWithModule {
+        pkgs = import inputs.nixpkgs-unstable {
+          inherit system;
+          overlays = [ outputs.overlays.neovim-nightly-overlay ];
+        };
+        module = import ./modules/core/neovim.nix;
         extraSpecialArgs = { inherit inputs outputs; };
       };
     };
