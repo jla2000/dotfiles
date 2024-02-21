@@ -86,36 +86,22 @@
   };
 
   environment.systemPackages = with pkgs; [
-    alacritty
-    cargo
     discord
     distrobox
     feh
-    fzf
     gcc
     git
     gnumake
     htop
     killall
-    lazygit
     libreoffice-fresh
-    lua-language-server
     meld
     neofetch
     neovide
-    neovim
-    nil
-    nodePackages.yaml-language-server
     nodejs
     pciutils
-    ripgrep
-    rnix-lsp
-    rust-analyzer
-    rustc
     spotify
-    stylua
     thunderbird
-    tmux
     unzip
     ventoy-full
   ];
