@@ -53,6 +53,12 @@
         extraSpecialArgs = { inherit inputs outputs; };
       };
 
+      homeConfigurations."jan@fedora" = inputs.home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs { inherit system; };
+        modules = [ ./hosts/fedora/home.nix ];
+        extraSpecialArgs = { inherit inputs outputs; };
+      };
+
       packages."${system}".nvim = inputs.nixvim.legacyPackages."${system}".makeNixvimWithModule {
         pkgs = import inputs.nixpkgs-unstable {
           inherit system;
