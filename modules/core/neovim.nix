@@ -43,7 +43,7 @@ in
     plugins = {
       lualine.enable = true;
       illuminate.enable = true;
-      # marks.enable = true;
+      marks.enable = true;
       neorg.enable = true;
       nix-develop.enable = true;
       notify.enable = true;
@@ -54,7 +54,7 @@ in
       todo-comments.enable = true;
       treesitter.enable = true;
       which-key.enable = true;
-      # yanky.enable = true;
+      yanky.enable = true;
       flash = {
         enable = true;
       };
@@ -112,7 +112,7 @@ in
         enable = true;
         extensions = {
           fzf-native.enable = true;
-          # ui-select.enable = true;
+          ui-select.enable = true;
         };
         keymaps = {
           "<leader>ff" = { action = "git_files"; desc = "Find files"; };
@@ -134,8 +134,8 @@ in
           clangd.enable = true;
           cmake.enable = true;
           lua-ls.enable = true;
-          # json-ls.enable = true;
-          # marksman.enable = true;
+          jsonls.enable = true;
+          marksman.enable = true;
           nil_ls.enable = true;
           rnix-lsp.enable = true;
           yamlls.enable = true;
