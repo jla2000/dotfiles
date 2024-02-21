@@ -16,6 +16,10 @@
       url = "github:neovim/neovim?dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim/nixos-23.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -48,7 +52,7 @@
       homeConfigurations."jlafferton@dell" = inputs.home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs { system = "x86_64-linux"; };
         modules = [ ./hosts/dell/home.nix ];
-        extraSpecialArgs = { inherit outputs; };
+        extraSpecialArgs = { inherit inputs outputs; };
       };
     };
 }
