@@ -8,6 +8,10 @@ let
   };
 in
 {
+  home.packages = with pkgs; [
+    zoxide
+  ];
+
   programs.fish = {
     enable = true;
     interactiveShellInit = /* fish */ ''
@@ -24,6 +28,9 @@ in
 
       # Nice prompt
       ${pkgs.starship}/bin/starship init fish | source
+
+      # Better cd
+      zoxide init fish | source
 
       # Catppuccin theme
       fish_config theme choose "Catppuccin Macchiato"

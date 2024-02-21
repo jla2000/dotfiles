@@ -12,6 +12,5 @@
     eza
     fd
     fzf
-    zoxide
   ];
 }
