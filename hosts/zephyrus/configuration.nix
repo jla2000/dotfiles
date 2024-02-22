@@ -22,10 +22,7 @@
 
   # Configure boot loader
   boot.loader = {
-    efi = {
-      canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot/efi";
-    };
+    efi.canTouchEfiVariables = true;
     systemd-boot.enable = true;
   };
 
@@ -86,16 +83,12 @@
   };
 
   environment.systemPackages = with pkgs; [
-    discord
-    distrobox
-    feh
     gcc
     git
     gnumake
     htop
     killall
     libreoffice-fresh
-    meld
     neofetch
     neovide
     nodejs
