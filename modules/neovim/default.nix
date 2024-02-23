@@ -31,20 +31,6 @@
         };
       };
 
-      mini = {
-        enable = true;
-        modules = {
-          ai = { };
-          comment = { };
-          indentscope = {
-            symbol = "│";
-          };
-          pairs = { };
-          bufremove = { };
-        };
-      };
-
-
       nvim-cmp = {
         enable = true;
         sources = [
