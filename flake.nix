@@ -67,7 +67,7 @@
           inherit system;
           overlays = [ outputs.overlays.neovim-nightly-overlay ];
         };
-        module = import ./modules/nixvim/neovim.nix;
+        module = import ./modules/neovim/default.nix;
         extraSpecialArgs = { inherit inputs outputs; };
       };
     };

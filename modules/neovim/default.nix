@@ -1,14 +1,5 @@
 { pkgs, inputs, outputs, ... }:
 let
-  vim-tpipeline = pkgs.vimUtils.buildVimPlugin {
-    name = "vim-tpipeline";
-    src = pkgs.fetchFromGitHub {
-      owner = "vimpostor";
-      repo = "vim-tpipeline";
-      rev = "649f079a0bee19565978b82b672d831c6641d952";
-      hash = "sha256-1jnmXiUK0yo78sc7af3Q2A4lPZ1HYzkANQBi5O9Wnpo=";
-    };
-  };
   cmake-tools-nvim = pkgs.vimUtils.buildVimPlugin {
     name = "cmake-tools.nvim";
     src = pkgs.fetchFromGitHub {
@@ -20,6 +11,10 @@ let
   };
 in
 {
+  imports = [
+    ./tmux.nix
+  ];
+
   config = {
     luaLoader.enable = true;
     colorschemes.tokyonight.enable = true;
@@ -58,7 +53,6 @@ in
       noice.enable = true;
       nvim-bqf.enable = true;
       oil.enable = true;
-      tmux-navigator.enable = true;
       todo-comments.enable = true;
       treesitter.enable = true;
       which-key.enable = true;
@@ -161,7 +155,7 @@ in
             #    ) or require("lspconfig.util").find_git_ancestor(fname)
             #  end,
             #'';
-	    #cmd = [
+            #cmd = [
             #  "clangd"
             #  "--background-index"
             #  "--clang-tidy"
@@ -169,7 +163,7 @@ in
             #  "--completion-style=detailed"
             #  "--function-arg-placeholders"
             #  "--fallback-style=llvm"
-	    #];
+            #];
           };
           cmake.enable = true;
           lua-ls.enable = true;
@@ -186,7 +180,6 @@ in
     };
 
     extraPlugins = [
-      vim-tpipeline
       cmake-tools-nvim
     ];
 
