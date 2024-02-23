@@ -13,5 +13,4 @@
     { key = "<leader>ct"; mode = [ "n" "x" "o" ]; action = "<cmd>CMakeSelectLaunchTarget<cr>"; }
     { key = "<leader>cp"; mode = [ "n" "x" "o" ]; action = "<cmd>CMakeSelectConfigurePreset<cr>"; }
   ];
-
 }

@@ -11,9 +11,10 @@ let
   };
 in
 {
-  extraPlugins = [
+  extraPlugins = with pkgs.vimPlugins; [
     blame-me-nvim
-    pkgs.vimPlugins.lazygit-nvim
+    lazygit-nvim
+    gitsigns-nvim
   ];
 
   keymaps = [
@@ -21,6 +22,11 @@ in
   ];
 
   extraConfigLua = /* lua */ ''
-    require("blame-me").setup({})
+    require("blame-me").setup({
+      signs = false,
+      delay = 500,
+    })
+
+    require("gitsigns").setup({})
   '';
 }
