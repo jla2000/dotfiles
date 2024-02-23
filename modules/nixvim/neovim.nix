@@ -38,6 +38,14 @@ in
       { key = "<ESC>"; mode = [ "n" "x" "o" ]; action = "<cmd>noh<cr><ESC>"; }
       { key = "-"; mode = [ "n" "x" "o" ]; action = "<cmd>Oil<cr>"; }
       { key = "s"; mode = [ "n" "x" "o" ]; lua = true; action = "function() require('flash').jump() end"; }
+      { key = "<Tab>"; mode = [ "n" "x" "o" ]; action = "<cmd>bn<cr>"; }
+      { key = "<S-Tab>"; mode = [ "n" "x" "o" ]; action = "<cmd>bp<cr>"; }
+      { key = "<leader>cg"; mode = [ "n" "x" "o" ]; action = "<cmd>CMakeGenerate<cr>"; }
+      { key = "<leader>cs"; mode = [ "n" "x" "o" ]; action = "<cmd>CMakeSelectCwd<cr>"; }
+      { key = "<leader>cc"; mode = [ "n" "x" "o" ]; action = "<cmd>CMakeSettings<cr>"; }
+      { key = "<leader>ce"; mode = [ "n" "x" "o" ]; action = "<cmd>CMakeRun<cr>"; }
+      { key = "<leader>ct"; mode = [ "n" "x" "o" ]; action = "<cmd>CMakeSelectLaunchTarget<cr>"; }
+      { key = "<leader>cp"; mode = [ "n" "x" "o" ]; action = "<cmd>CMakeSelectConfigurePreset<cr>"; }
     ];
 
     plugins = {
@@ -127,11 +135,42 @@ in
       };
 
       lint.enable = true;
+      conform-nvim = {
+        enable = true;
+      };
+
+      clangd-extensions.enable = true;
 
       lsp = {
         enable = true;
         servers = {
-          clangd.enable = true;
+          clangd = {
+            enable = true;
+            #rootDir = ''
+            #  function(fname)
+            #    return require("lspconfig.util").root_pattern(
+            #      "Makefile",
+            #      "configure.ac",
+            #      "configure.in",
+            #      "config.h.in",
+            #      "meson.build",
+            #      "meson_options.txt",
+            #      "build.ninja"
+            #    )(fname) or require("lspconfig.util").root_pattern("compile_commands.json", "compile_flags.txt")(
+            #      fname
+            #    ) or require("lspconfig.util").find_git_ancestor(fname)
+            #  end,
+            #'';
+	    #cmd = [
+            #  "clangd"
+            #  "--background-index"
+            #  "--clang-tidy"
+            #  "--header-insertion=iwyu"
+            #  "--completion-style=detailed"
+            #  "--function-arg-placeholders"
+            #  "--fallback-style=llvm"
+	    #];
+          };
           cmake.enable = true;
           lua-ls.enable = true;
           jsonls.enable = true;
