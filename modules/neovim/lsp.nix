@@ -19,5 +19,11 @@
         "<leader>ca" = "code_action";
       };
     };
+
+    lint.enable = true;
+    conform-nvim = {
+      enable = true;
+      formatOnSave = { };
+    };
   };
 }

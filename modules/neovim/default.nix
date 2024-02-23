@@ -6,6 +6,7 @@
     ./keymaps.nix
     ./options.nix
     ./git.nix
+    ./ui.nix
   ];
 
   config = {
@@ -13,16 +14,9 @@
     colorschemes.tokyonight.enable = true;
 
     plugins = {
-      lualine.enable = true;
-      illuminate.enable = true;
-      marks.enable = true;
       neorg.enable = true;
       nix-develop.enable = true;
-      notify.enable = true;
-      noice.enable = true;
-      nvim-bqf.enable = true;
       oil.enable = true;
-      todo-comments.enable = true;
       treesitter = {
         enable = true;
         indent = true;
@@ -31,6 +25,10 @@
       yanky.enable = true;
       flash = {
         enable = true;
+        modes = {
+          char.enabled = false;
+          search.enabled = false;
+        };
       };
 
       mini = {
@@ -46,11 +44,6 @@
         };
       };
 
-      indent-blankline = {
-        enable = true;
-        scope.enabled = false;
-        indent.char = "│";
-      };
 
       nvim-cmp = {
         enable = true;
@@ -96,12 +89,6 @@
           "gd" = { action = "lsp_definitions"; desc = "Goto definition"; };
           "gr" = { action = "lsp_references"; desc = "Find references"; };
         };
-      };
-
-      lint.enable = true;
-      conform-nvim = {
-        enable = true;
-        formatOnSave = { };
       };
     };
   };
