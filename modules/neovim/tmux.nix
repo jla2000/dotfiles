@@ -12,5 +12,7 @@ let
 in
 {
   plugins.tmux-navigator.enable = true;
-  extraPlugins = [ vim-tpipeline ];
+
+  # Disable tpipeline for now
+  # extraPlugins = [ vim-tpipeline ];
 }
