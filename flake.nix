@@ -48,7 +48,10 @@
       };
 
       homeConfigurations."jlafferton@dell" = inputs.home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { inherit system; };
+        pkgs = import nixpkgs {
+          inherit system;
+          overlays = [ outputs.overlays.neovim-nightly-overlay ];
+        };
         modules = [ ./hosts/dell/home.nix ];
         extraSpecialArgs = { inherit inputs outputs; };
       };
@@ -64,7 +67,7 @@
           inherit system;
           overlays = [ outputs.overlays.neovim-nightly-overlay ];
         };
-        module = import ./modules/core/neovim.nix;
+        module = import ./modules/neovim/default.nix;
         extraSpecialArgs = { inherit inputs outputs; };
       };
     };

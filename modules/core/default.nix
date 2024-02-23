@@ -16,7 +16,7 @@
     eza
     fd
     fzf
-    libclang
+    ripgrep
     neovim
   ];
 }
