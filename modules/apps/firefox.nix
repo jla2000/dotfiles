@@ -8,6 +8,7 @@
           ublock-origin
           vimium
           firenvim
+          darkreader
         ];
       };
     };

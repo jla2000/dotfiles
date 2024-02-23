@@ -1,24 +1,8 @@
 {
   imports = [
     ../../modules/apps/default.nix
-    ../../modules/desktop/default.nix
     ../../modules/core/default.nix
-  ];
-
-  touchpad-device = "asue120a:00-04f3:319b-touchpad";
-  monitors = [
-    {
-      name = "eDP-2";
-      mode = "2560x1600@120";
-      position = "auto";
-      scale = 1.2;
-    }
-    {
-      name = "DP-3";
-      mode = "3840x2160@144";
-      position = "auto";
-      scale = 1.2;
-    }
+    ../../modules/desktop/i3.nix
   ];
 
   home = {
