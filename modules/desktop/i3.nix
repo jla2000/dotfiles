@@ -22,7 +22,7 @@ in
         {
           inherit fonts;
           position = "bottom";
-          statusCommand = "i3status";
+          statusCommand = "i3status-rs ${./i3status-rust.toml}";
         }
       ];
     };
