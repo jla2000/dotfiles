@@ -20,6 +20,9 @@
     config.allowUnfree = true;
   };
 
+  services.logind.lidSwitch = "suspend-then-hibernate";
+  boot.resumeDevice = "/dev/disk/by-uuid/014ae8e5-6052-4520-a3e8-dd19a9dcbcce";
+
   # Configure boot loader
   boot.loader = {
     efi.canTouchEfiVariables = true;
@@ -58,6 +61,7 @@
   # Configure login manager and window manager
   services.xserver = {
     enable = true;
+    videoDrivers = [ "amdgpu" ];
     desktopManager.xterm.enable = false;
 
     displayManager = {
@@ -76,6 +80,15 @@
         dunst
       ];
     };
+
+    config = /* xorg */ ''
+      Section "Device"
+        Identifier     "AMD"
+        Option         "VariableRefresh"   "true"
+        Option         "TearFree"          "true"
+      EndSection
+    '';
+    exportConfiguration = true;
   };
 
   programs.hyprland.enable = true;
