@@ -78,6 +78,7 @@
         i3blocks
         networkmanagerapplet
         dunst
+        brightnessctl
       ];
     };
 
