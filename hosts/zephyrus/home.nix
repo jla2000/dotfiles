@@ -2,7 +2,7 @@
   imports = [
     ../../modules/apps/default.nix
     ../../modules/core/default.nix
-    ../../modules/desktop/i3.nix
+    ../../modules/desktop/i3/default.nix
   ];
 
   home = {
