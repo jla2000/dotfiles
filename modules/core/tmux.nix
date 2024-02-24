@@ -21,7 +21,6 @@
       bind-key -T copy-mode-vi i send-keys -X cancel
 
       set -g status-style bg=default
-      set -g status-justify absolute-centre
     '';
     plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator
