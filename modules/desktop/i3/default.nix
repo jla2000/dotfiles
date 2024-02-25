@@ -16,6 +16,7 @@ in
       terminal = "kitty";
       startup = [
         { command = "nm-applet"; }
+        { command = "blueman-applet"; }
         { command = "dunst"; }
       ];
       bars = [
