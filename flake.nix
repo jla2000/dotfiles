@@ -8,12 +8,8 @@
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    neovim-nightly = {
-      url = "github:neovim/neovim?dir=contrib";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-    nixvim = {
-      url = "github:nix-community/nixvim";
+    nixvim-config = {
+      url = "github:jla2000/nixvim-config";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     pre-commit-hooks = {
@@ -50,7 +46,11 @@
       homeConfigurations."jlafferton@dell" = inputs.home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
           inherit system;
-          overlays = [ outputs.overlays.neovim-nightly-overlay ];
+          overlays = [
+            (final: prev: {
+              nixvim = inputs.nixvim-config.outputs.packages.${prev.system}.default;
+            })
+          ];
         };
         modules = [ ./hosts/dell/home.nix ];
         extraSpecialArgs = { inherit inputs outputs; };
