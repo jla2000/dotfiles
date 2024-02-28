@@ -470,11 +470,11 @@
         "tokyodark-nvim": "tokyodark-nvim"
       },
       "locked": {
-        "lastModified": 1709115522,
-        "narHash": "sha256-bhkLLSUxI7QLwMhc1VwADnIEXdbNgf7rEwyR6KJOGv4=",
+        "lastModified": 1709122292,
+        "narHash": "sha256-tiqrfzNxTB0Tf7mdY6FdrqzfdvpOy5cMIETOJBbBd6I=",
         "owner": "jla2000",
         "repo": "nixvim-config",
-        "rev": "44be2ba2b73ce36bb6654a732f01da0f633d1549",
+        "rev": "1ae74531903a0e79a5fa93e45b854539f02afd0b",
         "type": "github"
       },
       "original": {
