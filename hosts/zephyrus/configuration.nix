@@ -11,15 +11,6 @@
     inputs.nixos-hardware.nixosModules.asus-zephyrus-ga402
   ];
 
-  nixpkgs = {
-    overlays = [
-      outputs.overlays.nur-overlay
-      outputs.overlays.neovim-nightly-overlay
-      outputs.overlays.unstable-overlay
-    ];
-    config.allowUnfree = true;
-  };
-
   services.logind.lidSwitch = "suspend-then-hibernate";
   boot.resumeDevice = "/dev/disk/by-uuid/014ae8e5-6052-4520-a3e8-dd19a9dcbcce";
 

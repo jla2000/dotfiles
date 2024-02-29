@@ -23,14 +23,27 @@
       inherit (self) outputs;
       system = "x86_64-linux";
     in
-    {
+    rec {
       imports = [ inputs.pre-commit-hooks.flakeModule ];
       pre-commit.settings = { hooks.nixpkgs-fmt.enable = true; };
 
-      overlays = import ./overlays { inherit inputs; };
+      overlays = [
+        inputs.nur.overlay
+        (final: prev: {
+          unstable = inputs.nixpkgs-unstable.legacyPackages.${system};
+          nixvim = inputs.nixvim-config.outputs.packages.${system}.default;
+        })
+      ];
 
       nixosConfigurations."zephyrus" = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs outputs; };
+        specialArgs = {
+          inherit inputs outputs;
+          pkgs = import nixpkgs {
+            inherit system;
+            inherit overlays;
+            config.allowUnfree = true;
+          };
+        };
         modules = [
           ./hosts/zephyrus/configuration.nix
           inputs.home-manager.nixosModules.home-manager
@@ -46,28 +59,9 @@
       homeConfigurations."jlafferton@dell" = inputs.home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
           inherit system;
-          overlays = [
-            (final: prev: {
-              nixvim = inputs.nixvim-config.outputs.packages.${prev.system}.default;
-            })
-          ];
+          inherit overlays;
         };
         modules = [ ./hosts/dell/home.nix ];
-        extraSpecialArgs = { inherit inputs outputs; };
-      };
-
-      homeConfigurations."jan@fedora" = inputs.home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { inherit system; };
-        modules = [ ./hosts/fedora/home.nix ];
-        extraSpecialArgs = { inherit inputs outputs; };
-      };
-
-      packages."${system}".nvim = inputs.nixvim.legacyPackages."${system}".makeNixvimWithModule {
-        pkgs = import inputs.nixpkgs-unstable {
-          inherit system;
-          overlays = [ outputs.overlays.neovim-nightly-overlay ];
-        };
-        module = import ./modules/neovim/default.nix;
         extraSpecialArgs = { inherit inputs outputs; };
       };
     };
