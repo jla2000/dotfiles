@@ -15,7 +15,7 @@ let
         notify-send -u low -i mouse "Touchpad disabled"
       else
         xinput enable 13
-        notify-send -u low -i mouse "Touchpad disabled"
+        notify-send -u low -i mouse "Touchpad enabled"
       fi
     '';
   };
