@@ -70,6 +70,7 @@
         networkmanagerapplet
         dunst
         brightnessctl
+        libnotify
       ];
     };
 
