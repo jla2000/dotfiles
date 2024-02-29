@@ -35,15 +35,15 @@
     "cmake-tools-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1706886423,
-        "narHash": "sha256-e16I51FbT0itLkyornd9RjShXmLxUzPrygFYVc66xoY=",
-        "owner": "Civitasv",
+        "lastModified": 1709216898,
+        "narHash": "sha256-gh6k4ErVyTYg+4yajbMfkqZkGI673lG66u9pobzbUro=",
+        "owner": "jla2000",
         "repo": "cmake-tools.nvim",
-        "rev": "055d7bb37d5c4038ce1e400656b6504602934ce7",
+        "rev": "21262540a0332178a4164381f65881c6bf326b50",
         "type": "github"
       },
       "original": {
-        "owner": "Civitasv",
+        "owner": "jla2000",
         "repo": "cmake-tools.nvim",
         "type": "github"
       }
@@ -470,11 +470,11 @@
         "tokyodark-nvim": "tokyodark-nvim"
       },
       "locked": {
-        "lastModified": 1709209154,
-        "narHash": "sha256-EvqbkL15OhTG8hq4I0fAf0SO3MligvhxrpRKpkUIBs8=",
+        "lastModified": 1709216977,
+        "narHash": "sha256-hfi5IXZA8gRU3DhSQRT/2VYrBJJDwTOSHJYXpzeyeDQ=",
         "owner": "jla2000",
         "repo": "nixvim-config",
-        "rev": "14dc15bd935e3113d5bf25774d3e5a3d782db8ce",
+        "rev": "0b1624d088c53432fabfd03e2e36bc4fa42f761c",
         "type": "github"
       },
       "original": {
