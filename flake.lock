@@ -275,6 +275,22 @@
         "type": "github"
       }
     },
+    "huez-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1709183028,
+        "narHash": "sha256-k9y9SwEC4vlvL2txEVEHvMRUrCKVxD6OSBvqOeoVMYA=",
+        "owner": "vague2k",
+        "repo": "huez.nvim",
+        "rev": "cc18cb58572ecb0ac4d0da3e2e8720d58b79bafc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vague2k",
+        "repo": "huez.nvim",
+        "type": "github"
+      }
+    },
     "neovim-nightly": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -461,6 +477,7 @@
         "cmake-gtest-nvim": "cmake-gtest-nvim",
         "cmake-tools-nvim": "cmake-tools-nvim",
         "flake-parts": "flake-parts",
+        "huez-nvim": "huez-nvim",
         "neovim-nightly": "neovim-nightly",
         "nixpkgs": [
           "nixpkgs-unstable"
@@ -470,11 +487,11 @@
         "tokyodark-nvim": "tokyodark-nvim"
       },
       "locked": {
-        "lastModified": 1709216977,
-        "narHash": "sha256-hfi5IXZA8gRU3DhSQRT/2VYrBJJDwTOSHJYXpzeyeDQ=",
+        "lastModified": 1709286112,
+        "narHash": "sha256-kn4c562OFLwxsAvmjGDIjp2IUFk9ZWigGrKUQLMs1rU=",
         "owner": "jla2000",
         "repo": "nixvim-config",
-        "rev": "0b1624d088c53432fabfd03e2e36bc4fa42f761c",
+        "rev": "23378586d6b9e1a987e8b4780f24049fc58ae70c",
         "type": "github"
       },
       "original": {
