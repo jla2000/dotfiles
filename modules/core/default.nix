@@ -17,6 +17,6 @@
     fd
     fzf
     ripgrep
-    nixvim
+    lazyvim-nix
   ];
 }

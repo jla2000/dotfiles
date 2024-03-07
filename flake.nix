@@ -8,8 +8,8 @@
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixvim-config = {
-      url = "github:jla2000/nixvim-config";
+    lazyvim-nix = {
+      url = "github:jla2000/lazyvim-nix";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     pre-commit-hooks = {
@@ -31,7 +31,7 @@
         inputs.nur.overlay
         (final: prev: {
           unstable = inputs.nixpkgs-unstable.legacyPackages.${system};
-          nixvim = inputs.nixvim-config.outputs.packages.${system}.default;
+          lazyvim-nix = inputs.lazyvim-nix.outputs.packages.${system}.default;
         })
       ];
 

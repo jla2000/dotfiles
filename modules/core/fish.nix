@@ -47,7 +47,6 @@ in
       ls = "${pkgs.eza}/bin/eza";
       g = "${pkgs.lazygit}/bin/lazygit";
       cat = "${pkgs.bat}/bin/bat";
-      ovim = "${pkgs.neovim}/bin/nvim";
     };
     plugins = with pkgs.fishPlugins; [
       { name = "fzf-fish"; src = fzf-fish.src; }
