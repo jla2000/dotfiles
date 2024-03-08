@@ -193,11 +193,11 @@
         "symbol-usage-nvim": "symbol-usage-nvim"
       },
       "locked": {
-        "lastModified": 1709906567,
-        "narHash": "sha256-Vm2AI+AUj8JQOdYcM2t86yzGVblIFAPOHhlaBwVeNLE=",
+        "lastModified": 1709922656,
+        "narHash": "sha256-EE2Wg05hR2oQc0DyzrrqD7aXBjW/pq+fCF82ZmjCaAE=",
         "owner": "jla2000",
         "repo": "lazyvim-nix",
-        "rev": "96277ac336ea299b7adb9bece9b7a0cfd825ef3c",
+        "rev": "d3f9711af55df3efc687b78681905c2914db2820",
         "type": "github"
       },
       "original": {
