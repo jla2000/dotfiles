@@ -329,11 +329,11 @@
         "yanky-nvim": "yanky-nvim"
       },
       "locked": {
-        "lastModified": 1709846361,
-        "narHash": "sha256-VaNxirdQbsNWru4nrDKYvp8ZHx0mZJ3/h6F2zbJPEFc=",
+        "lastModified": 1709885959,
+        "narHash": "sha256-WwdFmgms/BLyZ9KPuNAkr5Zur60fFiiD8FxfTLFuvjc=",
         "owner": "jla2000",
         "repo": "lazyvim-nix",
-        "rev": "be1ed36b1c862c5ac4dc8adde643291d2dcee009",
+        "rev": "0f6c5a04a61dc63e54ef72c3b90a9638f76f88d9",
         "type": "github"
       },
       "original": {
