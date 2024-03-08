@@ -42,6 +42,12 @@ in
       keybindings = lib.mkOptionDefault {
         "${mod}+c" = "exec firefox";
 
+        # Navigation
+        "${mod}+h" = "focus left";
+        "${mod}+l" = "focus right";
+        "${mod}+j" = "focus down";
+        "${mod}+k" = "focus up";
+
         # Media keys
         "XF86MonBrightnessUp" = "exec brightnessctl set +5%";
         "XF86MonBrightnessDown" = "exec brightnessctl set 5%-";
