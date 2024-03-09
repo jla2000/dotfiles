@@ -35,11 +35,9 @@
     "cmake-tools-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1706886423,
-        "narHash": "sha256-e16I51FbT0itLkyornd9RjShXmLxUzPrygFYVc66xoY=",
         "owner": "Civitasv",
         "repo": "cmake-tools.nvim",
-        "rev": "055d7bb37d5c4038ce1e400656b6504602934ce7",
+        "rev": "aba5b805082b3c1027ac4f5051b84c61989c34c8",
         "type": "github"
       },
       "original": {
@@ -193,11 +191,11 @@
         "symbol-usage-nvim": "symbol-usage-nvim"
       },
       "locked": {
-        "lastModified": 1709922656,
-        "narHash": "sha256-EE2Wg05hR2oQc0DyzrrqD7aXBjW/pq+fCF82ZmjCaAE=",
+        "lastModified": 1709975589,
+        "narHash": "sha256-YjZrP/3nUhtdC1JVc9kK3gdO3IiN3rDSK4GmNKfcbeQ=",
         "owner": "jla2000",
         "repo": "lazyvim-nix",
-        "rev": "d3f9711af55df3efc687b78681905c2914db2820",
+        "rev": "6da3f7d8b6edc6832ec6f4cd234f7a60fa0c7b6c",
         "type": "github"
       },
       "original": {
