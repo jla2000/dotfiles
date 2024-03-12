@@ -15,19 +15,21 @@ in
   programs.fish = {
     enable = true;
     interactiveShellInit = /* fish */ ''
+      # Load tmux
+      if not set -q TMUX
+          exec tmux
+      end
+
       # WSL fixes
       if test -e ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-        bass source ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+          bass source ~/.nix-profile/etc/profile.d/hm-session-vars.sh
       end
       if test -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-        bass source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+          bass source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
       end
 
       # Vim Bindings
       fish_hybrid_key_bindings
-
-      # Nice prompt
-      ${pkgs.starship}/bin/starship init fish | source
 
       # Better cd
       zoxide init fish | source
@@ -36,13 +38,7 @@ in
       fish_config theme choose "Catppuccin Macchiato"
 
       fish_add_path ~/scripts/
-      fish_add_path ~/.local/bin
-
-      # Load tmux
-      if not set -q TMUX
-        exec tmux
-      end
-    '';
+      fish_add_path ~/.local/bin'';
     shellAliases = {
       ls = "${pkgs.eza}/bin/eza";
       g = "${pkgs.lazygit}/bin/lazygit";
@@ -53,6 +49,7 @@ in
       { name = "bass"; src = bass.src; }
       { name = "autopair"; src = autopair.src; }
       { name = "puffer"; src = puffer.src; }
+      { name = "tide"; src = tide.src; }
     ];
   };
 
