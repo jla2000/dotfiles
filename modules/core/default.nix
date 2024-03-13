@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ inputs, pkgs, lib, ... }:
 let
   update-lazyvim-nix = pkgs.writeShellScriptBin "update-lazyvim-nix" ''
     pushd ~/code/nixos-flake/
@@ -18,6 +18,7 @@ in
   nix = {
     package = lib.mkDefault pkgs.nix;
     settings.experimental-features = [ "nix-command" "flakes" ];
+    registry.nixpkgs.flake = inputs.nixpkgs-unstable;
   };
 
   home.packages = with pkgs; [
