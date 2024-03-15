@@ -1,12 +1,4 @@
 { pkgs, ... }:
-let
-  catppuccin-fish = pkgs.fetchFromGitHub {
-    owner = "catppuccin";
-    repo = "fish";
-    rev = "0ce27b518e8ead555dec34dd8be3df5bd75cff8e";
-    hash = "sha256-Dc/zdxfzAUM5NX8PxzfljRbYvO9f9syuLO8yBr+R3qg=";
-  };
-in
 {
   home.packages = with pkgs; [
     zoxide
@@ -34,8 +26,7 @@ in
       # Better cd
       zoxide init fish | source
 
-      # Catppuccin theme
-      fish_config theme choose "Catppuccin Macchiato"
+      starship init fish | source
 
       fish_add_path ~/scripts/
       fish_add_path ~/.local/bin'';
@@ -52,6 +43,4 @@ in
       { name = "tide"; src = tide.src; }
     ];
   };
-
-  xdg.configFile."fish/themes/Catppuccin Macchiato.theme".source = "${catppuccin-fish}/themes/Catppuccin Macchiato.theme";
 }
