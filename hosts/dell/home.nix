@@ -1,4 +1,4 @@
-{ pkgs, outputs, ... }:
+{ pkgs, ... }:
 {
   imports = [
     ../../modules/core/default.nix
@@ -14,7 +14,6 @@
       rustc
     ];
     sessionVariables = {
-      EDITOR = "nvim";
       USERDOMAIN = "VECTOR";
     };
     stateVersion = "23.11";
