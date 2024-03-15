@@ -25,6 +25,7 @@
 
       # Better cd
       zoxide init fish | source
+      alias cd=z
 
       starship init fish | source
 
