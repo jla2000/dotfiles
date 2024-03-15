@@ -13,8 +13,8 @@
   };
 
   home.packages = with pkgs; [
-    bat
-    eza
     fzf
+    fd
+    ripgrep
   ];
 }
