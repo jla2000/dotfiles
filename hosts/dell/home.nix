@@ -2,6 +2,7 @@
 {
   imports = [
     ../../modules/core/default.nix
+    ../../modules/apps/wezterm.nix
   ];
 
   programs.home-manager.enable = true;
