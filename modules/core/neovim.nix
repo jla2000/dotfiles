@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 let
   codelldb = pkgs.writeShellScriptBin "codelldb" /* sh */ ''
     ${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb "$@"
@@ -15,13 +15,37 @@ let
       ${pkgs.clang-tools_16}/bin/clangd "$@"
     fi
   '';
-in
-{
-  programs.neovim = {
-    enable = true;
-    package = pkgs.neovim;
-    defaultEditor = true;
-    extraPackages = with pkgs; [
+
+  mkEntryFromDrv = drv:
+    if lib.isDerivation drv then
+      { name = "${lib.getName drv}"; path = drv; }
+    else
+      drv;
+
+  plugins = with pkgs.vimPlugins; [
+    telescope-fzf-native-nvim
+  ];
+
+  pluginPath = pkgs.linkFarm "neovim-plugins" (builtins.map mkEntryFromDrv plugins);
+
+  treesitterPath = pkgs.symlinkJoin {
+    name = "neovim-treesitter-parsers";
+    paths = pkgs.vimPlugins.nvim-treesitter.withAllGrammars.dependencies;
+  };
+
+  neovimWrapped = pkgs.wrapNeovim pkgs.neovim {
+    configure = {
+      customRC = /* vim */ ''
+        let g:plugin_path = "${pluginPath}"
+        let g:treesitter_path = "${treesitterPath}"
+        source ${./bootstrap.lua}
+      '';
+    };
+  };
+
+  neovimDependencies = pkgs.symlinkJoin {
+    name = "neovim-dependencies";
+    paths = with pkgs; [
       # Lazyvim deps
       lazygit
       ripgrep
@@ -56,13 +80,14 @@ in
     ];
   };
 
-  # Link treesitter grammars as these usually break when installed through neovim
-  # xdg.configFile."nvim/parser".source =
-  #   let
-  #     parsers = pkgs.symlinkJoin {
-  #       name = "treesitter-parsers";
-  #       paths = pkgs.vimPlugins.nvim-treesitter.withAllGrammars.dependencies;
-  #     };
-  #   in
-  #   "${parsers}/parser";
+  neovim = pkgs.writeShellApplication {
+    name = "nvim";
+    runtimeInputs = [ neovimDependencies ];
+    text = ''${neovimWrapped}/bin/nvim "$@"'';
+  };
+in
+{
+  home.packages = [
+    neovim
+  ];
 }
