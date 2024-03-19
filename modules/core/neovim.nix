@@ -55,4 +55,14 @@ in
       cmake
     ];
   };
+
+  # Link treesitter grammars as these usually break when installed through neovim
+  xdg.configFile."nvim/parser".source =
+    let
+      parsers = pkgs.symlinkJoin {
+        name = "treesitter-parsers";
+        paths = pkgs.vimPlugins.nvim-treesitter.withAllGrammars.dependencies;
+      };
+    in
+    "${parsers}/parser";
 }
