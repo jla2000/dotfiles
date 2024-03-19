@@ -4,6 +4,7 @@
     ./tmux.nix
     ./fish.nix
     ./neovim.nix
+    ./starship.nix
   ];
 
   nix = {
