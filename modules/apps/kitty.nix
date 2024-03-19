@@ -8,6 +8,6 @@
     environment = {
       TERM = "xterm-256color";
     };
-    theme = "Catppuccin-Macchiato";
+    theme = "One Dark";
   };
 }

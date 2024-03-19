@@ -7,8 +7,8 @@
       local config = wezterm.config_builder()
 
       config.font = wezterm.font({
-      	family = "Monaspace Neon",
-      	weight = "DemiBold",
+      	family = "MonaspiceNe NFM",
+      	weight = "Bold",
       	stretch = "Normal",
       	style = "Normal",
       	harfbuzz_features = {
@@ -23,7 +23,7 @@
       	},
       })
       config.font_size = 15
-      config.color_scheme = "Gruvbox Dark (Gogh)"
+      config.color_scheme = "OneDark (base16)"
 
       config.keys = {
       	{

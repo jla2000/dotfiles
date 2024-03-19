@@ -26,7 +26,7 @@ in
     config = {
       inherit fonts;
       modifier = mod;
-      terminal = "wezterm";
+      terminal = "kitty";
       startup = [
         { command = "nm-applet"; }
         { command = "blueman-applet"; }
