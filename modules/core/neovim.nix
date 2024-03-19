@@ -24,6 +24,7 @@ let
 
   plugins = with pkgs.vimPlugins; [
     telescope-fzf-native-nvim
+    nvim-treesitter
   ];
 
   pluginPath = pkgs.linkFarm "neovim-plugins" (builtins.map mkEntryFromDrv plugins);
