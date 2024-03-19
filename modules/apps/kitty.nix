@@ -9,5 +9,6 @@
       TERM = "xterm-256color";
     };
     theme = "One Dark";
+    settings.window_padding_width = 2;
   };
 }
