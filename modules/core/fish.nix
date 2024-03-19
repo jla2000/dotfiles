@@ -4,6 +4,20 @@
     zoxide
   ];
 
+  programs.starship = {
+    enable = true;
+    settings = {
+      character = {
+        success_symbol = "\\[[INS](bold green)\\] ~>";
+        error_symbol = "\\[[INS](bold red)\\] ~>";
+        vimcmd_symbol = "\\[[NOR](bold blue)\\] ~>";
+        vimcmd_replace_symbol = "\\[[RPL](bold purple)\\] ~>";
+        vimcmd_replace_one_symbol = "\\[[RPL](bold purple)\\] ~>";
+        vimcmd_visual_symbol = "\\[[VIS](bold yellow)\\] ~>";
+      };
+    };
+  };
+
   programs.fish = {
     enable = true;
     interactiveShellInit = /* fish */ ''
@@ -45,7 +59,6 @@
       { name = "bass"; src = bass.src; }
       { name = "autopair"; src = autopair.src; }
       { name = "puffer"; src = puffer.src; }
-      { name = "tide"; src = tide.src; }
     ];
   };
 }
