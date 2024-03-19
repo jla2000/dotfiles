@@ -22,6 +22,7 @@
       		"calt=1",
       	},
       })
+      config.font_size = 15
       config.color_scheme = "Gruvbox Dark (Gogh)"
 
       config.keys = {
@@ -31,6 +32,8 @@
       		action = wezterm.action.ReloadConfiguration,
       	},
       }
+
+      config.hide_tab_bar_if_only_one_tab = true
 
       return config'';
   };
