@@ -12,12 +12,13 @@
           exec tmux
       end
 
-      # WSL fixes
+      # Source home-manager variables
       if test -e ~/.nix-profile/etc/profile.d/hm-session-vars.sh
           bass source ~/.nix-profile/etc/profile.d/hm-session-vars.sh
       end
-      if test -e /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-          bass source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+      # Add nix binaries to path
+      if test -e /etc/profile.d/nix.sh
+          bass source /etc/profile.d/nix.sh
       end
 
       # Vim Bindings
@@ -27,15 +28,18 @@
       zoxide init fish | source
       alias cd=z
 
+      # Nice prompt
       starship init fish | source
 
       fish_add_path ~/scripts/
       fish_add_path ~/.local/bin'';
+
     shellAliases = {
       ls = "${pkgs.eza}/bin/eza";
       g = "${pkgs.lazygit}/bin/lazygit";
       cat = "${pkgs.bat}/bin/bat";
     };
+
     plugins = with pkgs.fishPlugins; [
       { name = "fzf-fish"; src = fzf-fish.src; }
       { name = "bass"; src = bass.src; }

@@ -4,6 +4,10 @@ let
     ${pkgs.vscode-extensions.vadimcn.vscode-lldb}/share/vscode/extensions/vadimcn.vscode-lldb/adapter/codelldb "$@"
   '';
 
+  cmakelint = pkgs.writeShellScriptBin "cmakelint" /* sh */ ''
+    ${pkgs.cmake-format}/bin/cmake-lint "$@"
+  '';
+
   clangd = pkgs.writeShellScriptBin "clangd" /* sh */ ''
     if [ -f /opt/vector-clang-tidy/bin/clangd ]; then
       /opt/vector-clang-tidy/bin/clangd "$@"
@@ -35,15 +39,17 @@ in
       neocmakelsp
       yaml-language-server
       lua-language-server
+      vscode-langservers-extracted
 
       # Formatters
       stylua
       nixpkgs-fmt
       jq
+      cmake-format
 
       # Linters
       markdownlint-cli
-      cmake-format
+      cmakelint
 
       # Util
       cmake
