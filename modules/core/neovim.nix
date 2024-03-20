@@ -43,8 +43,8 @@ let
     };
   };
 
-  neovimDependencies = pkgs.symlinkJoin {
-    name = "neovim-dependencies";
+  runtimeBinaries = pkgs.symlinkJoin {
+    name = "neovim-binaries";
     paths = with pkgs; [
       # Lazyvim deps
       lazygit
@@ -80,10 +80,15 @@ let
     ];
   };
 
-  neovim = pkgs.writeShellApplication {
+  neovim = pkgs.symlinkJoin {
     name = "nvim";
-    runtimeInputs = [ neovimDependencies ];
-    text = ''${neovimWrapped}/bin/nvim "$@"'';
+    paths = [ neovimWrapped ];
+    nativeBuildInputs = [ pkgs.makeWrapper ];
+    postBuild = ''
+      wrapProgram $out/bin/nvim \
+        --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [ pkgs.libgit2 ]}" \
+        --prefix PATH : "${lib.makeBinPath [ runtimeBinaries ] }"
+    '';
   };
 in
 {
