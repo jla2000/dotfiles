@@ -91,4 +91,6 @@ in
   home.packages = [
     neovim
   ];
+
+  home.sessionVariables.EDITOR = "nvim";
 }
