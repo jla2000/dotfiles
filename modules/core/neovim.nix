@@ -24,7 +24,6 @@ let
 
   plugins = with pkgs.vimPlugins; [
     telescope-fzf-native-nvim
-    nvim-treesitter
   ];
 
   pluginPath = pkgs.linkFarm "neovim-plugins" (builtins.map mkEntryFromDrv plugins);
@@ -34,7 +33,7 @@ let
     paths = pkgs.vimPlugins.nvim-treesitter.withAllGrammars.dependencies;
   };
 
-  neovimWrapped = pkgs.wrapNeovim pkgs.neovim {
+  neovimWrapped = pkgs.wrapNeovim pkgs.neovim-unstable {
     configure = {
       customRC = /* vim */ ''
         let g:plugin_path = "${pluginPath}"
@@ -94,3 +93,9 @@ in
 
   home.sessionVariables.EDITOR = "nvim";
 }
+
+
+
+
+
+

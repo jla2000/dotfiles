@@ -31,7 +31,7 @@
         inputs.nur.overlay
         (final: prev: {
           unstable = inputs.nixpkgs-unstable.legacyPackages.${final.system};
-          neovim = inputs.neovim-nightly.packages.${final.system}.default;
+          neovim-unstable = inputs.neovim-nightly.packages.${final.system}.default;
         })
       ];
 
