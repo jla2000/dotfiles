@@ -50,6 +50,7 @@ require("lazy").setup({
 			opts = { auto_install = false, ensure_installed = {} },
 		},
 	},
+	checker = { enabled = true },
 	performance = {
 		rtp = {
 			disabled_plugins = {
