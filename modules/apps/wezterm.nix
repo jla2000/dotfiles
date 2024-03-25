@@ -9,13 +9,15 @@
       type = lib.types.string;
       default = "OneDark (base16)";
     };
+    wsl = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+    };
   };
 
   config.programs.wezterm = {
     enable = true;
     extraConfig = /* lua */ ''
-      local wezterm = require("wezterm")
-
       local config = wezterm.config_builder()
 
       config.font = wezterm.font({
@@ -37,6 +39,8 @@
       config.font_size = ${builtins.toString config.wezterm.fontSize}
       config.color_scheme = "${config.wezterm.colorScheme}"
 
+      config.default_prog = { "wsl.exe", "--cd", "~" }
+
       config.keys = {
       	{
       		key = "r",
@@ -46,7 +50,12 @@
       }
 
       config.hide_tab_bar_if_only_one_tab = true
-
-      return config'';
+    ''
+    +
+    (if config.wezterm.wsl then ''
+      config.default_prog = { "wsl.exe", "--cd", "~" }
+    '' else '''')
+    +
+    '' return config'';
   };
 }

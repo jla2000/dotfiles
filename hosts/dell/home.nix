@@ -25,6 +25,7 @@
   };
 
   wezterm.fontSize = 11.5;
+  wezterm.wsl = true;
 
   # programs.git = {
   #   enable = true;
