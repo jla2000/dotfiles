@@ -1,5 +1,11 @@
+{ config, lib, ... }:
 {
-  programs.wezterm = {
+  options.wezterm.fontSize = lib.mkOption {
+    type = lib.types.float;
+    default = 15;
+  };
+
+  config.programs.wezterm = {
     enable = true;
     extraConfig = /* lua */ ''
       local wezterm = require("wezterm")
@@ -22,7 +28,7 @@
       		"calt=1",
       	},
       })
-      config.font_size = 15
+      config.font_size = ${builtins.toString config.wezterm.fontSize}
       config.color_scheme = "OneDark (base16)"
 
       config.keys = {

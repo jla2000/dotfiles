@@ -24,6 +24,8 @@
     r = "pushd ~/code/nixos-flake/; home-manager switch --flake .#jlafferton@dell; popd";
   };
 
+  wezterm.fontSize = 11.5;
+
   # programs.git = {
   #   enable = true;
   #   userName = "Jan Lafferton";
