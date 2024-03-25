@@ -1,8 +1,14 @@
 { config, lib, ... }:
 {
-  options.wezterm.fontSize = lib.mkOption {
-    type = lib.types.float;
-    default = 15;
+  options.wezterm = {
+    fontSize = lib.mkOption {
+      type = lib.types.float;
+      default = 15;
+    };
+    colorScheme = lib.mkOption {
+      type = lib.types.string;
+      default = "OneDark (base16)";
+    };
   };
 
   config.programs.wezterm = {
@@ -29,7 +35,7 @@
       	},
       })
       config.font_size = ${builtins.toString config.wezterm.fontSize}
-      config.color_scheme = "OneDark (base16)"
+      config.color_scheme = "${config.wezterm.colorScheme}"
 
       config.keys = {
       	{
