@@ -24,20 +24,20 @@ let
 
   plugins = with pkgs.vimPlugins; [
     telescope-fzf-native-nvim
+    pkgs.unstable.vimPlugins.nvim-treesitter
   ];
 
   pluginPath = pkgs.linkFarm "neovim-plugins" (builtins.map mkEntryFromDrv plugins);
 
   treesitterPath = pkgs.symlinkJoin {
     name = "neovim-treesitter-parsers";
-    paths = pkgs.vimPlugins.nvim-treesitter.withAllGrammars.dependencies;
+    paths = pkgs.unstable.vimPlugins.nvim-treesitter.withAllGrammars.dependencies;
   };
 
   neovimWrapped = pkgs.wrapNeovim pkgs.neovim-unstable {
     configure = {
       customRC = /* vim */ ''
         let g:plugin_path = "${pluginPath}"
-        let g:treesitter_path = "${treesitterPath}"
         source ${./bootstrap.lua}
       '';
     };
@@ -95,6 +95,8 @@ in
   home.packages = [
     neovim
   ];
+
+  xdg.configFile."nvim/parser".source = "${treesitterPath}/parser";
 
   home.sessionVariables.EDITOR = "nvim";
 }

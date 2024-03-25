@@ -42,12 +42,7 @@ require("lazy").setup({
 		-- put this line at the end of spec to clear ensure_installed
 		{
 			"nvim-treesitter/nvim-treesitter",
-			build = nil,
-			init = function()
-				-- Put treesitter path as first entry in rtp
-				vim.opt.rtp:prepend(vim.g.treesitter_path)
-			end,
-			opts = { auto_install = false, ensure_installed = {} },
+			opts = { ensure_installed = {} },
 		},
 	},
 	checker = { enabled = true },
