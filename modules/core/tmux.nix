@@ -3,6 +3,7 @@
   home.packages = [ pkgs.sysstat ];
 
   programs.tmux = {
+    package = pkgs.unstable.tmux;
     prefix = "C-s";
     enable = true;
     newSession = true;
@@ -21,6 +22,10 @@
       bind-key -T copy-mode-vi i send-keys -X cancel
 
       set -g status-style bg=default
+
+      # Image nvim
+      set -g allow-passthrough on
+      set -g visual-activity off
     '';
     plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator

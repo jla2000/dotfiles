@@ -41,6 +41,7 @@ let
         source ${./bootstrap.lua}
       '';
     };
+    extraLuaPackages = ps: [ ps.magick ];
   };
 
   runtimeBinaries = pkgs.symlinkJoin {
@@ -77,6 +78,9 @@ let
 
       # Util
       cmake
+
+      # Image support
+      imagemagick
     ];
   };
 

@@ -7,10 +7,6 @@
   programs.fish = {
     enable = true;
     interactiveShellInit = /* fish */ ''
-      # Load tmux
-      if not set -q TMUX
-          exec tmux
-      end
 
       # Source home-manager variables
       if test -e ~/.nix-profile/etc/profile.d/hm-session-vars.sh
@@ -19,6 +15,11 @@
       # Add nix binaries to path
       if test -e /etc/profile.d/nix.sh
           bass source /etc/profile.d/nix.sh
+      end
+
+      # Load tmux
+      if not set -q TMUX
+          exec tmux
       end
 
       # Vim Bindings

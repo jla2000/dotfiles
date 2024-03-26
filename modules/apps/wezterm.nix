@@ -50,6 +50,7 @@
       }
 
       config.hide_tab_bar_if_only_one_tab = true
+      config.enable_kitty_graphics = true
     ''
     +
     (if config.wezterm.wsl then ''
