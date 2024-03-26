@@ -100,9 +100,3 @@ in
 
   home.sessionVariables.EDITOR = "nvim";
 }
-
-
-
-
-
-
