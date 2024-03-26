@@ -60,6 +60,12 @@
         pkgs = import nixpkgs {
           inherit system;
           inherit overlays;
+          config = {
+            allowUnfree = true;
+            permittedInsecurePackages = [
+              "electron-25.9.0"
+            ];
+          };
         };
         modules = [ ./hosts/dell/home.nix ];
         extraSpecialArgs = { inherit inputs outputs; };
