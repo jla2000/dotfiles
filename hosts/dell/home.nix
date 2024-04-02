@@ -22,6 +22,7 @@
 
   programs.fish.shellAliases = {
     r = "pushd ~/code/nixos-flake/; home-manager switch --flake .#jlafferton@dell; popd";
+    tick = "tickBoxes -c ~/code/microsar-adaptive/BSW/amsr-vector-fs-ipcbinding/ -c ~/code/microsar-adaptive/BSW/amsr-vector-fs-comtrace -c /BSW/amsr-vector-fs-ipcbinding/config/component_config.yml -c /BSW/amsr-vector-fs-comtrace/config/component_config.yml -v -m";
   };
 
   wezterm.fontSize = 11.5;
