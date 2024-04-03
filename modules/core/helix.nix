@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.helix = {
     enable = true;
     package = pkgs.helix-unstable;
@@ -12,7 +13,6 @@
           display-messages = true;
           display-inlay-hints = true;
         };
-        whitespace.render.space = "all";
         indent-guides.render = true;
       };
       keys.insert = {

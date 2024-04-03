@@ -26,6 +26,10 @@
       # Image nvim
       set -g allow-passthrough on
       set -g visual-activity off
+
+      bind c new-window -c "#{pane_current_path}"
+      bind '"' split-window -c "#{pane_current_path}"
+      bind % split-window -h -c "#{pane_current_path}"
     '';
     plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator
