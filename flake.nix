@@ -12,6 +12,10 @@
       url = "github:neovim/neovim?dir=contrib";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+    helix-nightly = {
+      url = "github:helix-editor/helix";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -32,6 +36,7 @@
         (final: prev: {
           unstable = inputs.nixpkgs-unstable.legacyPackages.${final.system};
           neovim-unstable = inputs.neovim-nightly.packages.${final.system}.default;
+          helix-unstable = inputs.helix-nightly.packages.${final.system}.default;
         })
       ];
 
