@@ -91,14 +91,14 @@ let
     nativeBuildInputs = [ pkgs.makeWrapper ];
     postBuild = ''
       wrapProgram $out/bin/nvim \
-        --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath  [ pkgs.sqlite ]}"
+        --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath  [ pkgs.sqlite ]}" \
+        --prefix PATH : ${lib.makeBinPath [ runtimeBinaries ]}
     '';
   };
 in
 {
   home.packages = [
     neovim
-    runtimeBinaries
   ];
 
   xdg.configFile."nvim/parser".source = "${treesitterPath}/parser";

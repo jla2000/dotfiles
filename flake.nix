@@ -26,10 +26,6 @@
     let
       inherit (self) outputs;
       system = "x86_64-linux";
-    in
-    rec {
-      imports = [ inputs.pre-commit-hooks.flakeModule ];
-      pre-commit.settings = { hooks.nixpkgs-fmt.enable = true; };
 
       overlays = [
         inputs.nur.overlay
@@ -40,14 +36,25 @@
         })
       ];
 
+      pkgs = import nixpkgs {
+        inherit system;
+        inherit overlays;
+        config = {
+          allowUnfree = true;
+          permittedInsecurePackages = [
+            "electron-25.9.0"
+          ];
+        };
+      };
+    in
+    {
+      imports = [ inputs.pre-commit-hooks.flakeModule ];
+      pre-commit.settings = { hooks.nixpkgs-fmt.enable = true; };
+
       nixosConfigurations."zephyrus" = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs outputs;
-          pkgs = import nixpkgs {
-            inherit system;
-            inherit overlays;
-            config.allowUnfree = true;
-          };
+          inherit pkgs;
         };
         modules = [
           ./hosts/zephyrus/configuration.nix
@@ -62,16 +69,7 @@
       };
 
       homeConfigurations."jlafferton@dell" = inputs.home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          inherit system;
-          inherit overlays;
-          config = {
-            allowUnfree = true;
-            permittedInsecurePackages = [
-              "electron-25.9.0"
-            ];
-          };
-        };
+        inherit pkgs;
         modules = [ ./hosts/dell/home.nix ];
         extraSpecialArgs = { inherit inputs outputs; };
       };
