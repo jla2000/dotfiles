@@ -6,7 +6,7 @@ in
   options.helix.cpp-formatter = lib.mkOption {
     type = tomlFormat.type;
     default = {
-      command = "${pkgs.clang-tools_16}/bin/clang-format";
+      command = "clang-format";
       args = [ "-style=file" ];
     };
   };
@@ -17,6 +17,7 @@ in
       package = pkgs.helix-unstable;
       extraPackages = with pkgs; [
         python3Packages.python-lsp-server
+        clang-tools_16
       ];
       settings = {
         theme = "gruvbox";
@@ -47,7 +48,10 @@ in
         {
           name = "cmake";
           auto-format = true;
-          formatter.command = "${pkgs.cmake-format}/bin/cmake-format";
+          formatter = {
+            command = "${pkgs.cmake-format}/bin/cmake-format";
+            args = [ "-" ];
+          };
         }
         {
           name = "nix";
