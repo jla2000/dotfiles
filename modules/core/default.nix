@@ -19,5 +19,6 @@
     fd
     ripgrep
     obsidian
+    ranger
   ];
 }
