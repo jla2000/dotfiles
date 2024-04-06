@@ -28,7 +28,7 @@
   wezterm.fontSize = 11.5;
   wezterm.wsl = true;
 
-  programs.helix.languages.cpp-formatter = {
+  helix.cpp.formatter = {
     command = "bash";
     args = [ "-c" "clang-format-15 -style=file | doxyformat" ];
   };

@@ -3,7 +3,7 @@ let
   tomlFormat = pkgs.formats.toml { };
 in
 {
-  options.helix.cpp-formatter = lib.mkOption {
+  options.helix.cpp.formatter = lib.mkOption {
     type = tomlFormat.type;
     default = {
       command = "clang-format";
@@ -18,6 +18,7 @@ in
       extraPackages = with pkgs; [
         python3Packages.python-lsp-server
         clang-tools_16
+        cmake-language-server
       ];
       settings = {
         theme = "gruvbox";
@@ -43,7 +44,7 @@ in
         {
           name = "cpp";
           auto-format = true;
-          formatter = config.helix.cpp-formatter;
+          formatter = config.helix.cpp.formatter;
         }
         {
           name = "cmake";
