@@ -3,7 +3,7 @@
   options.wezterm = {
     fontSize = lib.mkOption {
       type = lib.types.float;
-      default = 15;
+      default = 15.0;
     };
     colorScheme = lib.mkOption {
       type = lib.types.string;
