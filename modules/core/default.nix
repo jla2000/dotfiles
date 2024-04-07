@@ -20,5 +20,6 @@
     ripgrep
     obsidian
     ranger
+    steel
   ];
 }

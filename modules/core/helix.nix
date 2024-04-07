@@ -19,6 +19,7 @@ in
         python3Packages.python-lsp-server
         clang-tools_16
         cmake-language-server
+        marksman
       ];
       settings = {
         theme = "gruvbox";
