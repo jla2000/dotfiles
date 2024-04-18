@@ -33,7 +33,8 @@
       starship init fish | source
 
       fish_add_path ~/scripts/
-      fish_add_path ~/.local/bin'';
+      fish_add_path ~/.local/bin
+      fish_add_path /opt/vector-clang-tidy/bin'';
 
     shellAliases = {
       ls = "${pkgs.eza}/bin/eza";

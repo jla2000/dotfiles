@@ -10,10 +10,6 @@
   home = {
     username = "jlafferton";
     homeDirectory = "/home/jlafferton";
-    packages = with pkgs; [
-      cargo
-      rustc
-    ];
     sessionVariables = {
       USERDOMAIN = "VECTOR";
     };

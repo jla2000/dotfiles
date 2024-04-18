@@ -28,10 +28,7 @@ in
           line-number = "relative";
           true-color = true;
           file-picker.hidden = false;
-          lsp = {
-            display-messages = true;
-            display-inlay-hints = false;
-          };
+          lsp.display-messages = true;
           indent-guides.render = true;
         };
         keys.insert = {
@@ -39,6 +36,15 @@ in
         };
         keys.normal = {
           C-g = [ ":new" ":insert-output ${pkgs.lazygit}/bin/lazygit" ":buffer-close!" ":redraw" ];
+          H = ":toggle lsp.display-inlay-hints";
+          C-h = "jump_view_left";
+          C-l = "jump_view_right";
+          space.b.d = ":buffer-close";
+          C-j = [ "goto_next_paragraph" ];
+          C-k = [ "goto_prev_paragraph" ];
+          tab = "goto_next_buffer";
+          S-tab = "goto_previous_buffer";
+          X = "extend_line_above";
         };
       };
       languages.language = [
