@@ -39,7 +39,6 @@ in
           H = ":toggle lsp.display-inlay-hints";
           C-h = "jump_view_left";
           C-l = "jump_view_right";
-          space.b.d = ":buffer-close";
           C-j = [ "goto_next_paragraph" ];
           C-k = [ "goto_prev_paragraph" ];
           tab = "goto_next_buffer";
