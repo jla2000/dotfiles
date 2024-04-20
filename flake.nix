@@ -78,5 +78,10 @@
         modules = [ ./hosts/dell/home.nix ];
         extraSpecialArgs = { inherit inputs outputs; };
       };
+      homeConfigurations."jan@muh" = inputs.home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [ ./hosts/muh/home.nix ];
+        extraSpecialArgs = { inherit inputs outputs; };
+      };
     };
 }
