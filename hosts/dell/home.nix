@@ -1,4 +1,12 @@
 { pkgs, ... }:
+let
+  create-worktree = pkgs.writeShellScriptBin "create-worktree" ''
+    git worktree add ~/work/$1 $2
+    cd ~/work/$1
+    git submodule update --init
+    ln -s ~/work/microsar-adaptive/CMakeUserPresets.json .
+  '';
+in
 {
   imports = [
     ../../modules/core/default.nix
@@ -12,8 +20,11 @@
     homeDirectory = "/home/jlafferton";
     sessionVariables = {
       USERDOMAIN = "VECTOR";
+      CCACHE_BASEDIR = "/home/jlafferton/work";
+      CCACHE_NOHASHDIR = "true";
     };
     stateVersion = "23.11";
+    packages = [ create-worktree ];
   };
 
   programs.fish.shellAliases = {

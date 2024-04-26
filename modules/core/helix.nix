@@ -70,7 +70,7 @@ in
           auto-format = true;
           formatter = {
             command = "${pkgs.cmake-format}/bin/cmake-format";
-            args = [ "-" ];
+            args = [ "--enable-markup=false" "--autosort=true" "-" ];
           };
         }
         {
@@ -88,7 +88,5 @@ in
         }
       ];
     };
-
-    home.sessionVariables.EDITOR = "hx";
   };
 }
