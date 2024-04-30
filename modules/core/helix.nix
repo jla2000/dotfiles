@@ -14,8 +14,7 @@ in
   config = {
     programs.helix = {
       enable = true;
-      # package = pkgs.helix-unstable;
-      package = pkgs.helix;
+      package = pkgs.helix-unstable;
       extraPackages = with pkgs; [
         python3Packages.python-lsp-server
         clang-tools_16

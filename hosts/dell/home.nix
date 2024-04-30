@@ -37,7 +37,7 @@ in
 
   helix.cpp.formatter = {
     command = "bash";
-    args = [ "-c" "clang-format-15 -style=file | doxyformat" ];
+    args = [ "-c" "clang-format-15 --style=file:$HOME/work/microsar-adaptive/BSW/amsr-vector-fs-ipcbinding/.clang-format | doxyformat" ];
   };
 
   # programs.git = {
