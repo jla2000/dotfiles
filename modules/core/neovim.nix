@@ -102,6 +102,4 @@ in
   ];
 
   xdg.configFile."nvim/parser".source = "${treesitterPath}/parser";
-
-  home.sessionVariables.EDITOR = "nvim";
 }

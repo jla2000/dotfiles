@@ -1,4 +1,4 @@
-{ inputs, pkgs, lib, ... }:
+{ inputs, pkgs, lib, config, ... }:
 {
   imports = [
     ./tmux.nix
@@ -21,5 +21,9 @@
     obsidian
     ranger
     steel
+    unstable.nh
+    nix-output-monitor
   ];
+
+  home.sessionVariables.FLAKE = "${config.home.homeDirectory}/code/nixos-flake";
 }

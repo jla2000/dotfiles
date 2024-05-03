@@ -12,10 +12,6 @@
     stateVersion = "23.11";
   };
 
-  programs.fish.shellAliases = {
-    r = "pushd ~/code/nixos-flake/; home-manager switch --flake .#jan@muh; popd";
-  };
-
   programs.git = {
     enable = true;
     userName = "Jan Lafferton";

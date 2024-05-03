@@ -10,10 +10,6 @@
     homeDirectory = "/home/jan";
   };
 
-  programs.fish.shellAliases = {
-    r = "pushd ~/code/nixos-flake/; sudo nixos-rebuild switch --flake .#zephyrus; popd";
-  };
-
   programs.git = {
     enable = true;
     userName = "Jan Lafferton";
