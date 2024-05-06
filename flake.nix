@@ -73,7 +73,7 @@
         ];
       };
 
-      homeConfigurations."jlafferton@dell" = inputs.home-manager.lib.homeManagerConfiguration {
+      homeConfigurations."jlafferton@DE18314NB" = inputs.home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ ./hosts/dell/home.nix ];
         extraSpecialArgs = { inherit inputs outputs; };
