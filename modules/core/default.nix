@@ -20,7 +20,6 @@
     ripgrep
     obsidian
     ranger
-    steel
     unstable.nh
     nix-output-monitor
   ];
