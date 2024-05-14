@@ -20,9 +20,10 @@ in
         clang-tools_16
         cmake-language-server
         marksman
+        lldb
       ];
       settings = {
-        theme = "gruvbox";
+        theme = "tokyonight_storm";
         editor = {
           mouse = true;
           line-number = "relative";
@@ -54,9 +55,9 @@ in
           "{" = "goto_prev_paragraph";
 
           # Improve g movements
-          g.l = "extend_to_line_end";
-          g.h = "extend_to_line_start";
-          g.s = [ "collapse_selection" "select_mode" "goto_first_nonwhitespace" "exit_select_mode" ];
+          # g.l = "extend_to_line_end";
+          # g.h = "extend_to_line_start";
+          # g.s = [ "collapse_selection" "select_mode" "goto_first_nonwhitespace" "exit_select_mode" ];
         };
       };
       languages.language = [
