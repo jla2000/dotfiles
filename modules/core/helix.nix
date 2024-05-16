@@ -1,6 +1,9 @@
 { pkgs, lib, config, ... }:
 let
   tomlFormat = pkgs.formats.toml { };
+  lldb-dap = pkgs.writeShellScriptBin "lldb-dap" /* sh */ ''
+    ${pkgs.lldb}/bin/lldb-vscode "$@"
+  '';
 in
 {
   options.helix.cpp.formatter = lib.mkOption {
@@ -21,6 +24,7 @@ in
         cmake-language-server
         marksman
         lldb
+        lldb-dap
       ];
       settings = {
         theme = "tokyonight_storm";
