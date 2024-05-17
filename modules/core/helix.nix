@@ -72,7 +72,7 @@ in
         }
         {
           name = "cmake";
-          auto-format = true;
+          auto-format = false;
           formatter = {
             command = "${pkgs.cmake-format}/bin/cmake-format";
             args = [ "--enable-markup=false" "--autosort=true" "-" ];
@@ -90,6 +90,13 @@ in
             command = "${pkgs.black}/bin/black";
             args = [ "-" "--quiet" ];
           };
+        }
+        {
+          name = "jinja";
+          auto-format = false;
+          scope = "source.jinja";
+          file-types = [ "jinja" { glob = "*.cpp.j2"; } { glob = "*.h.j2"; } ];
+          grammar = "cpp";
         }
       ];
     };
