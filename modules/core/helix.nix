@@ -25,6 +25,7 @@ in
         marksman
         lldb
         lldb-dap
+        nil
       ];
       settings = {
         theme = "tokyonight_storm";
@@ -36,6 +37,7 @@ in
           file-picker.hidden = false;
           lsp.display-messages = true;
           indent-guides.render = true;
+          color-modes = true;
         };
         keys.insert = {
           j.k = "normal_mode";
@@ -57,11 +59,11 @@ in
           # Paragraph movement
           "}" = "goto_next_paragraph";
           "{" = "goto_prev_paragraph";
-
-          # Improve g movements
-          # g.l = "extend_to_line_end";
-          # g.h = "extend_to_line_start";
-          # g.s = [ "collapse_selection" "select_mode" "goto_first_nonwhitespace" "exit_select_mode" ];
+        };
+        keys.select = {
+          # Paragraph movement
+          "}" = "goto_next_paragraph";
+          "{" = "goto_prev_paragraph";
         };
       };
       languages.language = [
