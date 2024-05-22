@@ -49,9 +49,10 @@ in
           # Toggle settings
           H = ":toggle lsp.display-inlay-hints";
 
-          # Buffer switching
+          # Buffer management
           tab = "goto_next_buffer";
           S-tab = "goto_previous_buffer";
+          space.x = ":buffer-close";
 
           # Selection
           X = "extend_line_above";
