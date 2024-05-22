@@ -33,7 +33,6 @@ in
           mouse = true;
           line-number = "relative";
           cursorline = true;
-          true-color = true;
           file-picker.hidden = false;
           lsp.display-messages = true;
           indent-guides.render = true;

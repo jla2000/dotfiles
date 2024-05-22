@@ -22,6 +22,7 @@ in
       USERDOMAIN = "VECTOR";
       CCACHE_BASEDIR = "/home/jlafferton/work";
       CCACHE_NOHASHDIR = "true";
+      COLORTERM = "truecolor";
     };
     stateVersion = "23.11";
     packages = [ create-worktree ];
