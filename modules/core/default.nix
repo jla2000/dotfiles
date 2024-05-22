@@ -3,7 +3,6 @@
   imports = [
     ./tmux.nix
     ./fish.nix
-    ./neovim.nix
     ./starship.nix
     ./helix.nix
   ];
@@ -23,6 +22,9 @@
     ranger
     unstable.nh
     nix-output-monitor
+    cargo
+    rustc
+    unstable.neovim
   ];
 
   home.sessionVariables.FLAKE = "${config.home.homeDirectory}/code/nixos-flake";
