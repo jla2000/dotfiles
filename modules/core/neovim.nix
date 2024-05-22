@@ -34,7 +34,7 @@ let
     paths = pkgs.unstable.vimPlugins.nvim-treesitter.withAllGrammars.dependencies;
   };
 
-  neovimWrapped = pkgs.wrapNeovim pkgs.neovim-unstable {
+  neovimWrapped = pkgs.unstable.neovim.override {
     configure = {
       customRC = /* vim */ ''
         let g:plugin_path = "${pluginPath}"

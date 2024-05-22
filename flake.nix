@@ -8,10 +8,6 @@
       url = "github:nix-community/home-manager/release-23.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    neovim-nightly = {
-      url = "github:neovim/neovim?dir=contrib";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
     helix-nightly = {
       url = "github:helix-editor/helix";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
@@ -31,7 +27,6 @@
         inputs.nur.overlay
         (final: prev: {
           unstable = inputs.nixpkgs-unstable.legacyPackages.${final.system};
-          neovim-unstable = inputs.neovim-nightly.packages.${final.system}.default;
           helix-unstable = inputs.helix-nightly.packages.${final.system}.default;
         })
       ];
