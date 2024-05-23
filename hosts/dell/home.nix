@@ -6,6 +6,10 @@ let
     git submodule update --init
     ln -s ~/work/microsar-adaptive/CMakeUserPresets.json .
   '';
+  random-cpp-file = "$HOME/work/microsar-adaptive/BSW/amsr-vector-fs-ipcbinding/lib/ipc_binding_core/src/ipc_binding_core/internal/connection_manager/proxy_router_connector.cpp";
+  cpp-formatter = pkgs.writeShellScriptBin "format-cpp" ''
+    clang-format-15 --assume-filename=${random-cpp-file} | doxyformat
+  '';
 in
 {
   imports = [
@@ -25,7 +29,10 @@ in
       COLORTERM = "truecolor";
     };
     stateVersion = "23.11";
-    packages = [ create-worktree ];
+    packages = [
+      create-worktree
+      cpp-formatter
+    ];
   };
 
   programs.fish.shellAliases = {
@@ -36,8 +43,8 @@ in
   wezterm.wsl = true;
 
   helix.cpp.formatter = {
-    command = "bash";
-    args = [ "-c" "clang-format-15 --style=file:$HOME/work/microsar-adaptive/BSW/amsr-vector-fs-ipcbinding/.clang-format | doxyformat" ];
+    command = "${cpp-formatter}/bin/format-cpp";
+    args = [ "-" ];
   };
 
   # programs.git = {

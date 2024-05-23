@@ -4,6 +4,13 @@ let
   lldb-dap = pkgs.writeShellScriptBin "lldb-dap" /* sh */ ''
     ${pkgs.lldb}/bin/lldb-vscode "$@"
   '';
+  clangd = pkgs.writeShellScriptBin "clangd" /* sh */ ''
+    if [ -f /opt/vector-clang-tidy/bin/clangd ]; then
+      /opt/vector-clang-tidy/bin/clangd "$@"
+    else
+      ${pkgs.clang-tools_16}/bin/clangd "$@"
+    fi
+  '';
 in
 {
   options.helix.cpp.formatter = lib.mkOption {
@@ -20,7 +27,7 @@ in
       package = pkgs.helix-unstable;
       extraPackages = with pkgs; [
         python3Packages.python-lsp-server
-        clang-tools_16
+        clangd
         cmake-language-server
         marksman
         lldb
