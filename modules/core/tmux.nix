@@ -3,7 +3,7 @@
   home.packages = [ pkgs.sysstat ];
 
   programs.tmux = {
-    package = pkgs.unstable.tmux;
+    package = pkgs.tmux;
     prefix = "C-s";
     enable = true;
     newSession = true;

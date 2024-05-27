@@ -22,9 +22,14 @@ in
   };
 
   config = {
+    # programs.ranger = {
+    #   enable = true;
+    #   rifle.command = "tmux send-keys -t :editor.0 ':open'";
+    # };
+
     programs.helix = {
       enable = true;
-      package = pkgs.helix-unstable;
+      package = pkgs.helix;
       extraPackages = with pkgs; [
         python3Packages.python-lsp-server
         clangd
@@ -66,6 +71,11 @@ in
           # Paragraph movement
           "}" = "goto_next_paragraph";
           "{" = "goto_prev_paragraph";
+
+          space.e = [
+            ":sh tmux rename-window editor"
+            ":sh tmux split-pane ranger"
+          ];
         };
         keys.select = {
           # Paragraph movement

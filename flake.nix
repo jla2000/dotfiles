@@ -1,16 +1,15 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nur.url = "github:nix-community/NUR";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     home-manager = {
-      url = "github:nix-community/home-manager/release-23.11";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     helix-nightly = {
       url = "github:helix-editor/helix";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
@@ -26,8 +25,7 @@
       overlays = [
         inputs.nur.overlay
         (final: prev: {
-          unstable = inputs.nixpkgs-unstable.legacyPackages.${final.system};
-          helix-unstable = inputs.helix-nightly.packages.${final.system}.default;
+          helix = inputs.helix-nightly.packages.${final.system}.default;
         })
       ];
 

@@ -132,7 +132,7 @@
 
   # Install some nice fonts
   fonts.packages = [
-    (pkgs.unstable.nerdfonts.override {
+    (pkgs.nerdfonts.override {
       fonts = [
         "FiraMono"
         "JetBrainsMono"

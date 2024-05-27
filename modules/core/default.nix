@@ -10,7 +10,7 @@
   nix = {
     package = lib.mkDefault pkgs.nix;
     settings.experimental-features = [ "nix-command" "flakes" ];
-    registry.nixpkgs.flake = inputs.nixpkgs-unstable;
+    registry.nixpkgs.flake = inputs.nixpkgs;
   };
 
   home.packages = with pkgs; [
@@ -19,12 +19,11 @@
     gdb
     ripgrep
     obsidian
-    ranger
-    unstable.nh
+    nh
     nix-output-monitor
     cargo
     rustc
-    unstable.neovim
+    neovim
   ];
 
   home.sessionVariables.FLAKE = "${config.home.homeDirectory}/code/nixos-flake";
