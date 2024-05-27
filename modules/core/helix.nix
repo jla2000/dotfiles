@@ -107,6 +107,10 @@ in
           file-types = [ "jinja" { glob = "*.cpp.j2"; } { glob = "*.h.j2"; } ];
           grammar = "cpp";
         }
+        {
+          name = "xml";
+          file-types = [{ glob = "*.arxml"; }];
+        }
       ];
     };
 
