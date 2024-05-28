@@ -11,6 +11,11 @@ let
       ${pkgs.clang-tools_16}/bin/clangd "$@"
     fi
   '';
+
+  ranger-hook = pkgs.writeShellScriptBin "ranger-hook" ''
+    tmux send-keys -t :editor.0 ":open $@"
+    tmux send-keys -t :editor.0 Enter
+  '';
 in
 {
   options.helix.cpp.formatter = lib.mkOption {
@@ -22,10 +27,13 @@ in
   };
 
   config = {
-    # programs.ranger = {
-    #   enable = true;
-    #   rifle.command = "tmux send-keys -t :editor.0 ':open'";
-    # };
+    programs.ranger = {
+      enable = true;
+      rifle = [{
+        command = "${ranger-hook}/bin/ranger-hook $@";
+        condition = "file";
+      }];
+    };
 
     programs.helix = {
       enable = true;
