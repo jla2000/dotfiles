@@ -10,11 +10,12 @@ let
   cpp-formatter = pkgs.writeShellScriptBin "format-cpp" ''
     clang-format-15 --assume-filename=${random-cpp-file} | doxyformat
   '';
+  clangd-extra-args = "--clang-tidy";
   clangd = pkgs.writeShellScriptBin "clangd" /* sh */ ''
     if [ -f /opt/vector-clang-tidy/bin/clangd ]; then
-      /opt/vector-clang-tidy/bin/clangd "$@"
+      /opt/vector-clang-tidy/bin/clangd ${clangd-extra-args} "$@"
     else
-      ${pkgs.clang-tools_16}/bin/clangd "$@"
+      ${pkgs.clang-tools_16}/bin/clangd ${clangd-extra-args} "$@"
     fi
   '';
 in
