@@ -3,7 +3,7 @@
     enable = true;
     font = {
       name = "MonaspiceNe NFM Bold";
-      size = 15;
+      size = 16;
     };
     environment = {
       TERM = "xterm-256color";

@@ -139,7 +139,7 @@
         "Monaspace"
       ];
     })
-    pkgs.unstable.monaspace
+    pkgs.monaspace
   ];
 
   # This value determines the NixOS release from which the default
