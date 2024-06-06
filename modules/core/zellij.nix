@@ -1,6 +1,6 @@
 { pkgs, inputs, lib, ... }:
 let
-  yazi-picker = pkgs.writeShellScriptBin "yazi-picker" ''
+  yazi-picker = pkgs.writeShellScriptBin "yazi-picker" /* bash */ ''
     paths=$(${pkgs.yazi}/bin/yazi --chooser-file=/dev/stdout | while read -r; do printf "%q " "$REPLY"; done)
 
     if [[ -n "$paths" ]]; then

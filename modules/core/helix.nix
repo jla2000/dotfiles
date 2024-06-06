@@ -87,7 +87,7 @@ in
           name = "python";
           auto-format = true;
           formatter = {
-            command = "${pkgs.black} /bin/black";
+            command = "${pkgs.black}/bin/black";
             args = [ "-" "--quiet" ];
           };
         }
