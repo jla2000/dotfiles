@@ -20,7 +20,7 @@ in
     source = "${inputs.zellij}/zellij-utils/assets/themes";
   };
 
-  home.file.".config/zellij/config.kdl".text = ''
+  home.file.".config/zellij/config.kdl".text = /* kdl */ ''
     theme "catppuccin-macchiato"
     default_layout "compact"
     keybinds {
