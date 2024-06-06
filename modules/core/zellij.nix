@@ -9,7 +9,7 @@
     enable = true;
     settings = {
       theme = "catppuccin-macchiato";
-      # pane_frames = false;
+      default_layout = "compact";
     };
   };
 }
