@@ -16,6 +16,20 @@ let
     tmux send-keys -t :editor.0 ":open $@"
     tmux send-keys -t :editor.0 Enter
   '';
+
+  yazi-picker = pkgs.writeShellScriptBin "yazi-picker" ''
+    paths=$(${pkgs.yazi}/bin/yazi --chooser-file=/dev/stdout | while read -r; do printf "%q " "$REPLY"; done)
+
+    if [[ -n "$paths" ]]; then
+    	zellij action toggle-floating-panes
+    	zellij action write 27 # send <Escape> key
+    	zellij action write-chars ":open $paths"
+    	zellij action write 13 # send <Enter> key
+    	zellij action toggle-floating-panes
+    fi
+
+    zellij action close-pane
+  '';
 in
 {
   options.helix.cpp.formatter = lib.mkOption {
@@ -48,7 +62,7 @@ in
         nil
       ];
       settings = {
-        theme = "tokyonight_storm";
+        theme = "catppuccin_macchiato";
         editor = {
           mouse = true;
           line-number = "relative";
@@ -62,9 +76,6 @@ in
           j.k = "normal_mode";
         };
         keys.normal = {
-          # Utility
-          C-g = [ ":new" ":insert-output ${pkgs.lazygit}/bin/lazygit" ":buffer-close!" ":redraw" ];
-
           # Toggle settings
           H = ":toggle lsp.display-inlay-hints";
 
@@ -84,6 +95,9 @@ in
             ":sh tmux rename-window editor"
             ":sh tmux split-pane ranger"
           ];
+
+          # Zellij file picker
+          C-y = ":sh zellij run -f -x 10% -y 10% --width 80% --height 80% -- bash ${yazi-picker}/bin/yazi-picker";
         };
         keys.select = {
           # Paragraph movement

@@ -5,6 +5,7 @@
     ./fish.nix
     ./starship.nix
     ./helix.nix
+    ./zellij.nix
   ];
 
   nix = {

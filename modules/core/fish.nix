@@ -18,9 +18,15 @@
       end
 
       # Load tmux
-      if not set -q TMUX
-          exec tmux
+      # if not set -q TMUX
+      #     exec tmux
+      # end
+
+      # Load zellij
+      if not set -q ZELLIJ
+        zellij
       end
+
 
       # Vim Bindings
       fish_hybrid_key_bindings

@@ -15,6 +15,10 @@
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zellij = {
+      url = "github:zellij-org/zellij";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
