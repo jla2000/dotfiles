@@ -10,6 +10,13 @@ let
   cpp-formatter = pkgs.writeShellScriptBin "format-cpp" ''
     clang-format-15 --assume-filename=${random-cpp-file} | doxyformat
   '';
+  clangd = pkgs.writeShellScriptBin "clangd" /* sh */ ''
+    if [ -f /opt/vector-clang-tidy/bin/clangd ]; then
+      /opt/vector-clang-tidy/bin/clangd "$@"
+    else
+      ${pkgs.clang-tools_16}/bin/clangd "$@"
+    fi
+  '';
 in
 {
   imports = [
@@ -32,6 +39,7 @@ in
     packages = [
       create-worktree
       cpp-formatter
+      clangd
     ];
   };
 
@@ -46,10 +54,4 @@ in
     command = "${cpp-formatter}/bin/format-cpp";
     args = [ "-" ];
   };
-
-  # programs.git = {
-  #   enable = true;
-  #   userName = "Jan Lafferton";
-  #   userEmail = "jan.lafferton@vector.com";
-  # };
 }
