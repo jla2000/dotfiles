@@ -20,13 +20,31 @@ in
     source = "${inputs.zellij}/zellij-utils/assets/themes";
   };
 
-  programs.zellij = {
-    enable = true;
-    settings = {
-      theme = "catppuccin-macchiato";
-      default_layout = "compact";
-    };
-  };
+  home.file.".config/zellij/config.kdl".text = ''
+    theme "catppuccin-macchiato"
+    default_layout "compact"
+    keybinds {
+      normal clear-defaults=true {
+        bind "Ctrl s" { SwitchToMode "Tmux"; }
+        unbind "Ctrl b"
+
+        bind "Ctrl h" { MoveFocus "Left"; }
+        bind "Ctrl l" { MoveFocus "Right"; }
+        bind "Ctrl j" { MoveFocus "Down"; }
+        bind "Ctrl k" { MoveFocus "Up"; }
+      }
+      tmux {
+        bind "e" { EditScrollback; }
+        bind "s" {
+          LaunchOrFocusPlugin "zellij:session-manager" {
+            floating true
+          } 
+        }
+      }
+    }
+  '';
+
+  home.packages = [ pkgs.zellij ];
 
   programs.helix.settings.keys.normal.C-y = ":sh zellij run -f -x 10% -y 10% --width 80% --height 80% -- bash ${yazi-picker}/bin/yazi-picker";
 }
