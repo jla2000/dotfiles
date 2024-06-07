@@ -59,7 +59,6 @@
   };
 
   home.packages = with pkgs; [
-    fzf
     fd
     gdb
     ripgrep
