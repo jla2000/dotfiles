@@ -1,7 +1,7 @@
 { pkgs, inputs, lib, ... }:
 let
   yazi-picker = pkgs.writeShellScriptBin "yazi-picker" /* bash */ ''
-    paths=$(${pkgs.yazi}/bin/yazi --chooser-file=/dev/stdout | while read -r; do printf "%q " "$REPLY"; done)
+    paths=$(yazi --chooser-file=/dev/stdout | while read -r; do printf "%q " "$REPLY"; done)
 
     if [[ -n "$paths" ]]; then
     	zellij action toggle-floating-panes
@@ -44,7 +44,7 @@ in
     }
   '';
 
-  home.packages = [ pkgs.zellij ];
+  home.packages = with pkgs; [ zellij yazi ];
 
   programs.helix.settings.keys.normal.C-y = ":sh zellij run -f -x 10% -y 10% --width 80% --height 80% -- bash ${yazi-picker}/bin/yazi-picker";
   programs.fish.interactiveShellInit = (lib.mkOrder 1001 /* fish */ ''
