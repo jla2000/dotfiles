@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
-    ../../modules/shell/default.nix
+    ../../modules/shell
   ];
 
   programs.home-manager.enable = true;

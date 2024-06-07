@@ -21,7 +21,7 @@ let
 in
 {
   imports = [
-    ../../modules/shell/default.nix
+    ../../modules/shell
     ../../modules/apps/wezterm.nix
   ];
 

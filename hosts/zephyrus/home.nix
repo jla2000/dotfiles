@@ -1,8 +1,8 @@
 {
   imports = [
-    ../../modules/apps/default.nix
-    ../../modules/shell/default.nix
-    ../../modules/desktop/i3/default.nix
+    ../../modules/apps
+    ../../modules/shell
+    ../../modules/desktop/i3
   ];
 
   home = {
