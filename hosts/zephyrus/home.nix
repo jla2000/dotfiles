@@ -1,7 +1,7 @@
 {
   imports = [
     ../../modules/apps/default.nix
-    ../../modules/core/default.nix
+    ../../modules/shell/default.nix
     ../../modules/desktop/i3/default.nix
   ];
 
