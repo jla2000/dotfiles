@@ -13,6 +13,11 @@ let
 
     zellij action close-pane
   '';
+  lazygit-popup = pkgs.writeShellScriptBin "lazygit-popup" /* bash */ ''
+    ${pkgs.lazygit}/bin/lazygit
+    zellij action close-pane
+  '';
+  popup-settings = "-f -x 10% -y 10% --width 80% --height 80%";
 in
 {
   home.file.".config/zellij/themes" = {
@@ -47,8 +52,8 @@ in
   home.packages = with pkgs; [ zellij yazi ];
 
   programs.helix.settings.keys.normal = {
-    C-y = ":sh zellij run -f -x 10% -y 10% --width 80% --height 80% -- bash ${yazi-picker}/bin/yazi-picker";
-    C-g = ":sh zellij run -f -x 10% -y 10% --width 80% --height 80% -- ${pkgs.lazygit}/bin/lazygit";
+    C-y = ":sh zellij run ${popup-settings} -- bash ${yazi-picker}/bin/yazi-picker";
+    C-g = ":sh zellij run ${popup-settings} -- bash ${lazygit-popup}/bin/lazygit-popup";
   };
 
   programs.fish.interactiveShellInit = (lib.mkOrder 1001 /* fish */ ''
