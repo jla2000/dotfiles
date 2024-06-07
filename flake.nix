@@ -1,14 +1,10 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nur.url = "github:nix-community/NUR";
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nur.url = "github:nix-community/nur";
+    nixos-hardware.url = "github:nixos/nixos-hardware";
     home-manager = {
-      url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    helix-nightly = {
-      url = "github:helix-editor/helix";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     pre-commit-hooks = {
@@ -26,16 +22,8 @@
       inherit (self) outputs;
       system = "x86_64-linux";
 
-      overlays = [
-        inputs.nur.overlay
-        (final: prev: {
-          helix = inputs.helix-nightly.packages.${final.system}.default;
-        })
-      ];
-
       pkgs = import nixpkgs {
         inherit system;
-        inherit overlays;
         config = {
           allowUnfree = true;
           permittedInsecurePackages = [
