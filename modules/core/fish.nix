@@ -22,7 +22,6 @@
 
       # Better cd
       zoxide init fish | source
-      alias cd=z
 
       # Nice prompt
       starship init fish | source
@@ -31,9 +30,7 @@
       fish_add_path ~/.local/bin'';
 
     shellAliases = {
-      ls = "${pkgs.eza}/bin/eza";
       g = "${pkgs.lazygit}/bin/lazygit";
-      cat = "${pkgs.bat}/bin/bat";
     };
 
     plugins = with pkgs.fishPlugins; [
