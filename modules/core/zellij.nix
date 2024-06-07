@@ -20,12 +20,11 @@ let
   popup-settings = "-f -x 10% -y 10% --width 80% --height 80%";
 in
 {
-  home.file.".config/zellij/themes" = {
-    recursive = true;
+  xdg.configFile."zellij/themes" = {
     source = "${inputs.zellij}/zellij-utils/assets/themes";
   };
 
-  home.file.".config/zellij/config.kdl".text = /* kdl */ ''
+  xdg.configFile."zellij/config.kdl".text = /* kdl */ ''
     theme "catppuccin-macchiato"
     default_layout "compact"
     keybinds {
@@ -49,7 +48,11 @@ in
     }
   '';
 
-  home.packages = with pkgs; [ zellij yazi ];
+  programs.zellij = {
+    enable = true;
+    enableBashIntegration = true;
+    enableFishIntegration = true;
+  };
 
   programs.helix.settings.keys.normal = {
     C-y = ":sh zellij run ${popup-settings} -- bash ${yazi-picker}/bin/yazi-picker";
@@ -57,10 +60,6 @@ in
   };
 
   programs.fish.interactiveShellInit = (lib.mkOrder 1001 /* fish */ ''
-    if not set -q ZELLIJ
-      zellij
-    end
-
     function zellij_tab_name_update --on-variable PWD
       if set -q ZELLIJ
         set tab_name ""

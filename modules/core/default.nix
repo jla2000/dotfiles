@@ -3,9 +3,9 @@
   imports = [
     ./tmux.nix
     ./fish.nix
-    ./starship.nix
     ./helix.nix
     ./zellij.nix
+    ./utility.nix
   ];
 
   nix = {

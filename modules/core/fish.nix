@@ -1,34 +1,13 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
-  home.packages = with pkgs; [
-    zoxide
-    bat
-  ];
-
   programs.fish = {
     enable = true;
-    interactiveShellInit = /* fish */ ''
-
-      # Source home-manager variables
-      if test -e ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-          bass source ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-      end
-      # Add nix binaries to path
-      if test -e /etc/profile.d/nix.sh
-          bass source /etc/profile.d/nix.sh
-      end
-
+    interactiveShellInit = (lib.mkOrder 0 /* fish */ ''
       # Vim Bindings
       fish_hybrid_key_bindings
 
-      # Better cd
-      zoxide init fish | source
-
-      # Nice prompt
-      starship init fish | source
-
       fish_add_path ~/scripts/
-      fish_add_path ~/.local/bin'';
+      fish_add_path ~/.local/bin'');
 
     shellAliases = {
       ls = "${pkgs.eza}/bin/eza";

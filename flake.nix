@@ -15,6 +15,10 @@
       url = "github:zellij-org/zellij";
       flake = false;
     };
+    catppuccin-bat-theme = {
+      url = "github:catppuccin/bat";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
