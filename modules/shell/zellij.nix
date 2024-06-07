@@ -13,11 +13,6 @@ let
 
     zellij action close-pane
   '';
-  lazygit-popup = pkgs.writeShellScriptBin "lazygit-popup" /* bash */ ''
-    lazygit
-    zellij action close-pane
-  '';
-  popup-settings = "-f -x 10% -y 10% --width 80% --height 80%";
 in
 {
   xdg.configFile."zellij/themes" = {
@@ -36,6 +31,21 @@ in
         bind "Ctrl l" { MoveFocus "Right"; }
         bind "Ctrl j" { MoveFocus "Down"; }
         bind "Ctrl k" { MoveFocus "Up"; }
+
+        bind "Ctrl g" {
+          Run "lazygit" {
+            floating true
+            close_on_exit true
+            x "10%"
+            y "10%"
+            width "80%"
+            height "80%"
+          }
+        }
+
+        bind "Ctrl y" {
+          Run ""
+        }
       }
       tmux {
         bind "e" { EditScrollback; }
@@ -55,8 +65,7 @@ in
   };
 
   programs.helix.settings.keys.normal = {
-    C-y = ":sh zellij run ${popup-settings} -- bash ${yazi-picker}/bin/yazi-picker";
-    C-g = ":sh zellij run ${popup-settings} -- bash ${lazygit-popup}/bin/lazygit-popup";
+    C-y = ":sh zellij run -f -x 10% -y 10% --width 80% --height 80% -- bash ${yazi-picker}/bin/yazi-picker";
   };
 
   programs.fish.interactiveShellInit = (lib.mkOrder 1001 /* fish */ ''
