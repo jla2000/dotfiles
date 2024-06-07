@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     zoxide
+    bat
   ];
 
   programs.fish = {
@@ -30,6 +31,7 @@
       fish_add_path ~/.local/bin'';
 
     shellAliases = {
+      ls = "${pkgs.eza}/bin/eza";
       g = "${pkgs.lazygit}/bin/lazygit";
     };
 
