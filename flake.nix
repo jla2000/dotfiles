@@ -19,6 +19,10 @@
       url = "github:catppuccin/bat";
       flake = false;
     };
+    catppuccin-lazygit-theme = {
+      url = "github:catppuccin/lazygit";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:

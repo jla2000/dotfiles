@@ -32,5 +32,11 @@
     enableFishIntegration = true;
   };
 
+  programs.lazygit = {
+    enable = true;
+  };
+
+  xdg.configFile."lazygit/config.yml".source = "${inputs.catppuccin-lazygit-theme}/themes-mergable/macchiato/sapphire.yml";
+
   programs.fish.shellAliases.cat = "bat";
 }

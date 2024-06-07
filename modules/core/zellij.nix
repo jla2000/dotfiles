@@ -14,7 +14,7 @@ let
     zellij action close-pane
   '';
   lazygit-popup = pkgs.writeShellScriptBin "lazygit-popup" /* bash */ ''
-    ${pkgs.lazygit}/bin/lazygit
+    lazygit
     zellij action close-pane
   '';
   popup-settings = "-f -x 10% -y 10% --width 80% --height 80%";

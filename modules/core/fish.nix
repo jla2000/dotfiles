@@ -11,7 +11,7 @@
 
     shellAliases = {
       ls = "${pkgs.eza}/bin/eza";
-      g = "${pkgs.lazygit}/bin/lazygit";
+      g = "lazygit";
     };
 
     plugins = with pkgs.fishPlugins; [

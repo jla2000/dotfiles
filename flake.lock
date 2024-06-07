@@ -16,6 +16,22 @@
         "type": "github"
       }
     },
+    "catppuccin-lazygit-theme": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1717520038,
+        "narHash": "sha256-jQjg4YHIj321+dLoCxI0bjf2QYKvpINwqeicx9vqZmE=",
+        "owner": "catppuccin",
+        "repo": "lazygit",
+        "rev": "21a25afd92327ddea8446ab9171ca7039b431e9e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "lazygit",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -161,6 +177,7 @@
     "root": {
       "inputs": {
         "catppuccin-bat-theme": "catppuccin-bat-theme",
+        "catppuccin-lazygit-theme": "catppuccin-lazygit-theme",
         "home-manager": "home-manager",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
