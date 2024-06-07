@@ -40,8 +40,6 @@ in
           j.k = "normal_mode";
         };
         keys.normal = {
-          # Utility
-          C-g = [ ":new" ":insert-output ${pkgs.lazygit}/bin/lazygit" ":buffer-close!" ":redraw" ];
           # Toggle settings
           H = ":toggle lsp.display-inlay-hints";
 

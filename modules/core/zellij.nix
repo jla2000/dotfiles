@@ -46,7 +46,11 @@ in
 
   home.packages = with pkgs; [ zellij yazi ];
 
-  programs.helix.settings.keys.normal.C-y = ":sh zellij run -f -x 10% -y 10% --width 80% --height 80% -- bash ${yazi-picker}/bin/yazi-picker";
+  programs.helix.settings.keys.normal = {
+    C-y = ":sh zellij run -f -x 10% -y 10% --width 80% --height 80% -- bash ${yazi-picker}/bin/yazi-picker";
+    C-g = ":sh zellij run -f -x 10% -y 10% --width 80% --height 80% -- ${pkgs.lazygit}/bin/lazygit";
+  };
+
   programs.fish.interactiveShellInit = (lib.mkOrder 1001 /* fish */ ''
     if not set -q ZELLIJ
       zellij
