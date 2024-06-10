@@ -6,10 +6,12 @@ let
     git submodule update --init
     ln -s ~/work/microsar-adaptive/CMakeUserPresets.json .
   '';
+
   random-cpp-file = "$HOME/work/microsar-adaptive/BSW/amsr-vector-fs-ipcbinding/lib/ipc_binding_core/src/ipc_binding_core/internal/connection_manager/proxy_router_connector.cpp";
   cpp-formatter = pkgs.writeShellScriptBin "format-cpp" ''
     clang-format-15 --assume-filename=${random-cpp-file} | doxyformat
   '';
+
   clangd-extra-args = "--clang-tidy";
   clangd = pkgs.writeShellScriptBin "clangd" /* sh */ ''
     if [ -f /opt/vector-clang-tidy/bin/clangd ]; then
@@ -20,10 +22,7 @@ let
   '';
 in
 {
-  imports = [
-    ../../modules/shell
-    ../../modules/apps/wezterm.nix
-  ];
+  imports = [ ../../modules/shell ];
 
   programs.home-manager.enable = true;
 
