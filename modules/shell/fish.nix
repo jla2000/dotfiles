@@ -18,6 +18,7 @@
       { name = "bass"; src = bass.src; }
       { name = "autopair"; src = autopair.src; }
       { name = "puffer"; src = puffer.src; }
+      { name = "transient-fish"; src = transient-fish.src; }
     ];
   };
 }

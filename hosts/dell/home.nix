@@ -53,9 +53,6 @@ in
     '');
   };
 
-  wezterm.fontSize = 11.5;
-  wezterm.wsl = true;
-
   helix.cpp.formatter = {
     command = "${cpp-formatter}/bin/format-cpp";
     args = [ "-" ];
