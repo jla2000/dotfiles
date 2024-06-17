@@ -26,7 +26,7 @@ in
         nil
       ];
       settings = {
-        theme = "catppuccin_macchiato";
+        theme = "boo_berry";
         editor = {
           mouse = true;
           line-number = "relative";
