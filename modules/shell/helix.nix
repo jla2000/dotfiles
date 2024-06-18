@@ -26,7 +26,7 @@ in
         nil
       ];
       settings = {
-        theme = "boo_berry";
+        theme = "onedark";
         editor = {
           mouse = true;
           line-number = "relative";
