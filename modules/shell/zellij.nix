@@ -10,8 +10,6 @@ let
     	zellij action write 13 # send <Enter> key
     	zellij action toggle-floating-panes
     fi
-
-    zellij action close-pane
   '';
 in
 {
@@ -44,7 +42,14 @@ in
         }
 
         bind "Ctrl y" {
-          Run ""
+          Run "${yazi-picker}/bin/yazi-picker" {
+            floating true
+            close_on_exit true
+            x "10%"
+            y "10%"
+            width "80%"
+            height "80%"
+          }
         }
       }
       tmux {
@@ -62,10 +67,6 @@ in
     enable = true;
     enableBashIntegration = true;
     enableFishIntegration = true;
-  };
-
-  programs.helix.settings.keys.normal = {
-    C-y = ":sh zellij run -f -x 10% -y 10% --width 80% --height 80% -- bash ${yazi-picker}/bin/yazi-picker";
   };
 
   programs.fish.interactiveShellInit = (lib.mkOrder 1001 /* fish */ ''
