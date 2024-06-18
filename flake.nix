@@ -15,6 +15,10 @@
       url = "github:zellij-org/zellij";
       flake = false;
     };
+    helix = {
+      url = "github:helix-editor/helix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     catppuccin-bat-theme = {
       url = "github:catppuccin/bat";
       flake = false;
@@ -38,6 +42,11 @@
             "electron-25.9.0"
           ];
         };
+        overlays = [
+          (final: prev: {
+            helix = inputs.helix.packages.${final.system}.default;
+          })
+        ];
       };
     in
     {
