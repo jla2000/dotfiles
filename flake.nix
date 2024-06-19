@@ -27,6 +27,10 @@
       url = "github:catppuccin/lazygit";
       flake = false;
     };
+    lz-n = {
+      url = "github:nvim-neorocks/lz.n";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -46,6 +50,7 @@
           (final: prev: {
             helix = inputs.helix.packages.${final.system}.default;
           })
+          inputs.lz-n.outputs.overlays.default
         ];
       };
     in

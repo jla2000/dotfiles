@@ -5,6 +5,7 @@
     ./fish.nix
     ./helix.nix
     ./zellij.nix
+    ./neovim.nix
   ];
 
   programs.yazi = {
@@ -67,7 +68,6 @@
     nix-output-monitor
     cargo
     rustc
-    neovim
   ];
 
   home.sessionVariables.FLAKE = "${config.home.homeDirectory}/code/nixos-flake";
