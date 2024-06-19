@@ -26,10 +26,13 @@ in
       cmp-nvim-lsp
       luasnip
       conform-nvim
+      marks-nvim
     ];
     extraPackages = with pkgs; [
       lua-language-server
       stylua
+      nixd
+      nixpkgs-fmt
     ];
   };
 

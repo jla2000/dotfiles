@@ -86,6 +86,7 @@ require("lz.n").load({
 					},
 				},
 			})
+
 			lspconfig.clangd.setup({
 				capabilities = capabilities,
 				root_dir = lspconfig.util.root_pattern("compile_commands.json", ".git"),
@@ -98,6 +99,10 @@ require("lz.n").load({
 					"--function-arg-placeholders",
 					"--fallback-style=llvm",
 				},
+			})
+
+			lspconfig.nixd.setup({
+				capabilities = capabilities,
 			})
 		end,
 	},
@@ -132,6 +137,7 @@ require("lz.n").load({
 			require("conform").setup({
 				formatters_by_ft = {
 					lua = { "stylua" },
+					nix = { "nixpkgs_fmt" },
 				},
 				format_on_save = {
 					timeout_ms = 500,
@@ -173,6 +179,13 @@ require("lz.n").load({
 		event = "InsertEnter",
 		after = function()
 			require("nvim-autopairs").setup({})
+		end,
+	},
+	{
+		"marks.nvim",
+		event = "BufEnter",
+		after = function()
+			require("marks").setup({})
 		end,
 	},
 	{
