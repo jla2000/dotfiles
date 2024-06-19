@@ -14,6 +14,9 @@
     enable = true;
     userName = "Jan Lafferton";
     userEmail = "jan@lafferton.de";
+    extraConfig = {
+      pull.rebase = true;
+    };
   };
 
   home.stateVersion = "23.11";
