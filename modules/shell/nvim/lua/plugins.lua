@@ -25,7 +25,7 @@ require("lz.n").load({
 	},
 	{
 		"nvim-treesitter",
-		event = "BufEnter",
+		event = { "BufReadPre", "BufNewFile" },
 		after = function()
 			require("nvim-treesitter.configs").setup({
 				auto_install = false,
@@ -63,7 +63,7 @@ require("lz.n").load({
 	},
 	{
 		"nvim-lspconfig",
-		event = "BufEnter",
+		event = { "BufReadPre", "BufNewFile" },
 		after = function()
 			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -103,7 +103,7 @@ require("lz.n").load({
 	},
 	{
 		"nvim-cmp",
-		event = "BufEnter",
+		event = { "BufReadPre", "BufNewFile" },
 		after = function()
 			local cmp = require("cmp")
 			cmp.setup({
@@ -127,7 +127,7 @@ require("lz.n").load({
 	},
 	{
 		"conform.nvim",
-		event = "BufEnter",
+		event = { "BufReadPre", "BufNewFile" },
 		after = function()
 			require("conform").setup({
 				formatters_by_ft = {
@@ -142,7 +142,7 @@ require("lz.n").load({
 	},
 	{
 		"indent-blankline.nvim",
-		event = "BufEnter",
+		event = { "BufReadPre", "BufNewFile" },
 		after = function()
 			require("ibl").setup({
 				scope = {
