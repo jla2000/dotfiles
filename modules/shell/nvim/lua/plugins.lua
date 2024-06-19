@@ -3,6 +3,7 @@ require("lz.n").load({
 		"telescope.nvim",
 		after = function()
 			require("telescope").setup()
+      require("telescope").load_extension("fzf")
 		end,
 		keys = {
 			{ "<leader>f", "<cmd>Telescope find_files<cr>" },
@@ -87,6 +88,18 @@ require("lz.n").load({
           char = "│",
         }
       })
+    end
+  },
+  {
+    "cmake-tools.nvim",
+    ft = { "cpp", "cmake" },
+    keys = {
+      { "<leader>cp", "<cmd>CMakeSelectConfigurePreset<cr>" },
+      { "<leader>ct", "<cmd>CMakeSelectLaunchTarget<cr>" },
+      { "<leader>cr", "<cmd>CMakeRun<cr>" },
+    },
+    after = function()
+      require("cmake-tools").setup({})
     end
   },
 	{

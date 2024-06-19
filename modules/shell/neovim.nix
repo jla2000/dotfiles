@@ -12,12 +12,14 @@ in
     plugins = with pkgs.vimPlugins; [
       lz-n
       telescope-nvim
+      telescope-fzf-native-nvim
       oil-nvim
       treesitter
       tokyonight-nvim
       flash-nvim
       nvim-lspconfig
       indent-blankline-nvim
+      cmake-tools-nvim
     ];
     extraPackages = with pkgs; [
       lua-language-server
