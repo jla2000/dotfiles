@@ -73,7 +73,9 @@ require("lz.n").load({
           }
         }
       })
-      lspconfig.clangd.setup({})
+      lspconfig.clangd.setup({
+        root_dir = lspconfig.util.root_pattern("compile_commands.json", ".git"),
+      })
     end
   },
   {
