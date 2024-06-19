@@ -17,6 +17,7 @@ in
       tokyonight-nvim
       flash-nvim
       nvim-lspconfig
+      indent-blankline-nvim
     ];
     extraPackages = with pkgs; [
       lua-language-server

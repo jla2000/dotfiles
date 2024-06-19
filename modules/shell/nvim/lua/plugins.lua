@@ -37,10 +37,17 @@ require("lz.n").load({
   {
     "flash.nvim",
     after = function()
-      require("flash").setup()
+      require("flash").setup({
+        modes = {
+          char = {
+            enabled = false,
+          },
+        },
+      })
     end,
     keys = {
-      { "s", function() require("flash").jump() end }
+      { "s", function() require("flash").jump() end },
+      { "S", function() require("flash").treesitter() end }
     },
   },
   {
@@ -66,6 +73,20 @@ require("lz.n").load({
         }
       })
       lspconfig.clangd.setup({})
+    end
+  },
+  {
+    "indent-blankline.nvim",
+    event = "BufEnter",
+    after = function()
+      require("ibl").setup({
+        scope = {
+          enabled = false,
+        },
+        indent = {
+          char = "│",
+        }
+      })
     end
   },
 	{
