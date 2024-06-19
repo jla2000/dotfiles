@@ -113,6 +113,13 @@ require("lz.n").load({
       require("cmake-tools").setup({})
     end
   },
+  {
+    "nvim-autopairs",
+    event = "InsertEnter",
+    after = function()
+      require("nvim-autopairs").setup({})
+    end
+  },
 	{
 		"tokyonight.nvim",
 		colorscheme = "tokyonight",

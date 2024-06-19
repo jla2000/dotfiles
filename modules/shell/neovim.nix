@@ -21,6 +21,7 @@ in
       indent-blankline-nvim
       cmake-tools-nvim
       nvim-web-devicons
+      nvim-autopairs
     ];
     extraPackages = with pkgs; [
       lua-language-server
