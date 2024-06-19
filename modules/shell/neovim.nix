@@ -14,12 +14,13 @@ in
       telescope-nvim
       telescope-fzf-native-nvim
       oil-nvim
-      treesitter
+      nvim-treesitter
       tokyonight-nvim
       flash-nvim
       nvim-lspconfig
       indent-blankline-nvim
       cmake-tools-nvim
+      nvim-web-devicons
     ];
     extraPackages = with pkgs; [
       lua-language-server
