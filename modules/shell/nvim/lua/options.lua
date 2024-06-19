@@ -8,4 +8,7 @@ vim.o.shiftwidth = 2
 vim.o.expandtab = true
 vim.o.confirm = true
 
-vim.cmd [[ colorscheme tokyonight ]]
+vim.cmd [[ 
+  colorscheme tokyonight
+  packadd cfilter
+]]
