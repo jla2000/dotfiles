@@ -1,4 +1,3 @@
-vim.keymap.set("i", "jk", "<esc>")
 vim.keymap.set("n", "<tab>", "<cmd>bn<cr>")
 vim.keymap.set("n", "<s-tab>", "<cmd>bp<cr>")
 vim.keymap.set("n", "<leader>x", "<cmd>bd<cr>")

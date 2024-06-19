@@ -189,6 +189,27 @@ require("lz.n").load({
 		end,
 	},
 	{
+		"lualine.nvim",
+		event = "UIEnter",
+		after = function()
+			require("lualine").setup({})
+		end,
+	},
+	{
+		"better-escape.nvim",
+		event = "InsertEnter",
+		after = function()
+			require("better_escape").setup({})
+		end,
+	},
+	{
+		"gitsigns.nvim",
+		event = "UIEnter",
+		after = function()
+			require("gitsigns").setup({})
+		end,
+	},
+	{
 		"tokyonight.nvim",
 		colorscheme = "tokyonight",
 	},

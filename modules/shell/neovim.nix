@@ -27,6 +27,9 @@ in
       luasnip
       conform-nvim
       marks-nvim
+      lualine-nvim
+      better-escape-nvim
+      gitsigns-nvim
     ];
     extraPackages = with pkgs; [
       lua-language-server
