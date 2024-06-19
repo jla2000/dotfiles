@@ -6,12 +6,12 @@ require("lz.n").load({
 			require("telescope").load_extension("fzf")
 		end,
 		keys = {
-			{ "<leader>f", "<cmd>Telescope find_files<cr>" },
-			{ "<leader>o", "<cmd>Telescope oldfiles<cr>" },
-			{ "<leader>b", "<cmd>Telescope buffers<cr>" },
-			{ "<leader>/", "<cmd>Telescope live_grep<cr>" },
-			{ "<leader>s", "<cmd>Telescope document_symbols<cr>" },
-			{ "<leader>S", "<cmd>Telescope dynamic_workspace_symbols<cr>" },
+			{ "<leader>ff", "<cmd>Telescope find_files<cr>" },
+			{ "<leader>fr", "<cmd>Telescope oldfiles<cr>" },
+			{ "<leader>fb", "<cmd>Telescope buffers<cr>" },
+			{ "<leader>fg", "<cmd>Telescope live_grep<cr>" },
+			{ "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>" },
+			{ "<leader>fS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>" },
 		},
 	},
 	{
@@ -159,6 +159,8 @@ require("lz.n").load({
 		ft = { "cpp", "cmake" },
 		keys = {
 			{ "<leader>cp", "<cmd>CMakeSelectConfigurePreset<cr>" },
+			{ "<leader>cg", "<cmd>CMakeGenerate<cr>" },
+			{ "<leader>cc", "<cmd>CMakeSettings<cr>" },
 			{ "<leader>ct", "<cmd>CMakeSelectLaunchTarget<cr>" },
 			{ "<leader>cr", "<cmd>CMakeRun<cr>" },
 		},
