@@ -22,9 +22,14 @@ in
       cmake-tools-nvim
       nvim-web-devicons
       nvim-autopairs
+      nvim-cmp
+      cmp-nvim-lsp
+      luasnip
+      conform-nvim
     ];
     extraPackages = with pkgs; [
       lua-language-server
+      stylua
     ];
   };
 

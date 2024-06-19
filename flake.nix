@@ -51,6 +51,7 @@
             helix = inputs.helix.packages.${final.system}.default;
           })
           inputs.lz-n.outputs.overlays.default
+          inputs.nur.outputs.overlay
         ];
       };
     in
@@ -70,6 +71,7 @@
             home-manager.extraSpecialArgs = { inherit inputs; };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "bak";
             home-manager.users.jan = import ./hosts/zephyrus/home.nix;
           }
         ];
