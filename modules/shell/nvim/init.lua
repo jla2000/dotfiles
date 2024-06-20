@@ -1,4 +1,4 @@
 require("options")
-require("plugins")
 require("autocmds")
 require("keymaps")
+require("lz.n").load("plugins")

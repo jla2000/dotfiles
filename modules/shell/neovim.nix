@@ -39,6 +39,7 @@ in
       nui-nvim
       nvim-notify
       trouble-nvim
+      nvim-surround
     ];
     extraPackages = with pkgs; [
       lua-language-server
