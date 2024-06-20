@@ -33,7 +33,6 @@ in
       better-escape-nvim
       gitsigns-nvim
       persistence-nvim
-      mini-nvim
       yanky-nvim
       noice-nvim
       nui-nvim

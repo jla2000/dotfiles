@@ -162,15 +162,6 @@ require("lz.n").load({
 		end,
 	},
 	{
-		"mini.indentscope",
-		event = { "BufReadPre", "BufNewFile" },
-		after = function()
-			require("mini.indentscope").setup({
-				symbol = "│",
-			})
-		end,
-	},
-	{
 		"cmake-tools.nvim",
 		ft = { "cpp", "cmake" },
 		keys = {
