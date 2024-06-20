@@ -31,6 +31,7 @@ in
       better-escape-nvim
       gitsigns-nvim
       persistence-nvim
+      mini-nvim
     ];
     extraPackages = with pkgs; [
       lua-language-server
