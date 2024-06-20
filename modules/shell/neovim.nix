@@ -35,6 +35,9 @@ in
       persistence-nvim
       mini-nvim
       yanky-nvim
+      noice-nvim
+      nui-nvim
+      nvim-notify
     ];
     extraPackages = with pkgs; [
       lua-language-server

@@ -14,6 +14,7 @@ vim.o.wrap = false
 vim.o.signcolumn = "yes"
 vim.o.scrolloff = 4
 vim.o.laststatus = 3
+vim.o.smartcase = true
 
 vim.cmd([[ 
   colorscheme tokyonight
