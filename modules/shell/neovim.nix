@@ -42,6 +42,7 @@ in
       nvim-surround
       lazydev-nvim
       windline-nvim
+      dressing-nvim
     ];
     extraPackages = with pkgs; [
       lua-language-server
@@ -54,4 +55,6 @@ in
   xdg.configFile."nvim/init.lua".source = ./nvim/init.lua;
   xdg.configFile."nvim/lua".source = ./nvim/lua;
   xdg.configFile."nvim/parser".source = "${treesitter-parsers}/parser";
+
+  home.sessionVariables.EDITOR = "nvim";
 }
