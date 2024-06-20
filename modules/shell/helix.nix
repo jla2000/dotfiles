@@ -24,9 +24,10 @@ in
         lldb
         lldb-dap
         nil
+        rust-analyzer
       ];
       settings = {
-        theme = "onedark";
+        theme = "tokyonight";
         editor = {
           mouse = true;
           line-number = "relative";

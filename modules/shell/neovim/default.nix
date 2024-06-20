@@ -61,6 +61,4 @@ in
   xdg.configFile."nvim/init.lua".source = ./nvim/init.lua;
   xdg.configFile."nvim/lua".source = ./nvim/lua;
   xdg.configFile."nvim/parser".source = "${treesitter-parsers}/parser";
-
-  home.sessionVariables.EDITOR = "nvim";
 }

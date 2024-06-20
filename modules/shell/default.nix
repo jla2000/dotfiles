@@ -70,5 +70,7 @@
     rustc
   ];
 
+
+  home.sessionVariables.EDITOR = "hx";
   home.sessionVariables.FLAKE = "${config.home.homeDirectory}/code/nixos-flake";
 }
