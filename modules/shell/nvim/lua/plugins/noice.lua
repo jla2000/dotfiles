@@ -13,6 +13,8 @@ return {
 			},
 			messages = {
 				view = "mini",
+				view_warn = "mini",
+				view_error = "mini",
 			},
 			-- you can enable a preset for easier configuration
 			presets = {
