@@ -2,7 +2,14 @@ require("lz.n").load({
 	{
 		"telescope.nvim",
 		after = function()
-			require("telescope").setup()
+			require("telescope").setup({
+				defaults = {
+					mappings = {
+						i = { ["<c-d>"] = require("telescope.actions").delete_buffer },
+						n = { ["<c-d>"] = require("telescope.actions").delete_buffer },
+					},
+				},
+			})
 			require("telescope").load_extension("fzf")
 		end,
 		keys = {
@@ -342,7 +349,7 @@ require("lz.n").load({
 			require("trouble").setup({})
 		end,
 		keys = {
-			{ "<leader>xx", "<cmd>Trouble diagnostics<cr>" },
+			{ "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>" },
 		},
 	},
 	{
