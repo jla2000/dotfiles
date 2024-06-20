@@ -16,6 +16,7 @@ in
       oil-nvim
       nvim-treesitter
       nvim-treesitter-textobjects
+      nvim-treesitter-context
       tokyonight-nvim
       flash-nvim
       nvim-lspconfig
