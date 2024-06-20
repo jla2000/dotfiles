@@ -42,6 +42,7 @@ in
       lazydev-nvim
       windline-nvim
       dressing-nvim
+      headlines-nvim
     ];
     extraPackages = with pkgs; [
       lua-language-server
