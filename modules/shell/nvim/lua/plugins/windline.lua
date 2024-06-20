@@ -1,7 +1,7 @@
 return {
-	"lualine.nvim",
+	"windline.nvim",
 	event = "UIEnter",
 	after = function()
-		require("lualine").setup({})
+		require("wlsample.vscode")
 	end,
 }

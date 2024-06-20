@@ -31,7 +31,6 @@ in
       luasnip
       conform-nvim
       marks-nvim
-      lualine-nvim
       better-escape-nvim
       gitsigns-nvim
       persistence-nvim
@@ -42,6 +41,7 @@ in
       trouble-nvim
       nvim-surround
       lazydev-nvim
+      windline-nvim
     ];
     extraPackages = with pkgs; [
       lua-language-server

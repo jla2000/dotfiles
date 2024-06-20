@@ -35,6 +35,10 @@
       url = "github:stevearc/oil.nvim";
       flake = false;
     };
+    windline-nvim = {
+      url = "github:windwp/windline.nvim";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -57,11 +61,15 @@
                 name = "oil.nvim";
                 src = inputs.oil-nvim;
               };
+              windline-nvim = nixpkgs.legacyPackages.${final.system}.vimUtils.buildVimPlugin {
+                name = "windline.nvim";
+                src = inputs.windline-nvim;
+              };
             in
             {
               helix = inputs.helix.packages.${final.system}.default;
               vimPlugins = prev.vimPlugins // {
-                inherit oil-nvim;
+                inherit oil-nvim windline-nvim;
               };
             })
           inputs.lz-n.outputs.overlays.default
