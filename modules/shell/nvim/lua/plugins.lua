@@ -115,6 +115,7 @@ require("lz.n").load({
 				sources = {
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
+					{ name = "path" },
 					{ name = "buffer" },
 				},
 				mapping = cmp.mapping.preset.insert({
@@ -220,16 +221,38 @@ require("lz.n").load({
 	},
 	{
 		"persistence.nvim",
-		event = "BufEnter",
+		event = "BufReadPre",
 		after = function()
 			require("persistence").setup({})
-			vim.keymap.set("n", "<leader>qs", function()
-				require("persistence").load()
-			end)
-			vim.keymap.set("n", "<leader>ql", function()
-				require("persistence").load({ last = true })
-			end)
 		end,
+		keys = {
+			{
+				"<leader>qs",
+				function()
+					require("persistence").load()
+				end,
+			},
+			{
+				"<leader>ql",
+				function()
+					require("persistence").load({ last = true })
+				end,
+			},
+		},
+	},
+	{
+		"yanky.nvim",
+		after = function()
+			require("yanky").setup({})
+		end,
+		keys = {
+			{
+				"<leader>p",
+				function()
+					require("telescope").extensions.yank_history.yank_history({})
+				end,
+			},
+		},
 	},
 	{
 		"tokyonight.nvim",

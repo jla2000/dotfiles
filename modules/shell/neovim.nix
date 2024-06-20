@@ -24,6 +24,8 @@ in
       nvim-autopairs
       nvim-cmp
       cmp-nvim-lsp
+      cmp-path
+      cmp_luasnip
       luasnip
       conform-nvim
       marks-nvim
@@ -32,6 +34,7 @@ in
       gitsigns-nvim
       persistence-nvim
       mini-nvim
+      yanky-nvim
     ];
     extraPackages = with pkgs; [
       lua-language-server
