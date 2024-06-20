@@ -51,10 +51,7 @@ in
     ];
   };
 
-  xdg.configFile.nvim = {
-    source = ./nvim;
-    recursive = true;
-  };
-
+  xdg.configFile."nvim/init.lua".source = ./nvim/init.lua;
+  xdg.configFile."nvim/lua".source = ./nvim/lua;
   xdg.configFile."nvim/parser".source = "${treesitter-parsers}/parser";
 }
