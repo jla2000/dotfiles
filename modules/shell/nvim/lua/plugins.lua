@@ -32,6 +32,55 @@ require("lz.n").load({
 				highlight = {
 					enable = true,
 				},
+				textobjects = {
+					select = {
+						enable = true,
+
+						-- Automatically jump forward to textobj, similar to targets.vim
+						lookahead = true,
+
+						keymaps = {
+							-- You can use the capture groups defined in textobjects.scm
+							["af"] = "@function.outer",
+							["if"] = "@function.inner",
+							["ac"] = "@class.outer",
+							["ic"] = "@class.inner",
+							["ia"] = "@parameter.inner",
+							["aa"] = "@parameter.outer",
+							["ix"] = "@comment.inner",
+							["ax"] = "@comment.outer",
+						},
+					},
+					swap = {
+						enable = true,
+						swap_next = {
+							["<leader>a"] = "@parameter.inner",
+						},
+						swap_previous = {
+							["<leader>A"] = "@parameter.inner",
+						},
+					},
+					move = {
+						enable = true,
+						set_jumps = true,
+						goto_next_start = {
+							["]a"] = "@parameter.inner",
+							["]m"] = "@function.outer",
+						},
+						goto_next_end = {
+							["]A"] = "@parameter.outer",
+							["]M"] = "@function.outer",
+						},
+						goto_previous_start = {
+							["[a"] = "@parameter.outer",
+							["[m"] = "@function.outer",
+						},
+						goto_previous_end = {
+							["[A"] = "@parameter.outer",
+							["[M"] = "@function.outer",
+						},
+					},
+				},
 			})
 		end,
 	},
@@ -138,7 +187,7 @@ require("lz.n").load({
 			require("conform").setup({
 				formatters_by_ft = {
 					lua = { "stylua" },
-					nix = { "nixpkgs_fmt" },
+					nix = { "nixpkgs_fmt", "injected" },
 					cpp = { "clang_format", "doxyformat" },
 				},
 				format_on_save = {
@@ -240,7 +289,9 @@ require("lz.n").load({
 		"better-escape.nvim",
 		event = "InsertEnter",
 		after = function()
-			require("better_escape").setup({})
+			require("better_escape").setup({
+				mapping = { "jk" },
+			})
 		end,
 	},
 	{
@@ -283,6 +334,15 @@ require("lz.n").load({
 					require("telescope").extensions.yank_history.yank_history({})
 				end,
 			},
+		},
+	},
+	{
+		"trouble.nvim",
+		after = function()
+			require("trouble").setup({})
+		end,
+		keys = {
+			{ "<leader>xx", "<cmd>Trouble diagnostics<cr>" },
 		},
 	},
 	{

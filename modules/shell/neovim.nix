@@ -15,6 +15,7 @@ in
       telescope-fzf-native-nvim
       oil-nvim
       nvim-treesitter
+      nvim-treesitter-textobjects
       tokyonight-nvim
       flash-nvim
       nvim-lspconfig
@@ -37,6 +38,7 @@ in
       noice-nvim
       nui-nvim
       nvim-notify
+      trouble-nvim
     ];
     extraPackages = with pkgs; [
       lua-language-server
