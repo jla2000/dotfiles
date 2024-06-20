@@ -862,7 +862,6 @@
         "nur": "nur",
         "oil-nvim": "oil-nvim",
         "pre-commit-hooks": "pre-commit-hooks_2",
-        "windline-nvim": "windline-nvim",
         "zellij": "zellij"
       }
     },
@@ -903,22 +902,6 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
-        "type": "github"
-      }
-    },
-    "windline-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1718583493,
-        "narHash": "sha256-owUwBpvbTg4pyFe1u3GOzWp96Qlj/eOMWj5Bg5QG4sk=",
-        "owner": "windwp",
-        "repo": "windline.nvim",
-        "rev": "47b53bb49c663f3c177b2f0d00a79bb8166a6e59",
-        "type": "github"
-      },
-      "original": {
-        "owner": "windwp",
-        "repo": "windline.nvim",
         "type": "github"
       }
     },
