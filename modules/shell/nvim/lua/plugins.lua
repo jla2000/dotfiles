@@ -210,6 +210,19 @@ require("lz.n").load({
 		end,
 	},
 	{
+		"persistence.nvim",
+		event = "BufEnter",
+		after = function()
+			require("persistence").setup({})
+			vim.keymap.set("n", "<leader>qs", function()
+				require("persistence").load()
+			end)
+			vim.keymap.set("n", "<leader>ql", function()
+				require("persistence").load({ last = true })
+			end)
+		end,
+	},
+	{
 		"tokyonight.nvim",
 		colorscheme = "tokyonight",
 	},
