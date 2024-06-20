@@ -582,11 +582,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1718806950,
-        "narHash": "sha256-E+W/kbedZAiOuPtT+KQRposLaXGDLd7lyK7oL3IH/5U=",
+        "lastModified": 1718883385,
+        "narHash": "sha256-nLKMEZc6im82lfSdVPIBwff8OEYLlGVPpcZPvtpOFx4=",
         "owner": "nixos",
         "repo": "nixos-hardware",
-        "rev": "acb4f0e9bfa8ca2d6fca5e692307b5c994e7dbda",
+        "rev": "0307a32b553f81056edd6455168c635aeda6743b",
         "type": "github"
       },
       "original": {
@@ -790,6 +790,22 @@
         "type": "github"
       }
     },
+    "oil-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1718847665,
+        "narHash": "sha256-uX4ZlvoC9CGQa4W/jeOB2VpSppQdoaccXDGPR4XbGEE=",
+        "owner": "stevearc",
+        "repo": "oil.nvim",
+        "rev": "4c574cf4a2de736d2662d52ce086d8bdf87c49df",
+        "type": "github"
+      },
+      "original": {
+        "owner": "stevearc",
+        "repo": "oil.nvim",
+        "type": "github"
+      }
+    },
     "pre-commit-hooks": {
       "inputs": {
         "flake-compat": "flake-compat_5",
@@ -844,6 +860,7 @@
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_6",
         "nur": "nur",
+        "oil-nvim": "oil-nvim",
         "pre-commit-hooks": "pre-commit-hooks_2",
         "zellij": "zellij"
       }

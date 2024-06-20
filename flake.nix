@@ -31,6 +31,10 @@
       url = "github:nvim-neorocks/lz.n";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    oil-nvim = {
+      url = "github:stevearc/oil.nvim";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -49,6 +53,12 @@
         overlays = [
           (final: prev: {
             helix = inputs.helix.packages.${final.system}.default;
+            vimPlugins = prev.vimPlugins // {
+              oil-nvim = nixpkgs.legacyPackages.${final.system}.vimUtils.buildVimPlugin {
+                name = "oil.nvim";
+                src = inputs.oil-nvim;
+              };
+            };
           })
           inputs.lz-n.outputs.overlays.default
           inputs.nur.outputs.overlay
