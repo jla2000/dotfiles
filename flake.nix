@@ -35,6 +35,10 @@
       url = "github:stevearc/oil.nvim";
       flake = false;
     };
+    lazydev-nvim = {
+      url = "github:folke/lazydev.nvim";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -51,15 +55,24 @@
           ];
         };
         overlays = [
-          (final: prev: {
-            helix = inputs.helix.packages.${final.system}.default;
-            vimPlugins = prev.vimPlugins // {
+          (final: prev:
+            let
               oil-nvim = nixpkgs.legacyPackages.${final.system}.vimUtils.buildVimPlugin {
                 name = "oil.nvim";
                 src = inputs.oil-nvim;
               };
-            };
-          })
+
+              lazydev-nvim = nixpkgs.legacyPackages.${final.system}.vimUtils.buildVimPlugin {
+                name = "lazydev.nvim";
+                src = inputs.lazydev-nvim;
+              };
+            in
+            {
+              helix = inputs.helix.packages.${final.system}.default;
+              vimPlugins = prev.vimPlugins // {
+                inherit oil-nvim lazydev-nvim;
+              };
+            })
           inputs.lz-n.outputs.overlays.default
           inputs.nur.outputs.overlay
         ];

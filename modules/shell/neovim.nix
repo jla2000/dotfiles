@@ -41,6 +41,7 @@ in
       nvim-notify
       trouble-nvim
       nvim-surround
+      lazydev-nvim
     ];
     extraPackages = with pkgs; [
       lua-language-server

@@ -495,6 +495,22 @@
         "type": "github"
       }
     },
+    "lazydev-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1718447010,
+        "narHash": "sha256-sMwSh79gTzwY/TPUB5nOi73o1p+y31LR7WEieHq5Q84=",
+        "owner": "folke",
+        "repo": "lazydev.nvim",
+        "rev": "6184ebbbc8045d70077659b7d30c705a588dc62f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "lazydev.nvim",
+        "type": "github"
+      }
+    },
     "lz-n": {
       "inputs": {
         "flake-parts": "flake-parts",
@@ -856,6 +872,7 @@
         "catppuccin-lazygit-theme": "catppuccin-lazygit-theme",
         "helix": "helix",
         "home-manager": "home-manager",
+        "lazydev-nvim": "lazydev-nvim",
         "lz-n": "lz-n",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_6",

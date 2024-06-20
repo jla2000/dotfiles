@@ -6,6 +6,7 @@ return {
 		cmp.setup({
 			sources = {
 				{ name = "nvim_lsp" },
+				{ name = "lazydev" },
 				{ name = "luasnip" },
 				{ name = "path" },
 				{ name = "buffer" },
