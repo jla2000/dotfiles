@@ -5,7 +5,7 @@
     ./fish.nix
     ./helix.nix
     ./zellij.nix
-    ./neovim.nix
+    ./neovim
   ];
 
   programs.yazi = {
