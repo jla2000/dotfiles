@@ -37,7 +37,6 @@ in
       yanky-nvim
       noice-nvim
       nui-nvim
-      nvim-notify
       trouble-nvim
       nvim-surround
       lazydev-nvim
