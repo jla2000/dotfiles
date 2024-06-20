@@ -7,6 +7,7 @@ return {
 				lua = { "stylua" },
 				nix = { "nixpkgs_fmt", "injected" },
 				cpp = { "clang_format", "doxyformat" },
+				markdown = { "markdownlint" },
 			},
 			format_on_save = {
 				timeout_ms = 500,

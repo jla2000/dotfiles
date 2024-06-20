@@ -18,6 +18,11 @@ in
       nvim-treesitter-textobjects
       nvim-treesitter-context
       tokyonight-nvim
+      catppuccin-nvim
+      onedark-nvim
+      adwaita-nvim
+      zenbones-nvim
+      lush-nvim
       flash-nvim
       nvim-lspconfig
       indent-blankline-nvim
@@ -49,6 +54,7 @@ in
       stylua
       nixd
       nixpkgs-fmt
+      markdownlint-cli
     ];
   };
 
