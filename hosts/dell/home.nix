@@ -41,10 +41,11 @@ in
       cpp-formatter
       clangd
     ];
+
+    shellAliases.tick = "tickBoxes -c /BSW/amsr-vector-fs-ipcbinding/ -c /BSW/amsr-vector-fs-comtrace -c /BSW/amsr-vector-fs-ipcbinding/config/component_config.yml -c /BSW/amsr-vector-fs-comtrace/config/component_config.yml -v -m";
   };
 
   programs.fish = {
-    shellAliases.tick = "tickBoxes -c /BSW/amsr-vector-fs-ipcbinding/ -c /BSW/amsr-vector-fs-comtrace -c /BSW/amsr-vector-fs-ipcbinding/config/component_config.yml -c /BSW/amsr-vector-fs-comtrace/config/component_config.yml -v -m";
     interactiveShellInit = (lib.mkOrder 100 /* fish */ ''
       # Add nix binaries to path
       if test -e /etc/profile.d/nix.sh

@@ -35,7 +35,6 @@ in
           file-picker.hidden = false;
           lsp.display-messages = true;
           indent-guides.render = true;
-          color-modes = true;
         };
         keys.insert = {
           j.k = "normal_mode";
