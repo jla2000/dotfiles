@@ -104,6 +104,7 @@
     nix-output-monitor
     cargo
     rustc
+    sd
   ];
 
   home.sessionVariables.EDITOR = "hx";
