@@ -35,6 +35,9 @@ in
       CCACHE_NOHASHDIR = "true";
       COLORTERM = "truecolor";
     };
+    sessionPath = [
+      "~/.cargo/bin"
+    ];
     stateVersion = "23.11";
     packages = [
       create-worktree

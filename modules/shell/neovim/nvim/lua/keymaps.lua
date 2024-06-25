@@ -1,10 +1,10 @@
 vim.keymap.set("n", "<tab>", "<cmd>bn<cr>")
 vim.keymap.set("n", "<s-tab>", "<cmd>bp<cr>")
-vim.keymap.set("n", "<leader>x", "<cmd>bd<cr>")
+vim.keymap.set("n", "<leader>bd", "<cmd>bd<cr>")
 vim.keymap.set("n", "<esc>", "<cmd>nohl<cr><esc>")
 vim.keymap.set("n", "]q", "<cmd>cnext<cr>")
 vim.keymap.set("n", "[q", "<cmd>cprev<cr>")
-vim.keymap.set("n", "xq", "<cmd>copen<cr>")
+vim.keymap.set("n", "<leader>xq", "<cmd>copen<cr>")
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	callback = function(event)
