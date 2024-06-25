@@ -42,7 +42,7 @@ in
         }
 
         bind "Ctrl y" {
-          Run "${yazi-picker}/bin/yazi-picker" {
+          Run "${lib.getExe yazi-picker}" {
             floating true
             close_on_exit true
             x "10%"

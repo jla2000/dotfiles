@@ -58,7 +58,7 @@ in
   };
 
   helix.cpp.formatter = {
-    command = "${cpp-formatter}/bin/format-cpp";
+    command = lib.getExe cpp-formatter;
     args = [ "-" ];
   };
 }

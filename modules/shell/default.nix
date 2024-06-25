@@ -45,14 +45,13 @@
     enable = true;
   };
 
+  xdg.configFile."lazygit/config.yml".source = "${inputs.catppuccin-lazygit-theme}/themes-mergable/macchiato/sapphire.yml";
+
   programs.fzf = {
     enable = true;
     enableFishIntegration = true;
     enableBashIntegration = true;
   };
-
-  xdg.configFile."lazygit/config.yml".source = "${inputs.catppuccin-lazygit-theme}/themes-mergable/macchiato/sapphire.yml";
-
 
   programs.bash = {
     enable = true;
@@ -89,10 +88,10 @@
   ];
 
   home.shellAliases = {
-    ls = lib.getExe pkgs.eza;
     ll = "ls -l";
-    g = "lazygit";
-    cat = "bat";
+    ls = lib.getExe pkgs.eza;
+    g = lib.getExe pkgs.lazygit;
+    cat = lib.getExe pkgs.bat;
   };
 
   home.packages = with pkgs; [
