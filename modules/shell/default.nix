@@ -89,7 +89,7 @@
   ];
 
   home.shellAliases = {
-    ls = "${pkgs.eza}/bin/eza";
+    ls = lib.getExe pkgs.eza;
     ll = "ls -l";
     g = "lazygit";
     cat = "bat";

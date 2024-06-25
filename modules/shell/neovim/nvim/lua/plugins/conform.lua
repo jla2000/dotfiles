@@ -8,6 +8,7 @@ return {
 				nix = { "nixpkgs_fmt", "injected" },
 				cpp = { "clang_format", "doxyformat" },
 				markdown = { "markdownlint" },
+				rust = { "rustfmt" },
 			},
 			format_on_save = {
 				timeout_ms = 500,

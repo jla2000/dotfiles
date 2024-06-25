@@ -56,6 +56,7 @@ in
       nixpkgs-fmt
       markdownlint-cli
       rust-analyzer
+      rustfmt
     ];
   };
 

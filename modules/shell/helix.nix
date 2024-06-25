@@ -25,6 +25,7 @@ in
         lldb-dap
         nil
         rust-analyzer
+        rustfmt
       ];
       settings = {
         theme = "tokyonight";
@@ -63,6 +64,13 @@ in
       };
       languages.language = [
         {
+          name = "rust";
+          auto-format = true;
+          formatter = {
+            command = lib.getExe pkgs.rustfmt;
+          };
+        }
+        {
           name = "cpp";
           auto-format = true;
           formatter = config.helix.cpp.formatter;
@@ -71,20 +79,20 @@ in
           name = "cmake";
           auto-format = false;
           formatter = {
-            command = "${pkgs.cmake-format}/bin/cmake-format";
+            command = lib.getExe pkgs.cmake-format;
             args = [ "--enable-markup=false" "--autosort=true" "-" ];
           };
         }
         {
           name = "nix";
           auto-format = true;
-          formatter.command = "${pkgs.nixpkgs-fmt}/bin/nixpkgs-fmt";
+          formatter.command = lib.getExe pkgs.nixpkgs-fmt;
         }
         {
           name = "python";
           auto-format = true;
           formatter = {
-            command = "${pkgs.black}/bin/black";
+            command = lib.getExe pkgs.black;
             args = [ "-" "--quiet" ];
           };
         }

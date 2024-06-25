@@ -17,7 +17,7 @@ let
     if [ -f /opt/vector-clang-tidy/bin/clangd ]; then
       /opt/vector-clang-tidy/bin/clangd ${clangd-extra-args} "$@"
     else
-      ${pkgs.clang-tools_16}/bin/clangd ${clangd-extra-args} "$@"
+      ${lib.getExe pkgs.clang-tools_16} ${clangd-extra-args} "$@"
     fi
   '';
 in
