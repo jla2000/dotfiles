@@ -41,7 +41,6 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
   hardware.opengl.enable = true;
-  hardware.opengl.driSupport = true;
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
