@@ -18,6 +18,9 @@ return {
 				Lua = {
 					hint = {
 						enable = true,
+						paramName = "Disable",
+						paramType = "Disable",
+						arrayIndex = "Disable",
 					},
 				},
 			},
@@ -55,7 +58,7 @@ return {
 					inlayHints = {
 						enable = true,
 						typeHints = true,
-						parameterHints = true,
+						parameterHints = false,
 						chainingHints = true,
 					},
 				},
