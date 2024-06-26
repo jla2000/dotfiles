@@ -1,6 +1,7 @@
 return {
 	"huez.nvim",
 	event = "UIEnter",
+	priority = 60,
 	after = function()
 		require("huez").setup({})
 	end,
