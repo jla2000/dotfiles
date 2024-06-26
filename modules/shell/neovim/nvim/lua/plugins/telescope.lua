@@ -22,7 +22,8 @@ return {
 		{ "<leader>fR", "<cmd>Telescope oldfiles<cr>" },
 		{ "<leader>fb", "<cmd>Telescope buffers<cr>" },
 		{ "<leader>fg", "<cmd>Telescope live_grep<cr>" },
-		{ "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>" },
-		{ "<leader>fS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>" },
+		{ "<leader>s", "<cmd>Telescope lsp_document_symbols<cr>" },
+		{ "<leader>S", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>" },
+		{ '<leader>"', "<cmd>Telescope resume<cr>" },
 	},
 }

@@ -7,6 +7,7 @@ return {
 		{ "<leader>cc", "<cmd>CMakeSettings<cr>" },
 		{ "<leader>ct", "<cmd>CMakeSelectLaunchTarget<cr>" },
 		{ "<leader>ce", "<cmd>CMakeRun<cr>" },
+		{ "<leader>cb", "<cmd>CMakeBuild<cr>" },
 		{ "<leader>cd", "<cmd>CMakeDebug<cr>" },
 	},
 	after = function()

@@ -18,3 +18,8 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 vim.cmd([[ packadd cfilter ]])
+
+vim.fn.sign_define("DiagnosticSignError", { text = "" })
+vim.fn.sign_define("DiagnosticSignWarn", { text = "" })
+vim.fn.sign_define("DiagnosticSignInfo", { text = "" })
+vim.fn.sign_define("DiagnosticSignHint", { text = "" })
