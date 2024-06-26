@@ -121,6 +121,7 @@
     thunderbird
     unzip
     ventoy-full
+    xclip
   ];
 
   # Enable flakes

@@ -13,6 +13,7 @@ in
       lz-n
       telescope-nvim
       telescope-fzf-native-nvim
+      telescope-frecency-nvim
       oil-nvim
       nvim-treesitter
       nvim-treesitter-textobjects
