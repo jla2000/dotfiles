@@ -50,6 +50,7 @@ in
       headlines-nvim
       huez-nvim
       lazy-nvim
+      crates-nvim
     ];
     extraPackages = with pkgs; [
       lua-language-server
