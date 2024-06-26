@@ -496,6 +496,22 @@
         "type": "github"
       }
     },
+    "huez-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1718571546,
+        "narHash": "sha256-1Kc/oq/myy03/e6N6LpIFN50WZJLTuvS7HXu8X2King=",
+        "owner": "vague2k",
+        "repo": "huez.nvim",
+        "rev": "51ff93c6a14be378a95568743b091f96d2ee722b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vague2k",
+        "repo": "huez.nvim",
+        "type": "github"
+      }
+    },
     "lz-n": {
       "inputs": {
         "flake-parts": "flake-parts",
@@ -857,6 +873,7 @@
         "catppuccin-lazygit-theme": "catppuccin-lazygit-theme",
         "helix": "helix",
         "home-manager": "home-manager",
+        "huez-nvim": "huez-nvim",
         "lz-n": "lz-n",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_6",

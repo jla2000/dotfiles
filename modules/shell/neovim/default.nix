@@ -48,6 +48,8 @@ in
       lazydev-nvim
       dressing-nvim
       headlines-nvim
+      huez-nvim
+      lazy-nvim
     ];
     extraPackages = with pkgs; [
       lua-language-server

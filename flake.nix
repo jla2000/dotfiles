@@ -31,6 +31,10 @@
       url = "github:nvim-neorocks/lz.n";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    huez-nvim = {
+      url = "github:vague2k/huez.nvim";
+      flake = false;
+    };
     oil-nvim = {
       url = "github:stevearc/oil.nvim";
       flake = false;
@@ -57,11 +61,16 @@
                 name = "oil.nvim";
                 src = inputs.oil-nvim;
               };
+              huez-nvim = nixpkgs.legacyPackages.${final.system}.vimUtils.buildVimPlugin {
+                name = "huez.nvim";
+                src = inputs.huez-nvim;
+              };
             in
             {
               helix = inputs.helix.packages.${final.system}.default;
               vimPlugins = prev.vimPlugins // {
                 inherit oil-nvim;
+                inherit huez-nvim;
               };
             })
           inputs.lz-n.outputs.overlays.default
