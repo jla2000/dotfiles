@@ -52,9 +52,6 @@ return {
 					cargo = {
 						allFeatures = true,
 					},
-					checkOnSave = {
-						command = "clippy",
-					},
 					inlayHints = {
 						enable = true,
 						typeHints = true,
