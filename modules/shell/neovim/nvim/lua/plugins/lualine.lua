@@ -39,8 +39,18 @@ return {
 				},
 				lualine_b = {
 					{
-						"branch",
+						"b:gitsigns_head",
 						color = "lualine_c_normal",
+						icon = "",
+					},
+				},
+				lualine_c = {
+					{
+						"filename",
+						symbols = {
+							modified = "●",
+							readonly = "",
+						},
 					},
 				},
 				lualine_y = {
