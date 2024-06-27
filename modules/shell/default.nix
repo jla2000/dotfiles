@@ -106,6 +106,6 @@
     sd
   ];
 
-  home.sessionVariables.EDITOR = "hx";
+  home.sessionVariables.EDITOR = "nvim";
   home.sessionVariables.FLAKE = "${config.home.homeDirectory}/code/nixos-flake";
 }
