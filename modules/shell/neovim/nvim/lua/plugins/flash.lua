@@ -7,6 +7,9 @@ return {
 					enabled = false,
 				},
 			},
+			label = {
+				uppercase = false,
+			},
 		})
 	end,
 	keys = {
