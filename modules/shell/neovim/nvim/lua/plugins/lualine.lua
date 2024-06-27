@@ -52,6 +52,8 @@ return {
 							readonly = "",
 						},
 					},
+				},
+				lualine_x = {
 					{
 						"diagnostics",
 						symbols = {
@@ -61,6 +63,9 @@ return {
 							hint = " ",
 						},
 					},
+					"encoding",
+					"fileformat",
+					"filetype",
 				},
 				lualine_y = {
 					{
