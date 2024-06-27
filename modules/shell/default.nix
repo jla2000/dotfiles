@@ -11,6 +11,14 @@
     enable = true;
     enableBashIntegration = true;
     enableFishIntegration = true;
+    enableNushellIntegration = true;
+  };
+
+  programs.eza = {
+    enable = true;
+    enableBashIntegration = true;
+    enableFishIntegration = true;
+    enableNushellIntegration = true;
   };
 
   programs.bat = {
@@ -28,6 +36,7 @@
     ];
     enableFishIntegration = true;
     enableBashIntegration = true;
+    enableNushellIntegration = true;
   };
 
   programs.starship = {
@@ -39,6 +48,7 @@
     };
     enableFishIntegration = true;
     enableBashIntegration = true;
+    enableNushellIntegration = true;
   };
 
   programs.lazygit = {
@@ -76,6 +86,16 @@
     ];
   };
 
+  programs.nushell = {
+    enable = true;
+  };
+
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true;
+    enableNushellIntegration = true;
+  };
+
   nix = {
     package = lib.mkDefault pkgs.nix;
     settings.experimental-features = [ "nix-command" "flakes" ];
@@ -86,13 +106,6 @@
     "~/scripts/"
     "~/.local/bin"
   ];
-
-  home.shellAliases = {
-    ll = "ls -l";
-    ls = lib.getExe pkgs.eza;
-    g = lib.getExe pkgs.lazygit;
-    cat = lib.getExe pkgs.bat;
-  };
 
   home.packages = with pkgs; [
     fd
