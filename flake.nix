@@ -39,6 +39,10 @@
       url = "github:stevearc/oil.nvim";
       flake = false;
     };
+    nerdy-nvim = {
+      url = "github:2KAbhishek/nerdy.nvim";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -65,12 +69,17 @@
                 name = "huez.nvim";
                 src = inputs.huez-nvim;
               };
+              nerdy-nvim = nixpkgs.legacyPackages.${final.system}.vimUtils.buildVimPlugin {
+                name = "nerdy.nvim";
+                src = inputs.nerdy-nvim;
+              };
             in
             {
               helix = inputs.helix.packages.${final.system}.default;
               vimPlugins = prev.vimPlugins // {
                 inherit oil-nvim;
                 inherit huez-nvim;
+                inherit nerdy-nvim;
               };
             })
           inputs.lz-n.outputs.overlays.default
