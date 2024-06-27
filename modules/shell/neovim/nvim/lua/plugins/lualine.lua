@@ -52,6 +52,15 @@ return {
 							readonly = "",
 						},
 					},
+					{
+						"diagnostics",
+						symbols = {
+							error = " ",
+							warn = " ",
+							info = " ",
+							hint = " ",
+						},
+					},
 				},
 				lualine_y = {
 					{
