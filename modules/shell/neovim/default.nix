@@ -53,6 +53,7 @@ in
       lazy-nvim
       crates-nvim
       diffview-nvim
+      nerdy-nvim
     ];
     extraPackages = with pkgs; [
       lua-language-server

@@ -597,6 +597,22 @@
         "type": "github"
       }
     },
+    "nerdy-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1717173349,
+        "narHash": "sha256-k5ZmhUHGHlFuGWiviEYeHGCbXLZHY61pUnvpZgSJhPs=",
+        "owner": "2KAbhishek",
+        "repo": "nerdy.nvim",
+        "rev": "b467d6609b78d6a5f1e12cbc08fcc1ac87af20f5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "2KAbhishek",
+        "repo": "nerdy.nvim",
+        "type": "github"
+      }
+    },
     "nixos-hardware": {
       "locked": {
         "lastModified": 1719322773,
@@ -875,6 +891,7 @@
         "home-manager": "home-manager",
         "huez-nvim": "huez-nvim",
         "lz-n": "lz-n",
+        "nerdy-nvim": "nerdy-nvim",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_6",
         "nur": "nur",
