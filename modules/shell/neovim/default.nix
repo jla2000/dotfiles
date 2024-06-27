@@ -64,6 +64,11 @@ in
       rust-analyzer
       rustfmt
     ];
+    defaultEditor = true;
+  };
+
+  home.shellAliases = {
+    v = "nvim";
   };
 
   xdg.configFile."nvim/init.lua".source = ./nvim/init.lua;
