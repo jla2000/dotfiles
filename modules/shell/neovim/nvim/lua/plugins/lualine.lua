@@ -24,11 +24,11 @@ return {
 
 							local mode = string.lower(string.sub(vim.fn.mode(), 1, 1))
 							local hl = mode_to_hl[mode] or "lualine_a_normal"
-							local mode_highlight = vim.api.nvim_get_hl_by_name(hl, true)
-							local status_highlight = vim.api.nvim_get_hl_by_name("lualine_c_normal", true)
+							local mode_highlight = vim.api.nvim_get_hl(0, { name = hl })
+							local status_highlight = vim.api.nvim_get_hl(0, { name = "lualine_c_normal" })
 
-							local fg = mode_highlight.foreground or 0xffffff
-							local bg = status_highlight.background or 0x000000
+							local fg = mode_highlight.fg or 0xffffff
+							local bg = status_highlight.bg or 0x000000
 
 							return {
 								fg = string.format("#%06x", fg),
