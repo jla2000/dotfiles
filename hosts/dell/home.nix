@@ -12,13 +12,22 @@ let
     clang-format-15 --assume-filename=${random-cpp-file} | doxyformat
   '';
 
-  clangd-extra-args = "--clang-tidy";
-  clangd = pkgs.writeShellScriptBin "clangd" /* sh */ ''
-    if [ -f /opt/vector-clang-tidy/bin/clangd ]; then
-      /opt/vector-clang-tidy/bin/clangd ${clangd-extra-args} "$@"
-    else
-      ${lib.getExe pkgs.clang-tools_16} ${clangd-extra-args} "$@"
-    fi
+  # Cool example on how to use writers.
+  clangd-rustified = pkgs.writers.writeRustBin "clangd" { } /* rust */ ''
+    fn main() {
+        const VECTOR_CLANGD: &str = "/opt/vector-clang-tidy/bin/clangd";
+        const NIX_CLANGD: &str = "${lib.getExe pkgs.clang-tools_16}";
+
+        let clangd_bin = if std::path::Path::new(VECTOR_CLANGD).exists() {
+            VECTOR_CLANGD
+        } else {
+            NIX_CLANGD
+        };
+        std::process::Command::new(clangd_bin)
+            .args(std::env::args().skip(1))
+            .spawn()
+            .expect("Failed to start clangd");
+    }
   '';
 in
 {
@@ -42,7 +51,7 @@ in
     packages = [
       create-worktree
       cpp-formatter
-      clangd
+      clangd-rustified
     ];
 
     shellAliases.tick = "tickBoxes -c /BSW/amsr-vector-fs-ipcbinding/ -c /BSW/amsr-vector-fs-comtrace -c /BSW/amsr-vector-fs-ipcbinding/config/component_config.yml -c /BSW/amsr-vector-fs-comtrace/config/component_config.yml -v -m";
