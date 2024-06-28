@@ -1,6 +1,6 @@
 return {
 	"gitsigns.nvim",
-	event = "UIEnter",
+	event = "DeferredUIEnter",
 	after = function()
 		require("gitsigns").setup({
 			-- signcolumn = false,

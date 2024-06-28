@@ -1,6 +1,6 @@
 return {
 	"nvim-cmp",
-	event = { "BufReadPre", "BufNewFile" },
+	event = "InsertEnter",
 	after = function()
 		local cmp = require("cmp")
 		cmp.setup({
