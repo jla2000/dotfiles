@@ -20,6 +20,7 @@ in
   xdg.configFile."zellij/config.kdl".text = /* kdl */ ''
     theme "catppuccin-macchiato"
     default_layout "compact"
+    default_shell "nu"
     keybinds {
       normal clear-defaults=true {
         bind "Ctrl s" { SwitchToMode "Tmux"; }
@@ -91,5 +92,11 @@ in
     end
 
     zellij_tab_name_update
+  '');
+
+  programs.nushell.extraConfig = (lib.mkOrder 1001 ''
+    if not ("ZELLIJ" in $env) {
+      zellij
+    }
   '');
 }
