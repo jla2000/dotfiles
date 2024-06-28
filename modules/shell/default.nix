@@ -9,12 +9,14 @@
 
   programs.yazi = {
     enable = true;
+    enableBashIntegration = false;
     enableFishIntegration = true;
     enableNushellIntegration = true;
   };
 
   programs.eza = {
     enable = true;
+    enableBashIntegration = false;
     enableFishIntegration = true;
     enableNushellIntegration = true;
   };
@@ -33,6 +35,7 @@
       "--cmd cd"
     ];
     enableFishIntegration = true;
+    enableBashIntegration = false;
     enableNushellIntegration = true;
   };
 
@@ -44,6 +47,7 @@
       };
     };
     enableFishIntegration = true;
+    enableBashIntegration = false;
     enableNushellIntegration = true;
   };
 
@@ -56,6 +60,7 @@
   programs.fzf = {
     enable = true;
     enableFishIntegration = true;
+    enableBashIntegration = false;
   };
 
   programs.bash = {
@@ -92,6 +97,7 @@
 
   programs.direnv = {
     enable = true;
+    enableBashIntegration = false;
     enableNushellIntegration = true;
   };
 
