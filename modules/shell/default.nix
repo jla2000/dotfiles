@@ -88,6 +88,11 @@
 
   programs.nushell = {
     enable = true;
+    configFile.text = /* nushell */ ''
+      $env.config = {
+        edit_mode: vi
+      }
+    '';
   };
 
   programs.direnv = {
