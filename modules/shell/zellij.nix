@@ -19,8 +19,9 @@ in
 
   xdg.configFile."zellij/config.kdl".text = /* kdl */ ''
     theme "catppuccin-macchiato"
-    default_layout "compact"
+    default_layout "disable-status-bar"
     default_shell "nu"
+    pane_frames false
     keybinds {
       normal clear-defaults=true {
         bind "Ctrl s" { SwitchToMode "Tmux"; }
@@ -54,7 +55,7 @@ in
         }
       }
       tmux {
-        bind "e" { EditScrollback; }
+        bind "e" { EditScrollback; SwitchToMode "Normal"; }
         bind "s" {
           LaunchOrFocusPlugin "zellij:session-manager" {
             floating true
