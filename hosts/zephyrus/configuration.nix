@@ -90,7 +90,7 @@
   nix.gc.automatic = true;
   system.autoUpgrade = {
     enable = true;
-    flake = "github:jla2000/nixos-flake";
+    flake = "github:jla2000/nixos-dotfiles";
   };
 
   # Automatic btrfs scrub

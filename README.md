@@ -1,4 +1,4 @@
-# nixos-flake
+# nixos-dotfiles
 
 Personal config mono repo:
 

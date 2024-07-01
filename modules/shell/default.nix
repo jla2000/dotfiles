@@ -124,5 +124,5 @@
     sd
   ];
 
-  home.sessionVariables.FLAKE = "${config.home.homeDirectory}/code/nixos-flake";
+  home.sessionVariables.FLAKE = "${config.home.homeDirectory}/code/nixos-dotfiles";
 }
