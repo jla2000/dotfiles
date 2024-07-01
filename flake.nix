@@ -108,6 +108,6 @@
       };
 
       homeManagerModules.shell = { config, pkgs, lib, ... }:
-        (import ./modules/shell { pkgs = pkgs2; inherit inputs; });
+        (import ./modules/shell { pkgs = pkgs2; inherit inputs config lib; });
     };
 }
