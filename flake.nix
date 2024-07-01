@@ -107,7 +107,7 @@
         extraSpecialArgs = { inherit inputs outputs; };
       };
 
-      homeManagerModules.neovim = { config, pkgs, lib, ... }:
-        (import ./modules/shell/neovim { pkgs = pkgs2; inherit inputs; });
+      homeManagerModules.shell = { config, pkgs, lib, ... }:
+        (import ./modules/shell { pkgs = pkgs2; inherit inputs; });
     };
 }
