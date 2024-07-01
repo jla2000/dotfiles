@@ -111,7 +111,7 @@
         extraSpecialArgs = { inherit inputs outputs; };
       };
 
-      homeManagerModules.neovim = import ./modules/shell/neovim;
+      homeManagerModules.neovim = import ./modules/shell/neovim { inherit pkgs; };
       overlays.default = overlays;
     };
 }
