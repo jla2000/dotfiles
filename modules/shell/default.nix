@@ -1,4 +1,4 @@
-{ inputs, pkgs, lib, config, ... }:
+{ inputs, pkgs, ... }:
 {
   imports = [
     ./tmux.nix
@@ -73,7 +73,7 @@
 
   programs.fish = {
     enable = true;
-    interactiveShellInit = (lib.mkOrder 0 /* fish */ ''
+    interactiveShellInit = (pkgs.lib.mkOrder 0 /* fish */ ''
       # Vim Bindings
       fish_hybrid_key_bindings
     '');
@@ -102,7 +102,7 @@
   };
 
   nix = {
-    package = lib.mkDefault pkgs.nix;
+    package = pkgs.lib.mkDefault pkgs.nix;
     settings.experimental-features = [ "nix-command" "flakes" ];
     registry.nixpkgs.flake = inputs.nixpkgs;
   };
@@ -116,13 +116,8 @@
     fd
     gdb
     ripgrep
-    obsidian
     nh
     nix-output-monitor
-    cargo
-    rustc
     sd
   ];
-
-  home.sessionVariables.FLAKE = "${config.home.homeDirectory}/code/nixos-dotfiles";
 }

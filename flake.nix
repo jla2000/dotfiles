@@ -106,7 +106,6 @@
         extraSpecialArgs = { inherit inputs outputs; };
       };
 
-      homeManagerModules.neovim = import ./modules/shell/neovim { inherit pkgs; };
-      homeManagerModules.zellij = import ./modules/shell/zellij.nix { inherit inputs pkgs; };
+      homeManagerModules.shell = import ./modules/shell { inherit inputs pkgs; };
     };
 }
