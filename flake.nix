@@ -106,6 +106,6 @@
         extraSpecialArgs = { inherit inputs outputs; };
       };
 
-      homeManagerModules.shell = import ./modules/shell { inherit inputs pkgs; };
+      homeManagerModules.neovim = import ./modules/shell/neovim { inherit pkgs; };
     };
 }
