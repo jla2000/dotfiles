@@ -88,7 +88,6 @@
         inherit system;
         inherit overlays;
       };
-      pkgs2 = pkgs;
     in
     {
       imports = [ inputs.pre-commit-hooks.flakeModule ];
@@ -107,7 +106,6 @@
         extraSpecialArgs = { inherit inputs outputs; };
       };
 
-      homeManagerModules.shell = { config, pkgs, lib, ... }:
-        (import ./modules/shell { pkgs = pkgs2; inherit inputs config lib; });
+      homeManagerModules.neovim = import ./modules/shell/neovim { inherit pkgs; };
     };
 }
