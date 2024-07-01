@@ -1,7 +1,6 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    nur.url = "github:nix-community/nur";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -84,7 +83,6 @@
             };
           })
         inputs.lz-n.outputs.overlays.default
-        inputs.nur.outputs.overlay
       ];
 
       pkgs = import nixpkgs {
@@ -102,24 +100,6 @@
       imports = [ inputs.pre-commit-hooks.flakeModule ];
       pre-commit.settings = { hooks.nixpkgs-fmt.enable = true; };
 
-      nixosConfigurations."zephyrus" = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs outputs;
-          inherit pkgs;
-        };
-        modules = [
-          ./hosts/zephyrus/configuration.nix
-          inputs.home-manager.nixosModules.home-manager
-          {
-            home-manager.extraSpecialArgs = { inherit inputs; };
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "bak";
-            home-manager.users.jan = import ./hosts/zephyrus/home.nix;
-          }
-        ];
-      };
-
       homeConfigurations."jlafferton@DE18314NB" = inputs.home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [ ./hosts/dell/home.nix ];
@@ -131,14 +111,9 @@
         extraSpecialArgs = { inherit inputs outputs; };
       };
 
-      nixosModules.nixos-dotfiles = {
-        imports = [ ./modules/shell ];
-      };
-
       homeManagerModules.neovim =
         {
           modules = [ ./modules/shell/neovim ];
-          extraSpecialArgs = { inherit inputs; };
         };
 
       overlays.default = overlays;
