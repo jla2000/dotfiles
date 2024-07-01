@@ -108,6 +108,6 @@
       };
 
       homeManagerModules.neovim = { config, pkgs, lib, ... }:
-        (import ./modules/shell/neovim { pkgs = pkgs2; });
+        (import ./modules/shell/neovim { pkgs = pkgs2; inherit inputs; });
     };
 }
