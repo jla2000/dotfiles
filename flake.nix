@@ -128,5 +128,9 @@
         modules = [ ./hosts/muh/home.nix ];
         extraSpecialArgs = { inherit inputs outputs; };
       };
+
+      nixosModules.nixos-dotfiles = {
+        imports = [ ./modules/shell ];
+      };
     };
 }
