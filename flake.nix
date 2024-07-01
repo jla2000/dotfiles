@@ -107,8 +107,9 @@
       };
 
       homeManagerModules.neovim = import ./modules/shell/neovim { inherit pkgs; };
-      homeManagerModules.zellij = (import ./modules/shell/zellij.nix {
-        inherit inputs pkgs;
-      });
+      homeManagerModules.zellij = pkgs.callPackage ./modules/shell/zellij.nix {
+        inherit pkgs;
+        inherit inputs;
+      };
     };
 }
