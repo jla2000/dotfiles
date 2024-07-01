@@ -1,7 +1,7 @@
 return {
-	"headlines.nvim",
+	"markview.nvim",
 	ft = "markdown",
 	after = function()
-		require("headlines").setup({})
+		require("markview").setup({})
 	end,
 }

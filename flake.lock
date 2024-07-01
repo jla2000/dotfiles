@@ -536,6 +536,22 @@
         "type": "github"
       }
     },
+    "markview-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1719592662,
+        "narHash": "sha256-E1lHSjbnOOIeieaFJ+INvxJHCbfVS3mwbQ6wrlKeGSQ=",
+        "owner": "OXY2DEV",
+        "repo": "markview.nvim",
+        "rev": "f60219dce7283192d549f21847fcf8537bf6d260",
+        "type": "github"
+      },
+      "original": {
+        "owner": "OXY2DEV",
+        "repo": "markview.nvim",
+        "type": "github"
+      }
+    },
     "neorocks": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -891,6 +907,7 @@
         "home-manager": "home-manager",
         "huez-nvim": "huez-nvim",
         "lz-n": "lz-n",
+        "markview-nvim": "markview-nvim",
         "nerdy-nvim": "nerdy-nvim",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_6",

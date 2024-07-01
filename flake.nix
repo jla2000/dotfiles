@@ -43,6 +43,10 @@
       url = "github:2KAbhishek/nerdy.nvim";
       flake = false;
     };
+    markview-nvim = {
+      url = "github:OXY2DEV/markview.nvim";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -73,6 +77,10 @@
                 name = "nerdy.nvim";
                 src = inputs.nerdy-nvim;
               };
+              markview-nvim = nixpkgs.legacyPackages.${final.system}.vimUtils.buildVimPlugin {
+                name = "markview.nvim";
+                src = inputs.markview-nvim;
+              };
             in
             {
               helix = inputs.helix.packages.${final.system}.default;
@@ -80,6 +88,7 @@
                 inherit oil-nvim;
                 inherit huez-nvim;
                 inherit nerdy-nvim;
+                inherit markview-nvim;
               };
             })
           inputs.lz-n.outputs.overlays.default

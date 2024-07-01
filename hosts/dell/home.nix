@@ -57,6 +57,8 @@ in
     shellAliases.tick = "tickBoxes -c /BSW/amsr-vector-fs-ipcbinding/ -c /BSW/amsr-vector-fs-comtrace -c /BSW/amsr-vector-fs-ipcbinding/config/component_config.yml -c /BSW/amsr-vector-fs-comtrace/config/component_config.yml -v -m";
   };
 
+  nix.settings.sandbox = false;
+
   helix.cpp.formatter = {
     command = lib.getExe cpp-formatter;
     args = [ "-" ];
