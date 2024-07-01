@@ -107,5 +107,6 @@
       };
 
       homeManagerModules.neovim = import ./modules/shell/neovim { inherit pkgs; };
+      homeManagerModules.zellij = import ./modules/shell/zellij { inherit pkgs; };
     };
 }
