@@ -1,4 +1,4 @@
-{ inputs, pkgs, lib, ... }:
+{ self, pkgs, lib, ... }:
 let
   yazi-picker = pkgs.writeShellScriptBin "yazi-picker" /* bash */ ''
     paths=$(yazi --chooser-file=/dev/stdout | while read -r; do printf "%q " "$REPLY"; done)
@@ -14,7 +14,7 @@ let
 in
 {
   xdg.configFile."zellij/themes" = {
-    source = "${inputs.zellij}/zellij-utils/assets/themes";
+    source = "${self.inputs.zellij}/zellij-utils/assets/themes";
   };
 
   xdg.configFile."zellij/config.kdl".text = /* kdl */ ''
