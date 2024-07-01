@@ -14,7 +14,7 @@ let
 in
 {
   xdg.configFile."zellij/themes" = {
-    source = "${self.inputs.zellij}/zellij-utils/assets/themes";
+    source = "${inputs.zellij}/zellij-utils/assets/themes";
   };
 
   xdg.configFile."zellij/config.kdl".text = /* kdl */ ''
