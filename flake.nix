@@ -1,7 +1,6 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    nixos-hardware.url = "github:nixos/nixos-hardware";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -87,18 +86,14 @@
 
       pkgs = import nixpkgs {
         inherit system;
-        config = {
-          allowUnfree = true;
-          permittedInsecurePackages = [
-            "electron-25.9.0"
-          ];
-        };
         inherit overlays;
       };
     in
     {
       imports = [ inputs.pre-commit-hooks.flakeModule ];
-      pre-commit.settings = { hooks.nixpkgs-fmt.enable = true; };
+      pre-commit.settings = {
+        hooks.nixpkgs-fmt.enable = true;
+      };
 
       homeConfigurations."jlafferton@DE18314NB" = inputs.home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
@@ -111,7 +106,6 @@
         extraSpecialArgs = { inherit inputs outputs; };
       };
 
-      homeManagerModules.neovim = import ./modules/shell/neovim { inherit pkgs; };
-      overlays.default = overlays;
+      homeManagerModules.shell = import ./modules/shell { inherit pkgs; };
     };
 }
