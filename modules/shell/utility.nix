@@ -2,7 +2,7 @@
 {
   programs.eza = {
     enable = true;
-    enableBashIntegration = false;
+    enableBashIntegration = true;
     enableFishIntegration = true;
     enableNushellIntegration = true;
   };
@@ -21,7 +21,7 @@
       "--cmd cd"
     ];
     enableFishIntegration = true;
-    enableBashIntegration = false;
+    enableBashIntegration = true;
     enableNushellIntegration = true;
   };
 
@@ -29,11 +29,11 @@
     enable = true;
     settings = {
       sudo = {
-        disabled = false;
+        disabled = true;
       };
     };
     enableFishIntegration = true;
-    enableBashIntegration = false;
+    enableBashIntegration = true;
     enableNushellIntegration = true;
   };
 
@@ -44,12 +44,12 @@
   programs.fzf = {
     enable = true;
     enableFishIntegration = true;
-    enableBashIntegration = false;
+    enableBashIntegration = true;
   };
 
   programs.direnv = {
     enable = true;
-    enableBashIntegration = false;
+    enableBashIntegration = true;
     enableNushellIntegration = true;
   };
 
@@ -61,29 +61,12 @@
     '';
   };
 
-  programs.fish = {
+  programs.zellij = {
     enable = true;
-    interactiveShellInit = (pkgs.lib.mkOrder 0 /* fish */ ''
-      # Vim Bindings
-      fish_hybrid_key_bindings
-    '');
-
-    plugins = with pkgs.fishPlugins; [
-      { name = "bass"; src = bass.src; }
-      { name = "autopair"; src = autopair.src; }
-      { name = "puffer"; src = puffer.src; }
-      { name = "transient-fish"; src = transient-fish.src; }
-    ];
+    enableBashIntegration = true;
+    enableFishIntegration = true;
   };
 
-  programs.nushell = {
-    enable = true;
-    configFile.text = /* nushell */ ''
-      $env.config = {
-        edit_mode: vi
-      }
-    '';
-  };
   home.packages = with pkgs; [
     fd
     gdb
@@ -92,4 +75,50 @@
     nix-output-monitor
     sd
   ];
+
+  xdg.configFile."zellij/config.kdl".text = /* kdl */ ''
+    default_layout "disable-status-bar"
+    pane_frames false
+    keybinds {
+      normal clear-defaults=true {
+        bind "Ctrl s" { SwitchToMode "Tmux"; }
+        unbind "Ctrl b"
+
+        bind "Ctrl h" { MoveFocus "Left"; }
+        bind "Ctrl l" { MoveFocus "Right"; }
+        bind "Ctrl j" { MoveFocus "Down"; }
+        bind "Ctrl k" { MoveFocus "Up"; }
+
+        bind "Ctrl g" {
+          Run "lazygit" {
+            floating true
+            close_on_exit true
+            x "10%"
+            y "10%"
+            width "80%"
+            height "80%"
+          }
+        }
+
+        bind "Ctrl y" {
+          Run "${pkgs.lib.getExe yazi-picker}" {
+            floating true
+            close_on_exit true
+            x "10%"
+            y "10%"
+            width "80%"
+            height "80%"
+          }
+        }
+      }
+      tmux {
+        bind "e" { EditScrollback; SwitchToMode "Normal"; }
+        bind "s" {
+          LaunchOrFocusPlugin "zellij:session-manager" {
+            floating true
+          } 
+        }
+      }
+    }
+  '';
 }
