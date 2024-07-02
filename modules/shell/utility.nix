@@ -99,17 +99,6 @@
             height "80%"
           }
         }
-
-        bind "Ctrl y" {
-          Run "${pkgs.lib.getExe yazi-picker}" {
-            floating true
-            close_on_exit true
-            x "10%"
-            y "10%"
-            width "80%"
-            height "80%"
-          }
-        }
       }
       tmux {
         bind "e" { EditScrollback; SwitchToMode "Normal"; }
