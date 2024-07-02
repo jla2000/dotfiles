@@ -31,7 +31,10 @@ let
   '';
 in
 {
-  imports = [ ../../modules/shell ];
+  imports = [
+    ../../modules/shell
+    ../../modules/neovim
+  ];
 
   programs.home-manager.enable = true;
 

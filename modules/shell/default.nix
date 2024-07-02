@@ -4,7 +4,6 @@
     ./tmux.nix
     ./helix.nix
     ./zellij.nix
-    ./neovim
   ];
 
   programs.yazi = {
