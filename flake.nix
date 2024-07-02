@@ -107,5 +107,6 @@
       };
 
       homeManagerModules.neovim = import ./modules/shell/neovim { inherit pkgs; };
+      homeManagerModules.utility = import ./modules/shell/utility.nix { inherit pkgs; };
     };
 }
