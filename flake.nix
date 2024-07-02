@@ -105,8 +105,5 @@
         modules = [ ./hosts/muh/home.nix ];
         extraSpecialArgs = { inherit inputs outputs; };
       };
-
-      homeManagerModules.neovim = import ./modules/neovim { inherit pkgs; };
-      homeManagerModules.utility = import ./modules/shell/utility.nix { inherit pkgs; };
     };
 }
