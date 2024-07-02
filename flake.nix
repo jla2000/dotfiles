@@ -49,7 +49,6 @@
 
   outputs = { self, nixpkgs, ... }@inputs:
     let
-      inherit (self) outputs;
       system = "x86_64-linux";
 
       overlays = [
@@ -90,20 +89,18 @@
       };
     in
     {
-      imports = [ inputs.pre-commit-hooks.flakeModule ];
-      pre-commit.settings = {
-        hooks.nixpkgs-fmt.enable = true;
+      checks.${system}.pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
+        src = ./.;
+        hooks = {
+          editorconfig-checker.enable = true;
+          nixpkgs-fmt.enable = true;
+          typos.enable = true;
+        };
       };
 
-      homeConfigurations."jlafferton@DE18314NB" = inputs.home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [ ./hosts/dell/home.nix ];
-        extraSpecialArgs = { inherit inputs outputs; };
-      };
-      homeConfigurations."jan@muh" = inputs.home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [ ./hosts/muh/home.nix ];
-        extraSpecialArgs = { inherit inputs outputs; };
+      devShells.${system}.default = pkgs.mkShellNoCC {
+        inherit (self.checks.${system}.pre-commit-check) shellHook;
+        buildInputs = self.checks.${system}.pre-commit-check.enabledPackages;
       };
 
       homeManagerModules.neovim = import ./modules/neovim {
