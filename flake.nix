@@ -110,5 +110,10 @@
         inherit pkgs;
         inherit inputs;
       };
+
+      homeManagerModules.zellij = import ./modules/shell/zellij.nix {
+        inherit pkgs;
+        inherit inputs;
+      };
     };
 }
