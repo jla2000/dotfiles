@@ -107,7 +107,6 @@
       };
 
       homeManagerModules.neovim = { ... }: {
-        inherit pkgs;
         imports = [ ./modules/neovim ];
       };
     };
