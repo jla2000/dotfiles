@@ -115,5 +115,10 @@
         inherit pkgs;
         inherit inputs;
       };
+
+      homeManagerModules.bash = import ./modules/shell/bash.nix {
+        inherit pkgs;
+        inherit inputs;
+      };
     };
 }
