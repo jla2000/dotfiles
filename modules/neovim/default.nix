@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 let
   treesitter = pkgs.vimPlugins.nvim-treesitter.withAllGrammars;
   treesitter-parsers = pkgs.symlinkJoin {
