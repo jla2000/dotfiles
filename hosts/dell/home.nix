@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, config, ... }:
 let
   create-worktree = pkgs.writeShellScriptBin "create-worktree" ''
     git worktree add ~/work/$1 $2
@@ -46,6 +46,7 @@ in
       CCACHE_BASEDIR = "/home/jlafferton/work";
       CCACHE_NOHASHDIR = "true";
       COLORTERM = "truecolor";
+      FLAKE = "${config.home.homeDirectory}/code/nixos-flake";
     };
     sessionPath = [
       "~/.cargo/bin"
@@ -56,8 +57,6 @@ in
       cpp-formatter
       clangd-rustified
     ];
-
-    shellAliases.tick = "tickBoxes -c /BSW/amsr-vector-fs-ipcbinding/ -c /BSW/amsr-vector-fs-comtrace -c /BSW/amsr-vector-fs-ipcbinding/config/component_config.yml -c /BSW/amsr-vector-fs-comtrace/config/component_config.yml -v -m";
   };
 
   nix.settings.sandbox = false;
@@ -65,5 +64,16 @@ in
   helix.cpp.formatter = {
     command = lib.getExe cpp-formatter;
     args = [ "-" ];
+  };
+
+  programs.ssh = {
+    enable = true;
+    extraConfig = ''
+      Host github.com
+        ProxyCommand ${pkgs.corkscrew}/bin/corkscrew gateway.zscloud.net 10402 %h %p
+        CertificateFile /usr/local/share/ca-certificates/Vector_Root_CA_2.0.crt
+        Hostname ssh.github.com
+        Port 443
+    '';
   };
 }

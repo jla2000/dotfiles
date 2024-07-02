@@ -8,14 +8,14 @@
 
   programs.yazi = {
     enable = true;
-    enableBashIntegration = false;
+    enableBashIntegration = true;
     enableFishIntegration = true;
     enableNushellIntegration = true;
   };
 
   programs.eza = {
     enable = true;
-    enableBashIntegration = false;
+    enableBashIntegration = true;
     enableFishIntegration = true;
     enableNushellIntegration = true;
   };
@@ -34,7 +34,7 @@
       "--cmd cd"
     ];
     enableFishIntegration = true;
-    enableBashIntegration = false;
+    enableBashIntegration = true;
     enableNushellIntegration = true;
   };
 
@@ -42,11 +42,11 @@
     enable = true;
     settings = {
       sudo = {
-        disabled = false;
+        disabled = true;
       };
     };
     enableFishIntegration = true;
-    enableBashIntegration = false;
+    enableBashIntegration = true;
     enableNushellIntegration = true;
   };
 
@@ -59,7 +59,7 @@
   programs.fzf = {
     enable = true;
     enableFishIntegration = true;
-    enableBashIntegration = false;
+    enableBashIntegration = true;
   };
 
   programs.bash = {
@@ -96,7 +96,7 @@
 
   programs.direnv = {
     enable = true;
-    enableBashIntegration = false;
+    enableBashIntegration = true;
     enableNushellIntegration = true;
   };
 

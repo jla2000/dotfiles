@@ -20,7 +20,6 @@ in
   xdg.configFile."zellij/config.kdl".text = /* kdl */ ''
     theme "catppuccin-macchiato"
     default_layout "disable-status-bar"
-    default_shell "nu"
     pane_frames false
     keybinds {
       normal clear-defaults=true {
