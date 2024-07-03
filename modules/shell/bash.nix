@@ -52,6 +52,7 @@
     enableCompletion = true;
     bashrcExtra = /* bash */ ''
       set -o vi
+      ${pkgs.lib.getExe pkgs.pokeget-rs} random
     '';
   };
 
