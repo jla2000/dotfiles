@@ -117,5 +117,11 @@
         inherit pkgs;
         inherit inputs;
       };
+
+
+      homeManagerModules.helix = import ./modules/shell/helix.nix {
+        inherit pkgs;
+        inherit inputs;
+      };
     };
 }
