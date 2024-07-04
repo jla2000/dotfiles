@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, lib, ... }:
 {
   programs.yazi = {
     enable = true;
@@ -52,7 +52,7 @@
     enableCompletion = true;
     bashrcExtra = /* bash */ ''
       set -o vi
-      ${pkgs.lib.getExe pkgs.pokeget-rs} random
+      ${lib.getExe pkgs.pokeget-rs} random
     '';
   };
 

@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, lib, ... }:
 let
   yazi-picker = pkgs.writeShellScriptBin "yazi-picker" /* bash */ ''
     paths=$(yazi --chooser-file=/dev/stdout | while read -r; do printf "%q " "$REPLY"; done)
@@ -43,7 +43,7 @@ in
         }
 
         bind "Ctrl y" {
-          Run "${pkgs.lib.getExe yazi-picker}" {
+          Run "${lib.getExe yazi-picker}" {
             floating true
             close_on_exit true
             x "10%"
@@ -70,7 +70,7 @@ in
     enableFishIntegration = true;
   };
 
-  programs.fish.interactiveShellInit = (pkgs.lib.mkOrder 1001 /* fish */ ''
+  programs.fish.interactiveShellInit = (lib.mkOrder 1001 /* fish */ ''
     function zellij_tab_name_update --on-variable PWD
       if set -q ZELLIJ
         set tab_name ""
@@ -94,7 +94,7 @@ in
     zellij_tab_name_update
   '');
 
-  programs.nushell.extraConfig = (pkgs.lib.mkOrder 1001 ''
+  programs.nushell.extraConfig = (lib.mkOrder 1001 ''
     if not ("ZELLIJ" in $env) {
       zellij
     }

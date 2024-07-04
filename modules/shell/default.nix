@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, lib, ... }:
 {
   imports = [
     ./tmux.nix
@@ -72,7 +72,7 @@
 
   programs.fish = {
     enable = true;
-    interactiveShellInit = (pkgs.lib.mkOrder 0 /* fish */ ''
+    interactiveShellInit = (lib.mkOrder 0 /* fish */ ''
       # Vim Bindings
       fish_hybrid_key_bindings
     '');
