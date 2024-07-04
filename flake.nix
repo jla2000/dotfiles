@@ -118,11 +118,8 @@
         inherit inputs;
       };
 
-      homeManagerModules.helix = { config, ... }: import ./modules/shell/helix.nix {
-        inherit config;
+      homeManagerModules.helix = pkgs.callPackage ./modules/shell/helix.nix {
         inherit pkgs;
-        inherit inputs;
-        lib = pkgs.lib;
       };
     };
 }
