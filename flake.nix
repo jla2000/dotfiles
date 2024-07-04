@@ -87,7 +87,6 @@
         inherit system;
         inherit overlays;
       };
-      lib = pkgs.lib;
     in
     {
       checks.${system}.pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
@@ -106,26 +105,24 @@
 
       homeManagerModules.neovim = import ./modules/neovim {
         inherit pkgs;
-        inherit lib;
         inherit inputs;
       };
 
       homeManagerModules.zellij = import ./modules/shell/zellij.nix {
         inherit pkgs;
-        inherit lib;
         inherit inputs;
       };
 
       homeManagerModules.bash = import ./modules/shell/bash.nix {
         inherit pkgs;
-        inherit lib;
         inherit inputs;
       };
 
-      homeManagerModules.helix = import ./modules/shell/helix.nix {
+      homeManagerModules.helix = { config, ... }: import ./modules/shell/helix.nix {
+        inherit config;
         inherit pkgs;
-        inherit lib;
         inherit inputs;
+        lib = pkgs.lib;
       };
     };
 }
