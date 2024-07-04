@@ -51,6 +51,7 @@
     enable = true;
     enableCompletion = true;
     bashrcExtra = /* bash */ ''
+      bind 'TAB:menu-complete'
       set -o vi
       ${lib.getExe pkgs.pokeget-rs} random
     '';
