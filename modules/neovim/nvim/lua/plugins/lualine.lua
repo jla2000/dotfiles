@@ -12,7 +12,7 @@ return {
 					{
 						"mode",
 						icons_enabled = true,
-						icon = "",
+						icon = "",
 						color = function()
 							local mode_to_hl = {
 								n = "lualine_b_normal",
