@@ -14,7 +14,7 @@
       flake = false;
     };
     helix = {
-      url = "github:tdaron/helix/command-expansion";
+      url = "github:jla2000/helix/rounded-corners";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     catppuccin-bat-theme = {
