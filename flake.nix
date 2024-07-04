@@ -88,7 +88,8 @@
         inherit overlays;
       };
 
-      createModule = file: { config, ... }: import file {
+      createHomeManagerModule = file: { config, ... }: import file {
+        inherit inputs;
         inherit config;
         inherit pkgs;
         lib = pkgs.lib;
@@ -109,21 +110,9 @@
         buildInputs = self.checks.${system}.pre-commit-check.enabledPackages;
       };
 
-      homeManagerModules.neovim = import ./modules/neovim {
-        inherit pkgs;
-        inherit inputs;
-      };
-
-      homeManagerModules.zellij = import ./modules/shell/zellij.nix {
-        inherit pkgs;
-        inherit inputs;
-      };
-
-      homeManagerModules.bash = import ./modules/shell/bash.nix {
-        inherit pkgs;
-        inherit inputs;
-      };
-
-      homeManagerModules.helix = (createModule ./modules/shell/helix.nix);
+      homeManagerModules.neovim = (createHomeManagerModule ./modules/neovim);
+      homeManagerModules.zellij = (createHomeManagerModule ./modules/shell/zellij.nix);
+      homeManagerModules.bash = (createHomeManagerModule ./modules/shell/bash.nix);
+      homeManagerModules.helix = (createHomeManagerModule ./modules/shell/helix.nix);
     };
 }
