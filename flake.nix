@@ -87,6 +87,12 @@
         inherit system;
         inherit overlays;
       };
+
+      createModule = file: { config, ... }: import file {
+        inherit config;
+        inherit pkgs;
+        lib = pkgs.lib;
+      };
     in
     {
       checks.${system}.pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
@@ -118,8 +124,6 @@
         inherit inputs;
       };
 
-      homeManagerModules.helix = pkgs.callPackage ./modules/shell/helix.nix {
-        inherit pkgs;
-      };
+      homeManagerModules.helix = (createModule ./modules/shell/helix.nix);
     };
 }
