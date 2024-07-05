@@ -54,6 +54,7 @@ in
       diffview-nvim
       nerdy-nvim
       markview-nvim
+      colorbuddy-nvim
     ];
     extraPackages = with pkgs; [
       lua-language-server

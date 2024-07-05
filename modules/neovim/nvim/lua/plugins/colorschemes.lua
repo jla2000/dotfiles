@@ -11,4 +11,8 @@ return {
 		"catppuccin.nvim",
 		colorscheme = "catppuccin",
 	},
+	{
+		"colorbuddy.nvim",
+		colorscheme = "gruvbuddy",
+	},
 }
