@@ -40,7 +40,7 @@
     enable = true;
   };
 
-  xdg.configFile."lazygit/config.yml".source = "${inputs.catppuccin-lazygit-theme}/themes-mergable/macchiato/sapphire.yml";
+  # xdg.configFile."lazygit/config.yml".source = "${inputs.catppuccin-lazygit-theme}/themes-mergable/macchiato/sapphire.yml";
 
   programs.fzf = {
     enable = true;
