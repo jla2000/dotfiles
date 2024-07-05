@@ -15,4 +15,8 @@ return {
 		"colorbuddy.nvim",
 		colorscheme = "gruvbuddy",
 	},
+	{
+		"nightfox.nvim",
+		colorscheme = "nightfox",
+	},
 }
