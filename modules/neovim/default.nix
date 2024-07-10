@@ -57,6 +57,7 @@ in
       colorbuddy-nvim
       nightfox-nvim
       tid-nvim
+      rustaceanvim-nvim
     ];
     extraPackages = with pkgs; [
       lua-language-server
