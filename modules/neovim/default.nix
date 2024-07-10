@@ -58,6 +58,8 @@ in
       nightfox-nvim
       tid-nvim
       rustaceanvim-nvim
+      nvim-dap
+      nvim-dap-ui
     ];
     extraPackages = with pkgs; [
       lua-language-server
@@ -67,6 +69,7 @@ in
       markdownlint-cli
       rust-analyzer
       rustfmt
+      lldb
     ];
     defaultEditor = true;
   };
