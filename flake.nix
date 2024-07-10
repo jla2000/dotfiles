@@ -86,6 +86,7 @@
               inherit huez-nvim;
               inherit nerdy-nvim;
               inherit markview-nvim;
+              inherit tid-nvim;
             };
           })
         inputs.lz-n.outputs.overlays.default
