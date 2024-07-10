@@ -50,7 +50,7 @@
       flake = false;
     };
     nvim-dap-ui = {
-      url = "github:rcarriga/nvim-dap-ui";
+      url = "github:rcarriga/nvim-dap-ui/v3.9.3";
       flake = false;
     };
 
