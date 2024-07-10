@@ -60,6 +60,7 @@ in
       rustaceanvim
       nvim-dap
       nvim-dap-ui
+      nvim-nio
     ];
     extraPackages = with pkgs; [
       lua-language-server
