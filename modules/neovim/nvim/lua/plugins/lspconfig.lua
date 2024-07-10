@@ -44,22 +44,20 @@ return {
 			capabilities = capabilities,
 		})
 
-		-- lspconfig.rust_analyzer.setup({
-		-- 	capabilities = capabilities,
-		-- 	on_attach = on_attach,
-		-- 	settings = {
-		-- 		["rust-analyzer"] = {
-		-- 			cargo = {
-		-- 				allFeatures = true,
-		-- 			},
-		-- 			inlayHints = {
-		-- 				enable = true,
-		-- 				typeHints = true,
-		-- 				parameterHints = false,
-		-- 				chainingHints = true,
-		-- 			},
-		-- 		},
-		-- 	},
-		-- })
+		vim.g.rustaceanvim = {
+			default_settings = {
+				["rust-analyzer"] = {
+					cargo = {
+						allFeatures = true,
+					},
+					inlayHints = {
+						enable = true,
+						typeHints = true,
+						parameterHints = false,
+						chainingHints = true,
+					},
+				},
+			},
+		}
 	end,
 }
