@@ -882,6 +882,7 @@
         "nixpkgs": "nixpkgs_6",
         "oil-nvim": "oil-nvim",
         "pre-commit-hooks": "pre-commit-hooks_2",
+        "tid-nvim": "tid-nvim",
         "zellij": "zellij"
       }
     },
@@ -922,6 +923,22 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "tid-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1720556960,
+        "narHash": "sha256-j7qNV4BFH6xH/0r9vORBHIdt1jcJ1Nz6xu95R9HGtmo=",
+        "owner": "rachartier",
+        "repo": "tiny-inline-diagnostic.nvim",
+        "rev": "ef4cf9a918fd1d397bc23905ac9eff202ab4894d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rachartier",
+        "repo": "tiny-inline-diagnostic.nvim",
         "type": "github"
       }
     },

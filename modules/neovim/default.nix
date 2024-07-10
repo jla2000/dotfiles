@@ -56,6 +56,7 @@ in
       markview-nvim
       colorbuddy-nvim
       nightfox-nvim
+      tid-nvim
     ];
     extraPackages = with pkgs; [
       lua-language-server

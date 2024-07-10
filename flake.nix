@@ -45,6 +45,10 @@
       url = "github:OXY2DEV/markview.nvim";
       flake = false;
     };
+    tid-nvim = {
+      url = "github:rachartier/tiny-inline-diagnostic.nvim";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -69,6 +73,10 @@
             markview-nvim = nixpkgs.legacyPackages.${final.system}.vimUtils.buildVimPlugin {
               name = "markview.nvim";
               src = inputs.markview-nvim;
+            };
+            tid-nvim = nixpkgs.legacyPackages.${final.system}.vimUtils.buildVimPlugin {
+              name = "tiny-inline-diagnostic.nvim";
+              src = inputs.tid-nvim;
             };
           in
           {
