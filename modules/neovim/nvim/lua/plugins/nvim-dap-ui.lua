@@ -2,6 +2,7 @@ return {
 	"dapui",
 	after = function()
 		require("dapui").setup()
+		print("setup dapui")
 	end,
 	keys = {
 		{
