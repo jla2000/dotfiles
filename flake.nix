@@ -49,11 +49,6 @@
       url = "github:rachartier/tiny-inline-diagnostic.nvim";
       flake = false;
     };
-    nvim-dap-ui = {
-      url = "github:rcarriga/nvim-dap-ui";
-      flake = false;
-    };
-
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -79,10 +74,6 @@
               name = "markview.nvim";
               src = inputs.markview-nvim;
             };
-            nvim-dap-ui = nixpkgs.legacyPackages.${final.system}.vimUtils.buildVimPlugin {
-              name = "nvim-dap-ui";
-              src = inputs.nvim-dap-ui;
-            };
             tid-nvim = nixpkgs.legacyPackages.${final.system}.vimUtils.buildVimPlugin {
               name = "tiny-inline-diagnostic.nvim";
               src = inputs.tid-nvim;
@@ -96,7 +87,6 @@
               inherit nerdy-nvim;
               inherit markview-nvim;
               inherit tid-nvim;
-              inherit nvim-dap-ui;
             };
           })
         inputs.lz-n.outputs.overlays.default
