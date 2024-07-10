@@ -57,7 +57,7 @@ in
       colorbuddy-nvim
       nightfox-nvim
       tid-nvim
-      rustaceanvim-nvim
+      rustaceanvim
       nvim-dap
       nvim-dap-ui
     ];
