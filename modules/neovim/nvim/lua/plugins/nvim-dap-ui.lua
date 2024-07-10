@@ -1,5 +1,5 @@
 return {
-	"nvim-dap-ui",
+	"dapui",
 	event = "DeferredUIEnter",
 	after = function()
 		require("dapui").setup()
