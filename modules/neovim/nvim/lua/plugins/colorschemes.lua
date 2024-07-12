@@ -2,6 +2,11 @@ return {
 	{
 		"tokyonight.nvim",
 		colorscheme = "tokyonight",
+		after = function()
+			require("tokyonight").setup({
+				comments = { italic = true },
+			})
+		end,
 	},
 	{
 		"onedark.nvim",
