@@ -17,6 +17,7 @@ in
   config = {
     programs.helix = {
       enable = true;
+      pkg = pkgs.helix-master;
       extraPackages = with pkgs; [
         python3Packages.python-lsp-server
         cmake-language-server

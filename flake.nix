@@ -80,7 +80,7 @@
             };
           in
           {
-            helix = inputs.helix.packages.${final.system}.default;
+            helix-master = inputs.helix.packages.${final.system}.default;
             vimPlugins = prev.vimPlugins // {
               inherit oil-nvim;
               inherit huez-nvim;
