@@ -24,4 +24,8 @@ return {
 		"nightfox.nvim",
 		colorscheme = "nightfox",
 	},
+	{
+		"miasma.nvim",
+		colorscheme = "miasma",
+	},
 }
