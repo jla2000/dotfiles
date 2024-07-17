@@ -37,6 +37,10 @@ in
           file-picker.hidden = false;
           lsp.display-messages = true;
           indent-guides.render = true;
+          inline-diagnostics = {
+            cursor-line = "hint";
+            other-lines = "error";
+          };
         };
         keys.insert = {
           j.k = "normal_mode";
