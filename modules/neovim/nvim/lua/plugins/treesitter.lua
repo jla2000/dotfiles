@@ -2,6 +2,10 @@ return {
 	"nvim-treesitter",
 	event = { "BufReadPre", "BufNewFile" },
 	after = function()
+		require("treesitter-context").setup({
+			max_lines = 3,
+		})
+
 		require("nvim-treesitter.configs").setup({
 			auto_install = false,
 			highlight = {
