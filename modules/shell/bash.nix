@@ -63,6 +63,15 @@
     enableNushellIntegration = true;
   };
 
+  programs.git = {
+    enable = true;
+    userName = "Jan Lafferton";
+    userEmail = "jan@lafferton.de";
+    extraConfig = {
+      pull.rebase = true;
+    };
+  };
+
   home.packages = with pkgs; [
     fd
     gdb
