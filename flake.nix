@@ -25,16 +25,8 @@
       url = "github:catppuccin/lazygit";
       flake = false;
     };
-    lz-n = {
-      url = "github:nvim-neorocks/lz.n";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     huez-nvim = {
       url = "github:vague2k/huez.nvim";
-      flake = false;
-    };
-    oil-nvim = {
-      url = "github:stevearc/oil.nvim";
       flake = false;
     };
     nerdy-nvim = {
@@ -82,14 +74,12 @@
           {
             helix-master = inputs.helix.packages.${final.system}.default;
             vimPlugins = prev.vimPlugins // {
-              inherit oil-nvim;
               inherit huez-nvim;
               inherit nerdy-nvim;
               inherit markview-nvim;
               inherit tid-nvim;
             };
           })
-        inputs.lz-n.outputs.overlays.default
       ];
 
       pkgs = import nixpkgs {
