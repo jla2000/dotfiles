@@ -48,6 +48,10 @@
         url = "github:nix-community/NixOS-WSL";
         inputs.nixpkgs.follows = "nixpkgs";
       };
+      wgsl-analyzer = {
+        url = "github:wgsl-analyzer/wgsl-analyzer";
+        inputs.nixpkgs.follows = "nixpkgs";
+      };
     };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -84,6 +88,7 @@
             };
           })
         inputs.nur.outputs.overlay
+        inputs.wgsl-analyzer.overlays.${system}.default
       ];
 
       pkgs = import nixpkgs {

@@ -72,6 +72,7 @@ in
       rust-analyzer
       rustfmt
       lldb
+      wgsl-analyzer
     ];
     defaultEditor = true;
   };

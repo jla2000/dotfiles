@@ -21,6 +21,10 @@ in
           family = "Monaspace Neon Var";
           style = "ExtraBold";
         };
+        bold_italic = {
+          family = "Monaspace Neon Var";
+          style = "ExtraBold Italic";
+        };
         italic = {
           family = "Monaspace Neon Var";
           style = "Bold Italic";

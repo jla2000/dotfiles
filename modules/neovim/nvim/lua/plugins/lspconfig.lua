@@ -44,6 +44,8 @@ return {
 			capabilities = capabilities,
 		})
 
+		lspconfig.wgsl_analyzer.setup({})
+
 		vim.g.rustaceanvim = {
 			default_settings = {
 				["rust-analyzer"] = {
