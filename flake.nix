@@ -1,3 +1,6 @@
+let
+  intranet-access = builtins.getEnv "INTRANET_ACCESS" == "1";
+in
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
@@ -43,6 +46,15 @@
       url = "github:rachartier/tiny-inline-diagnostic.nvim";
       flake = false;
     };
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixpkgs-vector =
+      if intranet-access then {
+        url = "git+https://github1.vg.vector.int/fbuehler/nixpkgs-vector";
+        inputs.nixpkgs.follows = "nixpkgs";
+      } else null;
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -113,20 +125,40 @@
         buildInputs = self.checks.${system}.pre-commit-check.enabledPackages;
       };
 
-      homeManagerModules.shell = (createHomeManagerModule ./modules/shell.nix);
-
-      nixosConfigurations."zephyrus" = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit inputs pkgs; };
-        modules = [
-          ./hosts/zephyrus/configuration.nix
-          inputs.home-manager.nixosModules.home-manager
-          {
-            home-manager.users.jan = import ./hosts/zephyrus/home.nix;
-            home-manager.useGlobalPkgs = true;
-            home-manager.extraSpecialArgs = { inherit inputs; };
-          }
-        ];
+      nixosConfigurations = {
+        "zephyrus" = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs pkgs; };
+          modules = [
+            ./hosts/zephyrus/configuration.nix
+            inputs.home-manager.nixosModules.home-manager
+            {
+              home-manager.users.jan = import ./hosts/zephyrus/home.nix;
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit inputs; };
+            }
+          ];
+        };
+        "dell" =
+          if intranet-access then
+            nixpkgs.lib.nixosSystem
+              {
+                inherit system;
+                specialArgs = { inherit inputs pkgs; };
+                modules = [
+                  ./hosts/dell/configuration.nix
+                  inputs.nixos-wsl.nixosModules.wsl
+                  inputs.nixpkgs-vector.nixosModules.vector
+                  inputs.home-manager.nixosModules.home-manager
+                  {
+                    home-manager.users.jlafferton = import ./hosts/dell/home.nix;
+                    home-manager.useGlobalPkgs = true;
+                    home-manager.useUserPackages = true;
+                    home-manager.extraSpecialArgs = { inherit inputs; };
+                  }
+                ];
+              } else null;
       };
     };
 }

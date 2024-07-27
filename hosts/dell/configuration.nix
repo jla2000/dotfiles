@@ -13,13 +13,6 @@
   # Enable nix flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # enable auto-upgrade
-  system.autoUpgrade = {
-    enable = lib.mkDefault true;
-    flake = "git+https://github1.vg.vector.int/jlafferton/nixos-wsl-vector";
-    persistent = lib.mkDefault true;
-  };
-
   system.stateVersion = "24.05";
 
   virtualisation.docker.enable = lib.mkDefault true;
