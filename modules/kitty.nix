@@ -12,6 +12,7 @@
     settings = {
       window_padding_width = 2;
       cursor_shape = "block";
+      hide_window_decorations = "yes";
     };
   };
 }
