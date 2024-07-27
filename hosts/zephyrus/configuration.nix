@@ -38,7 +38,6 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   # Configure sound and video
-  sound.enable = true;
   hardware.pulseaudio.enable = true;
   hardware.opengl.enable = true;
   hardware.bluetooth.enable = true;
@@ -52,26 +51,9 @@
   services.xserver = {
     enable = true;
     videoDrivers = [ "amdgpu" ];
-    desktopManager.xterm.enable = false;
 
-    displayManager = {
-      defaultSession = "none+i3";
-      gdm.enable = true;
-    };
-
-    windowManager.i3 = {
-      enable = true;
-      extraPackages = with pkgs; [
-        dmenu
-        i3status-rust
-        i3lock
-        i3blocks
-        networkmanagerapplet
-        dunst
-        brightnessctl
-        libnotify
-      ];
-    };
+    desktopManager.gnome.enable = true;
+    displayManager.gdm.enable = true;
 
     config = /* xorg */ ''
       Section "Device"
@@ -83,27 +65,25 @@
     exportConfiguration = true;
   };
 
-  programs.hyprland.enable = true;
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Keep system clean and up to date
   nix.gc.automatic = true;
   system.autoUpgrade = {
     enable = true;
-    flake = "github:jla2000/nixos-dotfiles";
+    flake = "github:jla2000/nixos-zephyrus";
   };
 
   # Automatic btrfs scrub
   services.btrfs.autoScrub.enable = lib.mkDefault
     (builtins.any (filesystem: filesystem.fsType == "btrfs")
       (builtins.attrValues config.fileSystems));
-  programs.fish.enable = true;
 
   # Default user
   users.users.jan = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
-    shell = pkgs.fish;
+    shell = pkgs.bash;
   };
 
   environment.systemPackages = with pkgs; [

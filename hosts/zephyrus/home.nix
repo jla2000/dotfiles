@@ -1,8 +1,12 @@
+{ config, ... }:
 {
   imports = [
     ../../modules/apps
-    ../../modules/shell
     ../../modules/desktop/i3
+    ../../modules/neovim
+    ../../modules/shell/zellij.nix
+    ../../modules/shell/bash.nix
+    ../../modules/shell/helix.nix
   ];
 
   home = {
@@ -19,5 +23,6 @@
     };
   };
 
-  home.stateVersion = "23.11";
+  home.sessionVariables.FLAKE = "${config.home.homeDirectory}/code/nixos-dotfiles";
+  home.stateVersion = "24.11";
 }

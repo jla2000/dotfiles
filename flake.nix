@@ -1,6 +1,8 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixos-hardware.url = "github:nixos/nixos-hardware";
+    nur.url = "github:nix-community/nur";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -80,11 +82,13 @@
               inherit tid-nvim;
             };
           })
+        inputs.nur.outputs.overlay
       ];
 
       pkgs = import nixpkgs {
         inherit system;
         inherit overlays;
+        config.allowUnfree = true;
       };
 
       createHomeManagerModule = file: { config, ... }: import file {
@@ -113,5 +117,19 @@
       homeManagerModules.zellij = (createHomeManagerModule ./modules/shell/zellij.nix);
       homeManagerModules.bash = (createHomeManagerModule ./modules/shell/bash.nix);
       homeManagerModules.helix = (createHomeManagerModule ./modules/shell/helix.nix);
+
+      nixosConfigurations."zephyrus" = nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = { inherit inputs pkgs; };
+        modules = [
+          ./hosts/zephyrus/configuration.nix
+          inputs.home-manager.nixosModules.home-manager
+          {
+            home-manager.users.jan = import ./hosts/zephyrus/home.nix;
+            home-manager.useGlobalPkgs = true;
+            home-manager.extraSpecialArgs = { inherit inputs; };
+          }
+        ];
+      };
     };
 }
