@@ -1,61 +1,54 @@
-let
-  intranet-access = builtins.getEnv "INTRANET_ACCESS" == "1";
-in
 {
-  inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    nixos-hardware.url = "github:nixos/nixos-hardware";
-    nur.url = "github:nix-community/nur";
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    pre-commit-hooks = {
-      url = "github:cachix/pre-commit-hooks.nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    zellij = {
-      url = "github:zellij-org/zellij";
-      flake = false;
-    };
-    helix = {
-      url = "github:helix-editor/helix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    catppuccin-bat-theme = {
-      url = "github:catppuccin/bat";
-      flake = false;
-    };
-    catppuccin-lazygit-theme = {
-      url = "github:catppuccin/lazygit";
-      flake = false;
-    };
-    huez-nvim = {
-      url = "github:vague2k/huez.nvim";
-      flake = false;
-    };
-    nerdy-nvim = {
-      url = "github:2KAbhishek/nerdy.nvim";
-      flake = false;
-    };
-    markview-nvim = {
-      url = "github:OXY2DEV/markview.nvim";
-      flake = false;
-    };
-    tid-nvim = {
-      url = "github:rachartier/tiny-inline-diagnostic.nvim";
-      flake = false;
-    };
-    nixos-wsl = {
-      url = "github:nix-community/NixOS-WSL";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixpkgs-vector =
-      if intranet-access then {
-        url = "git+https://github1.vg.vector.int/fbuehler/nixpkgs-vector";
+  inputs =
+    {
+      nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+      nixos-hardware.url = "github:nixos/nixos-hardware";
+      nur.url = "github:nix-community/nur";
+      home-manager = {
+        url = "github:nix-community/home-manager";
         inputs.nixpkgs.follows = "nixpkgs";
-      } else null;
-  };
+      };
+      pre-commit-hooks = {
+        url = "github:cachix/pre-commit-hooks.nix";
+        inputs.nixpkgs.follows = "nixpkgs";
+      };
+      zellij = {
+        url = "github:zellij-org/zellij";
+        flake = false;
+      };
+      helix = {
+        url = "github:helix-editor/helix";
+        inputs.nixpkgs.follows = "nixpkgs";
+      };
+      catppuccin-bat-theme = {
+        url = "github:catppuccin/bat";
+        flake = false;
+      };
+      catppuccin-lazygit-theme = {
+        url = "github:catppuccin/lazygit";
+        flake = false;
+      };
+      huez-nvim = {
+        url = "github:vague2k/huez.nvim";
+        flake = false;
+      };
+      nerdy-nvim = {
+        url = "github:2KAbhishek/nerdy.nvim";
+        flake = false;
+      };
+      markview-nvim = {
+        url = "github:OXY2DEV/markview.nvim";
+        flake = false;
+      };
+      tid-nvim = {
+        url = "github:rachartier/tiny-inline-diagnostic.nvim";
+        flake = false;
+      };
+      nixos-wsl = {
+        url = "github:nix-community/NixOS-WSL";
+        inputs.nixpkgs.follows = "nixpkgs";
+      };
+    };
 
   outputs = { self, nixpkgs, ... }@inputs:
     let
@@ -64,10 +57,6 @@ in
       overlays = [
         (final: prev:
           let
-            oil-nvim = nixpkgs.legacyPackages.${final.system}.vimUtils.buildVimPlugin {
-              name = "oil.nvim";
-              src = inputs.oil-nvim;
-            };
             huez-nvim = nixpkgs.legacyPackages.${final.system}.vimUtils.buildVimPlugin {
               name = "huez.nvim";
               src = inputs.huez-nvim;
@@ -102,13 +91,6 @@ in
         inherit overlays;
         config.allowUnfree = true;
       };
-
-      createHomeManagerModule = file: { config, ... }: import file {
-        inherit inputs;
-        inherit config;
-        inherit pkgs;
-        lib = pkgs.lib;
-      };
     in
     {
       checks.${system}.pre-commit-check = inputs.pre-commit-hooks.lib.${system}.run {
@@ -140,25 +122,29 @@ in
             }
           ];
         };
-        "dell" =
-          if intranet-access then
-            nixpkgs.lib.nixosSystem
+        "dell" = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs pkgs; };
+          modules =
+            let
+              nixpkgs-vector = import (builtins.fetchTarball {
+                url = "git+https://github1.vg.vector.int/fbuehler/nixpkgs-vector";
+                sha256 = "abc";
+              });
+            in
+            [
+              ./hosts/dell/configuration.nix
+              inputs.nixos-wsl.nixosModules.wsl
+              nixpkgs-vector.nixosModules.vector
+              inputs.home-manager.nixosModules.home-manager
               {
-                inherit system;
-                specialArgs = { inherit inputs pkgs; };
-                modules = [
-                  ./hosts/dell/configuration.nix
-                  inputs.nixos-wsl.nixosModules.wsl
-                  inputs.nixpkgs-vector.nixosModules.vector
-                  inputs.home-manager.nixosModules.home-manager
-                  {
-                    home-manager.users.jlafferton = import ./hosts/dell/home.nix;
-                    home-manager.useGlobalPkgs = true;
-                    home-manager.useUserPackages = true;
-                    home-manager.extraSpecialArgs = { inherit inputs; };
-                  }
-                ];
-              } else null;
+                home-manager.users.jlafferton = import ./hosts/dell/home.nix;
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.extraSpecialArgs = { inherit inputs; };
+              }
+            ];
+        };
       };
     };
 }

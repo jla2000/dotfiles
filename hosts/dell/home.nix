@@ -9,6 +9,7 @@
     sessionVariables = {
       COLORTERM = "truecolor";
       FLAKE = "${config.home.homeDirectory}/dev/nixos-dotfiles";
+      INTRANET_ACCESS = "1";
     };
     stateVersion = "24.05";
     packages = with pkgs; [
