@@ -1,5 +1,18 @@
 { inputs, lib, pkgs, ... }:
+let
+  nixpkgs-vector = pkgs.fetchFromGitHub {
+    githubBase = "github1.vg.vector.int";
+    owner = "fbuehler";
+    repo = "nixpkgs-vector";
+    rev = "main";
+    hash = "sha256-GvsznM2GLlMX5BmIPc19DGAzFty5kTZwRcHaWWhY+FQ=";
+  };
+in
 {
+  imports = [
+    "${nixpkgs-vector}/modules/vector/default.nix"
+  ];
+
   wsl = {
     enable = true;
     wslConf.automount.root = lib.mkDefault "/mnt";

@@ -125,25 +125,17 @@
         "dell" = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs pkgs; };
-          modules =
-            let
-              nixpkgs-vector = import (builtins.fetchTarball {
-                url = "git+https://github1.vg.vector.int/fbuehler/nixpkgs-vector";
-                sha256 = "abc";
-              });
-            in
-            [
-              ./hosts/dell/configuration.nix
-              inputs.nixos-wsl.nixosModules.wsl
-              nixpkgs-vector.nixosModules.vector
-              inputs.home-manager.nixosModules.home-manager
-              {
-                home-manager.users.jlafferton = import ./hosts/dell/home.nix;
-                home-manager.useGlobalPkgs = true;
-                home-manager.useUserPackages = true;
-                home-manager.extraSpecialArgs = { inherit inputs; };
-              }
-            ];
+          modules = [
+            ./hosts/dell/configuration.nix
+            inputs.nixos-wsl.nixosModules.wsl
+            inputs.home-manager.nixosModules.home-manager
+            {
+              home-manager.users.jlafferton = import ./hosts/dell/home.nix;
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = { inherit inputs; };
+            }
+          ];
         };
       };
     };
