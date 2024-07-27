@@ -1,12 +1,9 @@
 { config, ... }:
 {
   imports = [
-    ../../modules/apps
-    ../../modules/desktop/i3
-    ../../modules/neovim
-    ../../modules/shell/zellij.nix
-    ../../modules/shell/basic.nix
-    ../../modules/shell/helix.nix
+    ../../modules/shell.nix
+    ../../modules/firefox.nix
+    ../../modules/kitty.nix
   ];
 
   home = {

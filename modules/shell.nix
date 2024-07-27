@@ -1,5 +1,12 @@
 { inputs, pkgs, lib, ... }:
 {
+  imports = [
+    ./zellij.nix
+    ./tmux.nix
+    ./helix.nix
+    ./neovim/default.nix
+  ];
+
   programs.yazi = {
     enable = true;
     enableFishIntegration = true;

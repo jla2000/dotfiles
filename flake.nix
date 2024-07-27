@@ -113,10 +113,7 @@
         buildInputs = self.checks.${system}.pre-commit-check.enabledPackages;
       };
 
-      homeManagerModules.neovim = (createHomeManagerModule ./modules/neovim);
-      homeManagerModules.zellij = (createHomeManagerModule ./modules/shell/zellij.nix);
-      homeManagerModules.basic = (createHomeManagerModule ./modules/shell/basic.nix);
-      homeManagerModules.helix = (createHomeManagerModule ./modules/shell/helix.nix);
+      homeManagerModules.shell = (createHomeManagerModule ./modules/shell.nix);
 
       nixosConfigurations."zephyrus" = nixpkgs.lib.nixosSystem {
         inherit system;
