@@ -13,12 +13,9 @@ let
   '';
 in
 {
-  # xdg.configFile."zellij/themes" = {
-  #   source = "${inputs.zellij}/zellij-utils/assets/themes";
-  # };
-
   xdg.configFile."zellij/config.kdl".text = /* kdl */ ''
     default_layout "disable-status-bar"
+    default_shell "fish"
     pane_frames false
     keybinds {
       normal clear-defaults=true {
@@ -65,8 +62,6 @@ in
 
   programs.zellij = {
     enable = true;
-    enableBashIntegration = true;
-    enableFishIntegration = true;
   };
 
   programs.fish.interactiveShellInit = (lib.mkOrder 1001 /* fish */ ''
@@ -91,11 +86,5 @@ in
     end
 
     zellij_tab_name_update
-  '');
-
-  programs.nushell.extraConfig = (lib.mkOrder 1001 ''
-    if not ("ZELLIJ" in $env) {
-      zellij
-    }
   '');
 }

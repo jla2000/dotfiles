@@ -2,12 +2,12 @@
 {
   programs.yazi = {
     enable = true;
-    enableBashIntegration = true;
+    enableFishIntegration = true;
   };
 
   programs.eza = {
     enable = true;
-    enableBashIntegration = true;
+    enableFishIntegration = true;
   };
 
   programs.bat = {
@@ -23,7 +23,7 @@
     options = [
       "--cmd cd"
     ];
-    enableBashIntegration = true;
+    enableFishIntegration = true;
   };
 
   programs.starship = {
@@ -33,18 +33,16 @@
         disabled = true;
       };
     };
-    enableBashIntegration = true;
+    enableFishIntegration = true;
   };
 
   programs.lazygit = {
     enable = true;
   };
 
-  # xdg.configFile."lazygit/config.yml".source = "${inputs.catppuccin-lazygit-theme}/themes-mergable/macchiato/sapphire.yml";
-
   programs.fzf = {
     enable = true;
-    enableBashIntegration = true;
+    enableFishIntegration = true;
   };
 
   programs.bash = {
@@ -53,14 +51,24 @@
     bashrcExtra = /* bash */ ''
       bind 'TAB:menu-complete'
       set -o vi
-      ${lib.getExe pkgs.pokeget-rs} random
     '';
+  };
+
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = (lib.mkOrder 0 /* fish */ ''
+      fish_hybrid_key_bindings
+    '');
+
+    plugins = with pkgs.fishPlugins; [
+      { name = "bass"; src = bass.src; }
+      { name = "autopair"; src = autopair.src; }
+      { name = "transient-fish"; src = transient-fish.src; }
+    ];
   };
 
   programs.direnv = {
     enable = true;
-    enableBashIntegration = true;
-    enableNushellIntegration = true;
   };
 
   programs.git = {

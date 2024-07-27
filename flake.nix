@@ -115,7 +115,7 @@
 
       homeManagerModules.neovim = (createHomeManagerModule ./modules/neovim);
       homeManagerModules.zellij = (createHomeManagerModule ./modules/shell/zellij.nix);
-      homeManagerModules.bash = (createHomeManagerModule ./modules/shell/bash.nix);
+      homeManagerModules.basic = (createHomeManagerModule ./modules/shell/basic.nix);
       homeManagerModules.helix = (createHomeManagerModule ./modules/shell/helix.nix);
 
       nixosConfigurations."zephyrus" = nixpkgs.lib.nixosSystem {

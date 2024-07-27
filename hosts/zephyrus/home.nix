@@ -5,7 +5,7 @@
     ../../modules/desktop/i3
     ../../modules/neovim
     ../../modules/shell/zellij.nix
-    ../../modules/shell/bash.nix
+    ../../modules/shell/basic.nix
     ../../modules/shell/helix.nix
   ];
 
@@ -20,6 +20,25 @@
     userEmail = "jan@lafferton.de";
     extraConfig = {
       pull.rebase = true;
+    };
+  };
+
+  dconf.settings = {
+    "org/gnome/settings-daemon/plugins/media-keys" = {
+      custom-keybindings = [
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/"
+        "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/"
+      ];
+    };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
+      binding = "<Super>Return";
+      command = "kitty -e zellij";
+      name = "open-terminal";
+    };
+    "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {
+      binding = "<Super>c";
+      command = "firefox";
+      name = "open-browser";
     };
   };
 
