@@ -28,6 +28,7 @@ in
       };
 
       window = {
+        decorations = "none";
         padding = {
           x = 5;
           y = 5;
