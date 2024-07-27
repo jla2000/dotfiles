@@ -103,6 +103,7 @@
     unzip
     ventoy-full
     xclip
+    vesktop
   ];
 
   # Enable flakes
