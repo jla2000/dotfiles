@@ -23,6 +23,7 @@
     ];
   };
 
+  programs.zellij.enableFishIntegration = true;
   programs.git.userEmail = lib.mkForce "jan.lafferton@vector.com";
 }
 

@@ -102,10 +102,7 @@
         };
       };
 
-      devShells.${system}.default = pkgs.mkShellNoCC {
-        inherit (self.checks.${system}.pre-commit-check) shellHook;
-        buildInputs = self.checks.${system}.pre-commit-check.enabledPackages;
-      };
+      # TODO: Insert derivation that will insert pre commit hook
 
       nixosConfigurations = {
         "zephyrus" = nixpkgs.lib.nixosSystem {

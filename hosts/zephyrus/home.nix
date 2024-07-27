@@ -3,7 +3,7 @@
   imports = [
     ../../modules/shell.nix
     ../../modules/firefox.nix
-    ../../modules/kitty.nix
+    ../../modules/alacritty.nix
   ];
 
   home = {
@@ -20,7 +20,7 @@
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       binding = "<Super>Return";
-      command = "kitty -e zellij";
+      command = "alacritty -e zellij";
       name = "open-terminal";
     };
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1" = {

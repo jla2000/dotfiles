@@ -12,10 +12,10 @@ in
     enable = true;
     settings = {
       font = {
-        size = 15;
+        size = 16;
         normal = {
           family = "Monaspace Neon Var";
-          style = "SemiBold";
+          style = "Bold";
         };
         bold = {
           family = "Monaspace Neon Var";
@@ -23,7 +23,7 @@ in
         };
         italic = {
           family = "Monaspace Neon Var";
-          style = "SemiBold Italic";
+          style = "Bold Italic";
         };
       };
 

@@ -13,7 +13,12 @@ let
   '';
 in
 {
+  xdg.configFile."zellij/themes" = {
+    source = "${inputs.zellij}/zellij-utils/assets/themes";
+  };
+
   xdg.configFile."zellij/config.kdl".text = /* kdl */ ''
+    theme "catppuccin-macchiato"
     default_layout "disable-status-bar"
     default_shell "fish"
     pane_frames false
