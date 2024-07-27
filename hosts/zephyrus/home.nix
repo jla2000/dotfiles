@@ -11,15 +11,6 @@
     homeDirectory = "/home/jan";
   };
 
-  programs.git = {
-    enable = true;
-    userName = "Jan Lafferton";
-    userEmail = "jan@lafferton.de";
-    extraConfig = {
-      pull.rebase = true;
-    };
-  };
-
   dconf.settings = {
     "org/gnome/settings-daemon/plugins/media-keys" = {
       custom-keybindings = [
