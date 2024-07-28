@@ -27,6 +27,15 @@ return {
 		})
 
 		lspconfig.clangd.setup({
+			on_attach = function(_, _)
+				vim.keymap.set("n", "<leader>cp", "<cmd>CMakeSelectConfigurePreset<cr>")
+				vim.keymap.set("n", "<leader>cg", "<cmd>CMakeGenerate<cr>")
+				vim.keymap.set("n", "<leader>cc", "<cmd>CMakeSettings<cr>")
+				vim.keymap.set("n", "<leader>ct", "<cmd>CMakeSelectLaunchTarget<cr>")
+				vim.keymap.set("n", "<leader>ce", "<cmd>CMakeRun<cr>")
+				vim.keymap.set("n", "<leader>cb", "<cmd>CMakeBuild<cr>")
+				vim.keymap.set("n", "<leader>cd", "<cmd>CMakeDebug<cr>")
+			end,
 			capabilities = capabilities,
 			root_dir = lspconfig.util.root_pattern("compile_commands.json", ".git"),
 			cmd = {
@@ -47,16 +56,22 @@ return {
 		lspconfig.wgsl_analyzer.setup({})
 
 		vim.g.rustaceanvim = {
-			default_settings = {
-				["rust-analyzer"] = {
-					cargo = {
-						allFeatures = true,
-					},
-					inlayHints = {
-						enable = true,
-						typeHints = true,
-						parameterHints = false,
-						chainingHints = true,
+			server = {
+				on_attach = function(_, _)
+					vim.keymap.set("n", "<leader>ce", "<cmd>RustLsp runnables<cr>")
+					vim.keymap.set("n", "<leader>cd", "<cmd>RustLsp debuggables<cr>")
+				end,
+				default_settings = {
+					["rust-analyzer"] = {
+						cargo = {
+							allFeatures = true,
+						},
+						inlayHints = {
+							enable = true,
+							typeHints = true,
+							parameterHints = false,
+							chainingHints = true,
+						},
 					},
 				},
 			},
