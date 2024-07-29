@@ -27,6 +27,12 @@
     };
   };
 
+  # Use bat as man pager
+  home.sessionVariables = {
+    MANROFFOPT = "-c";
+    MANPAGER = "sh -c 'col -bx | bat -l man -p'";
+  };
+
   programs.zoxide = {
     enable = true;
     options = [
