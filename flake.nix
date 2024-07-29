@@ -121,6 +121,7 @@
           modules = [
             ./hosts/zephyrus/configuration.nix
             inputs.nix-index-database.nixosModules.nix-index
+            { programs.nix-index-database.comma.enable = true; }
             inputs.home-manager.nixosModules.home-manager
             {
               home-manager.users.jan = import ./hosts/zephyrus/home.nix;
@@ -137,6 +138,7 @@
             ./hosts/dell/configuration.nix
             inputs.nixos-wsl.nixosModules.wsl
             inputs.nix-index-database.nixosModules.nix-index
+            { programs.nix-index-database.comma.enable = true; }
             inputs.home-manager.nixosModules.home-manager
             {
               home-manager.users.jlafferton = import ./hosts/dell/home.nix;
