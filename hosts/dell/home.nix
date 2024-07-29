@@ -2,6 +2,7 @@
 {
   imports = [
     ../../modules/shell.nix
+    ../../modules/alacritty.nix
   ];
   home = {
     username = "jlafferton";
@@ -21,6 +22,20 @@
       gcc
       gnumake
     ];
+  };
+
+  programs.alacritty.settings = {
+    font = {
+      size = lib.mkForce 12;
+      normal.family = lib.mkForce "MonaspiceNe Nerd Font";
+      bold.family = lib.mkForce "MonaspiceNe Nerd Font";
+      bold_italic.family = lib.mkForce "MonaspiceNe Nerd Font";
+      italic.family = lib.mkForce "MonaspiceNe Nerd Font";
+    };
+    shell = {
+      args = [ "--cd ~" ];
+      program = "wsl.exe";
+    };
   };
 
   programs.zellij.enableFishIntegration = true;

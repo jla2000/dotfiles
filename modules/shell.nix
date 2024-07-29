@@ -10,11 +10,13 @@
   programs.yazi = {
     enable = true;
     enableFishIntegration = true;
+    enableBashIntegration = true;
   };
 
   programs.eza = {
     enable = true;
     enableFishIntegration = true;
+    enableBashIntegration = true;
   };
 
   programs.bat = {
@@ -31,6 +33,7 @@
       "--cmd cd"
     ];
     enableFishIntegration = true;
+    enableBashIntegration = true;
   };
 
   programs.starship = {
@@ -41,6 +44,7 @@
       };
     };
     enableFishIntegration = true;
+    enableBashIntegration = true;
   };
 
   programs.lazygit = {
@@ -50,6 +54,7 @@
   programs.fzf = {
     enable = true;
     enableFishIntegration = true;
+    enableBashIntegration = true;
   };
 
   programs.bash = {
@@ -76,6 +81,7 @@
 
   programs.direnv = {
     enable = true;
+    enableBashIntegration = true;
   };
 
   programs.git = {

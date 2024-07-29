@@ -20,7 +20,7 @@ in
     startMenuLaunchers = lib.mkDefault true;
   };
 
-  networking.hostname = "dell";
+  networking.hostName = "dell";
 
   # enable vector specific settings
   vector.proxy-settings.enable = lib.mkDefault true;
