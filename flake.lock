@@ -266,11 +266,11 @@
     "markview-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1722166635,
-        "narHash": "sha256-JYlOgm9njtydfG53CHspyXFPwGG2FSAu3SpxNxp9WA8=",
+        "lastModified": 1722234987,
+        "narHash": "sha256-keMlFGBcu9ZXdiwbGYE+qBrGeo55+qhE/JgFeb+4fhM=",
         "owner": "OXY2DEV",
         "repo": "markview.nvim",
-        "rev": "ff6f848540439a29ac1e759de438ca4821d99077",
+        "rev": "8537f7f03e4683b9ef98202e7a0286373a5b7135",
         "type": "github"
       },
       "original": {

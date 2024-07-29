@@ -32,12 +32,12 @@
       italic.family = lib.mkForce "MonaspiceNe Nerd Font";
     };
     shell = {
-      args = [ "--cd ~" "zellij" ];
+      args = [ "--cd ~" ];
       program = "wsl.exe";
     };
   };
 
-  programs.zellij.enableFishIntegration = true;
+  programs.zellij.enableBashIntegration = true;
   programs.git.userEmail = lib.mkForce "jan.lafferton@vector.com";
 }
 
