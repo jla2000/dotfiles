@@ -83,9 +83,8 @@
   users.users.jan = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
-    shell = pkgs.fish;
+    shell = pkgs.bash;
   };
-  programs.fish.enable = true;
 
   environment.systemPackages = with pkgs; [
     gcc

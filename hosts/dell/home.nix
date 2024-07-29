@@ -32,7 +32,7 @@
       italic.family = lib.mkForce "MonaspiceNe Nerd Font";
     };
     shell = {
-      args = [ "--cd ~" ];
+      args = [ "--cd ~" "zellij" ];
       program = "wsl.exe";
     };
   };
