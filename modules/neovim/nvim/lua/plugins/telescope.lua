@@ -10,14 +10,13 @@ return {
 			},
 		})
 		require("telescope").load_extension("fzf")
-		require("telescope").load_extension("frecency")
 		require("telescope").load_extension("nerdy")
 	end,
 	keys = {
 		{ "<leader>ff", "<cmd>Telescope find_files<cr>" },
 		{
 			"<leader>fr",
-			"<cmd>Telescope frecency workspace=CWD<cr>",
+			"<cmd>Telescope oldfiles<cr>",
 		},
 		{ "<leader>fm", "<cmd>Telescope man_pages<cr>" },
 		{ "<leader>fk", "<cmd>Telescope keymaps<cr>" },
