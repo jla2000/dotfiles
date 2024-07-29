@@ -52,6 +52,10 @@
         url = "github:wgsl-analyzer/wgsl-analyzer";
         inputs.nixpkgs.follows = "nixpkgs";
       };
+      nix-index-database = {
+        url = "github:nix-community/nix-index-database";
+        inputs.nixpkgs.follows = "nixpkgs";
+      };
     };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -115,6 +119,7 @@
           specialArgs = { inherit inputs pkgs; };
           modules = [
             ./hosts/zephyrus/configuration.nix
+            inputs.nix-index-database.nixosModules.nix-index
             inputs.home-manager.nixosModules.home-manager
             {
               home-manager.users.jan = import ./hosts/zephyrus/home.nix;
@@ -130,6 +135,7 @@
           modules = [
             ./hosts/dell/configuration.nix
             inputs.nixos-wsl.nixosModules.wsl
+            inputs.nix-index-database.nixosModules.nix-index
             inputs.home-manager.nixosModules.home-manager
             {
               home-manager.users.jlafferton = import ./hosts/dell/home.nix;
