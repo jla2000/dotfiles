@@ -70,8 +70,8 @@ in
       markdownlint-cli
       rust-analyzer
       rustfmt
-      lldb
       wgsl-analyzer
+      vscode-extensions.vadimcn.vscode-lldb.adapter
     ];
     defaultEditor = true;
   };
