@@ -31,13 +31,7 @@ in
         };
       };
 
-      window = {
-        decorations = "none";
-        padding = {
-          x = 5;
-          y = 5;
-        };
-      };
+      window.decorations = "none";
 
       env = {
         TERM = "xterm-256color";
