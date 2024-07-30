@@ -4,8 +4,8 @@ let
     githubBase = "github1.vg.vector.int";
     owner = "fbuehler";
     repo = "nixpkgs-vector";
-    rev = "main";
-    hash = "sha256-GvsznM2GLlMX5BmIPc19DGAzFty5kTZwRcHaWWhY+FQ=";
+    rev = "06c7214";
+    hash = "sha256-eB905j7GgavL25H0jR/jQdqHAb5ul3oO1ij0w13dDrY=";
   };
 in
 {
@@ -40,14 +40,6 @@ in
     wget # needed for vscode
     neovim
   ];
-
-  programs.ssh.extraConfig = ''
-    Host github.com
-      ProxyCommand ${pkgs.corkscrew}/bin/corkscrew gateway.zscloud.net 10402 %h %p
-      CertificateFile /usr/local/share/ca-certificates/Vector_Root_CA_2.0.crt
-      Hostname ssh.github.com
-      Port 443
-  '';
 
   # make sure the user uses the same packages as the system
   nix.registry = {
