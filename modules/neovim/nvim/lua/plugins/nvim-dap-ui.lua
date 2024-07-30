@@ -18,10 +18,33 @@ return {
 			dapui.close()
 		end
 
-		dapui.setup()
+		dapui.setup({
+			layouts = {
+				{
+					elements = {
+						{ id = "scopes", size = 1 },
+					},
+					position = "bottom",
+					size = 10,
+				},
+				{
+					elements = {
+						{ id = "repl", size = 1 },
+					},
+					position = "bottom",
+					size = 10,
+				},
+			},
+		})
 	end,
 	keys = {
-		{ "<leader>d", "", desc = "+debug", mode = { "n", "v" } },
+		{
+			"<leader>du",
+			function()
+				require("dapui").toggle()
+			end,
+			desc = "Toggle DAP ui",
+		},
 		{
 			"<leader>dB",
 			function()
