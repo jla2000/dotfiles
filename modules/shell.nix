@@ -5,6 +5,7 @@
     ./tmux.nix
     ./helix.nix
     ./neovim/default.nix
+    ./rust.nix
   ];
 
   programs.yazi = {
