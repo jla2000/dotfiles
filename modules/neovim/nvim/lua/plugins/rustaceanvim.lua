@@ -1,7 +1,4 @@
 vim.g.rustaceanvim = {
-	tools = {
-		executor = "quickfix",
-	},
 	server = {
 		on_attach = function(_, _)
 			vim.keymap.set("n", "<leader>ce", "<cmd>RustLsp runnables<cr>")
@@ -16,9 +13,6 @@ vim.g.rustaceanvim = {
 				},
 				inlayHints = {
 					enable = true,
-					typeHints = true,
-					parameterHints = false,
-					chainingHints = true,
 				},
 			},
 		},
