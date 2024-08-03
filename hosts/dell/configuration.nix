@@ -1,21 +1,12 @@
 { inputs, lib, pkgs, ... }:
-let
-  nixpkgs-vector = pkgs.fetchFromGitHub {
-    githubBase = "github1.vg.vector.int";
-    owner = "fbuehler";
-    repo = "nixpkgs-vector";
-    rev = "06c7214";
-    hash = "sha256-eB905j7GgavL25H0jR/jQdqHAb5ul3oO1ij0w13dDrY=";
-  };
-in
 {
   imports = [
-    "${nixpkgs-vector}/modules/vector/default.nix"
     inputs.nixos-wsl.nixosModules.default
     inputs.nix-index-database.nixosModules.nix-index
     inputs.home-manager.nixosModules.home-manager
-    ../../modules/stylix.nix
-    ../../modules/nix.nix
+    ../../modules/system/nixpkgs-vector.nix
+    ../../modules/system/stylix.nix
+    ../../modules/system/nix.nix
   ];
 
   wsl = {
@@ -30,8 +21,6 @@ in
   # enable vector specific settings
   vector.proxy-settings.enable = lib.mkDefault true;
 
-  system.stateVersion = "24.05";
-
   virtualisation.docker.enable = lib.mkDefault true;
 
   # minimal packages
@@ -42,4 +31,12 @@ in
     wget # needed for vscode
     neovim
   ];
+
+  # This value determines the NixOS release from which the default
+  # settings for stateful data, like file locations and database versions
+  # on your system were taken. It's perfectly fine and recommended to leave
+  # this value at the release version of the first install of this system.
+  # Before changing this value read the documentation for this option
+  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
+  system.stateVersion = "24.05"; # Did you read the comment?
 }

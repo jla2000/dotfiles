@@ -8,8 +8,8 @@
     inputs.nixos-hardware.nixosModules.asus-zephyrus-ga402
     inputs.nix-index-database.nixosModules.nix-index
     inputs.home-manager.nixosModules.home-manager
-    ../../modules/stylix.nix
-    ../../modules/nix.nix
+    ../../modules/system/stylix.nix
+    ../../modules/system/nix.nix
     ./hardware-configuration.nix
     ./plymouth.nix
   ];

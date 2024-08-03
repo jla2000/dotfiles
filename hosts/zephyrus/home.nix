@@ -1,9 +1,9 @@
 { config, pkgs, lib, ... }:
 {
   imports = [
-    ../../modules/shell.nix
-    ../../modules/firefox.nix
-    ../../modules/alacritty.nix
+    ../../modules/home/shell.nix
+    ../../modules/home/firefox.nix
+    ../../modules/home/alacritty.nix
   ];
 
   home = {
