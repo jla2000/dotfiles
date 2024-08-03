@@ -11,6 +11,10 @@
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     zellij = {
       url = "github:zellij-org/zellij";
       flake = false;
@@ -18,14 +22,6 @@
     helix = {
       url = "github:helix-editor/helix";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    catppuccin-bat-theme = {
-      url = "github:catppuccin/bat";
-      flake = false;
-    };
-    catppuccin-lazygit-theme = {
-      url = "github:catppuccin/lazygit";
-      flake = false;
     };
     huez-nvim = {
       url = "github:vague2k/huez.nvim";
@@ -128,6 +124,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.backupFileExtension = "bak";
             }
           ];
         };
@@ -145,6 +142,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.backupFileExtension = "bak";
             }
           ];
         };

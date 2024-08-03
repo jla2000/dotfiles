@@ -29,7 +29,7 @@ in
         rustfmt
       ];
       settings = {
-        theme = "tokyonight";
+        theme = lib.mkDefault "tokyonight";
         editor = {
           mouse = true;
           line-number = "relative";

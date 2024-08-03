@@ -9,7 +9,9 @@
     ./hardware-configuration.nix
     ./plymouth.nix
     inputs.nixos-hardware.nixosModules.asus-zephyrus-ga402
+    ../../modules/stylix.nix
   ];
+
 
   services.logind.lidSwitch = "suspend-then-hibernate";
   boot.resumeDevice = "/dev/disk/by-uuid/014ae8e5-6052-4520-a3e8-dd19a9dcbcce";

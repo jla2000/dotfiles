@@ -22,10 +22,6 @@
 
   programs.bat = {
     enable = true;
-    config.theme = "catppuccin";
-    themes = {
-      catppuccin = { src = "${inputs.catppuccin-bat-theme}/themes/Catppuccin Macchiato.tmTheme"; };
-    };
   };
 
   # Use bat as man pager
