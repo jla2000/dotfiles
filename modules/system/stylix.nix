@@ -30,7 +30,7 @@ in
         package = custom-nerd-fonts;
         name = "Iosevka Nerd Font";
       };
-      sizes.terminal = 17;
+      sizes.terminal = 18;
     };
   };
 }
