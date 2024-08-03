@@ -31,7 +31,7 @@ in
         terminal = 18;
         desktop = 14;
         popups = 14;
-        applications = 12;
+        applications = 14;
       };
     };
   };
