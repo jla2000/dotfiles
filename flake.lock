@@ -345,11 +345,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1722187807,
-        "narHash": "sha256-hulnni2EyIgOLsEDBA7UHeuLU4wwBz+KHWqCv6YCixc=",
+        "lastModified": 1722600259,
+        "narHash": "sha256-ATlqn/xXHZ3L45poWDpPp/pxttKP6JTnWNNTWqw38cs=",
         "owner": "helix-editor",
         "repo": "helix",
-        "rev": "2a2bc793356dff37fcf9463029bbe7e0d508a5ed",
+        "rev": "0a4432b104099534f7a25b8ea4148234db146ab6",
         "type": "github"
       },
       "original": {
@@ -365,11 +365,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1722119539,
-        "narHash": "sha256-2kU90liMle0vKR8exJx1XM4hZh9CdNgZGHCTbeA9yzY=",
+        "lastModified": 1722630065,
+        "narHash": "sha256-QfM/9BMRkCmgWzrPDK+KbgJOUlSJnfX4OvsUupEUZvA=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "d0240a064db3987eb4d5204cf2400bc4452d9922",
+        "rev": "afc892db74d65042031a093adb6010c4c3378422",
         "type": "github"
       },
       "original": {
@@ -418,11 +418,11 @@
     "markview-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1722234987,
-        "narHash": "sha256-keMlFGBcu9ZXdiwbGYE+qBrGeo55+qhE/JgFeb+4fhM=",
+        "lastModified": 1722404473,
+        "narHash": "sha256-mhRg/cszW/3oXdC1yvbpCeqWQA9WLW5FvcqGd/wBTnE=",
         "owner": "OXY2DEV",
         "repo": "markview.nvim",
-        "rev": "8537f7f03e4683b9ef98202e7a0286373a5b7135",
+        "rev": "d0ccc97b5c988fb28e5033abdf7b832b9dfaf897",
         "type": "github"
       },
       "original": {
@@ -469,11 +469,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1722114937,
-        "narHash": "sha256-MOZ9woPwdpFJcHx3wic2Mlw9aztdKjMnFT3FaeLzJkM=",
+        "lastModified": 1722332872,
+        "narHash": "sha256-2xLM4sc5QBfi0U/AANJAW21Bj4ZX479MHPMPkB+eKBU=",
         "owner": "nixos",
         "repo": "nixos-hardware",
-        "rev": "e67b60fb1b2c3aad2202d95b91d4c218cf2a4fdd",
+        "rev": "14c333162ba53c02853add87a0000cbd7aa230c2",
         "type": "github"
       },
       "original": {
@@ -491,11 +491,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1722012218,
-        "narHash": "sha256-Rnjo49C5/slnmcQW9c57IdiHJZ3YEFmUn3as/NIPD4E=",
+        "lastModified": 1722253092,
+        "narHash": "sha256-37vyqHPx57deHhwvi4jwyNQLYkhm/rlVTYKOG1iahsc=",
         "owner": "nix-community",
         "repo": "NixOS-WSL",
-        "rev": "ac026940beb42f74c5666f6ed3989aca41eddeea",
+        "rev": "f373ad59ae5866f0f98216bd5c71526b373450d2",
         "type": "github"
       },
       "original": {
@@ -506,11 +506,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1722062969,
-        "narHash": "sha256-QOS0ykELUmPbrrUGmegAUlpmUFznDQeR4q7rFhl8eQg=",
+        "lastModified": 1722421184,
+        "narHash": "sha256-/DJBI6trCeVnasdjUo9pbnodCLZcFqnVZiLUfqLH4jA=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "b73c2221a46c13557b1b3be9c2070cc42cf01eb3",
+        "rev": "9f918d616c5321ad374ae6cb5ea89c9e04bf3e58",
         "type": "github"
       },
       "original": {
@@ -538,11 +538,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1722176547,
-        "narHash": "sha256-Z1nF2QaPEVdflInS3R1++mAJR0TIZ1V5hKNm8x6OjFA=",
+        "lastModified": 1722714302,
+        "narHash": "sha256-+WN9ZaS+vgu2CBwBgMLDhQacT2e7wS5yuFOAGMre4UQ=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "4bf1f4aecb27b07334f138eb22668c76d14ce62d",
+        "rev": "afe4afbb78687bdf71eb7300173c20c5554f5bc9",
         "type": "github"
       },
       "original": {
@@ -672,11 +672,11 @@
     "tid-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1722125602,
-        "narHash": "sha256-D4ocFWVfEFV0IHN2aLWwEyyF+kxHAHVJdAFRU+N0Pbc=",
+        "lastModified": 1722199694,
+        "narHash": "sha256-GyJANobsPKFAJJLxb3bANKjOSGGwX0xmm9HkwBzkPuE=",
         "owner": "rachartier",
         "repo": "tiny-inline-diagnostic.nvim",
-        "rev": "b2be9f42f2772ddd96fc103e0b304cdab544ff76",
+        "rev": "ca50af9dc3cd88647077330b4728f4d0a7e754c4",
         "type": "github"
       },
       "original": {
