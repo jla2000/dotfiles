@@ -24,8 +24,8 @@ in
         name = "Iosevka Nerd Font";
       };
       sansSerif = {
-        package = pkgs.texlivePackages.clearsans;
-        name = "Clear Sans";
+        package = pkgs.cantarell-fonts;
+        name = "Cantarell";
       };
       sizes = {
         terminal = 18;
