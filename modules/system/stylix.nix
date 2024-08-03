@@ -19,13 +19,13 @@ in
         package = custom-nerd-fonts;
         name = "Iosevka Nerd Font";
       };
-      serif = {
-        package = custom-nerd-fonts;
-        name = "Iosevka Nerd Font";
-      };
       sansSerif = {
         package = pkgs.cantarell-fonts;
         name = "Cantarell";
+      };
+      serif = {
+        package = pkgs.merriweather;
+        name = "Merriweather";
       };
       sizes = {
         terminal = 18;
