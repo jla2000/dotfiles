@@ -32,7 +32,7 @@ in
           white "${base07}"
         }
       }
-      default_layout "disable-status-bar"
+      default_layout "compact"
       pane_frames false
       keybinds {
         normal clear-defaults=true {
