@@ -2,20 +2,22 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
-{ inputs, pkgs, overlays, ... }:
+{ inputs, pkgs, ... }:
 {
   imports = [
     inputs.nixos-hardware.nixosModules.asus-zephyrus-ga402
     inputs.nix-index-database.nixosModules.nix-index
     inputs.home-manager.nixosModules.home-manager
     ../../modules/stylix.nix
+    ../../modules/nix.nix
     ./hardware-configuration.nix
     ./plymouth.nix
   ];
 
-  nixpkgs = {
-    inherit overlays;
-    config.allowUnfree = true;
+  # Allow automatic updates
+  system.autoUpgrade = {
+    enable = true;
+    flake = "github:jla2000/nixos-zephyrus";
   };
 
   home-manager.users.jan = import ./home.nix;
@@ -80,13 +82,6 @@
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  # Keep system clean and up to date
-  nix.gc.automatic = true;
-  system.autoUpgrade = {
-    enable = true;
-    flake = "github:jla2000/nixos-zephyrus";
-  };
-
   # Default user
   users.users.jan = {
     isNormalUser = true;
@@ -112,12 +107,6 @@
     xclip
     vesktop
   ];
-
-  # Enable flakes
-  nix.settings = {
-    experimental-features = [ "nix-command" "flakes" ];
-    auto-optimise-store = true;
-  };
 
   # Install some nice fonts
   fonts.packages = [

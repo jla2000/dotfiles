@@ -11,6 +11,11 @@ in
 {
   imports = [
     "${nixpkgs-vector}/modules/vector/default.nix"
+    inputs.nixos-wsl.nixosModules.default
+    inputs.nix-index-database.nixosModules.nix-index
+    inputs.home-manager.nixosModules.home-manager
+    ../../modules/stylix.nix
+    ../../modules/nix.nix
   ];
 
   wsl = {
@@ -25,9 +30,6 @@ in
   # enable vector specific settings
   vector.proxy-settings.enable = lib.mkDefault true;
 
-  # Enable nix flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   system.stateVersion = "24.05";
 
   virtualisation.docker.enable = lib.mkDefault true;
@@ -40,12 +42,4 @@ in
     wget # needed for vscode
     neovim
   ];
-
-  # make sure the user uses the same packages as the system
-  nix.registry = {
-    nixpkgs.flake = inputs.nixpkgs;
-  };
-
-  # garbage collect
-  nix.gc.automatic = true;
 }

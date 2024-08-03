@@ -79,24 +79,11 @@
           specialArgs = { inherit inputs overlays; };
           modules = [ ./hosts/zephyrus/configuration.nix ];
         };
-        # "dell" = nixpkgs.lib.nixosSystem {
-        #   inherit system;
-        #   specialArgs = { inherit inputs pkgs; };
-        #   modules = [
-        #     ./hosts/dell/configuration.nix
-        #     inputs.nixos-wsl.nixosModules.wsl
-        #     inputs.nix-index-database.nixosModules.nix-index
-        #     { programs.nix-index-database.comma.enable = true; }
-        #     inputs.home-manager.nixosModules.home-manager
-        #     {
-        #       home-manager.users.jlafferton = import ./hosts/dell/home.nix;
-        #       home-manager.useGlobalPkgs = true;
-        #       home-manager.useUserPackages = true;
-        #       home-manager.extraSpecialArgs = { inherit inputs; };
-        #       home-manager.backupFileExtension = "bak";
-        #     }
-        #   ];
-        # };
+        "dell" = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs overlays; };
+          modules = [ ./hosts/dell/configuration.nix ];
+        };
       };
     };
 }
