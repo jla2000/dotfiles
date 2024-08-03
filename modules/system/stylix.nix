@@ -24,13 +24,13 @@ in
         name = "Iosevka Nerd Font";
       };
       sansSerif = {
-        package = custom-nerd-fonts;
-        name = "Iosevka Nerd Font";
+        package = pkgs.texlivePackages.clearsans;
+        name = "Clear Sans";
       };
       sizes = {
         terminal = 18;
         desktop = 14;
-        popups = 12;
+        popups = 14;
         applications = 12;
       };
     };
