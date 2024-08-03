@@ -69,6 +69,10 @@
         };
       };
 
+      devShells.${system}.default = nixpkgs.legacyPackages.${system}.mkShellNoCC {
+        inherit (self.checks.git-check) shellHook;
+      };
+
       nixosConfigurations = {
         "zephyrus" = nixpkgs.lib.nixosSystem {
           inherit system;

@@ -27,7 +27,12 @@ in
         package = custom-nerd-fonts;
         name = "Iosevka Nerd Font";
       };
-      sizes.terminal = 18;
+      sizes = {
+        terminal = 18;
+        desktop = 12;
+        popups = 12;
+        applications = 12;
+      };
     };
   };
 }

@@ -11,7 +11,6 @@
     ../../modules/system/stylix.nix
     ../../modules/system/nix.nix
     ./hardware-configuration.nix
-    ./plymouth.nix
   ];
 
   # Allow automatic updates
@@ -33,10 +32,8 @@
   boot.loader = {
     efi.canTouchEfiVariables = true;
     systemd-boot.enable = true;
+    timeout = 0;
   };
-
-  # Nice boot logo :)
-  keepBootLogo.enable = true;
 
   # Allow switching graphics card
   services.supergfxd.enable = true;
