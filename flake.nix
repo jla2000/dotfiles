@@ -15,12 +15,21 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    zellij = {
-      url = "github:zellij-org/zellij";
-      flake = false;
     };
     helix = {
       url = "github:helix-editor/helix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    wgsl-analyzer = {
+      url = "github:wgsl-analyzer/wgsl-analyzer";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     huez-nvim = {
@@ -38,18 +47,6 @@
     tid-nvim = {
       url = "github:rachartier/tiny-inline-diagnostic.nvim";
       flake = false;
-    };
-    nixos-wsl = {
-      url = "github:nix-community/NixOS-WSL";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    wgsl-analyzer = {
-      url = "github:wgsl-analyzer/wgsl-analyzer";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nix-index-database = {
-      url = "github:nix-community/nix-index-database";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
