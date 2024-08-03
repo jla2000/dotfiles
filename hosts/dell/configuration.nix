@@ -16,10 +16,11 @@
     startMenuLaunchers = lib.mkDefault true;
   };
 
-  networking.hostName = "dell";
+  home-manager.users.jlafferton = import ./home.nix;
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
 
-  # enable vector specific settings
-  vector.proxy-settings.enable = lib.mkDefault true;
+  networking.hostName = "dell";
 
   virtualisation.docker.enable = lib.mkDefault true;
 

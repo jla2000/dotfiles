@@ -64,7 +64,7 @@
       ];
     in
     {
-      checks.${system}.git-check = inputs.git-hooks.lib.${system}.run {
+      checks.git-check = inputs.git-hooks.lib.${system}.run {
         src = ./.;
         hooks = {
           editorconfig-checker.enable = true;
