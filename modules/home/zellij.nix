@@ -66,7 +66,11 @@ in
             }
           }
         }
+        scroll {
+          bind "i" { SwitchToMode "Normal"; }
+        }
         tmux {
+          bind "i" { SwitchToMode "Normal"; }
           bind "e" { EditScrollback; SwitchToMode "Normal"; }
           bind "s" {
             LaunchOrFocusPlugin "zellij:session-manager" {
