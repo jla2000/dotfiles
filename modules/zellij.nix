@@ -1,4 +1,4 @@
-{ inputs, pkgs, lib, ... }:
+{ inputs, pkgs, lib, config, ... }:
 let
   yazi-picker = pkgs.writeShellScriptBin "yazi-picker" /* bash */ ''
     paths=$(yazi --chooser-file=/dev/stdout | while read -r; do printf "%q " "$REPLY"; done)
@@ -17,52 +17,69 @@ in
     source = "${inputs.zellij}/zellij-utils/assets/themes";
   };
 
-  xdg.configFile."zellij/config.kdl".text = /* kdl */ ''
-    theme "catppuccin-macchiato"
-    default_layout "disable-status-bar"
-    pane_frames false
-    keybinds {
-      normal clear-defaults=true {
-        bind "Ctrl s" { SwitchToMode "Tmux"; }
-        unbind "Ctrl b"
+  xdg.configFile."zellij/config.kdl".text = /* kdl */
+    with config.lib.stylix.colors.withHashtag;
+    ''
+      theme "stylix"
+      themes {
+        stylix {
+          bg "${base03}"
+          fg "${base05}"
+          red "${base08}"
+          green "${base0B}"
+          blue "${base0D}"
+          yellow "${base0A}"
+          magenta "${base0E}"
+          orange "${base09}"
+          cyan "${base0C}"
+          black "${base00}"
+          white "${base07}"
+        }
+      }
+      default_layout "disable-status-bar"
+      pane_frames false
+      keybinds {
+        normal clear-defaults=true {
+          bind "Ctrl s" { SwitchToMode "Tmux"; }
+          unbind "Ctrl b"
 
-        bind "Ctrl h" { MoveFocus "Left"; }
-        bind "Ctrl l" { MoveFocus "Right"; }
-        bind "Ctrl j" { MoveFocus "Down"; }
-        bind "Ctrl k" { MoveFocus "Up"; }
+          bind "Ctrl h" { MoveFocus "Left"; }
+          bind "Ctrl l" { MoveFocus "Right"; }
+          bind "Ctrl j" { MoveFocus "Down"; }
+          bind "Ctrl k" { MoveFocus "Up"; }
 
-        bind "Ctrl g" {
-          Run "lazygit" {
-            floating true
-            close_on_exit true
-            x "10%"
-            y "10%"
-            width "80%"
-            height "80%"
+          bind "Ctrl g" {
+            Run "lazygit" {
+              floating true
+              close_on_exit true
+              x "10%"
+              y "10%"
+              width "80%"
+              height "80%"
+            }
+          }
+
+          bind "Ctrl y" {
+            Run "${lib.getExe yazi-picker}" {
+              floating true
+              close_on_exit true
+              x "10%"
+              y "10%"
+              width "80%"
+              height "80%"
+            }
           }
         }
-
-        bind "Ctrl y" {
-          Run "${lib.getExe yazi-picker}" {
-            floating true
-            close_on_exit true
-            x "10%"
-            y "10%"
-            width "80%"
-            height "80%"
+        tmux {
+          bind "e" { EditScrollback; SwitchToMode "Normal"; }
+          bind "s" {
+            LaunchOrFocusPlugin "zellij:session-manager" {
+              floating true
+            } 
           }
         }
       }
-      tmux {
-        bind "e" { EditScrollback; SwitchToMode "Normal"; }
-        bind "s" {
-          LaunchOrFocusPlugin "zellij:session-manager" {
-            floating true
-          } 
-        }
-      }
-    }
-  '';
+    '';
 
   programs.zellij = {
     enable = true;
