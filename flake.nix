@@ -60,17 +60,18 @@
       ];
     in
     {
-      checks.git-check = inputs.git-hooks.lib.${system}.run {
+      checks.${system}.git-check = inputs.git-hooks.lib.${system}.run {
         src = ./.;
         hooks = {
           editorconfig-checker.enable = true;
           nixpkgs-fmt.enable = true;
           typos.enable = true;
+          stylua.enable = true;
         };
       };
 
       devShells.${system}.default = nixpkgs.legacyPackages.${system}.mkShellNoCC {
-        inherit (self.checks.git-check) shellHook;
+        inherit (self.checks.${system}.git-check) shellHook;
       };
 
       nixosConfigurations = {
