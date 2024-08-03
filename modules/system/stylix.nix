@@ -1,7 +1,7 @@
 { inputs, pkgs, ... }:
 let
   custom-nerd-fonts = (pkgs.nerdfonts.override {
-    fonts = [ "Monaspace" "Iosevka" ];
+    fonts = [ "Monaspace" "Iosevka" "JetBrainsMono" ];
   });
 in
 {
