@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 {
   imports = [
-    ../../modules/home/shell.nix
+    ../../modules/home/base.nix
     ../../modules/home/firefox.nix
     ../../modules/home/alacritty.nix
   ];

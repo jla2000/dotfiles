@@ -5,7 +5,6 @@
     ./tmux.nix
     ./helix.nix
     ./neovim/default.nix
-    ./rust.nix
   ];
 
   programs.yazi = {
@@ -103,5 +102,10 @@
     nh
     nix-output-monitor
     sd
+    killall
+    cargo
+    rustc
+    gcc
+    gnumake
   ];
 }
