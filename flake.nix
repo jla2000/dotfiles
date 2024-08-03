@@ -58,34 +58,8 @@
       system = "x86_64-linux";
 
       overlays = [
-        (final: prev:
-          let
-            huez-nvim = nixpkgs.legacyPackages.${final.system}.vimUtils.buildVimPlugin {
-              name = "huez.nvim";
-              src = inputs.huez-nvim;
-            };
-            nerdy-nvim = nixpkgs.legacyPackages.${final.system}.vimUtils.buildVimPlugin {
-              name = "nerdy.nvim";
-              src = inputs.nerdy-nvim;
-            };
-            markview-nvim = nixpkgs.legacyPackages.${final.system}.vimUtils.buildVimPlugin {
-              name = "markview.nvim";
-              src = inputs.markview-nvim;
-            };
-            tid-nvim = nixpkgs.legacyPackages.${final.system}.vimUtils.buildVimPlugin {
-              name = "tiny-inline-diagnostic.nvim";
-              src = inputs.tid-nvim;
-            };
-          in
-          {
-            helix-master = inputs.helix.packages.${final.system}.default;
-            vimPlugins = prev.vimPlugins // {
-              inherit huez-nvim;
-              inherit nerdy-nvim;
-              inherit markview-nvim;
-              inherit tid-nvim;
-            };
-          })
+        (import ./overlays/latest-helix.nix inputs)
+        (import ./overlays/neovim-plugins.nix inputs)
         inputs.nur.outputs.overlay
         inputs.wgsl-analyzer.overlays.${system}.default
       ];
@@ -114,19 +88,7 @@
         "zephyrus" = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs pkgs; };
-          modules = [
-            ./hosts/zephyrus/configuration.nix
-            inputs.nix-index-database.nixosModules.nix-index
-            { programs.nix-index-database.comma.enable = true; }
-            inputs.home-manager.nixosModules.home-manager
-            {
-              home-manager.users.jan = import ./hosts/zephyrus/home.nix;
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.backupFileExtension = "bak";
-            }
-          ];
+          modules = [ ./hosts/zephyrus/configuration.nix ];
         };
         "dell" = nixpkgs.lib.nixosSystem {
           inherit system;
