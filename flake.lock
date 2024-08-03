@@ -566,8 +566,7 @@
         "nur": "nur",
         "stylix": "stylix",
         "tid-nvim": "tid-nvim",
-        "wgsl-analyzer": "wgsl-analyzer",
-        "zellij": "zellij"
+        "wgsl-analyzer": "wgsl-analyzer"
       }
     },
     "rust-overlay": {
@@ -705,22 +704,6 @@
       "original": {
         "owner": "wgsl-analyzer",
         "repo": "wgsl-analyzer",
-        "type": "github"
-      }
-    },
-    "zellij": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1721665888,
-        "narHash": "sha256-XHBwrLHRYnkr4OD4mgf7sq5jqux1K1uZE0rfD+cbd+c=",
-        "owner": "zellij-org",
-        "repo": "zellij",
-        "rev": "a6fe5ff1d56929d2c86244f76362115414ee8ff5",
-        "type": "github"
-      },
-      "original": {
-        "owner": "zellij-org",
-        "repo": "zellij",
         "type": "github"
       }
     }
