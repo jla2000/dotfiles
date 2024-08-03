@@ -2,8 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
-{ inputs, lib, config, pkgs, outputs, ... }:
-
+{ inputs, pkgs, overlays, ... }:
 {
   imports = [
     inputs.nixos-hardware.nixosModules.asus-zephyrus-ga402
@@ -14,10 +13,15 @@
     ./plymouth.nix
   ];
 
+  nixpkgs = {
+    inherit overlays;
+    config.allowUnfree = true;
+  };
+
   home-manager.users.jan = import ./home.nix;
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
-  home-manager.extraSpecialArgs = { inherit inputs; };
+
   programs.nix-index-database.comma.enable = true;
 
   services.logind.lidSwitch = "suspend-then-hibernate";
@@ -82,11 +86,6 @@
     enable = true;
     flake = "github:jla2000/nixos-zephyrus";
   };
-
-  # Automatic btrfs scrub
-  services.btrfs.autoScrub.enable = lib.mkDefault
-    (builtins.any (filesystem: filesystem.fsType == "btrfs")
-      (builtins.attrValues config.fileSystems));
 
   # Default user
   users.users.jan = {

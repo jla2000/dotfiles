@@ -56,19 +56,12 @@
   outputs = { self, nixpkgs, ... }@inputs:
     let
       system = "x86_64-linux";
-
       overlays = [
         (import ./overlays/latest-helix.nix inputs)
         (import ./overlays/neovim-plugins.nix inputs)
         inputs.nur.outputs.overlay
         inputs.wgsl-analyzer.overlays.${system}.default
       ];
-
-      pkgs = import nixpkgs {
-        inherit system;
-        inherit overlays;
-        config.allowUnfree = true;
-      };
     in
     {
       checks.${system}.git-check = inputs.git-hooks.lib.${system}.run {
@@ -80,34 +73,30 @@
         };
       };
 
-      packages.${system}.install-git-hooks = pkgs.writeShellScriptBin "install-git-hooks" ''
-        ${self.checks.${system}.git-check.shellHook} 
-      '';
-
       nixosConfigurations = {
         "zephyrus" = nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs pkgs; };
+          specialArgs = { inherit inputs overlays; };
           modules = [ ./hosts/zephyrus/configuration.nix ];
         };
-        "dell" = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = { inherit inputs pkgs; };
-          modules = [
-            ./hosts/dell/configuration.nix
-            inputs.nixos-wsl.nixosModules.wsl
-            inputs.nix-index-database.nixosModules.nix-index
-            { programs.nix-index-database.comma.enable = true; }
-            inputs.home-manager.nixosModules.home-manager
-            {
-              home-manager.users.jlafferton = import ./hosts/dell/home.nix;
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit inputs; };
-              home-manager.backupFileExtension = "bak";
-            }
-          ];
-        };
+        # "dell" = nixpkgs.lib.nixosSystem {
+        #   inherit system;
+        #   specialArgs = { inherit inputs pkgs; };
+        #   modules = [
+        #     ./hosts/dell/configuration.nix
+        #     inputs.nixos-wsl.nixosModules.wsl
+        #     inputs.nix-index-database.nixosModules.nix-index
+        #     { programs.nix-index-database.comma.enable = true; }
+        #     inputs.home-manager.nixosModules.home-manager
+        #     {
+        #       home-manager.users.jlafferton = import ./hosts/dell/home.nix;
+        #       home-manager.useGlobalPkgs = true;
+        #       home-manager.useUserPackages = true;
+        #       home-manager.extraSpecialArgs = { inherit inputs; };
+        #       home-manager.backupFileExtension = "bak";
+        #     }
+        #   ];
+        # };
       };
     };
 }
