@@ -13,6 +13,20 @@
           vimium
           darkreader
         ];
+        bookmarks = [
+          {
+            name = "Home-Manager";
+            url = "https://home-manager-options.extranix.com";
+          }
+          {
+            name = "Nixpkgs";
+            url = "https://search.nixos.org/packages?channel=unstable";
+          }
+          {
+            name = "YouTube";
+            url = "https://youtube.de";
+          }
+        ];
       };
     };
   };
