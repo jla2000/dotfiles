@@ -26,6 +26,10 @@
             name = "YouTube";
             url = "https://youtube.de";
           }
+          {
+            name = "ChatGPT";
+            url = "https://chatgpt.com";
+          }
         ];
       };
     };
