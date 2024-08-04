@@ -10,6 +10,7 @@
     inputs.home-manager.nixosModules.home-manager
     ../../modules/system/stylix.nix
     ../../modules/system/nix.nix
+    ../../modules/system/kanata.nix
     ./hardware-configuration.nix
   ];
 
