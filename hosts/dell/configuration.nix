@@ -20,7 +20,8 @@
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
 
-  networking.hostName = "dell";
+  programs.nix-index-database.comma.enable = true;
+
 
   virtualisation.docker.enable = lib.mkDefault true;
 

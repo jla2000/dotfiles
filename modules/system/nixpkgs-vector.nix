@@ -1,17 +1,12 @@
 { pkgs, ... }:
 let
-  nixpkgs-vector = pkgs.fetchFromGitHub {
-    githubBase = "github1.vg.vector.int";
-    owner = "fbuehler";
-    repo = "nixpkgs-vector";
-    rev = "06c7214";
-    hash = "sha256-eB905j7GgavL25H0jR/jQdqHAb5ul3oO1ij0w13dDrY=";
-  };
+  useNixpkgsVector = builtins.getEnv "EXCLUDE_NIXPKGS_VECTOR" == "";
+  nixpkgsVector = /home/jlafferton/dev/nixpkgs-vector;
 in
 {
-  imports = [
-    "${nixpkgs-vector}/modules/vector/default.nix"
-  ];
-
-  vector.proxy-settings.enable = true;
+  imports =
+    if useNixpkgsVector then [
+      "${nixpkgsVector}/modules/vector/default.nix"
+      { vector.proxy-settings.enable = true; }
+    ] else [ ];
 }
