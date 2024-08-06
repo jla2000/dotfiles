@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, lib, ... }:
 let
   custom-nerd-fonts = (pkgs.nerdfonts.override {
     fonts = [ "Monaspace" "Iosevka" "JetBrainsMono" ];
@@ -28,7 +28,7 @@ in
         name = "Merriweather";
       };
       sizes = {
-        terminal = 18;
+        terminal = lib.mkDefault 18;
         desktop = 14;
         popups = 14;
         applications = 14;

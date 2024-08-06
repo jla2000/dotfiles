@@ -22,8 +22,7 @@
   home-manager.backupFileExtension = "bak";
 
   programs.nix-index-database.comma.enable = true;
-
-
+  stylix.fonts.sizes.terminal = 15;
   virtualisation.docker.enable = lib.mkDefault true;
 
   # minimal packages
