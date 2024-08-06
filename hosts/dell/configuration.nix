@@ -19,6 +19,7 @@
   home-manager.users.jlafferton = import ./home.nix;
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
+  home-manager.backupFileExtension = "bak";
 
   programs.nix-index-database.comma.enable = true;
 
