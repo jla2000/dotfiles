@@ -21,6 +21,8 @@
   home-manager.useUserPackages = true;
   home-manager.backupFileExtension = "bak";
 
+  networking.hostName = "dell";
+
   programs.nix-index-database.comma.enable = true;
   stylix.fonts.sizes.terminal = 15;
   virtualisation.docker.enable = lib.mkDefault true;

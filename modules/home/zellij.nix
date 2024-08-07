@@ -13,6 +13,15 @@ let
   '';
 in
 {
+  xdg.configFile."zellij/layouts/default.kdl".text = /* kdl */ ''
+    layout {
+      pane size=1 borderless=true {
+          plugin location="tab-bar"
+      }
+      pane
+    }
+  '';
+
   xdg.configFile."zellij/config.kdl".text = with config.lib.stylix.colors.withHashtag;
     /* kdl */
     ''
@@ -32,7 +41,6 @@ in
           white "${base07}"
         }
       }
-      default_layout "compact"
       pane_frames false
       keybinds {
         normal clear-defaults=true {
@@ -70,6 +78,7 @@ in
           bind "i" { SwitchToMode "Normal"; }
         }
         tmux {
+          bind "Space" { NextSwapLayout; SwitchToMode "Normal"; }
           bind "i" { SwitchToMode "Normal"; }
           bind "e" { EditScrollback; SwitchToMode "Normal"; }
           bind "s" {
