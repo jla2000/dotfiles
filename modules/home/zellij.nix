@@ -16,9 +16,60 @@ in
   xdg.configFile."zellij/layouts/default.kdl".text = /* kdl */ ''
     layout {
       pane size=1 borderless=true {
-          plugin location="tab-bar"
+        plugin location="compact-bar" 
       }
       pane
+    }
+  '';
+
+  xdg.configFile."zellij/layouts/default.swap.kdl".text = /* kdl */ ''
+    tab_template name="ui" {
+      pane size=1 borderless=true {
+        plugin location="compact-bar"
+      }
+      children
+    }
+
+    swap_tiled_layout name="vertical" {
+      ui max_panes=5 {
+        pane split_direction="vertical" {
+          pane
+            pane { children; }
+        }
+      }
+      ui max_panes=8 {
+        pane split_direction="vertical" {
+          pane { children; }
+          pane { pane; pane; pane; pane; }
+        }
+      }
+      ui max_panes=12 {
+        pane split_direction="vertical" {
+          pane { children; }
+          pane { pane; pane; pane; pane; }
+          pane { pane; pane; pane; pane; }
+        }
+      }
+    }
+
+    swap_tiled_layout name="horizontal" {
+      ui max_panes=5 {
+        pane
+          pane
+      }
+      ui max_panes=8 {
+        pane {
+          pane split_direction="vertical" { children; }
+          pane split_direction="vertical" { pane; pane; pane; pane; }
+        }
+      }
+      ui max_panes=12 {
+        pane {
+          pane split_direction="vertical" { children; }
+          pane split_direction="vertical" { pane; pane; pane; pane; }
+          pane split_direction="vertical" { pane; pane; pane; pane; }
+        }
+      }
     }
   '';
 
