@@ -19,6 +19,7 @@ vim.o.smartcase = true
 vim.o.inccommand = "split"
 vim.o.splitright = true
 vim.o.splitbelow = true
+vim.o.swapfile = false
 
 vim.cmd([[ packadd cfilter ]])
 
