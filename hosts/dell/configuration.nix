@@ -12,6 +12,7 @@
   wsl = {
     enable = true;
     wslConf.automount.root = lib.mkDefault "/mnt";
+    wslConf.network.hostname = "dell";
     defaultUser = lib.mkDefault "jlafferton";
     startMenuLaunchers = lib.mkDefault true;
   };
@@ -20,8 +21,6 @@
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
   home-manager.backupFileExtension = "bak";
-
-  networking.hostName = "dell";
 
   programs.nix-index-database.comma.enable = true;
   stylix.fonts.sizes.terminal = 15;
