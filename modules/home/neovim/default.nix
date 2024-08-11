@@ -60,6 +60,7 @@ in
       nvim-dap-ui
       nvim-nio
       miasma-nvim
+      quicker-nvim
     ];
     extraPackages = with pkgs; [
       lua-language-server

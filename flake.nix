@@ -47,6 +47,10 @@
       url = "github:rachartier/tiny-inline-diagnostic.nvim";
       flake = false;
     };
+    quicker-nvim = {
+      url = "github:stevearc/quicker.nvim";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:

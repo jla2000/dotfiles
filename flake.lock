@@ -551,6 +551,22 @@
         "type": "github"
       }
     },
+    "quicker-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1723227267,
+        "narHash": "sha256-LLkqRU5CUFa+ba4Lod7TPdvlItlknZ4/hyysJ2mskcA=",
+        "owner": "stevearc",
+        "repo": "quicker.nvim",
+        "rev": "7a64d4ea2b641cc8671443d0ff26de2924894c9f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "stevearc",
+        "repo": "quicker.nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "git-hooks": "git-hooks",
@@ -564,6 +580,7 @@
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs",
         "nur": "nur",
+        "quicker-nvim": "quicker-nvim",
         "stylix": "stylix",
         "tid-nvim": "tid-nvim",
         "wgsl-analyzer": "wgsl-analyzer"
