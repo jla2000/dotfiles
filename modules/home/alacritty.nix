@@ -12,7 +12,10 @@
         italic.style = lib.mkForce "Bold Italic";
       };
 
-      window.decorations = "none";
+      window = {
+        decorations = "none";
+        startup_mode = "Maximized";
+      };
 
       env = {
         TERM = "xterm-256color";

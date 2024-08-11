@@ -1,4 +1,4 @@
-{ inputs, pkgs, lib, ... }:
+{ inputs, pkgs, lib, config, ... }:
 let
   custom-nerd-fonts = (pkgs.nerdfonts.override {
     fonts = [ "Monaspace" "Iosevka" "JetBrainsMono" ];
@@ -12,8 +12,8 @@ in
   stylix = {
     enable = true;
     polarity = "dark";
-    image = ./wallpaper.png;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
+    image = config.lib.stylix.pixel "base00";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/atelier-cave.yaml";
     fonts = {
       monospace = {
         package = custom-nerd-fonts;

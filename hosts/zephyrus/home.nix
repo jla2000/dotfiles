@@ -12,6 +12,8 @@
     packages = [ pkgs.dconf-editor ];
   };
 
+  home.file."~/.config/autostart/Alacritty.desktop".source = "${pkgs.alacritty}/share/applications/Alacritty.desktop";
+
   dconf.settings = {
     "org/gnome/settings-daemon/plugins/media-keys" = {
       custom-keybindings = [
