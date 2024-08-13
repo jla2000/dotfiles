@@ -13,7 +13,7 @@ in
     enable = true;
     polarity = "dark";
     image = config.lib.stylix.pixel "base00";
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/atelier-cave.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-storm.yaml";
     fonts = {
       monospace = {
         package = custom-nerd-fonts;
