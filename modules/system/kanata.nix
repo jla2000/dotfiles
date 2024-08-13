@@ -1,9 +1,9 @@
 { pkgs, lib, ... }:
 let
   kanata-config = pkgs.writeText "config.kbd" ''
-    (defsrc caps lctrl esc)
-    (defalias escctrl (tap-hold 140 140 esc lctrl))
-    (deflayer base @escctrl nop0 nop0)
+    (defsrc caps)
+    (defalias escctrl (tap-hold 150 150 esc lctrl))
+    (deflayer base @escctrl)
   '';
 in
 {
