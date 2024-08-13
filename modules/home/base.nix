@@ -2,6 +2,7 @@
 {
   imports = [
     ./zellij.nix
+    ./atuin.nix
     ./tmux.nix
     ./helix.nix
     ./neovim/default.nix
