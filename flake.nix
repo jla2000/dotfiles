@@ -47,6 +47,10 @@
       url = "github:stevearc/quicker.nvim";
       flake = false;
     };
+    nvim-lint = {
+      url = "github:mfussenegger/nvim-lint";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:

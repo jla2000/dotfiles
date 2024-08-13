@@ -16,6 +16,10 @@ let
     name = "quicker.nvim";
     src = inputs.quicker-nvim;
   };
+  nvim-lint = final.vimUtils.buildVimPlugin {
+    name = "nvim-lint";
+    src = inputs.nvim-lint;
+  };
 in
 {
   vimPlugins = prev.vimPlugins // {
@@ -23,5 +27,6 @@ in
     inherit nerdy-nvim;
     inherit markview-nvim;
     inherit quicker-nvim;
+    inherit nvim-lint;
   };
 }

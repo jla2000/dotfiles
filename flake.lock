@@ -551,6 +551,22 @@
         "type": "github"
       }
     },
+    "nvim-lint": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1723296187,
+        "narHash": "sha256-PoCx65jQGEoKFyedNs1IoQFcsw7jd3kEbRyZE8mkSzA=",
+        "owner": "mfussenegger",
+        "repo": "nvim-lint",
+        "rev": "ad0fe35e80f5cd31a0f19176d7b30e5c3011119d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mfussenegger",
+        "repo": "nvim-lint",
+        "type": "github"
+      }
+    },
     "quicker-nvim": {
       "flake": false,
       "locked": {
@@ -580,6 +596,7 @@
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs",
         "nur": "nur",
+        "nvim-lint": "nvim-lint",
         "quicker-nvim": "quicker-nvim",
         "stylix": "stylix",
         "wgsl-analyzer": "wgsl-analyzer"

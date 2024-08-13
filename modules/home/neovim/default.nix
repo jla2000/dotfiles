@@ -60,6 +60,7 @@ in
       nvim-nio
       miasma-nvim
       quicker-nvim
+      nvim-lint
     ];
     extraPackages = with pkgs; [
       lua-language-server
@@ -68,6 +69,7 @@ in
       nixpkgs-fmt
       markdownlint-cli
       rust-analyzer
+      clippy
       rustfmt
       wgsl-analyzer
       vscode-extensions.vadimcn.vscode-lldb.adapter
