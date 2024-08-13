@@ -582,7 +582,6 @@
         "nur": "nur",
         "quicker-nvim": "quicker-nvim",
         "stylix": "stylix",
-        "tid-nvim": "tid-nvim",
         "wgsl-analyzer": "wgsl-analyzer"
       }
     },
@@ -683,22 +682,6 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
-        "type": "github"
-      }
-    },
-    "tid-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1723294442,
-        "narHash": "sha256-Y2Suu8ISSKRvgVTEYo9Fl8+Z4d6ZjhtFGXjt0x2iw30=",
-        "owner": "rachartier",
-        "repo": "tiny-inline-diagnostic.nvim",
-        "rev": "7b212b214aed37d8ae1a26ac6ca9593223a23ddb",
-        "type": "github"
-      },
-      "original": {
-        "owner": "rachartier",
-        "repo": "tiny-inline-diagnostic.nvim",
         "type": "github"
       }
     },
