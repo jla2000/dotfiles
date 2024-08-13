@@ -12,6 +12,7 @@
     packages = [ pkgs.dconf-editor ];
   };
 
+  stylix.targets.neovim.enable = false;
   home.file."~/.config/autostart/Alacritty.desktop".source = "${pkgs.alacritty}/share/applications/Alacritty.desktop";
 
   dconf.settings = {
