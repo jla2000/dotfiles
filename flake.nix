@@ -43,6 +43,10 @@
       url = "github:OXY2DEV/markview.nvim";
       flake = false;
     };
+    tid-nvim = {
+      url = "github:rachartier/tiny-inline-diagnostic.nvim";
+      flake = false;
+    };
     quicker-nvim = {
       url = "github:stevearc/quicker.nvim";
       flake = false;

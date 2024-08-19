@@ -54,6 +54,7 @@ in
       markview-nvim
       colorbuddy-nvim
       nightfox-nvim
+      tid-nvim
       rustaceanvim
       nvim-dap
       nvim-dap-ui

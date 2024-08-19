@@ -12,6 +12,10 @@ let
     name = "markview.nvim";
     src = inputs.markview-nvim;
   };
+  tid-nvim = final.vimUtils.buildVimPlugin {
+    name = "tiny-inline-diagnostic.nvim";
+    src = inputs.tid-nvim;
+  };
   quicker-nvim = final.vimUtils.buildVimPlugin {
     name = "quicker.nvim";
     src = inputs.quicker-nvim;
@@ -26,6 +30,7 @@ in
     inherit huez-nvim;
     inherit nerdy-nvim;
     inherit markview-nvim;
+    inherit tid-nvim;
     inherit quicker-nvim;
     inherit nvim-lint;
   };
