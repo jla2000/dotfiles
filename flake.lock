@@ -284,11 +284,11 @@
         "nixpkgs-stable": "nixpkgs-stable"
       },
       "locked": {
-        "lastModified": 1723803910,
-        "narHash": "sha256-yezvUuFiEnCFbGuwj/bQcqg7RykIEqudOy/RBrId0pc=",
+        "lastModified": 1724227338,
+        "narHash": "sha256-TuSaYdhOxeaaE9885mFO1lZHHax33GD5A9dczJrGUjw=",
         "owner": "cachix",
         "repo": "git-hooks.nix",
-        "rev": "bfef0ada09e2c8ac55bbcd0831bd0c9d42e651ba",
+        "rev": "6cedaa7c1b4f82a266e5d30f212273e60d62cb0d",
         "type": "github"
       },
       "original": {
@@ -345,11 +345,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1724110726,
-        "narHash": "sha256-d4vqblq6e5LOowA6OBro3w0sLsT7HOUYBwV6Wa6zLS8=",
+        "lastModified": 1724200909,
+        "narHash": "sha256-+nUWRR6mV+EV6pG51tgTG7CckGrHcp3Fq6zz0OzcA9w=",
         "owner": "helix-editor",
         "repo": "helix",
-        "rev": "9e7c488ee33eaabab6ee7c3436f4c58b8c647b4f",
+        "rev": "38e6fcd5c51478635ffa405815c7b9bbeadc35a9",
         "type": "github"
       },
       "original": {
@@ -418,11 +418,11 @@
     "markview-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1724058116,
-        "narHash": "sha256-ja38h4ERYs21coaa6hw7tI8WLJnYL9Y5s5lNlwrgJ70=",
+        "lastModified": 1724143260,
+        "narHash": "sha256-MNVnkGIlJ0LFSat44yHTHnV8A2futRz9FTxC3dFrV0c=",
         "owner": "OXY2DEV",
         "repo": "markview.nvim",
-        "rev": "3adfe75139f755eace69277b7097d0376cb6068a",
+        "rev": "169faa8b99f06b5145a4114864210029fa2e84e0",
         "type": "github"
       },
       "original": {
@@ -444,6 +444,22 @@
       "original": {
         "owner": "2KAbhishek",
         "repo": "nerdy.nvim",
+        "type": "github"
+      }
+    },
+    "nightfall-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1722997335,
+        "narHash": "sha256-PX2j/eF8+sPfz7pHlhhBZ78cSOft64Uz29zqvjI6sPc=",
+        "owner": "2giosangmitom",
+        "repo": "nightfall.nvim",
+        "rev": "b9a11938d2d2d66bddda378985e483c9d88db1fc",
+        "type": "github"
+      },
+      "original": {
+        "owner": "2giosangmitom",
+        "repo": "nightfall.nvim",
         "type": "github"
       }
     },
@@ -538,11 +554,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1724135985,
-        "narHash": "sha256-yImm/xJDDBganXyJawdIbwG1hCFYbeaLEwDLMSCdUvg=",
+        "lastModified": 1724246701,
+        "narHash": "sha256-CD3/T9+7GmL1sGuYY7WvArApgkvFCOqXhinA1e2y5YE=",
         "owner": "nix-community",
         "repo": "nur",
-        "rev": "0ba1aacb815bd8574f6bd25032fdb4fd77d6e630",
+        "rev": "4fa78b7b9c013215c5d3ca4eeeb9e4d5e76a9406",
         "type": "github"
       },
       "original": {
@@ -570,11 +586,11 @@
     "quicker-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1724129605,
-        "narHash": "sha256-3mtKKtwBwmA3akJt8NB5Kue9awJ0fxhalrQ07kdCVSA=",
+        "lastModified": 1724198490,
+        "narHash": "sha256-l2M4uVuQ+NW/Nf6fwGlBUqKiWzTld/tePMPMqk3W/oM=",
         "owner": "stevearc",
         "repo": "quicker.nvim",
-        "rev": "921a8e5f96dab7fc73b3eca03a98fec6c10270e3",
+        "rev": "308088ebcec33f9ed551714e52390206b8f62ed6",
         "type": "github"
       },
       "original": {
@@ -591,6 +607,7 @@
         "huez-nvim": "huez-nvim",
         "markview-nvim": "markview-nvim",
         "nerdy-nvim": "nerdy-nvim",
+        "nightfall-nvim": "nightfall-nvim",
         "nix-index-database": "nix-index-database",
         "nixos-hardware": "nixos-hardware",
         "nixos-wsl": "nixos-wsl",
@@ -708,16 +725,17 @@
     "tiny-code-action-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1724202385,
-        "narHash": "sha256-7dsSvqATwGUXXhhLjQ4kKQFtzraJYxVKGMTyOcfCmbI=",
+        "lastModified": 1724199890,
+        "narHash": "sha256-afg2A0OMe+kl6wkN5uQEPRPU3bvJtZ8rkmmInr3Qn3I=",
         "owner": "rachartier",
         "repo": "tiny-code-action.nvim",
-        "rev": "19a8150d1076a9cf2a1933385abc7969103e1d3d",
+        "rev": "1f2dcff00e74ddacba37373c57428ee784392f09",
         "type": "github"
       },
       "original": {
         "owner": "rachartier",
         "repo": "tiny-code-action.nvim",
+        "rev": "1f2dcff00e74ddacba37373c57428ee784392f09",
         "type": "github"
       }
     },

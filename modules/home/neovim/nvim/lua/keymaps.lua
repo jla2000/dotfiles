@@ -20,9 +20,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end)
 		vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, opts)
 		vim.keymap.set("n", "<leader>ca", function()
-			-- TODO: Enable once https://github.com/rachartier/tiny-code-action.nvim/issues/18 is resolved
-			-- require("tiny-code-action").code_action()
-			vim.lsp.buf.code_action()
+			require("tiny-code-action").code_action()
 		end, opts)
 	end,
 })

@@ -48,7 +48,7 @@
       flake = false;
     };
     tiny-code-action-nvim = {
-      url = "github:rachartier/tiny-code-action.nvim";
+      url = "github:rachartier/tiny-code-action.nvim?rev=1f2dcff00e74ddacba37373c57428ee784392f09";
       flake = false;
     };
     quicker-nvim = {
@@ -61,6 +61,10 @@
     };
     tokyodark-nvim = {
       url = "github:tiagovla/tokyodark.nvim";
+      flake = false;
+    };
+    nightfall-nvim = {
+      url = "github:2giosangmitom/nightfall.nvim";
       flake = false;
     };
   };

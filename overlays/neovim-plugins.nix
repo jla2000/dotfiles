@@ -32,6 +32,10 @@ let
     name = "tokyodark.nvim";
     src = inputs.tokyodark-nvim;
   };
+  nightfall-nvim = final.vimUtils.buildVimPlugin {
+    name = "nightfall.nvim";
+    src = inputs.nightfall-nvim;
+  };
 in
 {
   vimPlugins = prev.vimPlugins // {
@@ -43,5 +47,6 @@ in
     inherit quicker-nvim;
     inherit nvim-lint;
     inherit tokyodark-nvim;
+    inherit nightfall-nvim;
   };
 }
