@@ -23,8 +23,6 @@
   programs.bat = {
     enable = true;
   };
-  # Use bat as replacement for std cat
-  home.shellAliases.cat = "bat";
   # Use bat as man pager
   home.sessionVariables = {
     MANROFFOPT = "-c";
