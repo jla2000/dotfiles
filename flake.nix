@@ -43,8 +43,12 @@
       url = "github:OXY2DEV/markview.nvim";
       flake = false;
     };
-    tid-nvim = {
+    tiny-inline-diagnostics-nvim = {
       url = "github:rachartier/tiny-inline-diagnostic.nvim";
+      flake = false;
+    };
+    tiny-code-action-nvim = {
+      url = "github:rachartier/tiny-code-action.nvim";
       flake = false;
     };
     quicker-nvim = {
@@ -53,6 +57,10 @@
     };
     nvim-lint = {
       url = "github:mfussenegger/nvim-lint";
+      flake = false;
+    };
+    tokyodark-nvim = {
+      url = "github:tiagovla/tokyodark.nvim";
       flake = false;
     };
   };

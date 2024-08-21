@@ -54,7 +54,9 @@ in
       markview-nvim
       colorbuddy-nvim
       nightfox-nvim
-      tid-nvim
+      tiny-inline-diagnostics-nvim
+      tiny-code-action-nvim
+      plenary-nvim
       rustaceanvim
       nvim-dap
       nvim-dap-ui
@@ -62,6 +64,7 @@ in
       miasma-nvim
       quicker-nvim
       nvim-lint
+      tokyodark-nvim
     ];
     extraPackages = with pkgs; [
       lua-language-server

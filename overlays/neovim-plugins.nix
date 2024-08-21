@@ -12,9 +12,13 @@ let
     name = "markview.nvim";
     src = inputs.markview-nvim;
   };
-  tid-nvim = final.vimUtils.buildVimPlugin {
+  tiny-inline-diagnostics-nvim = final.vimUtils.buildVimPlugin {
     name = "tiny-inline-diagnostic.nvim";
-    src = inputs.tid-nvim;
+    src = inputs.tiny-inline-diagnostics-nvim;
+  };
+  tiny-code-action-nvim = final.vimUtils.buildVimPlugin {
+    name = "tiny-code-action.nvim";
+    src = inputs.tiny-code-action-nvim;
   };
   quicker-nvim = final.vimUtils.buildVimPlugin {
     name = "quicker.nvim";
@@ -24,14 +28,20 @@ let
     name = "nvim-lint";
     src = inputs.nvim-lint;
   };
+  tokyodark-nvim = final.vimUtils.buildVimPlugin {
+    name = "tokyodark.nvim";
+    src = inputs.tokyodark-nvim;
+  };
 in
 {
   vimPlugins = prev.vimPlugins // {
     inherit huez-nvim;
     inherit nerdy-nvim;
     inherit markview-nvim;
-    inherit tid-nvim;
+    inherit tiny-inline-diagnostics-nvim;
+    inherit tiny-code-action-nvim;
     inherit quicker-nvim;
     inherit nvim-lint;
+    inherit tokyodark-nvim;
   };
 }
