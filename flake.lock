@@ -415,6 +415,22 @@
         "type": "github"
       }
     },
+    "lackluster-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1723695760,
+        "narHash": "sha256-tlvV5Wge2PMz0rs/JDBem6pFWncEa1m681l6isIHPAI=",
+        "owner": "slugbyte",
+        "repo": "lackluster.nvim",
+        "rev": "2fcf09e7492ff50067ac9c0ca4bd81563499c410",
+        "type": "github"
+      },
+      "original": {
+        "owner": "slugbyte",
+        "repo": "lackluster.nvim",
+        "type": "github"
+      }
+    },
     "markview-nvim": {
       "flake": false,
       "locked": {
@@ -605,6 +621,7 @@
         "helix": "helix",
         "home-manager": "home-manager",
         "huez-nvim": "huez-nvim",
+        "lackluster-nvim": "lackluster-nvim",
         "markview-nvim": "markview-nvim",
         "nerdy-nvim": "nerdy-nvim",
         "nightfall-nvim": "nightfall-nvim",

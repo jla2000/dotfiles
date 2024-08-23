@@ -67,6 +67,10 @@
       url = "github:2giosangmitom/nightfall.nvim";
       flake = false;
     };
+    lackluster-nvim = {
+      url = "github:slugbyte/lackluster.nvim";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:

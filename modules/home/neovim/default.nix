@@ -66,6 +66,7 @@ in
       nvim-lint
       tokyodark-nvim
       nightfall-nvim
+      lackluster-nvim
     ];
     extraPackages = with pkgs; [
       lua-language-server

@@ -1,7 +1,13 @@
 return {
 	{
 		"tokyonight.nvim",
-		colorscheme = "tokyonight",
+		colorscheme = {
+			"tokyonight",
+			"tokyonight-storm",
+			"tokyonight-moon",
+			"tokyonight-day",
+			"tokyonight-night",
+		},
 		after = function()
 			require("tokyonight").setup({
 				comments = { italic = true },
@@ -9,23 +15,14 @@ return {
 		end,
 	},
 	{
-		"onedark.nvim",
-		colorscheme = "onedark",
-	},
-	{
-		"catppuccin.nvim",
-		colorscheme = "catppuccin",
-	},
-	{
-		"colorbuddy.nvim",
-		colorscheme = "gruvbuddy",
-	},
-	{
-		"nightfox.nvim",
-		colorscheme = "nightfox",
-	},
-	{
-		"miasma.nvim",
-		colorscheme = "miasma",
+		"nightfall.nvim",
+		colorscheme = {
+			"nightfall",
+			"deepernight",
+			"maron",
+		},
+		after = function()
+			require("nightfall").setup({})
+		end,
 	},
 }

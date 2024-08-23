@@ -36,6 +36,10 @@ let
     name = "nightfall.nvim";
     src = inputs.nightfall-nvim;
   };
+  lackluster-nvim = final.vimUtils.buildVimPlugin {
+    name = "lackluster.nvim";
+    src = inputs.lackluster-nvim;
+  };
 in
 {
   vimPlugins = prev.vimPlugins // {
@@ -48,5 +52,6 @@ in
     inherit nvim-lint;
     inherit tokyodark-nvim;
     inherit nightfall-nvim;
+    inherit lackluster-nvim;
   };
 }
