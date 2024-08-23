@@ -63,6 +63,10 @@
       url = "github:slugbyte/lackluster.nvim";
       flake = false;
     };
+    live-rename-nvim = {
+      url = "github:saecki/live-rename.nvim";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:

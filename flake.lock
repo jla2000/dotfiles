@@ -431,6 +431,22 @@
         "type": "github"
       }
     },
+    "live-rename-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1724145865,
+        "narHash": "sha256-rmMtR+bP+dxRjqMyQSPtzGr3Lc/9mpwk/PM9SRLn1Uw=",
+        "owner": "saecki",
+        "repo": "live-rename.nvim",
+        "rev": "c9bc79398e7469e07dbe3b3e33046bbe2beeb3e4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "saecki",
+        "repo": "live-rename.nvim",
+        "type": "github"
+      }
+    },
     "nerdy-nvim": {
       "flake": false,
       "locked": {
@@ -606,6 +622,7 @@
         "home-manager": "home-manager",
         "huez-nvim": "huez-nvim",
         "lackluster-nvim": "lackluster-nvim",
+        "live-rename-nvim": "live-rename-nvim",
         "nerdy-nvim": "nerdy-nvim",
         "nightfall-nvim": "nightfall-nvim",
         "nix-index-database": "nix-index-database",

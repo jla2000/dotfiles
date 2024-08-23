@@ -32,6 +32,10 @@ let
     name = "lackluster.nvim";
     src = inputs.lackluster-nvim;
   };
+  live-rename-nvim = final.vimUtils.buildVimPlugin {
+    name = "live-rename.nvim";
+    src = inputs.live-rename-nvim;
+  };
 in
 {
   vimPlugins = prev.vimPlugins // {
@@ -43,5 +47,6 @@ in
     inherit tokyodark-nvim;
     inherit nightfall-nvim;
     inherit lackluster-nvim;
+    inherit live-rename-nvim;
   };
 }
