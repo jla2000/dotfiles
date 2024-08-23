@@ -39,14 +39,6 @@
       url = "github:2KAbhishek/nerdy.nvim";
       flake = false;
     };
-    markview-nvim = {
-      url = "github:OXY2DEV/markview.nvim";
-      flake = false;
-    };
-    tiny-inline-diagnostics-nvim = {
-      url = "github:rachartier/tiny-inline-diagnostic.nvim";
-      flake = false;
-    };
     tiny-code-action-nvim = {
       url = "github:rachartier/tiny-code-action.nvim?rev=1f2dcff00e74ddacba37373c57428ee784392f09";
       flake = false;

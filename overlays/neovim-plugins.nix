@@ -8,14 +8,6 @@ let
     name = "nerdy.nvim";
     src = inputs.nerdy-nvim;
   };
-  markview-nvim = final.vimUtils.buildVimPlugin {
-    name = "markview.nvim";
-    src = inputs.markview-nvim;
-  };
-  tiny-inline-diagnostics-nvim = final.vimUtils.buildVimPlugin {
-    name = "tiny-inline-diagnostic.nvim";
-    src = inputs.tiny-inline-diagnostics-nvim;
-  };
   tiny-code-action-nvim = final.vimUtils.buildVimPlugin {
     name = "tiny-code-action.nvim";
     src = inputs.tiny-code-action-nvim;
@@ -45,8 +37,6 @@ in
   vimPlugins = prev.vimPlugins // {
     inherit huez-nvim;
     inherit nerdy-nvim;
-    inherit markview-nvim;
-    inherit tiny-inline-diagnostics-nvim;
     inherit tiny-code-action-nvim;
     inherit quicker-nvim;
     inherit nvim-lint;

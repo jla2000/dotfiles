@@ -54,7 +54,7 @@ in
       markview-nvim
       colorbuddy-nvim
       nightfox-nvim
-      tiny-inline-diagnostics-nvim
+      tiny-inline-diagnostic-nvim
       tiny-code-action-nvim
       plenary-nvim
       rustaceanvim
