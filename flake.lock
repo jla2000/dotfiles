@@ -399,22 +399,6 @@
         "type": "github"
       }
     },
-    "huez-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1720844152,
-        "narHash": "sha256-sN12ZGcD51gbKHPsgvtRuz2FXmDuDY3tq272P/d/XmQ=",
-        "owner": "vague2k",
-        "repo": "huez.nvim",
-        "rev": "d07fe09177e0e9e1dd3115c282c190897fa9fd6d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "vague2k",
-        "repo": "huez.nvim",
-        "type": "github"
-      }
-    },
     "lackluster-nvim": {
       "flake": false,
       "locked": {
@@ -444,6 +428,22 @@
       "original": {
         "owner": "saecki",
         "repo": "live-rename.nvim",
+        "type": "github"
+      }
+    },
+    "lz-n-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1724550692,
+        "narHash": "sha256-VjUGRSz1RVF0OQViI58cfm0k1LMGeTJKhDB5NjLsvvA=",
+        "owner": "nvim-neorocks",
+        "repo": "lz.n",
+        "rev": "afcaf87c83a555c908f3983eee9a489ad5d54ae6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-neorocks",
+        "repo": "lz.n",
         "type": "github"
       }
     },
@@ -620,9 +620,9 @@
         "git-hooks": "git-hooks",
         "helix": "helix",
         "home-manager": "home-manager",
-        "huez-nvim": "huez-nvim",
         "lackluster-nvim": "lackluster-nvim",
         "live-rename-nvim": "live-rename-nvim",
+        "lz-n-nvim": "lz-n-nvim",
         "nerdy-nvim": "nerdy-nvim",
         "nightfall-nvim": "nightfall-nvim",
         "nix-index-database": "nix-index-database",

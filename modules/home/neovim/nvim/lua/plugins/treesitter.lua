@@ -10,8 +10,9 @@ return {
 	},
 	{
 		"nvim-treesitter",
-		event = "DeferredUIEnter",
+		event = { "BufReadPre", "BufNewFile" },
 		after = function()
+			require("lz.n").trigger_load("nvim-treesitter-textobjects")
 			require("nvim-treesitter.configs").setup({
 				auto_install = false,
 				highlight = {

@@ -22,6 +22,7 @@ let
   };
   tokyodark-nvim = final.vimUtils.buildVimPlugin {
     name = "tokyodark.nvim";
+    pname = "tokyodark.nvim";
     src = inputs.tokyodark-nvim;
   };
   nightfall-nvim = final.vimUtils.buildVimPlugin {
@@ -36,6 +37,10 @@ let
     name = "live-rename.nvim";
     src = inputs.live-rename-nvim;
   };
+  lz-n-nvim = final.vimUtils.buildVimPlugin {
+    name = "lz-n.nvim";
+    src = inputs.lz-n-nvim;
+  };
 in
 {
   vimPlugins = prev.vimPlugins // {
@@ -48,5 +53,6 @@ in
     inherit nightfall-nvim;
     inherit lackluster-nvim;
     inherit live-rename-nvim;
+    inherit lz-n-nvim;
   };
 }

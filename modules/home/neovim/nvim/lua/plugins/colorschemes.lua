@@ -33,7 +33,7 @@ return {
 		},
 	},
 	{
-		"vimplugin-tokyodark.nvim",
+		"tokyodark.nvim",
 		colorscheme = "tokyodark",
 	},
 	{
