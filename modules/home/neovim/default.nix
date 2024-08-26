@@ -10,64 +10,67 @@ in
   programs.neovim = {
     enable = true;
     plugins = with pkgs.vimPlugins; [
-      lz-n
-      telescope-nvim
-      telescope-fzf-native-nvim
-      oil-nvim
-      nvim-treesitter
-      nvim-treesitter-textobjects
-      nvim-treesitter-context
-      tokyonight-nvim
-      catppuccin-nvim
-      onedark-nvim
-      adwaita-nvim
-      zenbones-nvim
-      lush-nvim
-      flash-nvim
-      nvim-lspconfig
-      indent-blankline-nvim
       cmake-tools-nvim
-      nvim-web-devicons
-      nvim-autopairs
-      nvim-cmp
       cmp-nvim-lsp
       cmp-path
       cmp_luasnip
-      luasnip
       conform-nvim
-      marks-nvim
-      lualine-nvim
-      gitsigns-nvim
-      persistence-nvim
-      yanky-nvim
-      noice-nvim
-      nui-nvim
-      trouble-nvim
-      nvim-surround
-      lazydev-nvim
-      dressing-nvim
-      huez-nvim
-      lazy-nvim
       crates-nvim
       diffview-nvim
+      dressing-nvim
+      flash-nvim
+      gitsigns-nvim
+      indent-blankline-nvim
+      lazydev-nvim
+      live-rename-nvim
+      lualine-nvim
+      luasnip
+      lush-nvim
+      lz-n
+      marks-nvim
       nerdy-nvim
-      markview-nvim
-      colorbuddy-nvim
-      nightfox-nvim
-      tiny-inline-diagnostic-nvim
-      tiny-code-action-nvim
-      plenary-nvim
-      rustaceanvim
+      noice-nvim
+      nui-nvim
+      nvim-autopairs
+      nvim-cmp
       nvim-dap
       nvim-dap-ui
-      nvim-nio
-      miasma-nvim
-      quicker-nvim
       nvim-lint
-      tokyodark-nvim
-      nightfall-nvim
-      lackluster-nvim
-      live-rename-nvim
+      nvim-lspconfig
+      nvim-nio
+      nvim-surround
+      nvim-web-devicons
+      onedark-nvim
+      persistence-nvim
+      plenary-nvim
+      quicker-nvim
+      rustaceanvim
+      tiny-code-action-nvim
+      tiny-inline-diagnostic-nvim
+      trouble-nvim
+      yanky-nvim
+
+      # Lazy
+      { plugin = markview-nvim; optional = true; }
+      { plugin = nvim-treesitter-context; optional = true; }
+      { plugin = nvim-treesitter-textobjects; optional = true; }
+      { plugin = nvim-treesitter; optional = true; }
+      { plugin = oil-nvim; optional = true; }
+      { plugin = telescope-nvim; optional = true; }
+
+      # Problems with Lazy
+      telescope-fzf-native-nvim
+
+      # Color schemes
+      { plugin = adwaita-nvim; optional = true; }
+      { plugin = catppuccin-nvim; optional = true; }
+      { plugin = lackluster-nvim; optional = true; }
+      { plugin = miasma-nvim; optional = true; }
+      { plugin = nightfall-nvim; optional = true; }
+      { plugin = nightfox-nvim; optional = true; }
+      { plugin = tokyodark-nvim; optional = true; }
+      { plugin = tokyonight-nvim; optional = true; }
+      { plugin = zenbones-nvim; optional = true; }
     ];
     extraPackages = with pkgs; [
       lua-language-server

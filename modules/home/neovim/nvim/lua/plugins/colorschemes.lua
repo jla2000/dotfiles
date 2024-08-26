@@ -15,14 +15,57 @@ return {
 		end,
 	},
 	{
-		"nightfall.nvim",
+		"vimplugin-nightfall.nvim",
 		colorscheme = {
 			"nightfall",
 			"deepernight",
 			"maron",
 		},
-		after = function()
-			require("nightfall").setup({})
-		end,
+	},
+	{
+		"vimplugin-lackluster.nvim",
+		colorscheme = {
+			"lackluster",
+			"lackluster-dark",
+			"lackluster-hack",
+			"lackluster-mint",
+			"lackluster-night",
+		},
+	},
+	{
+		"vimplugin-tokyodark.nvim",
+		colorscheme = "tokyodark",
+	},
+	{
+		"vimplugin-nightfall.nvim",
+		colorscheme = "nightfall",
+	},
+	{
+		"nightfox.nvim",
+		colorscheme = "nightfox",
+	},
+	{
+		"adwaita.nvim",
+		colorscheme = "adwaita",
+	},
+	{
+		"miasma.nvim",
+		colorscheme = "miasma",
+	},
+	{
+		"catppuccin-nvim",
+		colorscheme = {
+			"catppuccin",
+			"catppuccin-frappe",
+			"catppuccin-latte",
+			"catppuccin-macchiato",
+			"catppuccin-mocha",
+		},
+	},
+	{
+		"zenbones.nvim",
+		colorscheme = {
+			"tokyobones",
+		},
 	},
 }

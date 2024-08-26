@@ -1,6 +1,7 @@
 return {
 	"telescope.nvim",
 	after = function()
+		require("lz.n").trigger_load("telescope-fzf-native.nvim")
 		require("telescope").setup({
 			defaults = {
 				mappings = {
