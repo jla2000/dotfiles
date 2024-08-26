@@ -10,3 +10,9 @@ vim.g.lz_n = {
 }
 
 require("lz.n").load("plugins")
+
+local save_file = io.open(vim.g.colorscheme_file, "r")
+if save_file then
+	local colorscheme = save_file:read("*a")
+	vim.cmd.colorscheme(colorscheme)
+end
