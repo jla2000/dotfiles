@@ -23,7 +23,6 @@ in
       indent-blankline-nvim
       lazydev-nvim
       live-rename-nvim
-      lualine-nvim
       luasnip
       lush-nvim
       lz-n
@@ -51,12 +50,14 @@ in
       yanky-nvim
 
       # Lazy
+      { plugin = lualine-nvim; optional = true; }
       { plugin = markview-nvim; optional = true; }
       { plugin = nvim-treesitter-context; optional = true; }
       { plugin = nvim-treesitter-textobjects; optional = true; }
       { plugin = nvim-treesitter; optional = true; }
       { plugin = oil-nvim; optional = true; }
       { plugin = telescope-nvim; optional = true; }
+      { plugin = which-key-nvim; optional = true; }
 
       # Problems with Lazy
       telescope-fzf-native-nvim
