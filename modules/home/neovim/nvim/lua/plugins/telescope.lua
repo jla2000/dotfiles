@@ -24,5 +24,6 @@ return {
 		{ "<leader>s", "<cmd>Telescope lsp_document_symbols<cr>" },
 		{ "<leader>S", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>" },
 		{ '<leader>"', "<cmd>Telescope resume<cr>" },
+		{ "<leader>uC", "<cmd>Telescope colorscheme enable_preview=true ignore_builtins=true<cr>" },
 	},
 }
