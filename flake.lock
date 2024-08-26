@@ -654,6 +654,7 @@
         "nvim-lint": "nvim-lint",
         "quicker-nvim": "quicker-nvim",
         "stylix": "stylix",
+        "themery-nvim": "themery-nvim",
         "tiny-code-action-nvim": "tiny-code-action-nvim",
         "tokyodark-nvim": "tokyodark-nvim",
         "wgsl-analyzer": "wgsl-analyzer"
@@ -773,6 +774,22 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "themery-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1724679547,
+        "narHash": "sha256-MbNaOIxiYmju9R+mTI+qtbwG0UNt8meNcOS5uO0pRfw=",
+        "owner": "zaldih",
+        "repo": "themery.nvim",
+        "rev": "834d9bd81ddcaabbcba1cc51827455e9652a9d97",
+        "type": "github"
+      },
+      "original": {
+        "owner": "zaldih",
+        "repo": "themery.nvim",
         "type": "github"
       }
     },

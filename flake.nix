@@ -67,6 +67,10 @@
       url = "github:saecki/live-rename.nvim";
       flake = false;
     };
+    themery-nvim = {
+      url = "github:zaldih/themery.nvim";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:

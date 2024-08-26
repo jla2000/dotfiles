@@ -56,6 +56,7 @@ in
       { plugin = which-key-nvim; optional = true; }
       { plugin = yanky-nvim; optional = true; }
       { plugin = nvim-lint; optional = true; }
+      { plugin = themery-nvim; optional = true; }
 
       # Problems with Lazy
       telescope-fzf-native-nvim
