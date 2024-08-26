@@ -21,7 +21,6 @@ in
       nvim-cmp
       nvim-dap
       nvim-dap-ui
-      nvim-lint
       nvim-lspconfig
       nvim-nio
       nvim-web-devicons
@@ -56,6 +55,7 @@ in
       { plugin = trouble-nvim; optional = true; }
       { plugin = which-key-nvim; optional = true; }
       { plugin = yanky-nvim; optional = true; }
+      { plugin = nvim-lint; optional = true; }
 
       # Problems with Lazy
       telescope-fzf-native-nvim

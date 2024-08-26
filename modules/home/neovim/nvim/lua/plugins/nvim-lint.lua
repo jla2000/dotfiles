@@ -1,6 +1,6 @@
 return {
 	"nvim-lint",
-	event = "DeferredUIEnter",
+	event = { "BufReadPre", "BufNewFile" },
 	after = function()
 		require("lint").linters_by_ft = {
 			rust = { "clippy" },
