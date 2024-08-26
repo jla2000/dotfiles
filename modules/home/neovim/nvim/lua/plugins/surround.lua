@@ -1,6 +1,6 @@
 return {
 	"nvim-surround",
-	event = "BufEnter",
+	event = "DeferredUIEnter",
 	after = function()
 		require("nvim-surround").setup({})
 	end,

@@ -1,6 +1,6 @@
 return {
 	"marks.nvim",
-	event = "BufEnter",
+	event = "DeferredUIEnter",
 	after = function()
 		require("marks").setup({})
 	end,
