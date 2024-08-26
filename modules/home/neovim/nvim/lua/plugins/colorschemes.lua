@@ -16,6 +16,9 @@ return {
 	},
 	{
 		"nightfall.nvim",
+		after = function()
+			require("nightfall").setup()
+		end,
 		colorscheme = {
 			"nightfall",
 			"deepernight",
@@ -37,12 +40,16 @@ return {
 		colorscheme = "tokyodark",
 	},
 	{
-		"nightfall.nvim",
-		colorscheme = "nightfall",
-	},
-	{
 		"nightfox.nvim",
-		colorscheme = "nightfox",
+		colorscheme = {
+			"nightfox",
+			"dayfox",
+			"dawnfox",
+			"duskfox",
+			"nordfox",
+			"terafox",
+			"carbonfox",
+		},
 	},
 	{
 		"adwaita.nvim",
@@ -68,8 +75,23 @@ return {
 	},
 	{
 		"zenbones.nvim",
+		before = function()
+			require("lz.n").trigger_load("lush.nvim")
+			vim.notify("Triggered lush.nvim load")
+		end,
 		colorscheme = {
+			"zenwritten",
+			"neobones",
+			"vimbones",
+			"rosebones",
+			"forestbones",
+			"nordbones",
 			"tokyobones",
+			"seoulbones",
+			"duckbones",
+			"zenburned",
+			"kanagawabones",
+			"randombones",
 		},
 	},
 }

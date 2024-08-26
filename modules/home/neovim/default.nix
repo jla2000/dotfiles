@@ -38,7 +38,6 @@ in
       { plugin = indent-blankline-nvim; optional = true; }
       { plugin = lazydev-nvim; optional = true; }
       { plugin = lualine-nvim; optional = true; }
-      { plugin = lush-nvim; optional = true; }
       { plugin = marks-nvim; optional = true; }
       { plugin = markview-nvim; optional = true; }
       { plugin = nerdy-nvim; optional = true; }
@@ -60,6 +59,7 @@ in
 
       # Problems with Lazy
       telescope-fzf-native-nvim
+      lush-nvim
 
       # Color schemes
       { plugin = adwaita-nvim; optional = true; }
