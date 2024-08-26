@@ -31,7 +31,7 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    lz-n-nvim = {
+    lz-n = {
       url = "github:nvim-neorocks/lz.n";
       flake = false;
     };

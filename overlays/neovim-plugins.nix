@@ -37,9 +37,9 @@ let
     name = "live-rename.nvim";
     src = inputs.live-rename-nvim;
   };
-  lz-n-nvim = final.vimUtils.buildVimPlugin {
+  lz-n = final.vimUtils.buildVimPlugin {
     name = "lz-n.nvim";
-    src = inputs.lz-n-nvim;
+    src = inputs.lz-n;
   };
 in
 {
@@ -53,6 +53,6 @@ in
     inherit nightfall-nvim;
     inherit lackluster-nvim;
     inherit live-rename-nvim;
-    inherit lz-n-nvim;
+    inherit lz-n;
   };
 }

@@ -431,7 +431,7 @@
         "type": "github"
       }
     },
-    "lz-n-nvim": {
+    "lz-n": {
       "flake": false,
       "locked": {
         "lastModified": 1724550692,
@@ -622,7 +622,7 @@
         "home-manager": "home-manager",
         "lackluster-nvim": "lackluster-nvim",
         "live-rename-nvim": "live-rename-nvim",
-        "lz-n-nvim": "lz-n-nvim",
+        "lz-n": "lz-n",
         "nerdy-nvim": "nerdy-nvim",
         "nightfall-nvim": "nightfall-nvim",
         "nix-index-database": "nix-index-database",

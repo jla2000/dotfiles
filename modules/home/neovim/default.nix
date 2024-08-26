@@ -16,7 +16,6 @@ in
       dressing-nvim
       live-rename-nvim
       luasnip
-      lush-nvim
       lz-n
       nui-nvim
       nvim-cmp
@@ -39,8 +38,10 @@ in
       { plugin = indent-blankline-nvim; optional = true; }
       { plugin = lazydev-nvim; optional = true; }
       { plugin = lualine-nvim; optional = true; }
+      { plugin = lush-nvim; optional = true; }
       { plugin = marks-nvim; optional = true; }
       { plugin = markview-nvim; optional = true; }
+      { plugin = nerdy-nvim; optional = true; }
       { plugin = noice-nvim; optional = true; }
       { plugin = nvim-autopairs; optional = true; }
       { plugin = nvim-surround; optional = true; }
@@ -59,7 +60,6 @@ in
 
       # Problems with Lazy
       telescope-fzf-native-nvim
-      nerdy-nvim
 
       # Color schemes
       { plugin = adwaita-nvim; optional = true; }

@@ -1,7 +1,9 @@
 return {
 	"nerdy.nvim",
-	after = function()
+	before = function()
 		require("lz.n").trigger_load("telescope.nvim")
+	end,
+	after = function()
 		require("telescope").load_extension("nerdy")
 	end,
 	keys = {

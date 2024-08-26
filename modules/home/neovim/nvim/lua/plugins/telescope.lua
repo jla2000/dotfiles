@@ -1,9 +1,9 @@
 return {
 	"telescope.nvim",
-	after = function()
+	before = function()
 		require("lz.n").trigger_load("nvim-treesitter")
-		require("lz.n").trigger_load("telescope-fzf-native.nvim")
-
+	end,
+	after = function()
 		require("telescope").setup({
 			defaults = {
 				mappings = {
@@ -13,7 +13,6 @@ return {
 			},
 		})
 		require("telescope").load_extension("fzf")
-		require("telescope").load_extension("nerdy")
 	end,
 	keys = {
 		{ "<leader>ff", "<cmd>Telescope find_files<cr>" },
@@ -25,6 +24,5 @@ return {
 		{ "<leader>s", "<cmd>Telescope lsp_document_symbols<cr>" },
 		{ "<leader>S", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>" },
 		{ '<leader>"', "<cmd>Telescope resume<cr>" },
-		{ "<leader>n", "<cmd>Telescope nerdy<cr>" },
 	},
 }
