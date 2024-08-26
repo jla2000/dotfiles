@@ -10,46 +10,28 @@ in
   programs.neovim = {
     enable = true;
     plugins = with pkgs.vimPlugins; [
-      cmake-tools-nvim
       cmp-nvim-lsp
       cmp-path
       cmp_luasnip
-      conform-nvim
-      crates-nvim
-      diffview-nvim
       dressing-nvim
-      flash-nvim
-      gitsigns-nvim
-      indent-blankline-nvim
-      lazydev-nvim
       live-rename-nvim
       luasnip
       lush-nvim
       lz-n
-      marks-nvim
-      nerdy-nvim
-      noice-nvim
       nui-nvim
-      nvim-autopairs
       nvim-cmp
       nvim-dap
       nvim-dap-ui
       nvim-lint
       nvim-lspconfig
       nvim-nio
-      nvim-surround
       nvim-web-devicons
-      onedark-nvim
-      persistence-nvim
       plenary-nvim
-      quicker-nvim
       rustaceanvim
-      tiny-code-action-nvim
-      tiny-inline-diagnostic-nvim
-      trouble-nvim
-      yanky-nvim
 
       # Lazy
+      { plugin = cmake-tools-nvim; optional = true; }
+      { plugin = flash-nvim; optional = true; }
       { plugin = lualine-nvim; optional = true; }
       { plugin = markview-nvim; optional = true; }
       { plugin = nvim-treesitter-context; optional = true; }
@@ -58,9 +40,26 @@ in
       { plugin = oil-nvim; optional = true; }
       { plugin = telescope-nvim; optional = true; }
       { plugin = which-key-nvim; optional = true; }
+      { plugin = persistence-nvim; optional = true; }
+      { plugin = yanky-nvim; optional = true; }
+      { plugin = trouble-nvim; optional = true; }
+      { plugin = crates-nvim; optional = true; }
+      { plugin = gitsigns-nvim; optional = true; }
+      { plugin = tiny-inline-diagnostic-nvim; optional = true; }
+      { plugin = noice-nvim; optional = true; }
+      { plugin = indent-blankline-nvim; optional = true; }
+      { plugin = lazydev-nvim; optional = true; }
+      { plugin = marks-nvim; optional = true; }
+      { plugin = nvim-autopairs; optional = true; }
+      { plugin = nvim-surround; optional = true; }
+      { plugin = quicker-nvim; optional = true; }
+      { plugin = tiny-code-action-nvim; optional = true; }
+      { plugin = conform-nvim; optional = true; }
+      { plugin = diffview-nvim; optional = true; }
 
       # Problems with Lazy
       telescope-fzf-native-nvim
+      nerdy-nvim
 
       # Color schemes
       { plugin = adwaita-nvim; optional = true; }
@@ -69,6 +68,7 @@ in
       { plugin = miasma-nvim; optional = true; }
       { plugin = nightfall-nvim; optional = true; }
       { plugin = nightfox-nvim; optional = true; }
+      { plugin = onedark-nvim; optional = true; }
       { plugin = tokyodark-nvim; optional = true; }
       { plugin = tokyonight-nvim; optional = true; }
       { plugin = zenbones-nvim; optional = true; }

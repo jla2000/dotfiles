@@ -53,6 +53,10 @@ return {
 		colorscheme = "miasma",
 	},
 	{
+		"onedark.nvim",
+		colorscheme = "onedark",
+	},
+	{
 		"catppuccin-nvim",
 		colorscheme = {
 			"catppuccin",
