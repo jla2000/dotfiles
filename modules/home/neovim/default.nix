@@ -84,6 +84,7 @@ in
       clippy
       rustfmt
       wgsl-analyzer
+      libclang
       vscode-extensions.vadimcn.vscode-lldb.adapter
     ];
     defaultEditor = true;

@@ -109,6 +109,11 @@
           specialArgs = { inherit inputs overlays; };
           modules = [ ./hosts/dell/configuration.nix ];
         };
+        "framefumbler" = nixpkgs.lib.nixosSystem {
+          inherit system;
+          specialArgs = { inherit inputs overlays; };
+          modules = [ ./hosts/framefumbler/configuration.nix ];
+        };
       };
     };
 }
