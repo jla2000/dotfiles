@@ -31,31 +31,31 @@ in
 
       # Lazy
       { plugin = cmake-tools-nvim; optional = true; }
+      { plugin = conform-nvim; optional = true; }
+      { plugin = crates-nvim; optional = true; }
+      { plugin = diffview-nvim; optional = true; }
       { plugin = flash-nvim; optional = true; }
+      { plugin = gitsigns-nvim; optional = true; }
+      { plugin = indent-blankline-nvim; optional = true; }
+      { plugin = lazydev-nvim; optional = true; }
       { plugin = lualine-nvim; optional = true; }
+      { plugin = marks-nvim; optional = true; }
       { plugin = markview-nvim; optional = true; }
+      { plugin = noice-nvim; optional = true; }
+      { plugin = nvim-autopairs; optional = true; }
+      { plugin = nvim-surround; optional = true; }
       { plugin = nvim-treesitter-context; optional = true; }
       { plugin = nvim-treesitter-textobjects; optional = true; }
       { plugin = nvim-treesitter; optional = true; }
       { plugin = oil-nvim; optional = true; }
-      { plugin = telescope-nvim; optional = true; }
-      { plugin = which-key-nvim; optional = true; }
       { plugin = persistence-nvim; optional = true; }
-      { plugin = yanky-nvim; optional = true; }
-      { plugin = trouble-nvim; optional = true; }
-      { plugin = crates-nvim; optional = true; }
-      { plugin = gitsigns-nvim; optional = true; }
-      { plugin = tiny-inline-diagnostic-nvim; optional = true; }
-      { plugin = noice-nvim; optional = true; }
-      { plugin = indent-blankline-nvim; optional = true; }
-      { plugin = lazydev-nvim; optional = true; }
-      { plugin = marks-nvim; optional = true; }
-      { plugin = nvim-autopairs; optional = true; }
-      { plugin = nvim-surround; optional = true; }
       { plugin = quicker-nvim; optional = true; }
+      { plugin = telescope-nvim; optional = true; }
       { plugin = tiny-code-action-nvim; optional = true; }
-      { plugin = conform-nvim; optional = true; }
-      { plugin = diffview-nvim; optional = true; }
+      { plugin = tiny-inline-diagnostic-nvim; optional = true; }
+      { plugin = trouble-nvim; optional = true; }
+      { plugin = which-key-nvim; optional = true; }
+      { plugin = yanky-nvim; optional = true; }
 
       # Problems with Lazy
       telescope-fzf-native-nvim
