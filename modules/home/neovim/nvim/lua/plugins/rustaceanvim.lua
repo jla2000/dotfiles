@@ -20,7 +20,4 @@ vim.g.rustaceanvim = {
 	},
 }
 
-return {
-	"rustaceanvim.nvim",
-	ft = "rust",
-}
+return {}
