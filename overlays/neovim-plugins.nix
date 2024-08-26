@@ -1,50 +1,24 @@
 inputs: final: prev:
 let
-  huez-nvim = final.vimUtils.buildVimPlugin {
-    name = "huez.nvim";
-    src = inputs.huez-nvim;
-  };
-  nerdy-nvim = final.vimUtils.buildVimPlugin {
-    name = "nerdy.nvim";
-    src = inputs.nerdy-nvim;
-  };
-  tiny-code-action-nvim = final.vimUtils.buildVimPlugin {
-    name = "tiny-code-action.nvim";
-    src = inputs.tiny-code-action-nvim;
-  };
-  quicker-nvim = final.vimUtils.buildVimPlugin {
-    name = "quicker.nvim";
-    src = inputs.quicker-nvim;
-  };
-  nvim-lint = final.vimUtils.buildVimPlugin {
-    name = "nvim-lint";
-    src = inputs.nvim-lint;
-  };
-  tokyodark-nvim = final.vimUtils.buildVimPlugin {
-    name = "tokyodark.nvim";
-    pname = "tokyodark.nvim";
-    src = inputs.tokyodark-nvim;
-  };
-  nightfall-nvim = final.vimUtils.buildVimPlugin {
-    name = "nightfall.nvim";
-    src = inputs.nightfall-nvim;
-  };
-  lackluster-nvim = final.vimUtils.buildVimPlugin {
-    name = "lackluster.nvim";
-    src = inputs.lackluster-nvim;
-  };
-  live-rename-nvim = final.vimUtils.buildVimPlugin {
-    name = "live-rename.nvim";
-    src = inputs.live-rename-nvim;
-  };
-  lz-n = final.vimUtils.buildVimPlugin {
-    name = "lz-n.nvim";
-    src = inputs.lz-n;
-  };
+  makePlugin = name: input:
+    final.vimUtils.buildVimPlugin {
+      inherit name;
+      pname = name;
+      src = input;
+    };
+
+  nerdy-nvim = makePlugin "nerdy.nvim" inputs.nerdy-nvim;
+  tiny-code-action-nvim = makePlugin "tiny-code-action.nvim" inputs.tiny-code-action-nvim;
+  quicker-nvim = makePlugin "quicker.nvim" inputs.quicker-nvim;
+  nvim-lint = makePlugin "nvim-lint" inputs.nvim-lint;
+  tokyodark-nvim = makePlugin "tokyodark.nvim" inputs.tokyodark-nvim;
+  nightfall-nvim = makePlugin "nightfall.nvim" inputs.nightfall-nvim;
+  lackluster-nvim = makePlugin "lackluster.nvim" inputs.lackluster-nvim;
+  live-rename-nvim = makePlugin "live-rename.nvim" inputs.live-rename-nvim;
+  lz-n = makePlugin "lz-n.nvim" inputs.lz-n;
 in
 {
   vimPlugins = prev.vimPlugins // {
-    inherit huez-nvim;
     inherit nerdy-nvim;
     inherit tiny-code-action-nvim;
     inherit quicker-nvim;

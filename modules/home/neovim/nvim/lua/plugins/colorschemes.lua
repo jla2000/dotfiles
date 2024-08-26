@@ -15,7 +15,7 @@ return {
 		end,
 	},
 	{
-		"vimplugin-nightfall.nvim",
+		"nightfall.nvim",
 		colorscheme = {
 			"nightfall",
 			"deepernight",
@@ -23,7 +23,7 @@ return {
 		},
 	},
 	{
-		"vimplugin-lackluster.nvim",
+		"lackluster.nvim",
 		colorscheme = {
 			"lackluster",
 			"lackluster-dark",
@@ -37,7 +37,7 @@ return {
 		colorscheme = "tokyodark",
 	},
 	{
-		"vimplugin-nightfall.nvim",
+		"nightfall.nvim",
 		colorscheme = "nightfall",
 	},
 	{
