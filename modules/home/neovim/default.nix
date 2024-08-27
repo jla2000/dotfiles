@@ -19,8 +19,6 @@ in
       lz-n
       nui-nvim
       nvim-cmp
-      nvim-dap
-      nvim-dap-ui
       nvim-lspconfig
       nvim-nio
       nvim-web-devicons
@@ -56,10 +54,12 @@ in
       { plugin = which-key-nvim; optional = true; }
       { plugin = yanky-nvim; optional = true; }
       { plugin = nvim-lint; optional = true; }
+      { plugin = nvim-dap-ui; optional = true; }
 
       # Problems with Lazy
       telescope-fzf-native-nvim
       lush-nvim
+      nvim-dap
 
       # Color schemes
       { plugin = adwaita-nvim; optional = true; }
