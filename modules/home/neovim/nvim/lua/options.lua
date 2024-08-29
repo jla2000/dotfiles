@@ -25,6 +25,3 @@ vim.fn.sign_define("DiagnosticSignError", { text = "" })
 vim.fn.sign_define("DiagnosticSignWarn", { text = "" })
 vim.fn.sign_define("DiagnosticSignInfo", { text = "" })
 vim.fn.sign_define("DiagnosticSignHint", { text = "" })
-
--- Disable loading the default plugins
-vim.go.loadplugins = false
