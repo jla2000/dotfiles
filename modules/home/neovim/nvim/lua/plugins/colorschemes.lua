@@ -90,6 +90,7 @@ return {
 			"seoulbones",
 			"duckbones",
 			"zenburned",
+			"zenbones",
 			"kanagawabones",
 			"randombones",
 		},
