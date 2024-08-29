@@ -86,6 +86,7 @@ in
       wgsl-analyzer
       libclang
       vscode-extensions.vadimcn.vscode-lldb.adapter
+      gleam
     ];
     defaultEditor = true;
   };

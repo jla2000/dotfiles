@@ -54,5 +54,7 @@ return {
 		})
 
 		lspconfig.wgsl_analyzer.setup({})
+
+		lspconfig.gleam.setup({})
 	end,
 }
