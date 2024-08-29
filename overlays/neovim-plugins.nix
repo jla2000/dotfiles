@@ -16,6 +16,7 @@ let
   lackluster-nvim = makePlugin "lackluster.nvim" inputs.lackluster-nvim;
   live-rename-nvim = makePlugin "live-rename.nvim" inputs.live-rename-nvim;
   lz-n = makePlugin "lz-n.nvim" inputs.lz-n;
+  theme-persist-nvim = makePlugin "theme-persist.nvim" inputs.theme-persist-nvim;
 in
 {
   vimPlugins = prev.vimPlugins // {
@@ -28,5 +29,6 @@ in
     inherit lackluster-nvim;
     inherit live-rename-nvim;
     inherit lz-n;
+    inherit theme-persist-nvim;
   };
 }

@@ -55,6 +55,7 @@ in
       { plugin = yanky-nvim; optional = true; }
       { plugin = nvim-lint; optional = true; }
       { plugin = nvim-dap-ui; optional = true; }
+      { plugin = theme-persist-nvim; optional = true; }
 
       # Problems with Lazy
       telescope-fzf-native-nvim

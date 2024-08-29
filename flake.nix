@@ -67,6 +67,10 @@
       url = "github:saecki/live-rename.nvim";
       flake = false;
     };
+    theme-persist-nvim = {
+      url = "github:jla2000/theme-persist.nvim";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
