@@ -9,10 +9,18 @@ return {
 		end,
 	},
 	{
-		"nvim-treesitter-textobjects",
+		"nvim-treesitter",
+		event = { "BufReadPre", "BufNewFile" },
+		after = function()
+			require("lz.n").trigger_load("nvim-treesitter-textobjects")
+		end,
 	},
 	{
-		"nvim-treesitter",
+		"nvim-treesitter-textobjects",
+		event = { "BufReadPre", "BufNewFile" },
+		before = function()
+			require("lz.n").trigger_load("nvim-treesitter")
+		end,
 		after = function()
 			require("nvim-treesitter.configs").setup({
 				auto_install = false,
