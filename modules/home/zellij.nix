@@ -76,6 +76,7 @@ in
   xdg.configFile."zellij/config.kdl".text = with config.lib.stylix.colors.withHashtag;
     /* kdl */
     ''
+      default_shell "fish"
       theme "stylix"
       themes {
         stylix {

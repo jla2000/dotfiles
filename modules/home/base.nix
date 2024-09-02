@@ -77,7 +77,6 @@
     plugins = with pkgs.fishPlugins; [
       { name = "bass"; src = bass.src; }
       { name = "autopair"; src = autopair.src; }
-      { name = "transient-fish"; src = transient-fish.src; }
     ];
   };
 
