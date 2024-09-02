@@ -12,7 +12,7 @@
   wsl = {
     enable = true;
     wslConf.automount.root = lib.mkDefault "/mnt";
-    wslConf.network.hostname = "dell";
+    wslConf.network.hostname = "heatwave-pro";
     defaultUser = lib.mkDefault "jlafferton";
     startMenuLaunchers = lib.mkDefault true;
   };

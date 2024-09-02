@@ -104,10 +104,10 @@
           specialArgs = { inherit inputs overlays; };
           modules = [ ./hosts/zephyrus/configuration.nix ];
         };
-        "dell" = nixpkgs.lib.nixosSystem {
+        "heatwave-pro" = nixpkgs.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs overlays; };
-          modules = [ ./hosts/dell/configuration.nix ];
+          modules = [ ./hosts/heatwave-pro/configuration.nix ];
         };
         "framefumbler" = nixpkgs.lib.nixosSystem {
           inherit system;
