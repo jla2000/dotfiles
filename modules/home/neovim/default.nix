@@ -19,7 +19,6 @@ in
       lz-n
       nui-nvim
       nvim-cmp
-      nvim-lspconfig
       nvim-nio
       nvim-web-devicons
       plenary-nvim
@@ -56,6 +55,7 @@ in
       { plugin = nvim-lint; optional = true; }
       { plugin = nvim-dap-ui; optional = true; }
       { plugin = theme-persist-nvim; optional = true; }
+      { plugin = nvim-lspconfig; optional = true; }
 
       # Problems with Lazy
       telescope-fzf-native-nvim
