@@ -114,6 +114,22 @@
         "type": "github"
       }
     },
+    "calvera-dark-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1628826150,
+        "narHash": "sha256-DMyElTyzSqqcKnfVm/Rjkg9Ax5WvRw5lDW1A/0+Tmfg=",
+        "owner": "niyabits",
+        "repo": "calvera-dark.nvim",
+        "rev": "84802d0bde047ce79ebfddc1800800f0bd67f37a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "niyabits",
+        "repo": "calvera-dark.nvim",
+        "type": "github"
+      }
+    },
     "crane": {
       "inputs": {
         "nixpkgs": [
@@ -638,6 +654,7 @@
     },
     "root": {
       "inputs": {
+        "calvera-dark-nvim": "calvera-dark-nvim",
         "git-hooks": "git-hooks",
         "helix": "helix",
         "home-manager": "home-manager",

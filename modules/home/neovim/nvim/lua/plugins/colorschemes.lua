@@ -94,4 +94,8 @@ return {
 			"randombones",
 		},
 	},
+	{
+		"calvera-dark.nvim",
+		colorscheme = "calvera",
+	},
 }

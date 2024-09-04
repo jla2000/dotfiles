@@ -71,6 +71,10 @@
       url = "github:jla2000/theme-persist.nvim";
       flake = false;
     };
+    calvera-dark-nvim = {
+      url = "github:niyabits/calvera-dark.nvim";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:

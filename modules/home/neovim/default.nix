@@ -73,6 +73,7 @@ in
       { plugin = tokyodark-nvim; optional = true; }
       { plugin = tokyonight-nvim; optional = true; }
       { plugin = zenbones-nvim; optional = true; }
+      { plugin = calvera-dark-nvim; optional = true; }
     ];
     extraPackages = with pkgs; [
       lua-language-server

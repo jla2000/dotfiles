@@ -17,6 +17,7 @@ let
   live-rename-nvim = makePlugin "live-rename.nvim" inputs.live-rename-nvim;
   lz-n = makePlugin "lz-n.nvim" inputs.lz-n;
   theme-persist-nvim = makePlugin "theme-persist.nvim" inputs.theme-persist-nvim;
+  calvera-dark-nvim = makePlugin "calvera-dark.nvim" inputs.calvera-dark-nvim;
 in
 {
   vimPlugins = prev.vimPlugins // {
@@ -30,5 +31,6 @@ in
     inherit live-rename-nvim;
     inherit lz-n;
     inherit theme-persist-nvim;
+    inherit calvera-dark-nvim;
   };
 }
