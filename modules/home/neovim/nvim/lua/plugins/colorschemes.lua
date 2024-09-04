@@ -77,7 +77,6 @@ return {
 		"zenbones.nvim",
 		before = function()
 			require("lz.n").trigger_load("lush.nvim")
-			vim.notify("Triggered lush.nvim load")
 		end,
 		colorscheme = {
 			"zenwritten",
