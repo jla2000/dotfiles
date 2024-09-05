@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 let
   treesitter = pkgs.vimPlugins.nvim-treesitter.withAllGrammars;
   treesitter-parsers = pkgs.symlinkJoin {
@@ -96,7 +96,7 @@ in
     v = "nvim";
   };
 
-  xdg.configFile."nvim/init.lua".source = ./nvim/init.lua;
-  xdg.configFile."nvim/lua".source = ./nvim/lua;
+  xdg.configFile."nvim/init.lua".source = config.lib.file.mkOutOfStoreSymlink "${config.home.sessionVariables.FLAKE}/modules/home/neovim/nvim/init.lua";
+  xdg.configFile."nvim/lua".source = config.lib.file.mkOutOfStoreSymlink "${config.home.sessionVariables.FLAKE}/modules/home/neovim/nvim/lua";
   xdg.configFile."nvim/parser".source = "${treesitter-parsers}/parser";
 }
