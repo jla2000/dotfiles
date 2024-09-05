@@ -14,7 +14,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "<leader>D", vim.diagnostic.open_float, opts)
 		vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<cr>", opts)
 		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-		vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+		vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>", opts)
 		vim.keymap.set("n", "<leader>uh", function()
 			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
 		end)
