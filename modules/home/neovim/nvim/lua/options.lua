@@ -47,3 +47,30 @@ local disabled_built_ins = {
 for _, plugin in pairs(disabled_built_ins) do
 	vim.g["loaded_" .. plugin] = 1
 end
+
+-- Disable some ugly colorschemes
+vim.opt.wildignore:append({
+	"blue.vim",
+	"darkblue.vim",
+	"delek.vim",
+	"desert.vim",
+	"elflord.vim",
+	"evening.vim",
+	"industry.vim",
+	"habamax.vim",
+	"koehler.vim",
+	"lunaperche.vim",
+	"morning.vim",
+	"murphy.vim",
+	"pablo.vim",
+	"peachpuff.vim",
+	"quiet.vim",
+	"ron.vim",
+	"shine.vim",
+	"slate.vim",
+	"sorbet.vim",
+	"torte.vim",
+	"wildcharm.vim",
+	"zaibatsu.vim",
+	"zellner.vim",
+})
