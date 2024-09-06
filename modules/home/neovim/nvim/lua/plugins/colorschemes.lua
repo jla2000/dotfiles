@@ -66,8 +66,16 @@ return {
 		colorscheme = "miasma",
 	},
 	{
-		"onedark.nvim",
-		colorscheme = "onedark",
+		"onedarkpro.nvim",
+		colorscheme = {
+			"onedark",
+			"onelight",
+			"onedark_vivid",
+			"onedark_dark",
+		},
+		after = function()
+			require("onedarkpro").setup({})
+		end,
 	},
 	{
 		"catppuccin-nvim",

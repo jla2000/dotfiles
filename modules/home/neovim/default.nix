@@ -69,7 +69,7 @@ in
       { plugin = miasma-nvim; optional = true; }
       { plugin = nightfall-nvim; optional = true; }
       { plugin = nightfox-nvim; optional = true; }
-      { plugin = onedark-nvim; optional = true; }
+      { plugin = onedarkpro-nvim; optional = true; }
       { plugin = tokyodark-nvim; optional = true; }
       { plugin = tokyonight-nvim; optional = true; }
       { plugin = zenbones-nvim; optional = true; }
