@@ -90,6 +90,12 @@
     shell = pkgs.bash;
   };
 
+  fonts.packages = with pkgs; [
+    (nerdfonts.override {
+      fonts = [ "NerdFontsSymbolsOnly" ];
+    })
+  ];
+
   environment.systemPackages = with pkgs; [
     gcc
     git
