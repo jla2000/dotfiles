@@ -82,6 +82,22 @@
         "type": "github"
       }
     },
+    "base16-schemes": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1725273692,
+        "narHash": "sha256-XOxESrzdIpcYMLS+s4D16M4c8gAk3sLyAQUvsb+lQLk=",
+        "owner": "tinted-theming",
+        "repo": "schemes",
+        "rev": "992b6c372a00e284a7dc26b19a0d11b7afcba1f1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "tinted-theming",
+        "repo": "schemes",
+        "type": "github"
+      }
+    },
     "base16-tmux": {
       "flake": false,
       "locked": {
@@ -670,6 +686,7 @@
     },
     "root": {
       "inputs": {
+        "base16-schemes": "base16-schemes",
         "calvera-dark-nvim": "calvera-dark-nvim",
         "flow-nvim": "flow-nvim",
         "git-hooks": "git-hooks",

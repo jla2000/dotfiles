@@ -20,6 +20,8 @@
     flake = "github:jla2000/nixos-zephyrus";
   };
 
+  stylix.fonts.monospace.name = "JetBrainsMono Nerd Font";
+
   home-manager.users.jan = import ./home.nix;
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;

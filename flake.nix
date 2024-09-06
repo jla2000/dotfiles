@@ -79,6 +79,10 @@
       url = "github:0xstepit/flow.nvim";
       flake = false;
     };
+    base16-schemes = {
+      url = "github:tinted-theming/schemes";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
