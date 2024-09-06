@@ -18,6 +18,7 @@ let
   lz-n = makePlugin "lz-n.nvim" inputs.lz-n;
   theme-persist-nvim = makePlugin "theme-persist.nvim" inputs.theme-persist-nvim;
   calvera-dark-nvim = makePlugin "calvera-dark.nvim" inputs.calvera-dark-nvim;
+  flow-nvim = makePlugin "flow.nvim" inputs.flow-nvim;
 in
 {
   vimPlugins = prev.vimPlugins // {
@@ -32,5 +33,6 @@ in
     inherit lz-n;
     inherit theme-persist-nvim;
     inherit calvera-dark-nvim;
+    inherit flow-nvim;
   };
 }

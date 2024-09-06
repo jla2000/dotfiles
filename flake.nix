@@ -75,6 +75,10 @@
       url = "github:niyabits/calvera-dark.nvim";
       flake = false;
     };
+    flow-nvim = {
+      url = "github:0xstepit/flow.nvim";
+      flake = false;
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:

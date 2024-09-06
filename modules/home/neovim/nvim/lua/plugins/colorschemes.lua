@@ -17,7 +17,13 @@ return {
 	{
 		"nightfall.nvim",
 		after = function()
-			require("nightfall").setup()
+			require("nightfall").setup({
+				integrations = {
+					telescope = {
+						enabled = false,
+					},
+				},
+			})
 		end,
 		colorscheme = {
 			"nightfall",
@@ -97,5 +103,16 @@ return {
 	{
 		"calvera-dark.nvim",
 		colorscheme = "calvera",
+	},
+	{
+		"flow.nvim",
+		colorscheme = "flow",
+		after = function()
+			require("flow").setup({
+				fluo_color = "green",
+				dark_theme = true,
+				high_contrast = true,
+			})
+		end,
 	},
 }

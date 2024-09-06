@@ -295,6 +295,22 @@
         "type": "github"
       }
     },
+    "flow-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1725646453,
+        "narHash": "sha256-fBB4D8LzEO+54JdjV5L46vW6uvKaCjw3jzlwWL2a02I=",
+        "owner": "0xstepit",
+        "repo": "flow.nvim",
+        "rev": "b95debe4cdc572b6f23d5e5fc43f0373bc448757",
+        "type": "github"
+      },
+      "original": {
+        "owner": "0xstepit",
+        "repo": "flow.nvim",
+        "type": "github"
+      }
+    },
     "fromYaml": {
       "flake": false,
       "locked": {
@@ -655,6 +671,7 @@
     "root": {
       "inputs": {
         "calvera-dark-nvim": "calvera-dark-nvim",
+        "flow-nvim": "flow-nvim",
         "git-hooks": "git-hooks",
         "helix": "helix",
         "home-manager": "home-manager",
