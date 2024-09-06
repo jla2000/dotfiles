@@ -92,7 +92,7 @@
     gcc
     git
     gnumake
-    htop
+    btop
     killall
     libreoffice-fresh
     neofetch
