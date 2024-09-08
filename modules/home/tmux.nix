@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   home.packages = [ pkgs.sysstat ];
 
@@ -22,6 +22,7 @@
       bind-key -T copy-mode-vi i send-keys -X cancel
 
       set -g status-style bg=default
+      set -g default-shell ${lib.getExe pkgs.fish}
 
       # Image nvim
       set -g allow-passthrough on

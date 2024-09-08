@@ -1,7 +1,6 @@
 { pkgs, lib, ... }:
 {
   imports = [
-    ./zellij.nix
     ./atuin.nix
     ./tmux.nix
     ./helix.nix
