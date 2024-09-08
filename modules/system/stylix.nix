@@ -17,7 +17,7 @@ in
     fonts = {
       monospace = {
         package = custom-nerd-fonts;
-        name = lib.mkDefault "Iosevka Nerd Font";
+        name = lib.mkDefault "JetBrainsMono Nerd Font";
       };
       sansSerif = {
         package = pkgs.cantarell-fonts;
