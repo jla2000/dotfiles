@@ -9,7 +9,7 @@
       taplo
       nodePackages.prettier
       marksman
-      nixfmt
+      nixpkgs-fmt
       shfmt
     ];
     defaultEditor = true;
@@ -17,6 +17,5 @@
 
   home.shellAliases = { v = "nvim"; };
 
-  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink
-    "${config.home.sessionVariables.FLAKE}/modules/home/neovim/nvim";
+  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.sessionVariables.FLAKE}/modules/home/neovim/nvim";
 }
