@@ -52,7 +52,6 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   # Configure sound and video
-  hardware.pulseaudio.enable = true;
   hardware.graphics.enable = true;
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
