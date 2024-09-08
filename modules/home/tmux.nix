@@ -30,6 +30,8 @@
       bind c new-window -c "#{pane_current_path}"
       bind '"' split-window -c "#{pane_current_path}"
       bind % split-window -h -c "#{pane_current_path}"
+
+      bind -r g popup -d "#{pane_current_path}" -E -w 90% -h 90% lazygit
     '';
     plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator
