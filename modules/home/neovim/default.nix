@@ -9,6 +9,7 @@
       taplo
       nodePackages.prettier
       marksman
+      markdownlint-cli2
       nixpkgs-fmt
       shfmt
     ];
