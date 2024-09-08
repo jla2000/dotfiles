@@ -4,6 +4,7 @@
     enable = true;
     extraPackages = with pkgs; [
       rust-analyzer
+      rustfmt
       lua-language-server
       stylua
       nil
