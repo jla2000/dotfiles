@@ -7,7 +7,7 @@
       rustfmt
       lua-language-server
       stylua
-      nil
+      nixd
       taplo
       nodePackages.prettier
       marksman
