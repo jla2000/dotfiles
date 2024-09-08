@@ -7,6 +7,7 @@
       lua-language-server
       stylua
       nil
+      taplo
     ];
     defaultEditor = true;
   };
