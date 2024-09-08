@@ -6,5 +6,8 @@ return {
       view_warn = "mini",
       view_error = "mini",
     },
+    notify = {
+      view = "mini",
+    },
   },
 }
