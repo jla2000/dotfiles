@@ -18,7 +18,6 @@ require("lazy").setup({
 	spec = {
 		{ "LazyVim/LazyVim", import = "lazyvim.plugins" },
 		{ import = "plugins" },
-		{ "williamboman/mason.nvim", enabled = false },
 	},
 	defaults = {
 		lazy = true,

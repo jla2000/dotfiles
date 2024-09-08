@@ -3,18 +3,10 @@
   programs.neovim = {
     enable = true;
     extraPackages = with pkgs; [
+      rust-analyzer
       lua-language-server
       stylua
       nil
-      nixpkgs-fmt
-      markdownlint-cli
-      rust-analyzer
-      clippy
-      rustfmt
-      wgsl-analyzer
-      libclang
-      vscode-extensions.vadimcn.vscode-lldb.adapter
-      gleam
     ];
     defaultEditor = true;
   };
