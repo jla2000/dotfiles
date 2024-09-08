@@ -1,5 +1,4 @@
-{ pkgs, config, ... }:
-{
+{ pkgs, config, ... }: {
   programs.neovim = {
     enable = true;
     extraPackages = with pkgs; [
@@ -8,13 +7,16 @@
       stylua
       nil
       taplo
+      nodePackages.prettier
+      marksman
+      nixfmt
+      shfmt
     ];
     defaultEditor = true;
   };
 
-  home.shellAliases = {
-    v = "nvim";
-  };
+  home.shellAliases = { v = "nvim"; };
 
-  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.sessionVariables.FLAKE}/modules/home/neovim/nvim";
+  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink
+    "${config.home.sessionVariables.FLAKE}/modules/home/neovim/nvim";
 }
