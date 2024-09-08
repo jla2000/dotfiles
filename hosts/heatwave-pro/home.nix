@@ -26,7 +26,6 @@
 
   stylix.targets.neovim.enable = false;
 
-  programs.zellij.enableBashIntegration = true;
   programs.git.userEmail = lib.mkForce "jan.lafferton@vector.com";
 }
 
