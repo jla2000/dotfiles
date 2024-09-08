@@ -4,7 +4,7 @@ return {
     skip_confirm_for_simple_edits = true,
     delete_to_trash = true,
     columns = {
-      "icons",
+      "icon",
       "size",
     },
     float = {
