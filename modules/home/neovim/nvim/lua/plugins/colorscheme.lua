@@ -10,4 +10,11 @@ return {
   { "niyabits/calvera-dark.nvim" },
   { "0xstepit/flow.nvim" },
   { "catppuccin/nvim" },
+  {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    opts = {
+      disable_background = true,
+    },
+  },
 }
