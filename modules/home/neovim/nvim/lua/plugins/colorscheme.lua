@@ -10,6 +10,8 @@ return {
   { "niyabits/calvera-dark.nvim" },
   { "0xstepit/flow.nvim" },
   { "catppuccin/nvim" },
+  { "catppuccin/nvim" },
+  { "rebelot/kanagawa.nvim" },
   {
     "rose-pine/neovim",
     name = "rose-pine",
