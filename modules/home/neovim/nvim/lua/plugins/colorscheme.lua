@@ -1,7 +1,7 @@
 return {
   {
     "LazyVim/LazyVim",
-    opts = { colorscheme = "onedark_dark" },
+    opts = { colorscheme = "habamax" },
   },
   { "olimorris/onedarkpro.nvim", opts = {} },
   { "tiagovla/tokyodark.nvim" },
