@@ -14,6 +14,7 @@
       markdownlint-cli2
       nixpkgs-fmt
       shfmt
+      zls
     ];
     defaultEditor = true;
   };
