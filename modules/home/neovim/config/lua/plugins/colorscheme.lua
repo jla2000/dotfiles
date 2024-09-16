@@ -19,4 +19,10 @@ return {
       disable_background = true,
     },
   },
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      document_highlight = false,
+    },
+  },
 }
