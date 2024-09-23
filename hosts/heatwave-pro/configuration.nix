@@ -31,7 +31,7 @@
   environment.systemPackages = with pkgs; [
     git
     btop
-    htop
+    htop-vim
     vim
     wget # needed for vscode
     neovim
