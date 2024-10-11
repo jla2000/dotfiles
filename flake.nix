@@ -23,10 +23,6 @@
       url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    wgsl-analyzer = {
-      url = "github:wgsl-analyzer/wgsl-analyzer";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nix-index-database = {
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -34,6 +30,10 @@
     base16-schemes = {
       url = "github:tinted-theming/schemes";
       flake = false;
+    };
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -43,7 +43,7 @@
       overlays = [
         (import ./overlays/latest-helix.nix inputs)
         inputs.nur.outputs.overlay
-        inputs.wgsl-analyzer.overlays.${system}.default
+        inputs.rust-overlay.overlays.default
       ];
     in
     {

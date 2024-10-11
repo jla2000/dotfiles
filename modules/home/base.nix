@@ -103,8 +103,7 @@
     nix-output-monitor
     sd
     killall
-    cargo
-    rustc
+    rust-bin.nightly.latest.default
     gcc
     gnumake
     tree
