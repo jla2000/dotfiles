@@ -1,7 +1,7 @@
 return {
   {
     "LazyVim/LazyVim",
-    opts = { colorscheme = "onedark_dark" },
+    opts = { colorscheme = "catppuccin-mocha" },
   },
   { "olimorris/onedarkpro.nvim", event = "VeryLazy", opts = {} },
   { "tiagovla/tokyodark.nvim", event = "VeryLazy" },
