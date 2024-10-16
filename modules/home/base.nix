@@ -94,6 +94,11 @@
     };
   };
 
+  programs.readline = {
+    enable = true;
+    variables.editing-mode = "vi";
+  };
+
   # Basic utility programs that should always be present
   home.packages = with pkgs; [
     fd
