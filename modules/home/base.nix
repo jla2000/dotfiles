@@ -101,6 +101,7 @@
 
   home.file.".gdbinit".text = ''
     set disassembly intel
+    set history save
   '';
 
   # Basic utility programs that should always be present
