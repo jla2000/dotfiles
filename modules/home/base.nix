@@ -99,6 +99,10 @@
     variables.editing-mode = "vi";
   };
 
+  home.file.".gdbinit".text = ''
+    set disassembly intel
+  '';
+
   # Basic utility programs that should always be present
   home.packages = with pkgs; [
     fd
