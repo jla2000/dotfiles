@@ -41,7 +41,7 @@
     let
       system = "x86_64-linux";
       overlays = [
-        (import ./overlays/latest-helix.nix inputs)
+        #(import ./overlays/latest-helix.nix inputs)
         inputs.nur.outputs.overlay
         inputs.rust-overlay.overlays.default
       ];
