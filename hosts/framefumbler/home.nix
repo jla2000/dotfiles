@@ -19,7 +19,7 @@
     ];
   };
 
-  programs.alacritty.settings.shell = {
+  programs.alacritty.settings.terminal.shell = {
     args = [ "--cd ~" ];
     program = "wsl.exe";
   };
