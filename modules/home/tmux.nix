@@ -32,6 +32,9 @@
       bind % split-window -h -c "#{pane_current_path}"
 
       bind -n C-g popup -d "#{pane_current_path}" -E -w 90% -h 90% lazygit
+
+      # Tmux attach behavior
+      new-session -n $HOST
     '';
     plugins = with pkgs.tmuxPlugins; [
       vim-tmux-navigator
