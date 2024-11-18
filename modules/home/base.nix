@@ -118,5 +118,6 @@
     gnumake
     tree
     fastfetch
+    scc
   ];
 }
