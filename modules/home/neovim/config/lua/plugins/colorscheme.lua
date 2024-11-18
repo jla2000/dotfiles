@@ -26,4 +26,5 @@ return {
       document_highlight = false,
     },
   },
+  { "jla2000/theme-persist.nvim", lazy = false },
 }
