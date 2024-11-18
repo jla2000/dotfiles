@@ -119,5 +119,6 @@
     tree
     fastfetch
     scc
+    duf
   ];
 }
