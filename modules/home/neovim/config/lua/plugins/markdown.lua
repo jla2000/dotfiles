@@ -2,6 +2,7 @@ return {
   {
     "OXY2DEV/markview.nvim",
     lazy = false,
+    enabled = false,
     opts = {
       modes = { "n", "no", "c" }, -- Change these modes to what you need
 
@@ -13,6 +14,14 @@ return {
           vim.wo[win].conceallevel = 2
           vim.wo[win].concealcursor = "c"
         end,
+      },
+    },
+  },
+  {
+    "mfussenegger/nvim-lint",
+    opts = {
+      linters_by_ft = {
+        markdown = {},
       },
     },
   },
