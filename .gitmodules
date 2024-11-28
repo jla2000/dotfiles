@@ -1,0 +1,3 @@
+[submodule "nixpkgs-vector"]
+	path = nixpkgs-vector
+	url = https://github1.vg.vector.int/fbuehler/nixpkgs-vector.git

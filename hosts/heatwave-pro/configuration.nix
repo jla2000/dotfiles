@@ -4,10 +4,12 @@
     inputs.nixos-wsl.nixosModules.default
     inputs.nix-index-database.nixosModules.nix-index
     inputs.home-manager.nixosModules.home-manager
-    ../../modules/system/nixpkgs-vector.nix
+    inputs.nixpkgs-vector.nixosModules.vector
     ../../modules/system/stylix.nix
     ../../modules/system/nix.nix
   ];
+
+  vector.proxy-settings.enable = true;
 
   wsl = {
     enable = true;
