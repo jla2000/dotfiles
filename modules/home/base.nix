@@ -64,6 +64,9 @@
     bashrcExtra = /* bash */ ''
       bind 'TAB:menu-complete'
       set -o vi
+      if [ -n "$PS1" ] && [ -z "$TMUX" ]; then
+        tmux new-session -A -s main
+      fi
     '';
   };
 
