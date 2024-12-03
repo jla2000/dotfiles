@@ -19,6 +19,11 @@
     startMenuLaunchers = lib.mkDefault true;
   };
 
+  virtualisation.libvirtd.enable = true;
+  users.users.jlafferton = {
+    extraGroups = [ "kvm" "libvirtd" ];
+  };
+
   home-manager.users.jlafferton = import ./home.nix;
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
