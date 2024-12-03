@@ -1,9 +1,4 @@
 { inputs, pkgs, lib, config, ... }:
-let
-  custom-nerd-fonts = (pkgs.nerdfonts.override {
-    fonts = [ "Monaspace" "Iosevka" "JetBrainsMono" ];
-  });
-in
 {
   imports = [
     inputs.stylix.nixosModules.stylix
@@ -16,7 +11,7 @@ in
     base16Scheme = "${inputs.base16-schemes}/base16/catppuccin-mocha.yaml";
     fonts = {
       monospace = {
-        package = custom-nerd-fonts;
+        package = pkgs.nerd-fonts.jetbrains-mono;
         name = lib.mkDefault "JetBrainsMono Nerd Font";
       };
       sansSerif = {

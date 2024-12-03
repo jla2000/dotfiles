@@ -87,10 +87,8 @@
     shell = pkgs.bash;
   };
 
-  fonts.packages = with pkgs; [
-    (nerdfonts.override {
-      fonts = [ "NerdFontsSymbolsOnly" ];
-    })
+  fonts.packages = [
+    pkgs.nerd-fonts.symbols-only
   ];
 
   environment.systemPackages = with pkgs; [
