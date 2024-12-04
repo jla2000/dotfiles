@@ -21,7 +21,7 @@
 
   virtualisation.libvirtd.enable = true;
   users.users.jlafferton = {
-    extraGroups = [ "kvm" "libvirtd" ];
+    extraGroups = [ "kvm" "libvirtd" "netdev" ];
   };
 
   home-manager.users.jlafferton = import ./home.nix;
