@@ -1,9 +1,10 @@
+{ lib, ... }:
 {
   programs.kitty = {
     enable = true;
     font = {
-      name = "MonaspiceNe NFM Bold";
-      size = 16;
+      name = lib.mkDefault "MonaspiceNe NFM Bold";
+      size = lib.mkDefault 16;
     };
     environment = {
       TERM = "xterm-256color";
