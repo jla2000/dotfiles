@@ -3,6 +3,8 @@
   imports = [
     ../../modules/home/base.nix
     ../../modules/home/alacritty.nix
+    ../../modules/home/kitty.nix
+    ../../modules/home/wezterm.nix
   ];
 
   home = {
@@ -18,6 +20,11 @@
       xdg-utils
     ];
   };
+
+  wezterm.wsl = true;
+  wezterm.fontSize = 12.0;
+  wezterm.colorScheme = "catppuccin-macchiato";
+  stylix.targets.wezterm.enable = false;
 
   programs.alacritty.settings.shell = {
     args = [ "--cd ~" ];
