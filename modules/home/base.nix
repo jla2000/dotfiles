@@ -116,6 +116,7 @@
     nix-output-monitor
     sd
     busybox
+    file
     gcc
     gnumake
     tree
