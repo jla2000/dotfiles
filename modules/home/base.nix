@@ -115,7 +115,7 @@
     nh
     nix-output-monitor
     sd
-    killall
+    busybox
     rust-bin.nightly.latest.default
     gcc
     gnumake
