@@ -16,10 +16,6 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    helix = {
-      url = "github:helix-editor/helix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     nixos-wsl = {
       url = "github:nix-community/NixOS-WSL";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -32,50 +28,56 @@
       url = "github:tinted-theming/schemes";
       flake = false;
     };
-    rust-overlay = {
-      url = "github:oxalica/rust-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
     let
-      system = "x86_64-linux";
-      overlays = [
-        #(import ./overlays/latest-helix.nix inputs)
-        inputs.nur.outputs.overlay
-        inputs.rust-overlay.overlays.default
-      ];
+      forAllSystems = f:
+        nixpkgs.lib.genAttrs [
+          "x86_64-linux"
+          "aarch64-linux"
+        ]
+          (system: f system nixpkgs.legacyPackages.${system});
     in
     {
-      checks.${system}.git-check = inputs.git-hooks.lib.${system}.run {
-        src = ./.;
-        hooks = {
-          editorconfig-checker.enable = true;
-          nixpkgs-fmt.enable = true;
-          typos.enable = true;
-          stylua.enable = true;
-        };
-      };
+      checks = forAllSystems
+        (system: pkgs: {
+          default = inputs.git-hooks.lib.${system}.run {
+            src = ./.;
+            hooks = {
+              editorconfig-checker.enable = true;
+              nixpkgs-fmt.enable = true;
+              typos.enable = true;
+              stylua.enable = true;
+            };
+          };
+        });
 
-      devShells.${system}.default = nixpkgs.legacyPackages.${system}.mkShellNoCC {
-        inherit (self.checks.${system}.git-check) shellHook;
-      };
+      devShells = forAllSystems (system: pkgs: {
+        default = nixpkgs.legacyPackages.${system}.mkShellNoCC {
+          inherit (self.checks.${system}.default) shellHook;
+        };
+      });
 
       nixosConfigurations = {
         "zephyrus" = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = { inherit inputs overlays; };
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
           modules = [ ./hosts/zephyrus/configuration.nix ];
         };
+        "hetzner-vps" = nixpkgs.lib.nixosSystem {
+          system = "aarch64-linux";
+          specialArgs = { inherit inputs; };
+          modules = [ ./hosts/hetzner-vps/configuration.nix ];
+        };
         "heatwave-pro" = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = { inherit inputs overlays; };
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
           modules = [ ./hosts/heatwave-pro/configuration.nix ];
         };
         "framefumbler" = nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = { inherit inputs overlays; };
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
           modules = [ ./hosts/framefumbler/configuration.nix ];
         };
       };

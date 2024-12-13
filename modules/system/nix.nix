@@ -12,7 +12,6 @@
 
   # Nixpkgs config
   nixpkgs = {
-    inherit overlays;
     config.allowUnfree = true;
   };
 

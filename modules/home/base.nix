@@ -116,7 +116,6 @@
     nix-output-monitor
     sd
     busybox
-    rust-bin.nightly.latest.default
     gcc
     gnumake
     tree

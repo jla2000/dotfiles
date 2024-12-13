@@ -19,5 +19,5 @@
     defaultEditor = true;
   };
 
-  xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.sessionVariables.FLAKE}/modules/home/neovim/config";
+  xdg.configFile."nvim".source = ./config;
 }
