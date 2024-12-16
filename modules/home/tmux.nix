@@ -1,4 +1,34 @@
 { pkgs, lib, ... }:
+let
+  is-vim = pkgs.writeShellScriptBin "is-vim.sh" ''
+    pane_pid=$(tmux display -p "#{pane_pid}")
+    [ -z "$pane_pid" ] && exit 1 
+    descendants=$(ps -eo pid=,ppid=,stat= | awk -v pid="$pane_pid" '{
+      if ($3 !~ /^T/) {
+        pid_array[$1]=$2
+      }
+    } END {
+      for (p in pid_array) {
+        current_pid = p
+        while (current_pid != "" && current_pid != "0") {
+          if (current_pid == pid) {
+            print p
+            break
+          }
+          current_pid = pid_array[current_pid]
+        }
+      }
+    }')
+    if [ -n "$descendants" ]; then
+        descendant_pids=$(echo "$descendants" | tr '\n' ',' | sed 's/,$//')
+        ps -o args= -p "$descendant_pids" | grep -iqE "(^|/)([gn]?vim?x?)(diff)?"
+        if [ $? -eq 0 ]; then
+            exit 0
+        fi
+    fi
+    exit 1
+  '';
+in
 {
   home.packages = [ pkgs.sysstat ];
 
@@ -35,9 +65,20 @@
 
       # Tmux attach behavior
       new-session -n $HOST
+
+      # Manual tmux navigator fix
+      bind-key -n 'C-h' if-shell '${is-vim}/bin/is-vim.sh' 'send-keys C-h' 'select-pane -L'
+      bind-key -n 'C-j' if-shell '${is-vim}/bin/is-vim.sh' 'send-keys C-j' 'select-pane -D'
+      bind-key -n 'C-k' if-shell '${is-vim}/bin/is-vim.sh' 'send-keys C-k' 'select-pane -U'
+      bind-key -n 'C-l' if-shell '${is-vim}/bin/is-vim.sh' 'send-keys C-l' 'select-pane -R'
+      bind-key -T copy-mode-vi 'C-h' select-pane -L
+      bind-key -T copy-mode-vi 'C-j' select-pane -D
+      bind-key -T copy-mode-vi 'C-k' select-pane -U
+      bind-key -T copy-mode-vi 'C-l' select-pane -R
     '';
-    plugins = with pkgs.tmuxPlugins; [
-      vim-tmux-navigator
-    ];
+    # Currently not working: https://github.com/christoomey/vim-tmux-navigator/issues/418
+    # plugins = with pkgs.tmuxPlugins; [
+    #   vim-tmux-navigator
+    # ];
   };
 }
