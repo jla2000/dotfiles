@@ -3,7 +3,7 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixos-hardware.url = "github:nixos/nixos-hardware";
     nur.url = "github:nix-community/nur";
-    nixpkgs-vector.url = "git+file:nixpkgs-vector";
+    nixpkgs-vector.url = "git+https://github1.vg.vector.int/fbuehler/nixpkgs-vector.git";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

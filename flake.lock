@@ -528,14 +528,15 @@
       "locked": {
         "lastModified": 1722342156,
         "narHash": "sha256-PcZCQd8sX0nSbp07/KW/AiIGw5yuZhDFWwtDh/ZvSuA=",
+        "ref": "refs/heads/main",
         "rev": "02f2bdb87081b551ae9705246cf7e31fb1884f41",
         "revCount": 15,
         "type": "git",
-        "url": "file:nixpkgs-vector"
+        "url": "https://github1.vg.vector.int/fbuehler/nixpkgs-vector.git"
       },
       "original": {
         "type": "git",
-        "url": "file:nixpkgs-vector"
+        "url": "https://github1.vg.vector.int/fbuehler/nixpkgs-vector.git"
       }
     },
     "nixpkgs_2": {
