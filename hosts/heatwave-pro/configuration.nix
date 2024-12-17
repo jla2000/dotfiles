@@ -1,10 +1,16 @@
 { inputs, lib, pkgs, ... }:
+let
+  nixpkgs-vector = builtins.fetchGit {
+    url = "https://github1.vg.vector.int/fbuehler/nixpkgs-vector.git";
+    rev = "02f2bdb87081b551ae9705246cf7e31fb1884f41";
+  };
+in
 {
   imports = [
     inputs.nixos-wsl.nixosModules.default
     inputs.nix-index-database.nixosModules.nix-index
     inputs.home-manager.nixosModules.home-manager
-    inputs.nixpkgs-vector.nixosModules.vector
+    "${nixpkgs-vector}/modules/vector/default.nix"
     ../../modules/system/stylix.nix
     ../../modules/system/nix.nix
   ];
