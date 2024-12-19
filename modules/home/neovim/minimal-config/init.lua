@@ -22,9 +22,11 @@ vim.opt.number = true
 vim.opt.shiftwidth = 2
 vim.opt.cursorline = true
 vim.opt.undofile = true
+vim.opt.signcolumn = "yes"
 
 vim.keymap.set("n", "<esc>", "<cmd>nohl<cr><esc>")
 vim.keymap.set("n", "<leader>l", "<cmd>Lazy<cr>")
+vim.keymap.set("n", "<leader>bd", "<cmd>bd<cr>")
 
 require("lazy").setup({
   spec = {
@@ -57,6 +59,7 @@ require("lazy").setup({
     {
       "nvim-treesitter/nvim-treesitter",
       event = "BufEnter",
+      main = "nvim-treesitter.configs",
       opts = {
         auto_install = true,
         highlight = {
@@ -98,12 +101,44 @@ require("lazy").setup({
       opts = {
         formatters_by_ft = {
           lua = { "stylua" },
+          nix = { "nixpkgs_fmt" },
+          rust = { "rustfmt" },
         },
         format_on_save = {
           timeout_ms = 500,
           lsp_format = "fallback",
         },
       },
+    },
+    {
+      "mrcjkb/rustaceanvim",
+      version = "^5",
+      lazy = false,
+    },
+    {
+      "ibhagwan/fzf-lua",
+      event = "VeryLazy",
+      keys = {
+        { "<leader>ff", "<cmd>FzfLua files<cr>", desc = "Open files" },
+        { "<leader>fr", "<cmd>FzfLua oldfiles<cr>", desc = "Recent files" },
+        { "<leader>fb", "<cmd>FzfLua buffers<cr>", desc = "Recent files" },
+        { "<leader>sg", "<cmd>FzfLua live_grep<cr>", desc = "Search files" },
+      },
+      config = function()
+        vim.api.nvim_create_autocmd("LspAttach", {
+          callback = function(args)
+            vim.keymap.set("n", "gd", "<cmd>FzfLua lsp_definitions<cr>", { buffer = args.bufnr })
+            -- vim.keymap.set("n", "<leader>ca", "<cmd>FzfLua lsp_code_actions<cr>", { buffer = args.bufnr })
+            -- vim.keymap.set("n", "<leader>ss", "<cmd>FzfLua lsp_workspace_symbols<cr>", { buffer = args.bufnr })
+            -- vim.keymap.set("n", "<leader>sS", "<cmd>FzfLua lsp_live_workspace_symbols<cr>", { buffer = args.bufnr })
+          end,
+        })
+      end,
+    },
+    {
+      "windwp/nvim-autopairs",
+      event = "InsertEnter",
+      opts = {},
     },
   },
 

@@ -20,5 +20,5 @@
   };
 
   xdg.configFile."nvim".source = config.lib.file.mkOutOfStoreSymlink "${config.home.sessionVariables.FLAKE}/modules/home/neovim/lazyvim-config";
-  xdg.configFile."manual".source = config.lib.file.mkOutOfStoreSymlink "${config.home.sessionVariables.FLAKE}/modules/home/neovim/manual-config";
+  xdg.configFile."minimal".source = config.lib.file.mkOutOfStoreSymlink "${config.home.sessionVariables.FLAKE}/modules/home/neovim/minimal-config";
 }
