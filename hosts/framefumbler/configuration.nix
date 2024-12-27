@@ -23,6 +23,7 @@
 
   programs.nix-index-database.comma.enable = true;
   stylix.fonts.sizes.terminal = 15;
+  stylix.fonts.monospace.name = "Iosevka Nerd Font";
   virtualisation.docker.enable = lib.mkDefault true;
 
   # minimal packages
