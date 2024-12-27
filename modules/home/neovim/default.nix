@@ -15,6 +15,7 @@
       nixpkgs-fmt
       shfmt
       zls
+      dwt1-shell-color-scripts
     ];
     defaultEditor = true;
   };

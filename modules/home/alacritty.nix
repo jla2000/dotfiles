@@ -4,12 +4,15 @@
     enable = true;
     settings = {
       font = {
-        size = lib.mkDefault 16;
+        size = lib.mkForce 14;
         normal = {
-          family = lib.mkDefault "Monaspace Neon Var";
-          style = lib.mkForce "Bold";
+          family = lib.mkForce "MonaspiceNe Nerd Font";
+          style = lib.mkForce "Medium";
         };
-        italic.style = lib.mkForce "Bold Italic";
+        italic = {
+          family = lib.mkForce "MonaspaceKr Nerd Font";
+          style = lib.mkForce "Medium Italic";
+        };
       };
 
       window = {
