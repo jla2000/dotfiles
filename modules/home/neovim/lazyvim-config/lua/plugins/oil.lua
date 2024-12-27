@@ -7,9 +7,6 @@ return {
       "size",
       "icon",
     },
-    float = {
-      padding = 5,
-    },
     keymaps = {
       ["<ESC>"] = "actions.close",
     },
@@ -18,7 +15,7 @@ return {
     {
       "-",
       function()
-        require("oil").open_float()
+        require("oil").open()
       end,
       { desc = "Open parent directory" },
     },
