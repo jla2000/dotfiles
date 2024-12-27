@@ -23,6 +23,9 @@
     lazygit
   ];
 
+  users.defaultUserShell = pkgs.fish;
+  programs.fish.enable = true;
+
   home-manager.users.root = import ./home.nix;
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
