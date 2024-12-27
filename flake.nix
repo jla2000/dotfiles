@@ -69,6 +69,11 @@
           specialArgs = { inherit inputs; };
           modules = [ ./hosts/framefumbler/configuration.nix ];
         };
+        "frostnode" = nixpkgs.lib.nixosSystem {
+          system = "aarch64-linux";
+          specialArgs = { inherit inputs; };
+          modules = [ ./hosts/frostnode/configuration.nix ];
+        };
       };
     };
 }
