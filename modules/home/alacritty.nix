@@ -7,7 +7,7 @@
         size = lib.mkDefault 16;
         normal = {
           family = lib.mkDefault "MonaspiceNe Nerd Font";
-          style = lib.mkForce "Medium";
+          style = lib.mkForce "Bold";
         };
       };
 

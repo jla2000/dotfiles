@@ -37,7 +37,6 @@ in
 
   programs.nix-index-database.comma.enable = true;
   stylix.fonts.sizes.terminal = 13;
-  stylix.fonts.monospace.name = "JetBrainsMono Nerd Font";
   virtualisation.docker.enable = lib.mkDefault true;
 
   # minimal packages
