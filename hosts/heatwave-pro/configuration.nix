@@ -23,6 +23,11 @@ in
     wslConf.network.hostname = "heatwave-pro";
     defaultUser = lib.mkDefault "jlafferton";
     startMenuLaunchers = lib.mkDefault true;
+    useWindowsDriver = true;
+  };
+
+  hardware.graphics = {
+    enable = true;
   };
 
   virtualisation.libvirtd.enable = true;
@@ -47,6 +52,15 @@ in
     vim
     wget # needed for vscode
     neovim
+  ];
+
+  fonts.packages = [
+    (pkgs.nerdfonts.override {
+      fonts = [
+        "Monaspace"
+        "FiraCode"
+      ];
+    })
   ];
 
   # This value determines the NixOS release from which the default

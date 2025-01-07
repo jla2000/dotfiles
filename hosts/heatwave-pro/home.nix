@@ -18,8 +18,19 @@
     packages = with pkgs; [
       xclip
       xdg-utils
+      ghostty
     ];
   };
+
+  xdg.configFile."ghostty/config".text = ''
+    theme = catppuccin-mocha
+    font-family = JetBrainsMono NF
+    font-style = Bold
+    font-style-italic = Bold Italic
+    font-size = 12.5
+    cursor-style = block
+    keybind = ctrl+shift+r=reload_config
+  '';
 
   wezterm.wsl = true;
   wezterm.fontSize = 12.0;
