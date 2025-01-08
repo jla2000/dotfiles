@@ -36,6 +36,7 @@
   wezterm.fontSize = 12.0;
   wezterm.colorScheme = "catppuccin-macchiato";
   stylix.targets.wezterm.enable = false;
+  stylix.fonts.sizes.terminal = 12.5;
 
   programs.alacritty.settings.shell = {
     args = [ "--cd ~" ];
