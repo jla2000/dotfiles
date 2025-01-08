@@ -28,8 +28,8 @@
     font-style = Bold
     font-style-italic = Bold Italic
     font-size = 12.5
-    cursor-style = block
     keybind = ctrl+shift+r=reload_config
+    command = tmux
   '';
 
   wezterm.wsl = true;
