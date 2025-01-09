@@ -25,7 +25,7 @@
         name = "Merriweather";
       };
       sizes = {
-        terminal = lib.mkDefault 18;
+        terminal = 12.5;
         desktop = 14;
         popups = 14;
         applications = 14;
