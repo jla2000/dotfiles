@@ -22,8 +22,7 @@
   home-manager.backupFileExtension = "bak";
 
   programs.nix-index-database.comma.enable = true;
-  stylix.fonts.sizes.terminal = 16;
-  stylix.fonts.monospace.name = "Iosevka Nerd Font";
+  stylix.fonts.sizes.terminal = lib.mkForce 14;
   virtualisation.docker.enable = lib.mkDefault true;
 
   # minimal packages
