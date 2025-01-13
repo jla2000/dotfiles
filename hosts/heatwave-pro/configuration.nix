@@ -58,9 +58,13 @@ in
       fonts = [
         "Monaspace"
         "FiraCode"
+        "Iosevka"
       ];
     })
   ];
+
+  stylix.fonts.monospace.name = "Iosevka Nerd Font";
+  stylix.fonts.sizes.terminal = lib.mkForce 14;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

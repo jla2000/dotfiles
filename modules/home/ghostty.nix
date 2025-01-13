@@ -7,6 +7,8 @@
       font-style-italic = lib.mkForce "Bold Italic";
       keybind = "ctrl+shift+r=reload_config";
       command = "tmux";
+      window-width = 135;
+      window-height = 34;
     };
   };
 }
