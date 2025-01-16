@@ -53,14 +53,11 @@ in
     neovim
   ];
 
-  fonts.packages = [
-    (pkgs.nerdfonts.override {
-      fonts = [
-        "Monaspace"
-        "FiraCode"
-        "Iosevka"
-      ];
-    })
+  fonts.packages = with pkgs.nerd-fonts; [
+    monaspace
+    fira-code
+    iosevka
+    jetbrains-mono
   ];
 
   stylix.fonts.monospace.name = "Iosevka Nerd Font";

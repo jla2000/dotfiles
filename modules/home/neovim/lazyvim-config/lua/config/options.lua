@@ -3,3 +3,6 @@
 -- Add any additional options here
 vim.opt.clipboard = ""
 vim.g.snacks_animate = false
+
+vim.keymap.set("n", "<tab>", "<cmd>bn<cr>")
+vim.keymap.set("n", "<s-tab>", "<cmd>bp<cr>")

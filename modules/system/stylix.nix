@@ -11,9 +11,7 @@
     base16Scheme = "${inputs.base16-schemes}/base16/catppuccin-mocha.yaml";
     fonts = {
       monospace = {
-        package = pkgs.nerdfonts.override {
-          fonts = [ "JetBrainsMono" ];
-        };
+        package = pkgs.nerd-fonts.jetbrains-mono;
         name = lib.mkDefault "JetBrainsMono Nerd Font";
       };
       sansSerif = {
