@@ -122,5 +122,8 @@
     fastfetch
     scc
     duf
+    cargo
+    rustc
+    zig
   ];
 }
