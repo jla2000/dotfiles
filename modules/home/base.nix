@@ -125,5 +125,6 @@
     cargo
     rustc
     zig
+    killall
   ];
 }
