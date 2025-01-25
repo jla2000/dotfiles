@@ -126,5 +126,7 @@
     rustc
     zig
     killall
+    man-pages
+    man-pages-posix
   ];
 }

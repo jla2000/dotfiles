@@ -10,15 +10,12 @@
           style = lib.mkForce "Bold";
         };
         italic = {
-          family = lib.mkDefault "JetBrainsMono NF";
           style = lib.mkForce "Bold Italic";
         };
         bold = {
-          family = lib.mkDefault "JetBrainsMono NF";
           style = lib.mkForce "ExtraBold";
         };
         bold_italic = {
-          family = lib.mkDefault "JetBrainsMono NF";
           style = lib.mkForce "ExtraBold Italic";
         };
         builtin_box_drawing = false;
