@@ -15,6 +15,7 @@
       nixpkgs-fmt
       shfmt
       zls
+      clang-tools
     ];
     defaultEditor = true;
   };
