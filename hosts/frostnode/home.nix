@@ -9,7 +9,7 @@
     homeDirectory = "/root";
     sessionVariables = {
       COLORTERM = "truecolor";
-      FLAKE = "${config.home.homeDirectory}/nixos-dotfiles";
+      FLAKE = "${config.home.homeDirectory}/dotfiles";
     };
     stateVersion = "24.05";
     packages = with pkgs; [

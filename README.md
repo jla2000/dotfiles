@@ -1,4 +1,4 @@
-# nixos-dotfiles
+# dotfiles
 
 Personal config mono repo:
 

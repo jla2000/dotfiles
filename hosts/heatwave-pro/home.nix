@@ -11,7 +11,7 @@
     homeDirectory = "/home/${config.home.username}";
     sessionVariables = {
       COLORTERM = "truecolor";
-      FLAKE = "${config.home.homeDirectory}/dev/nixos-dotfiles";
+      FLAKE = "${config.home.homeDirectory}/dev/dotfiles";
     };
     stateVersion = "24.05";
     packages = with pkgs; [
