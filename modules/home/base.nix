@@ -128,5 +128,6 @@
     killall
     man-pages
     man-pages-posix
+    gh
   ];
 }
