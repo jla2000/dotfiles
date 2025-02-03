@@ -26,6 +26,7 @@
   };
 
   stylix.targets.neovim.enable = false;
+  stylix.targets.helix.enable = false;
 
   programs.git.userEmail = lib.mkForce "jan.lafferton@vector.com";
 }

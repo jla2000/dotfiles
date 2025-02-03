@@ -28,7 +28,7 @@ in
         rustfmt
       ];
       settings = {
-        theme = lib.mkDefault "tokyonight";
+        theme = lib.mkDefault "catppuccin_mocha";
         editor = {
           mouse = true;
           line-number = "relative";
