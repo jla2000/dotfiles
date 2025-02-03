@@ -129,5 +129,23 @@
     man-pages
     man-pages-posix
     gh
+
+    # LSP's
+    zls
+    clang-tools
+    nixd
+    taplo
+    lua-language-server
+    rust-analyzer
+    wgsl-analyzer
+
+    # Formatter
+    rustfmt
+    stylua
+    nodePackages.prettier
+    marksman
+    markdownlint-cli2
+    nixpkgs-fmt
+    shfmt
   ];
 }
