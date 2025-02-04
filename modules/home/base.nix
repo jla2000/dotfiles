@@ -129,6 +129,7 @@
     man-pages
     man-pages-posix
     gh
+    glxinfo
 
     # LSP's
     zls
