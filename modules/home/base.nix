@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ config, pkgs, lib, ... }:
 {
   imports = [
     ./atuin.nix
@@ -22,10 +22,12 @@
   programs.bat = {
     enable = true;
   };
-  # Use bat as man pager
+
   home.sessionVariables = {
     MANROFFOPT = "-c";
     MANPAGER = "sh -c 'col -bx | bat -l man -p'";
+    COLORTERM = "truecolor";
+    FLAKE = "${config.home.homeDirectory}/dev/dotfiles";
   };
 
   programs.zoxide = {
@@ -107,7 +109,6 @@
     set history save
   '';
 
-  # Basic utility programs that should always be present
   home.packages = with pkgs; [
     fd
     gdb
@@ -130,6 +131,8 @@
     man-pages-posix
     gh
     glxinfo
+    xclip
+    xdg-utils
 
     # LSP's
     zls

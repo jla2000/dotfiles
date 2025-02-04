@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, lib, ... }:
 {
   imports = [
     ../../modules/home/base.nix
@@ -9,15 +9,7 @@
   home = {
     username = "jlafferton";
     homeDirectory = "/home/${config.home.username}";
-    sessionVariables = {
-      COLORTERM = "truecolor";
-      FLAKE = "${config.home.homeDirectory}/dev/dotfiles";
-    };
     stateVersion = "24.05";
-    packages = with pkgs; [
-      xclip
-      xdg-utils
-    ];
   };
 
   programs.alacritty.settings.shell = {

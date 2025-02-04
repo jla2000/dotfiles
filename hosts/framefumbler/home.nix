@@ -9,15 +9,7 @@
   home = {
     username = "jan";
     homeDirectory = "/home/${config.home.username}";
-    sessionVariables = {
-      COLORTERM = "truecolor";
-      FLAKE = "${config.home.homeDirectory}/code/dotfiles";
-    };
     stateVersion = "24.05";
-    packages = with pkgs; [
-      xclip
-      xdg-utils
-    ];
   };
 
   programs.alacritty.settings = {
@@ -30,7 +22,5 @@
   programs.ghostty.settings.font-size = lib.mkForce 18;
 
   stylix.targets.neovim.enable = false;
-
-  programs.zellij.enableBashIntegration = true;
 }
 
