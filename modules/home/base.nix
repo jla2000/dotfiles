@@ -133,6 +133,8 @@
     glxinfo
     xclip
     xdg-utils
+    btop
+    htop-vim
 
     # LSP's
     zls
