@@ -14,7 +14,7 @@
   };
 
   xdg.desktopEntries.ghostty = {
-    name = "Ghostty (nvidia)";
-    exec = "MESA_D3D12_DEFAULT_ADAPTER_NAME=nvidia LD_LIBRARY_PATH=/run/opengl-driver/lib ghostty";
+    name = "Ghostty";
+    exec = "ghostty";
   };
 }

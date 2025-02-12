@@ -28,6 +28,7 @@ in
 
   hardware.graphics = {
     enable = true;
+    extraPackages = with pkgs; [ mesa ];
   };
 
   virtualisation.libvirtd.enable = true;
