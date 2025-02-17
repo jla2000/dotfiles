@@ -144,6 +144,7 @@
     lua-language-server
     rust-analyzer
     wgsl-analyzer
+    lldb
 
     # Formatter
     rustfmt
