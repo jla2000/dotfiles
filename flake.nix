@@ -61,16 +61,7 @@
         "heatwave-pro" = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
-          modules = [
-            ./hosts/heatwave-pro/configuration.nix
-            ({ ... }: {
-              nixpkgs.overlays = [
-                (final: prev: {
-                  mesa = inputs.nixpkgs-stable.legacyPackages."x86_64-linux".mesa;
-                })
-              ];
-            })
-          ];
+          modules = [ ./hosts/heatwave-pro/configuration.nix ];
         };
         "framefumbler" = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";

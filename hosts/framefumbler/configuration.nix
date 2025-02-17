@@ -1,19 +1,16 @@
 { inputs, lib, pkgs, ... }:
 {
   imports = [
-    inputs.nixos-wsl.nixosModules.default
     inputs.nix-index-database.nixosModules.nix-index
     inputs.home-manager.nixosModules.home-manager
     ../../modules/system/stylix.nix
     ../../modules/system/nix.nix
+    ../../modules/system/wsl.nix
   ];
 
   wsl = {
-    enable = true;
-    wslConf.automount.root = lib.mkDefault "/mnt";
     wslConf.network.hostname = "framefumbler";
     defaultUser = lib.mkDefault "jan";
-    startMenuLaunchers = lib.mkDefault true;
   };
 
   home-manager.users.jan = import ./home.nix;

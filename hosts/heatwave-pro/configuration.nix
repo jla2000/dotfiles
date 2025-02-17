@@ -7,28 +7,19 @@ let
 in
 {
   imports = [
-    inputs.nixos-wsl.nixosModules.default
     inputs.nix-index-database.nixosModules.nix-index
     inputs.home-manager.nixosModules.home-manager
     "${nixpkgs-vector}/modules/vector/default.nix"
     ../../modules/system/stylix.nix
     ../../modules/system/nix.nix
+    ../../modules/system/wsl.nix
   ];
 
   vector.proxy-settings.enable = true;
 
   wsl = {
-    enable = true;
-    wslConf.automount.root = lib.mkDefault "/mnt";
     wslConf.network.hostname = "heatwave-pro";
     defaultUser = lib.mkDefault "jlafferton";
-    startMenuLaunchers = lib.mkDefault true;
-    useWindowsDriver = true;
-  };
-
-  hardware.graphics = {
-    enable = true;
-    extraPackages = with pkgs; [ mesa ];
   };
 
   virtualisation.libvirtd.enable = true;
