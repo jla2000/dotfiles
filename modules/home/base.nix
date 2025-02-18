@@ -145,6 +145,7 @@
     rust-analyzer
     wgsl-analyzer
     lldb
+    glsl_analyzer
 
     # Formatter
     rustfmt
