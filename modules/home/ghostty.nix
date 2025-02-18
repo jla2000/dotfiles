@@ -15,6 +15,6 @@
 
   xdg.desktopEntries.ghostty = {
     name = "Ghostty";
-    exec = "GALLIUM_DRIVER=d3d12 LD_LIBRARY_PATH=/usr/lib/wsl/lib/ MESA_D3D12_DEFAULT_ADAPTER_NAME=nvidia ghostty";
+    exec = "LD_LIBRARY_PATH=/usr/lib/wsl/lib/ ghostty";
   };
 }
