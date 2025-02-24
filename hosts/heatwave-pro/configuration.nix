@@ -24,7 +24,7 @@ in
 
   virtualisation.libvirtd.enable = true;
   users.users.jlafferton = {
-    extraGroups = [ "kvm" "libvirtd" "netdev" ];
+    extraGroups = [ "kvm" "libvirtd" "netdev" "docker" ];
   };
 
   home-manager.users.jlafferton = import ./home.nix;
@@ -33,7 +33,14 @@ in
   home-manager.backupFileExtension = "bak";
 
   programs.nix-index-database.comma.enable = true;
-  virtualisation.docker.enable = lib.mkDefault true;
+
+  virtualisation.docker = {
+    enable = true;
+    #daemon.settings = {
+    #  iptables = false;
+    #  bridge = "none";
+    #};
+  };
 
   # minimal packages
   environment.systemPackages = with pkgs; [
