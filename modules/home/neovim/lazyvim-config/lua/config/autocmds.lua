@@ -7,5 +7,6 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = function()
     require("vim.treesitter.query").set("rust", "folds", "((line_comment)+ @fold)")
     vim.opt_local.foldlevel = 0
+    vim.opt_local.foldtext = "foldtext()"
   end,
 })
