@@ -4,12 +4,6 @@
     inputs.nixos-wsl.nixosModules.default
   ];
 
-  nixpkgs.overlays = [
-    (final: prev: {
-      mesa = inputs.nixpkgs-stable.legacyPackages."x86_64-linux".mesa;
-    })
-  ];
-
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [ mesa ];
