@@ -13,6 +13,8 @@
     defaultUser = lib.mkDefault "jan";
   };
 
+  time.timeZone = "Europe/Berlin";
+
   home-manager.users.jan = import ./home.nix;
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;

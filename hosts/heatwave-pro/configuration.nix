@@ -27,6 +27,8 @@ in
     extraGroups = [ "kvm" "libvirtd" "netdev" "docker" ];
   };
 
+  time.timeZone = "Europe/Berlin";
+
   home-manager.users.jlafferton = import ./home.nix;
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;

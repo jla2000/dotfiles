@@ -16,6 +16,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "frostnode";
+  time.timeZone = "Europe/Berlin";
 
   environment.systemPackages = with pkgs; [
     neovim
