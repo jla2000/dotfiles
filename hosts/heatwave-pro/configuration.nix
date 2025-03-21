@@ -20,6 +20,7 @@ in
   wsl = {
     wslConf.network.hostname = "heatwave-pro";
     defaultUser = lib.mkDefault "jlafferton";
+    interop.register = true;
   };
 
   virtualisation.libvirtd.enable = true;
