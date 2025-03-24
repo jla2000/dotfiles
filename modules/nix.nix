@@ -1,4 +1,4 @@
-{ inputs, overlays, ... }:
+{ inputs, ... }:
 {
   # Nix config
   nix = {

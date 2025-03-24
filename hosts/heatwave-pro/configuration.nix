@@ -1,4 +1,4 @@
-{ inputs, lib, pkgs, ... }:
+{ lib, pkgs, ... }:
 let
   nixpkgs-vector = builtins.fetchGit {
     url = "https://github1.vg.vector.int/fbuehler/nixpkgs-vector.git";
@@ -7,12 +7,9 @@ let
 in
 {
   imports = [
-    inputs.nix-index-database.nixosModules.nix-index
-    inputs.home-manager.nixosModules.home-manager
-    "${nixpkgs-vector}/modules/vector/default.nix"
-    ../../modules/stylix.nix
-    ../../modules/nix.nix
+    ../../modules/common.nix
     ../../modules/wsl.nix
+    "${nixpkgs-vector}/modules/vector/default.nix"
   ];
 
   vector.proxy-settings.enable = true;
@@ -27,30 +24,11 @@ in
     extraGroups = [ "kvm" "libvirtd" "netdev" "docker" ];
   };
 
-  time.timeZone = "Europe/Berlin";
-
   home-manager.users.jlafferton = import ./home.nix;
-  home-manager.useGlobalPkgs = true;
-  home-manager.useUserPackages = true;
-  home-manager.backupFileExtension = "bak";
-
-  programs.nix-index-database.comma.enable = true;
 
   virtualisation.docker = {
     enable = true;
-    #daemon.settings = {
-    #  iptables = false;
-    #  bridge = "none";
-    #};
   };
-
-  # minimal packages
-  environment.systemPackages = with pkgs; [
-    git
-    vim
-    wget # needed for vscode
-    neovim
-  ];
 
   fonts.packages = with pkgs.nerd-fonts; [
     monaspace
