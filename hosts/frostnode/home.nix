@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ../../modules/home/base.nix
+    ../../home-manager/base.nix
   ];
 
   home = {

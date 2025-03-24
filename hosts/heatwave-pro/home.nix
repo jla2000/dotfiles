@@ -1,9 +1,9 @@
 { config, lib, ... }:
 {
   imports = [
-    ../../modules/home/base.nix
-    ../../modules/home/alacritty.nix
-    ../../modules/home/ghostty.nix
+    ../../home-manager/base.nix
+    ../../home-manager/alacritty.nix
+    ../../home-manager/ghostty.nix
   ];
 
   home = {
