@@ -10,9 +10,9 @@ in
     inputs.nix-index-database.nixosModules.nix-index
     inputs.home-manager.nixosModules.home-manager
     "${nixpkgs-vector}/modules/vector/default.nix"
-    ../../modules/system/stylix.nix
-    ../../modules/system/nix.nix
-    ../../modules/system/wsl.nix
+    ../../modules/stylix.nix
+    ../../modules/nix.nix
+    ../../modules/wsl.nix
   ];
 
   vector.proxy-settings.enable = true;

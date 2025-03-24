@@ -3,9 +3,9 @@
   imports = [
     inputs.nix-index-database.nixosModules.nix-index
     inputs.home-manager.nixosModules.home-manager
-    ../../modules/system/stylix.nix
-    ../../modules/system/nix.nix
-    ../../modules/system/wsl.nix
+    ../../modules/stylix.nix
+    ../../modules/nix.nix
+    ../../modules/wsl.nix
   ];
 
   wsl = {
