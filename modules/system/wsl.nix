@@ -13,6 +13,7 @@
     enable = true;
     startMenuLaunchers = true;
     useWindowsDriver = true;
+    interop.register = true;
     wslConf.automount.root = lib.mkDefault "/mnt";
   };
 }
