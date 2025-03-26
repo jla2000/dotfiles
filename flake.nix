@@ -5,6 +5,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    helix.url = "github:helix-editor/helix";
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -74,4 +75,9 @@
         };
       };
     };
+
+  nixConfig = {
+    extra-substituters = [ "https://helix.cachix.org" ];
+    extra-trusted-public-keys = [ "helix.cachix.org-1:ejp9KQpR1FBI2onstMQ34yogDm4OgU2ru6lIwPvuCVs=" ];
+  };
 }
