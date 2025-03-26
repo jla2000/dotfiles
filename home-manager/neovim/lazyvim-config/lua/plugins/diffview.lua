@@ -4,10 +4,20 @@ return {
   opts = {},
   keys = {
     {
-      "<leader>v",
+      "<leader>vv",
       function()
         if next(require("diffview.lib").views) == nil then
           vim.cmd("DiffviewOpen")
+        else
+          vim.cmd("DiffviewClose")
+        end
+      end,
+    },
+    {
+      "<leader>vm",
+      function()
+        if next(require("diffview.lib").views) == nil then
+          vim.cmd("DiffviewOpen HEAD..main")
         else
           vim.cmd("DiffviewClose")
         end
