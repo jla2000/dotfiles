@@ -17,6 +17,7 @@
     enable = true;
     enableFishIntegration = true;
     enableBashIntegration = true;
+    icons = "auto";
   };
 
   programs.bat = {
@@ -52,6 +53,9 @@
 
   programs.lazygit = {
     enable = true;
+    settings = {
+      gui.nerdFontsVersion = "3";
+    };
   };
 
   programs.fzf = {
