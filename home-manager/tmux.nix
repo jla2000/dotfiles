@@ -2,7 +2,7 @@
 let
   is-vim = pkgs.writeShellScriptBin "is-vim.sh" ''
     pane_pid=$(tmux display -p "#{pane_pid}")
-    [ -z "$pane_pid" ] && exit 1 
+    [ -z "$pane_pid" ] && exit 1
     descendants=$(ps -eo pid=,ppid=,stat= | awk -v pid="$pane_pid" '{
       if ($3 !~ /^T/) {
         pid_array[$1]=$2
@@ -20,11 +20,11 @@ let
       }
     }')
     if [ -n "$descendants" ]; then
-        descendant_pids=$(echo "$descendants" | tr '\n' ',' | sed 's/,$//')
-        ps -o args= -p "$descendant_pids" | grep -iqE "(^|/)([gn]?vim?x?)(diff)?"
-        if [ $? -eq 0 ]; then
-            exit 0
-        fi
+      descendant_pids=$(echo "$descendants" | tr '\n' ',' | sed 's/,$//')
+      ps -o args= -p "$descendant_pids" | grep -iqE "(^|/)([gn]?vim?x?)(diff)?"
+      if [ $? -eq 0 ]; then
+        exit 0
+      fi
     fi
     exit 1
   '';
@@ -75,6 +75,9 @@ in
       bind-key -T copy-mode-vi 'C-j' select-pane -D
       bind-key -T copy-mode-vi 'C-k' select-pane -U
       bind-key -T copy-mode-vi 'C-l' select-pane -R
+
+      # Border style
+      set -g popup-border-lines rounded
     '';
     # Currently not working: https://github.com/christoomey/vim-tmux-navigator/issues/418
     # plugins = with pkgs.tmuxPlugins; [
