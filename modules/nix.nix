@@ -15,11 +15,6 @@
   # Nixpkgs config
   nixpkgs = {
     config.allowUnfree = true;
-    overlays = [
-      (final: prev: {
-        helix = inputs.helix.packages.${final.system}.default;
-      })
-    ];
   };
 
   programs.nix-ld.enable = true;

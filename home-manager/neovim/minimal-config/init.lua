@@ -22,7 +22,17 @@ vim.opt.number = true
 vim.opt.shiftwidth = 2
 vim.opt.cursorline = true
 vim.opt.undofile = true
-vim.opt.signcolumn = "yes"
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function()
+    vim.opt.signcolumn = "yes:1"
+  end,
+})
+vim.api.nvim_create_autocmd("LspDetach", {
+  callback = function()
+    vim.opt.signcolumn = "no"
+  end,
+})
 
 vim.keymap.set("n", "<esc>", "<cmd>nohl<cr><esc>")
 vim.keymap.set("n", "<leader>l", "<cmd>Lazy<cr>")
