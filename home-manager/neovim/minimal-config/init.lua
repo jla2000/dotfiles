@@ -26,6 +26,7 @@ vim.opt.undofile = true
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function()
     vim.opt.signcolumn = "yes:1"
+    vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename)
   end,
 })
 vim.api.nvim_create_autocmd("LspDetach", {
@@ -47,10 +48,10 @@ require("lazy").setup({
       keys = { { "-", "<cmd>Oil<cr>", desc = "Oil" } },
     },
     {
-      "folke/tokyonight.nvim",
+      "catppuccin/nvim",
       event = "VeryLazy",
       config = function()
-        vim.cmd.colorscheme("tokyonight")
+        vim.cmd.colorscheme("catppuccin-macchiato")
       end,
     },
     {
@@ -138,9 +139,9 @@ require("lazy").setup({
         vim.api.nvim_create_autocmd("LspAttach", {
           callback = function(args)
             vim.keymap.set("n", "gd", "<cmd>FzfLua lsp_definitions<cr>", { buffer = args.bufnr })
-            -- vim.keymap.set("n", "<leader>ca", "<cmd>FzfLua lsp_code_actions<cr>", { buffer = args.bufnr })
-            -- vim.keymap.set("n", "<leader>ss", "<cmd>FzfLua lsp_workspace_symbols<cr>", { buffer = args.bufnr })
-            -- vim.keymap.set("n", "<leader>sS", "<cmd>FzfLua lsp_live_workspace_symbols<cr>", { buffer = args.bufnr })
+            vim.keymap.set("n", "<leader>ca", "<cmd>FzfLua lsp_code_actions<cr>", { buffer = args.bufnr })
+            vim.keymap.set("n", "<leader>ss", "<cmd>FzfLua lsp_workspace_symbols<cr>", { buffer = args.bufnr })
+            vim.keymap.set("n", "<leader>sS", "<cmd>FzfLua lsp_live_workspace_symbols<cr>", { buffer = args.bufnr })
           end,
         })
       end,
@@ -152,7 +153,7 @@ require("lazy").setup({
     },
   },
 
-  install = { colorscheme = { "tokyonight" } },
+  install = { colorscheme = { "catppuccin-macchiato" } },
   checker = { enabled = true },
   defaults = { lazy = true },
 })
