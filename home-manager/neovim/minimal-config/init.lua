@@ -25,13 +25,13 @@ vim.opt.undofile = true
 
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function()
-    vim.opt.signcolumn = "yes:1"
-    vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename)
+    vim.opt_local.signcolumn = "yes:1"
+    vim.keymap.set("n", "<leader>D", vim.diagnostic.open_float)
   end,
 })
 vim.api.nvim_create_autocmd("LspDetach", {
   callback = function()
-    vim.opt.signcolumn = "no"
+    vim.opt_local.signcolumn = "no"
   end,
 })
 
@@ -49,7 +49,7 @@ require("lazy").setup({
     },
     {
       "catppuccin/nvim",
-      event = "VeryLazy",
+      event = "UIEnter",
       config = function()
         vim.cmd.colorscheme("catppuccin-macchiato")
       end,
@@ -139,7 +139,6 @@ require("lazy").setup({
         vim.api.nvim_create_autocmd("LspAttach", {
           callback = function(args)
             vim.keymap.set("n", "gd", "<cmd>FzfLua lsp_definitions<cr>", { buffer = args.bufnr })
-            vim.keymap.set("n", "<leader>ca", "<cmd>FzfLua lsp_code_actions<cr>", { buffer = args.bufnr })
             vim.keymap.set("n", "<leader>ss", "<cmd>FzfLua lsp_workspace_symbols<cr>", { buffer = args.bufnr })
             vim.keymap.set("n", "<leader>sS", "<cmd>FzfLua lsp_live_workspace_symbols<cr>", { buffer = args.bufnr })
           end,
