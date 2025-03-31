@@ -22,11 +22,15 @@ vim.opt.number = true
 vim.opt.shiftwidth = 2
 vim.opt.cursorline = true
 vim.opt.undofile = true
+vim.opt.scrolloff = 8
 
 vim.api.nvim_create_autocmd("LspAttach", {
-  callback = function()
+  callback = function(args)
     vim.opt_local.signcolumn = "yes:1"
-    vim.keymap.set("n", "<leader>D", vim.diagnostic.open_float)
+    vim.keymap.set("n", "<leader>D", vim.diagnostic.open_float, { buffer = args.bufnr })
+    vim.keymap.set("n", "gd", "<cmd>FzfLua lsp_definitions<cr>", { buffer = args.bufnr })
+    vim.keymap.set("n", "<leader>ss", "<cmd>FzfLua lsp_document_symbols<cr>", { buffer = args.bufnr })
+    vim.keymap.set("n", "<leader>sS", "<cmd>FzfLua lsp_workspace_symbols<cr>", { buffer = args.bufnr })
   end,
 })
 vim.api.nvim_create_autocmd("LspDetach", {
@@ -41,7 +45,7 @@ vim.keymap.set("n", "<leader>bd", "<cmd>bd<cr>")
 
 require("lazy").setup({
   spec = {
-    { "echasnovski/mini.icons", opts = {} },
+    { "nvim-tree/nvim-web-devicons", opts = {} },
     {
       "stevearc/oil.nvim",
       opts = { default_file_explorer = true },
@@ -56,6 +60,13 @@ require("lazy").setup({
     },
     {
       "folke/flash.nvim",
+      opts = {
+        modes = {
+          char = {
+            enabled = false,
+          },
+        },
+      },
       keys = {
         {
           "s",
@@ -63,7 +74,6 @@ require("lazy").setup({
           function()
             require("flash").jump()
           end,
-          desc = "Flash",
         },
       },
     },
@@ -91,7 +101,7 @@ require("lazy").setup({
     {
       "saghen/blink.cmp",
       lazy = false,
-      version = "v0.*",
+      version = "1.*",
       opts = {},
     },
     {
@@ -135,15 +145,6 @@ require("lazy").setup({
         { "<leader>fb", "<cmd>FzfLua buffers<cr>", desc = "Recent files" },
         { "<leader>sg", "<cmd>FzfLua live_grep<cr>", desc = "Search files" },
       },
-      config = function()
-        vim.api.nvim_create_autocmd("LspAttach", {
-          callback = function(args)
-            vim.keymap.set("n", "gd", "<cmd>FzfLua lsp_definitions<cr>", { buffer = args.bufnr })
-            vim.keymap.set("n", "<leader>ss", "<cmd>FzfLua lsp_workspace_symbols<cr>", { buffer = args.bufnr })
-            vim.keymap.set("n", "<leader>sS", "<cmd>FzfLua lsp_live_workspace_symbols<cr>", { buffer = args.bufnr })
-          end,
-        })
-      end,
     },
     {
       "windwp/nvim-autopairs",
