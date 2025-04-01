@@ -23,19 +23,25 @@ vim.opt.shiftwidth = 2
 vim.opt.cursorline = true
 vim.opt.undofile = true
 vim.opt.scrolloff = 8
+vim.opt.signcolumn = "yes:1"
+
+vim.diagnostic.config({
+  jump = { float = true },
+})
 
 vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
-    vim.opt_local.signcolumn = "yes:1"
     vim.keymap.set("n", "<leader>D", vim.diagnostic.open_float, { buffer = args.bufnr })
     vim.keymap.set("n", "gd", "<cmd>FzfLua lsp_definitions<cr>", { buffer = args.bufnr })
     vim.keymap.set("n", "<leader>ss", "<cmd>FzfLua lsp_document_symbols<cr>", { buffer = args.bufnr })
     vim.keymap.set("n", "<leader>sS", "<cmd>FzfLua lsp_workspace_symbols<cr>", { buffer = args.bufnr })
   end,
 })
-vim.api.nvim_create_autocmd("LspDetach", {
+
+vim.api.nvim_create_autocmd("TextYankPost", {
+  pattern = "*",
   callback = function()
-    vim.opt_local.signcolumn = "no"
+    vim.highlight.on_yank({ higroup = "IncSearch", timeout = 200 })
   end,
 })
 
