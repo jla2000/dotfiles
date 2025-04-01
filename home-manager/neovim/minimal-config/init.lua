@@ -34,7 +34,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
     vim.keymap.set("n", "<leader>D", vim.diagnostic.open_float, { buffer = args.bufnr })
     vim.keymap.set("n", "gd", "<cmd>FzfLua lsp_definitions<cr>", { buffer = args.bufnr })
     vim.keymap.set("n", "<leader>ss", "<cmd>FzfLua lsp_document_symbols<cr>", { buffer = args.bufnr })
-    vim.keymap.set("n", "<leader>sS", "<cmd>FzfLua lsp_workspace_symbols<cr>", { buffer = args.bufnr })
+    vim.keymap.set("n", "<leader>sS", "<cmd>FzfLua lsp_live_workspace_symbols<cr>", { buffer = args.bufnr })
+    vim.lsp.inlay_hint.enable(true, { bufnr = args.bufnr })
   end,
 })
 
@@ -119,7 +120,10 @@ require("lazy").setup({
       "neovim/nvim-lspconfig",
       event = "BufEnter",
       config = function()
-        require("lspconfig").lua_ls.setup({})
+        local lspconfig = require("lspconfig")
+        lspconfig.lua_ls.setup({})
+        lspconfig.nixd.setup({})
+        lspconfig.rust_analyzer.setup({})
       end,
     },
     {
@@ -138,11 +142,6 @@ require("lazy").setup({
       },
     },
     {
-      "mrcjkb/rustaceanvim",
-      version = "^5",
-      lazy = false,
-    },
-    {
       "ibhagwan/fzf-lua",
       event = "VeryLazy",
       keys = {
@@ -156,6 +155,19 @@ require("lazy").setup({
       "windwp/nvim-autopairs",
       event = "InsertEnter",
       opts = {},
+    },
+    {
+      "folke/snacks.nvim",
+      priority = 1000,
+      lazy = false,
+      ---@type snacks.Config
+      opts = {
+        bigfile = { enabled = true },
+        input = { enabled = true },
+        picker = { enabled = true },
+        notifier = { enabled = true },
+        quickfile = { enabled = true },
+      },
     },
   },
 
