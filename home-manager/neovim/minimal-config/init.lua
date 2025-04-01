@@ -46,6 +46,15 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
+vim.api.nvim_create_autocmd("User", {
+  pattern = "OilActionsPost",
+  callback = function(event)
+    if event.data.actions.type == "move" then
+      Snacks.rename.on_rename_file(event.data.actions.src_url, event.data.actions.dest_url)
+    end
+  end,
+})
+
 vim.keymap.set("n", "<esc>", "<cmd>nohl<cr><esc>")
 vim.keymap.set("n", "<leader>l", "<cmd>Lazy<cr>")
 vim.keymap.set("n", "<leader>bd", "<cmd>bd<cr>")
@@ -163,10 +172,25 @@ require("lazy").setup({
       ---@type snacks.Config
       opts = {
         bigfile = { enabled = true },
+        bufdelete = { enabled = true },
         input = { enabled = true },
         picker = { enabled = true },
         notifier = { enabled = true },
         quickfile = { enabled = true },
+        lazygit = { enabled = true },
+      },
+      keys = {
+        {
+          "<leader>gg",
+          function()
+            local git_folder = vim.fn.finddir(".git", ".;")
+            local root_folder = vim.fn.fnamemodify(git_folder, ":h")
+
+            Snacks.lazygit({
+              args = { "-p", root_folder },
+            })
+          end,
+        },
       },
     },
   },
