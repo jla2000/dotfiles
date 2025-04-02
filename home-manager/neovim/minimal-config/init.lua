@@ -58,6 +58,8 @@ vim.api.nvim_create_autocmd("User", {
 vim.keymap.set("n", "<esc>", "<cmd>nohl<cr><esc>")
 vim.keymap.set("n", "<leader>l", "<cmd>Lazy<cr>")
 vim.keymap.set("n", "<leader>bd", "<cmd>bd<cr>")
+vim.keymap.set("n", "<tab>", "<cmd>bn<cr>")
+vim.keymap.set("n", "<s-tab>", "<cmd>bp<cr>")
 
 require("lazy").setup({
   spec = {
@@ -169,7 +171,6 @@ require("lazy").setup({
       "folke/snacks.nvim",
       priority = 1000,
       lazy = false,
-      ---@type snacks.Config
       opts = {
         bigfile = { enabled = true },
         bufdelete = { enabled = true },
@@ -189,6 +190,33 @@ require("lazy").setup({
             Snacks.lazygit({
               args = { "-p", root_folder },
             })
+          end,
+        },
+      },
+    },
+    {
+      "sindrets/diffview.nvim",
+      cmd = "DiffviewOpen",
+      opts = {},
+      keys = {
+        {
+          "<leader>vv",
+          function()
+            if next(require("diffview.lib").views) == nil then
+              vim.cmd("DiffviewOpen")
+            else
+              vim.cmd("DiffviewClose")
+            end
+          end,
+        },
+        {
+          "<leader>vm",
+          function()
+            if next(require("diffview.lib").views) == nil then
+              vim.cmd("DiffviewOpen HEAD..main")
+            else
+              vim.cmd("DiffviewClose")
+            end
           end,
         },
       },
