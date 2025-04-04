@@ -99,10 +99,26 @@ require("lazy").setup({
       "nvim-treesitter/nvim-treesitter",
       event = "BufEnter",
       main = "nvim-treesitter.configs",
+      dependencies = "nvim-treesitter/nvim-treesitter-textobjects",
       opts = {
         auto_install = true,
         highlight = {
           enable = true,
+        },
+        textobjects = {
+          select = {
+            enable = true,
+            keymaps = {
+              ["if"] = "@function.inner",
+              ["af"] = "@function.outer",
+              ["ia"] = "@parameter.inner",
+              ["aa"] = "@parameter.outer",
+              ["ic"] = "@class.inner",
+              ["ac"] = "@class.outer",
+              ["ix"] = "@comment.inner",
+              ["ax"] = "@comment.outer",
+            },
+          },
         },
       },
     },
@@ -217,6 +233,19 @@ require("lazy").setup({
             else
               vim.cmd("DiffviewClose")
             end
+          end,
+        },
+      },
+    },
+    {
+      "folke/persistence.nvim",
+      event = "BufReadPre",
+      opts = {},
+      keys = {
+        {
+          "<leader>ql",
+          function()
+            require("persistence").load({ last = true })
           end,
         },
       },
