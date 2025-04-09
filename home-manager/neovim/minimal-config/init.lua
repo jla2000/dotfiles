@@ -24,6 +24,8 @@ vim.opt.cursorline = true
 vim.opt.undofile = true
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes:1"
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
 
 vim.diagnostic.config({
   jump = { float = true },
