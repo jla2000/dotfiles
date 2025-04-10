@@ -179,6 +179,13 @@ require("lazy").setup({
         { "<leader>fb", "<cmd>FzfLua buffers<cr>", desc = "Recent files" },
         { "<leader>sg", "<cmd>FzfLua live_grep<cr>", desc = "Search files" },
       },
+      opts = {
+        keymap = {
+          fzf = {
+            ["ctrl-q"] = "select-all+accept",
+          },
+        },
+      },
     },
     {
       "windwp/nvim-autopairs",
