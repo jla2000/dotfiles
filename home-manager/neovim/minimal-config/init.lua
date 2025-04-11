@@ -59,7 +59,6 @@ vim.api.nvim_create_autocmd("User", {
 
 vim.keymap.set("n", "<esc>", "<cmd>nohl<cr><esc>")
 vim.keymap.set("n", "<leader>l", "<cmd>Lazy<cr>")
-vim.keymap.set("n", "<leader>bd", "<cmd>bd<cr>")
 vim.keymap.set("n", "<tab>", "<cmd>bn<cr>")
 vim.keymap.set("n", "<s-tab>", "<cmd>bp<cr>")
 
@@ -215,6 +214,12 @@ require("lazy").setup({
             Snacks.lazygit({
               args = { "-p", root_folder },
             })
+          end,
+        },
+        {
+          "<leader>bd",
+          function()
+            Snacks.bufdelete()
           end,
         },
       },
