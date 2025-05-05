@@ -24,11 +24,16 @@
     enable = true;
   };
 
-  home.sessionVariables = {
-    MANROFFOPT = "-c";
-    MANPAGER = "sh -c 'col -bx | bat -l man -p'";
-    COLORTERM = "truecolor";
-    NH_FLAKE = "${config.home.homeDirectory}/dev/dotfiles";
+  home = {
+    sessionVariables = {
+      MANROFFOPT = "-c";
+      MANPAGER = "sh -c 'col -bx | bat -l man -p'";
+      COLORTERM = "truecolor";
+      NH_FLAKE = "${config.home.homeDirectory}/dev/dotfiles";
+    };
+    shellAliases = {
+      gs = "git status -s";
+    };
   };
 
   programs.zoxide = {
@@ -103,6 +108,7 @@
       signByDefault = true;
     };
     extraConfig = {
+      core.whitespace = "error";
       pull.rebase = true;
       gpg.format = "ssh";
     };
