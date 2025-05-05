@@ -6,7 +6,7 @@
       font = {
         size = lib.mkDefault 16;
         normal = {
-          family = lib.mkDefault "JetBrainsMono NF";
+          family = lib.mkDefault "Iosevka NF";
           style = lib.mkForce "Bold";
         };
         italic = {
@@ -18,7 +18,7 @@
         bold_italic = {
           style = lib.mkForce "ExtraBold Italic";
         };
-        builtin_box_drawing = false;
+        builtin_box_drawing = true;
         offset.x = 1;
       };
 

@@ -28,7 +28,7 @@
     MANROFFOPT = "-c";
     MANPAGER = "sh -c 'col -bx | bat -l man -p'";
     COLORTERM = "truecolor";
-    FLAKE = "${config.home.homeDirectory}/dev/dotfiles";
+    NH_FLAKE = "${config.home.homeDirectory}/dev/dotfiles";
   };
 
   programs.zoxide = {
@@ -98,8 +98,13 @@
     enable = true;
     userName = "Jan Lafferton";
     userEmail = "jan@lafferton.de";
+    signing = {
+      key = "~/.ssh/id_ed25519.pub";
+      signByDefault = true;
+    };
     extraConfig = {
       pull.rebase = true;
+      gpg.format = "ssh";
     };
   };
 
@@ -139,6 +144,7 @@
     xdg-utils
     btop
     htop-vim
+    unixtools.xxd
 
     # LSP's
     zls

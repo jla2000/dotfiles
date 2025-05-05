@@ -8,7 +8,7 @@
     enable = true;
     polarity = "dark";
     image = config.lib.stylix.pixel "base00";
-    base16Scheme = "${inputs.base16-schemes}/base16/onedark-dark.yaml";
+    base16Scheme = "${inputs.base16-schemes}/base16/catppuccin-macchiato.yaml";
     fonts = {
       monospace = {
         package = pkgs.nerd-fonts.jetbrains-mono;
