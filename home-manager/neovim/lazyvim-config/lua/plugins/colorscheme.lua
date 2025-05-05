@@ -8,7 +8,6 @@ return {
   { "2giosangmitom/nightfall.nvim", event = "VeryLazy", opts = {} },
   { "slugbyte/lackluster.nvim", event = "VeryLazy" },
   { "niyabits/calvera-dark.nvim", event = "VeryLazy" },
-  { "0xstepit/flow.nvim", event = "VeryLazy" },
   { "catppuccin/nvim", event = "VeryLazy" },
   { "catppuccin/nvim", event = "VeryLazy" },
   { "rebelot/kanagawa.nvim", event = "VeryLazy" },
