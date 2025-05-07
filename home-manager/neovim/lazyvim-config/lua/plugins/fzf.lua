@@ -11,9 +11,7 @@ end
 return {
   {
     "ibhagwan/fzf-lua",
-    opts = {
-      fzf_opts = { ["--layout"] = "default" },
-    },
+    opts = {},
     keys = {
       {
         "<leader>sS",
