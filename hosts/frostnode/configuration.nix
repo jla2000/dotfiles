@@ -34,6 +34,7 @@
 
   programs.nix-index-database.comma.enable = true;
   stylix.fonts.monospace.name = "Iosevka Nerd Font";
+  services.getty.autoLoginUser = "root";
 
   system.stateVersion = "24.05";
 }
