@@ -2,14 +2,14 @@
 
 {
   imports = [
-    ./hardware-configuration.nix
-    ./modules/minecraft.nix
-    ./modules/wireguard.nix
-    ./modules/sshd.nix
     inputs.nix-index-database.nixosModules.nix-index
     inputs.home-manager.nixosModules.home-manager
     ../../modules/stylix.nix
     ../../modules/nix.nix
+    ./hardware-configuration.nix
+    ./modules/minecraft.nix
+    ./modules/wireguard.nix
+    ./modules/sshd.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
