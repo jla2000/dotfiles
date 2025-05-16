@@ -40,6 +40,13 @@ in
   stylix.fonts.monospace.name = "Iosevka Nerd Font";
   stylix.fonts.sizes.terminal = lib.mkForce 14;
 
+  systemd.services.nix-daemon.serviceConfig = {
+    Environment = [
+      "NIX_SSL_CERT_FILE=\"/etc/ssl/certs/ca-certificates.crt\""
+      "SSL_CERT_FILE=\"/etc/ssl/certs/ca-certificates.crt\""
+    ];
+  };
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It's perfectly fine and recommended to leave
