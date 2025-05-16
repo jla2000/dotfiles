@@ -2,7 +2,7 @@
 let
   nixpkgs-vector = builtins.fetchGit {
     url = "https://github1.vg.vector.int/fbuehler/nixpkgs-vector.git";
-    rev = "02f2bdb87081b551ae9705246cf7e31fb1884f41";
+    rev = "3a8fce1c2fd2f03eb5f62f2a896e80cbce5f3ffc";
   };
 in
 {
