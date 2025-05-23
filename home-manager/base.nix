@@ -151,6 +151,10 @@
     btop
     htop-vim
     unixtools.xxd
+    bacon
+    rusty-man
+    presenterm
+    devenv
 
     # LSP's
     zls
