@@ -1,0 +1,79 @@
+{ inputs, config, pkgs, lib, ... }:
+{
+  imports = [
+    inputs.home-manager.nixosModules.home-manager
+    inputs.nixos-wsl.nixosModules.default
+    inputs.stylix.nixosModules.stylix
+  ];
+
+  options.system = {
+    userName = lib.mkOption {
+      type = lib.types.str;
+    };
+    hostName = lib.mkOption {
+      type = lib.types.str;
+    };
+    wsl = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+    };
+    stylix = lib.mkOption {
+      type = lib.types.bool;
+      default = false;
+    };
+  };
+
+  config = lib.mkMerge [
+    {
+      # Misc options
+      time.timeZone = "Europe/Berlin";
+      networking.hostName = config.system.hostName;
+
+      # Use rust coreutils
+      environment.systemPackages = [
+        pkgs.uutils-coreutils-noprefix
+      ];
+
+      # Allow running non-nix binaries
+      programs.nix-ld.enable = true;
+
+      # Global nix settings
+      nix = {
+        registry.nixpkgs.flake = inputs.nixpkgs;
+        settings = {
+          auto-optimise-store = true;
+          experimental-features = [ "nix-command" "flakes" ];
+          trusted-users = [ config.system.userName ];
+        };
+      };
+
+      users.users.${config.system.userName} = {
+        isNormalUser = true;
+      };
+
+      # Home setup
+      home-manager.useGlobalPkgs = true;
+      home-manager.backupFileExtension = "bak";
+    }
+    (lib.mkIf config.system.wsl {
+      wsl = {
+        enable = true;
+        startMenuLaunchers = true;
+        useWindowsDriver = true;
+        interop.register = true;
+        defaultUser = lib.mkDefault config.system.userName;
+        wslConf = {
+          automount.root = lib.mkDefault "/mnt";
+          user.default = lib.mkDefault config.system.userName;
+        };
+      };
+    })
+    (lib.mkIf config.system.stylix {
+      stylix = {
+        enable = true;
+        polarity = "dark";
+        base16Scheme = "${inputs.base16-schemes}/base16/catppuccin-macchiato.yaml";
+      };
+    })
+  ];
+}

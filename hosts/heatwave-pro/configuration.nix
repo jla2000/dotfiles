@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ inputs, lib, pkgs, ... }:
 let
   nixpkgs-vector = builtins.fetchGit {
     url = "https://github1.vg.vector.int/fbuehler/nixpkgs-vector.git";
@@ -7,42 +7,19 @@ let
 in
 {
   imports = [
-    ../../modules/common.nix
-    ../../modules/wsl.nix
+    inputs.home-manager.nixosModules.home-manager
+    ../../modules/system.nix
     "${nixpkgs-vector}/modules/vector/default.nix"
   ];
 
-  vector.proxy-settings.enable = true;
-
-  wsl = {
-    wslConf.network.hostname = "heatwave-pro";
-    defaultUser = lib.mkDefault "jlafferton";
-  };
-
-  virtualisation.libvirtd.enable = true;
-  users.users.jlafferton = {
-    extraGroups = [ "kvm" "libvirtd" "netdev" "docker" ];
-  };
+  system.userName = "jlafferton";
+  system.hostName = "heatwave-pro";
+  system.wsl = true;
+  system.stylix = true;
 
   home-manager.users.jlafferton = import ./home.nix;
 
-  environment.systemPackages = [
-    pkgs.uutils-coreutils-noprefix
-  ];
-
-  virtualisation.docker = {
-    enable = true;
-  };
-
-  fonts.packages = with pkgs.nerd-fonts; [
-    monaspace
-    fira-code
-    iosevka
-    jetbrains-mono
-  ];
-
-  stylix.fonts.monospace.name = "Iosevka Nerd Font";
-  stylix.fonts.sizes.terminal = lib.mkForce 14;
+  vector.proxy-settings.enable = true;
 
   systemd.services.nix-daemon.serviceConfig = {
     Environment = [
