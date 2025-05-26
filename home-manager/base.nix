@@ -163,7 +163,6 @@
     rusty-man
     presenterm
     devenv
-    uutils-coreutils-noprefix
 
     # LSP's
     zls

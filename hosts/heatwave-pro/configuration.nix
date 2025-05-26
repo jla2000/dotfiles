@@ -26,6 +26,10 @@ in
 
   home-manager.users.jlafferton = import ./home.nix;
 
+  environment.systemPackages = [
+    pkgs.uutils-coreutils-noprefix
+  ];
+
   virtualisation.docker = {
     enable = true;
   };
