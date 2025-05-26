@@ -155,6 +155,7 @@
     rusty-man
     presenterm
     devenv
+    jujutsu
 
     # LSP's
     zls
