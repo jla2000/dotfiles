@@ -114,6 +114,14 @@
     };
   };
 
+  programs.jujutsu = {
+    enable = true;
+    settings.user = {
+      name = "Jan Lafferton";
+      email = "jan@lafferton.de";
+    };
+  };
+
   programs.readline = {
     enable = true;
     variables.editing-mode = "vi";
@@ -155,7 +163,6 @@
     rusty-man
     presenterm
     devenv
-    jujutsu
 
     # LSP's
     zls
