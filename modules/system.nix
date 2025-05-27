@@ -53,12 +53,6 @@
         };
       };
 
-      users.users.${config.system.userName} = {
-        shell = pkgs.fish;
-      };
-
-      programs.fish.enable = true;
-
       # Home setup
       home-manager.useGlobalPkgs = true;
       home-manager.backupFileExtension = "bak";
