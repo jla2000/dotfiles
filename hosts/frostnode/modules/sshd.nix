@@ -1,7 +1,10 @@
 {
   services.openssh = {
     enable = true;
-    settings.PasswordAuthentication = false;
+    settings = {
+      PermitRootLogin = "yes";
+      PasswordAuthentication = false;
+    };
   };
   users.users.root.openssh.authorizedKeys.keys = [
     # NixOS-Unstable
