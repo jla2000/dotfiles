@@ -4,6 +4,7 @@
     inputs.home-manager.nixosModules.home-manager
     inputs.nixos-wsl.nixosModules.default
     inputs.stylix.nixosModules.stylix
+    inputs.nix-index-database.nixosModules.nix-index
   ];
 
   options.system = {
@@ -39,6 +40,8 @@
 
       # Allow running non-nix binaries
       programs.nix-ld.enable = true;
+      # Show help when command is not found
+      programs.nix-index-database.comma.enable = true;
 
       # Global nix settings
       nix = {
@@ -51,8 +54,10 @@
       };
 
       users.users.${config.system.userName} = {
-        isNormalUser = true;
+        shell = pkgs.fish;
       };
+
+      programs.fish.enable = true;
 
       # Home setup
       home-manager.useGlobalPkgs = true;
@@ -75,6 +80,15 @@
         wslConf = {
           automount.root = lib.mkDefault "/mnt";
           user.default = lib.mkDefault config.system.userName;
+        };
+      };
+
+      home-manager.users.${config.system.userName} = {
+        programs.alacritty.settings = {
+          terminal.shell = {
+            args = [ "--cd ~" ];
+            program = "wsl.exe";
+          };
         };
       };
     })
