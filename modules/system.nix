@@ -10,6 +10,9 @@
     userName = lib.mkOption {
       type = lib.types.str;
     };
+    userEmail = lib.mkOption {
+      type = lib.types.str;
+    };
     hostName = lib.mkOption {
       type = lib.types.str;
     };
@@ -54,6 +57,13 @@
       # Home setup
       home-manager.useGlobalPkgs = true;
       home-manager.backupFileExtension = "bak";
+
+      home-manager.users.${config.system.userName} = {
+        imports = [ ../home-manager/base.nix ];
+
+        programs.git.userEmail = lib.mkForce config.system.userEmail;
+        home.stateVersion = lib.mkDefault "25.05";
+      };
     }
     (lib.mkIf config.system.wsl {
       wsl = {
@@ -73,6 +83,11 @@
         enable = true;
         polarity = "dark";
         base16Scheme = "${inputs.base16-schemes}/base16/catppuccin-macchiato.yaml";
+      };
+
+      home-manager.users.${config.system.userName} = {
+        stylix.targets.neovim.enable = false;
+        stylix.targets.helix.enable = false;
       };
     })
   ];

@@ -7,17 +7,15 @@ let
 in
 {
   imports = [
-    inputs.home-manager.nixosModules.home-manager
     ../../modules/system.nix
     "${nixpkgs-vector}/modules/vector/default.nix"
   ];
 
   system.userName = "jlafferton";
   system.hostName = "heatwave-pro";
+  system.userEmail = "jan.lafferton@vector.com";
   system.wsl = true;
   system.stylix = true;
-
-  home-manager.users.jlafferton = import ./home.nix;
 
   vector.proxy-settings.enable = true;
 
