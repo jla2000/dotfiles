@@ -12,6 +12,7 @@
   system.userName = "root";
   system.userEmail = "jan@lafferton.de";
   system.hostName = "frostnode";
+  system.stylix = true;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
