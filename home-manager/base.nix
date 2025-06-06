@@ -174,6 +174,7 @@
     wgsl-analyzer
     lldb
     glsl_analyzer
+    nodePackages.vscode-json-languageserver
 
     # Formatter
     rustfmt

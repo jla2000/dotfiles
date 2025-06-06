@@ -8,11 +8,17 @@
   ];
 
   options.system = {
-    userName = lib.mkOption {
-      type = lib.types.str;
-    };
-    userEmail = lib.mkOption {
-      type = lib.types.str;
+    user = {
+      name = lib.mkOption {
+        type = lib.types.str;
+      };
+      email = lib.mkOption {
+        type = lib.types.str;
+      };
+      home = lib.mkOption {
+        type = lib.types.attrs;
+        default = { };
+      };
     };
     hostName = lib.mkOption {
       type = lib.types.str;
@@ -49,7 +55,7 @@
         settings = {
           auto-optimise-store = true;
           experimental-features = [ "nix-command" "flakes" ];
-          trusted-users = [ config.system.userName ];
+          trusted-users = [ config.system.user.name ];
         };
       };
 
@@ -57,12 +63,13 @@
       home-manager.useGlobalPkgs = true;
       home-manager.backupFileExtension = "bak";
 
-      home-manager.users.${config.system.userName} = {
+      home-manager.users.${config.system.user.name} = lib.mkMerge [{
         imports = [ ../home-manager/base.nix ];
 
-        programs.git.userEmail = lib.mkForce config.system.userEmail;
+        programs.git.userEmail = lib.mkForce config.system.user.email;
         home.stateVersion = lib.mkDefault "25.05";
-      };
+      }
+        config.system.user.home];
     }
     (lib.mkIf config.system.wsl {
       wsl = {
@@ -70,14 +77,14 @@
         startMenuLaunchers = true;
         useWindowsDriver = true;
         interop.register = true;
-        defaultUser = lib.mkDefault config.system.userName;
+        defaultUser = lib.mkDefault config.system.user.name;
         wslConf = {
           automount.root = lib.mkDefault "/mnt";
-          user.default = lib.mkDefault config.system.userName;
+          user.default = lib.mkDefault config.system.user.name;
         };
       };
 
-      home-manager.users.${config.system.userName} = {
+      home-manager.users.${config.system.user.name} = {
         programs.alacritty.settings = {
           terminal.shell = {
             args = [ "--cd ~" ];
@@ -93,7 +100,7 @@
         base16Scheme = "${inputs.base16-schemes}/base16/catppuccin-macchiato.yaml";
       };
 
-      home-manager.users.${config.system.userName} = {
+      home-manager.users.${config.system.user.name} = {
         stylix.targets.neovim.enable = false;
         stylix.targets.helix.enable = false;
       };

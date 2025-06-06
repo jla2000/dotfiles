@@ -10,6 +10,11 @@ return {
   { "niyabits/calvera-dark.nvim", event = "VeryLazy" },
   { "catppuccin/nvim", event = "VeryLazy" },
   { "catppuccin/nvim", event = "VeryLazy" },
+  {
+    "zenbones-theme/zenbones.nvim",
+    dependencies = "rktjmp/lush.nvim",
+    event = "VeryLazy",
+  },
   { "rebelot/kanagawa.nvim", event = "VeryLazy" },
   {
     "metalelf0/black-metal-theme-neovim",

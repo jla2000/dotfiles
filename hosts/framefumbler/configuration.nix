@@ -1,11 +1,15 @@
 {
   imports = [ ../../modules/system.nix ];
 
-  system.userName = "jan";
-  system.hostName = "framefumbler";
-  system.userEmail = "jan@lafferton.de";
-  system.wsl = true;
-  system.stylix = true;
+  system = {
+    hostName = "framefumbler";
+    user = {
+      name = "jan";
+      email = "jan@lafferton.de";
+    };
+    wsl = true;
+    stylix = true;
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

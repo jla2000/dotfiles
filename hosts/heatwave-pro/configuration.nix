@@ -1,4 +1,4 @@
-{ inputs, lib, pkgs, ... }:
+{ config, inputs, lib, pkgs, ... }:
 let
   nixpkgs-vector = builtins.fetchGit {
     url = "https://github1.vg.vector.int/fbuehler/nixpkgs-vector.git";
@@ -11,11 +11,18 @@ in
     "${nixpkgs-vector}/modules/vector/default.nix"
   ];
 
-  system.userName = "jlafferton";
-  system.hostName = "heatwave-pro";
-  system.userEmail = "jan.lafferton@vector.com";
-  system.wsl = true;
-  system.stylix = true;
+  system = {
+    hostName = "heatwave-pro";
+    user = {
+      name = "jlafferton";
+      email = "jan.lafferton@vector.com";
+      home = {
+        imports = [ ../../home-manager/ghostty.nix ];
+      };
+    };
+    wsl = true;
+    stylix = true;
+  };
 
   vector.proxy-settings.enable = true;
 
