@@ -1,9 +1,7 @@
-# dotfiles
+<div align="center">
 
-Personal config mono repo:
+# `dotfiles`
 
-- Development Environment
-- Neovim Config
-- much more...
+**Personal dotfiles repo, written in Nix**
 
-![alt text](logo.jpeg?raw=true)
+</div>
