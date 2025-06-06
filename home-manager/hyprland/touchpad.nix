@@ -15,11 +15,11 @@
         name = "toggle-touchpad.sh";
         text = ''
           if hyprctl getoption ${enable-property} | grep -q "int: 1"; then
-          	hyprctl keyword ${enable-property} false
-          	hyprctl keyword ${timeout-property} 1
+            hyprctl keyword ${enable-property} false
+            hyprctl keyword ${timeout-property} 1
           else
-          	hyprctl keyword ${enable-property} true
-          	hyprctl keyword ${timeout-property} 0
+            hyprctl keyword ${enable-property} true
+            hyprctl keyword ${timeout-property} 0
           fi
         '';
       };

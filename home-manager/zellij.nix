@@ -4,11 +4,11 @@ let
     paths=$(yazi --chooser-file=/dev/stdout | while read -r; do printf "%q " "$REPLY"; done)
 
     if [[ -n "$paths" ]]; then
-    	zellij action toggle-floating-panes
-    	zellij action write 27 # send <Escape> key
-    	zellij action write-chars ":open $paths"
-    	zellij action write 13 # send <Enter> key
-    	zellij action toggle-floating-panes
+      zellij action toggle-floating-panes
+      zellij action write 27 # send <Escape> key
+      zellij action write-chars ":open $paths"
+      zellij action write 13 # send <Enter> key
+      zellij action toggle-floating-panes
     fi
   '';
 in
@@ -16,7 +16,7 @@ in
   xdg.configFile."zellij/layouts/default.kdl".text = /* kdl */ ''
     layout {
       pane size=1 borderless=true {
-        plugin location="compact-bar" 
+        plugin location="compact-bar"
       }
       pane
     }
@@ -136,7 +136,7 @@ in
           bind "s" {
             LaunchOrFocusPlugin "zellij:session-manager" {
               floating true
-            } 
+            }
           }
         }
       }
