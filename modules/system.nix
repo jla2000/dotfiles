@@ -98,6 +98,10 @@
         enable = true;
         polarity = "dark";
         base16Scheme = "${inputs.base16-schemes}/base16/catppuccin-macchiato.yaml";
+        fonts = {
+          monospace.name = "Iosevka Nerd Font";
+          sizes.terminal = 14;
+        };
       };
 
       home-manager.users.${config.system.user.name} = {

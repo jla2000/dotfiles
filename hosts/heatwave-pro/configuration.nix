@@ -17,7 +17,10 @@ in
       name = "jlafferton";
       email = "jan.lafferton@vector.com";
       home = {
-        imports = [ ../../home-manager/ghostty.nix ];
+        imports = [
+          ../../home-manager/ghostty.nix
+          ../../home-manager/alacritty.nix
+        ];
       };
     };
     wsl = true;
