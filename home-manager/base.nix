@@ -185,5 +185,6 @@
     markdownlint-cli2
     nixpkgs-fmt
     shfmt
+    clippy
   ];
 }
