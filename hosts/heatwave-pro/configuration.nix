@@ -27,6 +27,11 @@ in
     stylix = true;
   };
 
+  nix.settings = {
+    substituters = [ "https://nix-cache.tools.gitlab.k8s.vector.int/" ];
+    trusted-public-keys = [ "nix-cache.tools.gitlab.k8s.vector.int:abspAFejCsuQB41+k/z0c9ErGQJMHLzVatZDnRoIKGE=" ];
+  };
+
   vector.proxy-settings.enable = true;
 
   systemd.services.nix-daemon.serviceConfig = {
