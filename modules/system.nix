@@ -42,6 +42,7 @@
       # Use rust coreutils
       environment.systemPackages = [
         pkgs.uutils-coreutils-noprefix
+        inputs.nvim-bundle.packages.${pkgs.system}.default
       ];
 
       # Allow running non-nix binaries

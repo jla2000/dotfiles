@@ -25,6 +25,7 @@
       url = "github:tinted-theming/schemes";
       flake = false;
     };
+    nvim-bundle.url = "github:jla2000/nvim-bundle";
   };
 
   outputs = { self, nixpkgs, ... }@inputs:

@@ -332,6 +332,22 @@
         "type": "github"
       }
     },
+    "live-rename-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1750686485,
+        "narHash": "sha256-5BnO04TUjGsT10PdQcfQrw54kIWX/0vNPl5+umWOHjw=",
+        "owner": "saecki",
+        "repo": "live-rename.nvim",
+        "rev": "78fcdb4072c6b1a8e909872f9a971b2f2b642d1e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "saecki",
+        "repo": "live-rename.nvim",
+        "type": "github"
+      }
+    },
     "nix-index-database": {
       "inputs": {
         "nixpkgs": [
@@ -389,6 +405,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1750776420,
+        "narHash": "sha256-/CG+w0o0oJ5itVklOoLbdn2dGB0wbZVOoDm4np6w09A=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "30a61f056ac492e3b7cdcb69c1e6abdcf00e39cf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nur": {
       "inputs": {
         "flake-parts": [
@@ -415,6 +447,25 @@
         "type": "github"
       }
     },
+    "nvim-bundle": {
+      "inputs": {
+        "live-rename-nvim": "live-rename-nvim",
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1751265792,
+        "narHash": "sha256-9wuh0Rgn0XVce7LQv0gsMCqUYWuUk70gJWzza95Xvww=",
+        "owner": "jla2000",
+        "repo": "nvim-bundle",
+        "rev": "e141a943aff90e6368e12f0bd1debce456faaa37",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jla2000",
+        "repo": "nvim-bundle",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "base16-schemes": "base16-schemes",
@@ -423,6 +474,7 @@
         "nix-index-database": "nix-index-database",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs",
+        "nvim-bundle": "nvim-bundle",
         "stylix": "stylix"
       }
     },
