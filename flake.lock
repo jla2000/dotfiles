@@ -468,19 +468,36 @@
         "libdeflate-nvim": "libdeflate-nvim",
         "live-rename-nvim": "live-rename-nvim",
         "nixpkgs": "nixpkgs_2",
+        "oil-git-nvim": "oil-git-nvim",
         "plantuml-nvim": "plantuml-nvim"
       },
       "locked": {
-        "lastModified": 1751449246,
-        "narHash": "sha256-jo+hQFZNj1tHVFwJoYFcQGWApLs+/yAftD/xyRxgEn0=",
+        "lastModified": 1751467185,
+        "narHash": "sha256-Nbwj13kMS7+43q/YvNnZ5VoETmbCwPXzjphSzWVsuX0=",
         "owner": "jla2000",
         "repo": "nvim-bundle",
-        "rev": "0452c54df8a8ffd9c6d59842eac6bef18f08dc5f",
+        "rev": "84dc9a685bfb0f1e01ffcb3f8002ebc0a10a8970",
         "type": "github"
       },
       "original": {
         "owner": "jla2000",
         "repo": "nvim-bundle",
+        "type": "github"
+      }
+    },
+    "oil-git-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1751407933,
+        "narHash": "sha256-uuGXGHr/7k7YArefuj85qkMEHS54uPwjMVerywQxkkY=",
+        "owner": "benomahony",
+        "repo": "oil-git.nvim",
+        "rev": "3abffa67597aab5f915816d71e96cbed76147016",
+        "type": "github"
+      },
+      "original": {
+        "owner": "benomahony",
+        "repo": "oil-git.nvim",
         "type": "github"
       }
     },
