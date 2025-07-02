@@ -4,7 +4,6 @@
     ./atuin.nix
     ./tmux.nix
     ./helix.nix
-    ./neovim/default.nix
   ];
 
   programs.yazi = {
