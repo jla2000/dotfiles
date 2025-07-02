@@ -53,7 +53,7 @@
       };
     };
     enableFishIntegration = true;
-    enableBashIntegration = true;
+    enableBashIntegration = false;
   };
 
   programs.lazygit = {
