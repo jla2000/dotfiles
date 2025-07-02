@@ -43,6 +43,7 @@ in
     terminal = "tmux-256color";
     extraConfig = /* tmux */ ''
       set -ag terminal-overrides ",xterm-256color:RGB"
+      set -g focus-events on
 
       unbind r
       bind-key r source-file ~/.config/tmux/tmux.conf
