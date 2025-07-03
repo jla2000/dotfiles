@@ -29,6 +29,7 @@
       MANPAGER = "sh -c 'col -bx | bat -l man -p'";
       COLORTERM = "truecolor";
       NH_FLAKE = "${config.home.homeDirectory}/dev/dotfiles";
+      EDITOR = "nvim";
     };
     shellAliases = {
       gs = "git status -s";
