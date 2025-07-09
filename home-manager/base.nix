@@ -121,6 +121,8 @@
       ui = {
         pager = ":builtin";
         default-command = "log";
+        streampager.interface = "quit-quickly-or-clear-output";
+        merge-editor = "vimdiff";
       };
     };
   };
