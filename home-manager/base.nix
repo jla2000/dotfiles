@@ -163,7 +163,6 @@
     rusty-man
     presenterm
     devenv
-    jjui
 
     # LSP's
     zls
