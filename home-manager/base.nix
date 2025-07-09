@@ -118,7 +118,10 @@
         name = "Jan Lafferton";
         email = "jan@lafferton.de";
       };
-      ui.pager = ":builtin";
+      ui = {
+        pager = ":builtin";
+        default-command = "log";
+      };
     };
   };
 
