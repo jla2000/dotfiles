@@ -113,9 +113,12 @@
 
   programs.jujutsu = {
     enable = true;
-    settings.user = {
-      name = "Jan Lafferton";
-      email = "jan@lafferton.de";
+    settings = {
+      user = {
+        name = "Jan Lafferton";
+        email = "jan@lafferton.de";
+      };
+      ui.pager = ":builtin";
     };
   };
 

@@ -68,6 +68,8 @@
         imports = [ ../home-manager/base.nix ];
 
         programs.git.userEmail = lib.mkForce config.system.user.email;
+        programs.jujutsu.settings.user.email = lib.mkForce config.system.user.email;
+
         home.stateVersion = lib.mkDefault "25.05";
       }
         config.system.user.home];
