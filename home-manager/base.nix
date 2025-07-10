@@ -168,6 +168,8 @@
     rusty-man
     presenterm
     devenv
+    jjui
+    lazyjj
 
     # LSP's
     zls
