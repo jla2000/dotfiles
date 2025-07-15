@@ -4,6 +4,7 @@
     ./atuin.nix
     ./tmux.nix
     ./helix.nix
+    ./starship.nix
   ];
 
   programs.yazi = {
@@ -43,27 +44,6 @@
     ];
     enableFishIntegration = true;
     enableBashIntegration = true;
-  };
-
-  programs.starship = {
-    enable = true;
-    settings = {
-      sudo.disabled = true;
-      git_branch.disabled = true;
-      git_commit.disabled = true;
-      custom.git_branch = {
-        when = true;
-        command = "jj root >/dev/null 2>&1 || starship module git_branch";
-        description = "Show git branch only in non-jj repos";
-      };
-      custom.git_commit = {
-        when = true;
-        command = "jj root >/dev/null 2>&1 || starship module git_commit";
-        description = "Show git commit only in non-jj repos";
-      };
-    };
-    enableFishIntegration = true;
-    enableBashIntegration = false;
   };
 
   programs.lazygit = {

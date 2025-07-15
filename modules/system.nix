@@ -60,6 +60,12 @@
         };
       };
 
+      nixpkgs.overlays = [
+        (self: super: {
+          starship-jj = inputs.starship-jj.packages.${pkgs.system}.default;
+        })
+      ];
+
       # Home setup
       home-manager.useGlobalPkgs = true;
       home-manager.backupFileExtension = "bak";

@@ -26,6 +26,7 @@
       flake = false;
     };
     nvim-bundle.url = "github:jla2000/nvim-bundle";
+    starship-jj.url = "git+https://gitlab.com/lanastara_foss/starship-jj";
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
