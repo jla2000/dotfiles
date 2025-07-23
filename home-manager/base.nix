@@ -27,7 +27,7 @@
   home = {
     sessionVariables = {
       MANROFFOPT = "-c";
-      MANPAGER = "sh -c 'col -bx | bat -l man -p'";
+      MANPAGER = "nvim +Man!";
       COLORTERM = "truecolor";
       NH_FLAKE = "${config.home.homeDirectory}/dev/dotfiles";
       EDITOR = "nvim";

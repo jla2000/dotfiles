@@ -446,11 +446,11 @@
         "plantuml-nvim": "plantuml-nvim"
       },
       "locked": {
-        "lastModified": 1752157378,
-        "narHash": "sha256-Dyp+f9ZiziK65n0plvy3ZtGE80aMWa62Uu/zRq5G5RM=",
+        "lastModified": 1753258377,
+        "narHash": "sha256-xYyiafZG/9Z9lQypu92ImMXKPiAUqT5t8BrBogspicY=",
         "owner": "jla2000",
         "repo": "nvim-bundle",
-        "rev": "75b6b1e9d1d235ae552bdceb3f2b4642661eeac0",
+        "rev": "ac290aeb4666e4380bae014cebbfd66064cd1330",
         "type": "github"
       },
       "original": {
