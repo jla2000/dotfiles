@@ -291,38 +291,6 @@
         "type": "github"
       }
     },
-    "libdeflate-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1750097000,
-        "narHash": "sha256-VLZvqV8Jjiu5hb0Mh80FAbDPAIgDfC9ol5uiCrM6AAA=",
-        "owner": "goropikari",
-        "repo": "libdeflate.nvim",
-        "rev": "c51cd94acf5bc7d3b75b1e202cf5fdac011fee46",
-        "type": "github"
-      },
-      "original": {
-        "owner": "goropikari",
-        "repo": "libdeflate.nvim",
-        "type": "github"
-      }
-    },
-    "live-rename-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1750686485,
-        "narHash": "sha256-5BnO04TUjGsT10PdQcfQrw54kIWX/0vNPl5+umWOHjw=",
-        "owner": "saecki",
-        "repo": "live-rename.nvim",
-        "rev": "78fcdb4072c6b1a8e909872f9a971b2f2b642d1e",
-        "type": "github"
-      },
-      "original": {
-        "owner": "saecki",
-        "repo": "live-rename.nvim",
-        "type": "github"
-      }
-    },
     "nix-index-database": {
       "inputs": {
         "nixpkgs": [
@@ -382,11 +350,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1750776420,
-        "narHash": "sha256-/CG+w0o0oJ5itVklOoLbdn2dGB0wbZVOoDm4np6w09A=",
+        "lastModified": 1753250450,
+        "narHash": "sha256-i+CQV2rPmP8wHxj0aq4siYyohHwVlsh40kV89f3nw1s=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "30a61f056ac492e3b7cdcb69c1e6abdcf00e39cf",
+        "rev": "fc02ee70efb805d3b2865908a13ddd4474557ecf",
         "type": "github"
       },
       "original": {
@@ -439,55 +407,19 @@
     },
     "nvim-bundle": {
       "inputs": {
-        "libdeflate-nvim": "libdeflate-nvim",
-        "live-rename-nvim": "live-rename-nvim",
-        "nixpkgs": "nixpkgs_2",
-        "oil-git-nvim": "oil-git-nvim",
-        "plantuml-nvim": "plantuml-nvim"
+        "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1753258377,
-        "narHash": "sha256-xYyiafZG/9Z9lQypu92ImMXKPiAUqT5t8BrBogspicY=",
+        "lastModified": 1753880514,
+        "narHash": "sha256-XSJJuXfrx3UKmiISyz3QMqDb5f3luNZbjcYsuInkdP0=",
         "owner": "jla2000",
         "repo": "nvim-bundle",
-        "rev": "ac290aeb4666e4380bae014cebbfd66064cd1330",
+        "rev": "6272c8cc55bce0e8c88d1b2aa5e3e5a9a4914b3a",
         "type": "github"
       },
       "original": {
         "owner": "jla2000",
         "repo": "nvim-bundle",
-        "type": "github"
-      }
-    },
-    "oil-git-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1751407933,
-        "narHash": "sha256-uuGXGHr/7k7YArefuj85qkMEHS54uPwjMVerywQxkkY=",
-        "owner": "benomahony",
-        "repo": "oil-git.nvim",
-        "rev": "3abffa67597aab5f915816d71e96cbed76147016",
-        "type": "github"
-      },
-      "original": {
-        "owner": "benomahony",
-        "repo": "oil-git.nvim",
-        "type": "github"
-      }
-    },
-    "plantuml-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1750097487,
-        "narHash": "sha256-1jSvvciJGN7DOLayby5HjIMWJPyCYaN2EvFOjly9aSw=",
-        "owner": "goropikari",
-        "repo": "plantuml.nvim",
-        "rev": "66d4dca1b8607be646ed532521ba0f04095361c4",
-        "type": "github"
-      },
-      "original": {
-        "owner": "goropikari",
-        "repo": "plantuml.nvim",
         "type": "github"
       }
     },
