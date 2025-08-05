@@ -98,6 +98,8 @@
       core.whitespace = "error";
       pull.rebase = true;
       gpg.format = "ssh";
+      merge.tool = "vimdiff";
+      diff.tool = "vimdiff";
     };
   };
 
