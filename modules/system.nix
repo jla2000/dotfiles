@@ -109,7 +109,7 @@
       stylix = {
         enable = true;
         polarity = "dark";
-        base16Scheme = "${inputs.base16-schemes}/base16/catppuccin-frappe.yaml";
+        base16Scheme = "${inputs.base16-schemes}/base16/catppuccin-mocha.yaml";
         fonts = {
           monospace.name = "Iosevka Nerd Font";
           sizes.terminal = 14;
