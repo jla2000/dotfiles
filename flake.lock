@@ -410,11 +410,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1754982713,
-        "narHash": "sha256-U/56BlhVyZ6LR2OYAXOkyjxopf/cnui/I6t2u/sa58A=",
+        "lastModified": 1755002886,
+        "narHash": "sha256-vgTtW63TqxmY7zFBOWO0yivm4xlCb0+XIhgv6uAdmog=",
         "owner": "jla2000",
         "repo": "nvim-bundle",
-        "rev": "3f138ded150b325c29285469ac91f703854763c8",
+        "rev": "f09b84ac52f9febc9cb8690a4477b447b6a7b216",
         "type": "github"
       },
       "original": {
