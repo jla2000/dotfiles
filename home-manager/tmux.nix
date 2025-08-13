@@ -34,7 +34,7 @@
       bind '"' split-window -c "#{pane_current_path}"
       bind % split-window -h -c "#{pane_current_path}"
 
-      bind -n C-g popup -d "#{pane_current_path}" -E -w 90% -h 90% jjui
+      bind -n C-g new-window -c "#{pane_current_path}" -n jjui jjui
 
       # Tmux attach behavior
       new-session -n $HOST
