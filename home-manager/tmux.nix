@@ -35,6 +35,7 @@
       bind % split-window -h -c "#{pane_current_path}"
 
       bind -n C-g new-window -c "#{pane_current_path}" -n jjui jjui
+      bind -n C-y new-window -c "#{pane_current_path}" -n yazi yazi
 
       # Tmux attach behavior
       new-session -n $HOST
