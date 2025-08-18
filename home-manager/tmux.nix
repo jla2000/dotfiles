@@ -31,7 +31,6 @@
       bind % split-window -h -c "#{pane_current_path}"
 
       bind -n C-g new-window -c "#{pane_current_path}" -n jjui jjui
-      bind -n C-h new-window -c "#{pane_current_path}" -n bacon bacon
 
       # Border style
       set -g popup-border-lines rounded
