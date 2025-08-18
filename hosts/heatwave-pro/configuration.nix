@@ -27,6 +27,11 @@ in
     stylix = true;
   };
 
+  home-manager.users.${config.system.user.name} = {
+    programs.git.userName = lib.mkForce "Lafferton, Jan";
+    programs.jujutsu.settings.user.name = lib.mkForce "Lafferton, Jan";
+  };
+
   nix.settings = {
     extra-substituters = [ "https://nix-cache.tools.gitlab.k8s.vector.int/" ];
     extra-trusted-public-keys = [ "nix-cache.tools.gitlab.k8s.vector.int:abspAFejCsuQB41+k/z0c9ErGQJMHLzVatZDnRoIKGE=" ];
