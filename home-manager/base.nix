@@ -129,6 +129,14 @@
     set history save
   '';
 
+  programs.btop = {
+    enable = true;
+    settings = {
+      vim_keys = true;
+      proc_gradient = false;
+    };
+  };
+
   home.packages = with pkgs; [
     fd
     gdb
@@ -153,7 +161,6 @@
     glxinfo
     xclip
     xdg-utils
-    btop
     htop-vim
     unixtools.xxd
     bacon
