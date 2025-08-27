@@ -42,7 +42,6 @@
       # Use rust coreutils
       environment.systemPackages = [
         pkgs.uutils-coreutils-noprefix
-        inputs.nvim-bundle.packages.${pkgs.system}.default
       ];
 
       # Allow running non-nix binaries
@@ -74,7 +73,12 @@
       home-manager.backupFileExtension = "bak";
 
       home-manager.users.${config.system.user.name} = lib.mkMerge [{
-        imports = [ ../home-manager/base.nix ];
+        imports = [
+          ../home-manager/base.nix
+          inputs.nvim-bundle.homeManagerModules.neovim
+        ];
+
+        neovim.configPath = "/home/${config.system.user.name}/dev/nvim-bundle/nvim";
 
         programs.git.userEmail = lib.mkForce config.system.user.email;
         programs.jujutsu.settings.user.email = lib.mkForce config.system.user.email;
@@ -109,7 +113,7 @@
       stylix = {
         enable = true;
         polarity = "dark";
-        base16Scheme = "${inputs.base16-schemes}/base16/catppuccin-mocha.yaml";
+        base16Scheme = "${inputs.base16-schemes}/base16/everforest.yaml";
         fonts = {
           monospace.name = "Iosevka Nerd Font";
           sizes.terminal = 14;
