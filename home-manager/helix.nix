@@ -17,16 +17,6 @@ in
   config = {
     programs.helix = {
       enable = true;
-      extraPackages = with pkgs; [
-        python3Packages.python-lsp-server
-        cmake-language-server
-        marksman
-        lldb
-        lldb-dap
-        nil
-        rust-analyzer
-        rustfmt
-      ];
       settings = {
         theme = lib.mkDefault "catppuccin_mocha";
         editor = {
