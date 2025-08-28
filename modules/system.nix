@@ -68,6 +68,11 @@
       virtualisation.docker.enable = true;
       users.users.${config.system.user.name}.extraGroups = [ "docker" ];
 
+      programs.appimage = {
+        enable = true;
+        binfmt = true;
+      };
+
       # Home setup
       home-manager.useGlobalPkgs = true;
       home-manager.backupFileExtension = "bak";
