@@ -41,6 +41,7 @@
 
       # Use rust coreutils
       environment.systemPackages = [
+        inputs.zuban.packages.${pkgs.system}.default
         pkgs.uutils-coreutils-noprefix
       ];
 
@@ -58,12 +59,6 @@
           trusted-users = [ config.system.user.name ];
         };
       };
-
-      nixpkgs.overlays = [
-        (self: super: {
-          starship-jj = inputs.starship-jj.packages.${pkgs.system}.default;
-        })
-      ];
 
       virtualisation.docker.enable = true;
       users.users.${config.system.user.name}.extraGroups = [ "docker" ];
@@ -118,7 +113,7 @@
       stylix = {
         enable = true;
         polarity = "dark";
-        base16Scheme = "${inputs.base16-schemes}/base16/everforest.yaml";
+        base16Scheme = "${inputs.base16-schemes}/base16/catppuccin-mocha.yaml";
         fonts = {
           monospace.name = "Iosevka Nerd Font";
           sizes.terminal = 14;

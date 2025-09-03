@@ -25,7 +25,15 @@
       url = "github:tinted-theming/schemes";
       flake = false;
     };
-    nvim-bundle.url = "github:jla2000/nvim-bundle";
+    nvim-bundle = {
+      url = "github:jla2000/nvim-bundle";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    zuban = {
+      # https://github.com/zubanls/zuban/pull/16
+      url = "github:marcelarie/zuban";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -35,25 +43,24 @@
           "x86_64-linux"
           "aarch64-linux"
         ]
-          (system: f system nixpkgs.legacyPackages.${system});
+          (system: f nixpkgs.legacyPackages.${system});
     in
     {
-      checks = forAllSystems
-        (system: pkgs: {
-          default = inputs.git-hooks.lib.${system}.run {
-            src = ./.;
-            hooks = {
-              editorconfig-checker.enable = true;
-              nixpkgs-fmt.enable = true;
-              typos.enable = true;
-              stylua.enable = true;
-            };
+      checks = forAllSystems (pkgs: {
+        default = inputs.git-hooks.lib.${pkgs.system}.run {
+          src = ./.;
+          hooks = {
+            editorconfig-checker.enable = true;
+            nixpkgs-fmt.enable = true;
+            typos.enable = true;
+            stylua.enable = true;
           };
-        });
+        };
+      });
 
-      devShells = forAllSystems (system: pkgs: {
-        default = nixpkgs.legacyPackages.${system}.mkShellNoCC {
-          inherit (self.checks.${system}.default) shellHook;
+      devShells = forAllSystems (pkgs: {
+        default = nixpkgs.legacyPackages.${pkgs.system}.mkShellNoCC {
+          inherit (self.checks.${pkgs.system}.default) shellHook;
         };
       });
 

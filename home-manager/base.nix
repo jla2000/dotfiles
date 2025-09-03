@@ -181,7 +181,6 @@
     lldb
     glsl_analyzer
     nodePackages.vscode-json-languageserver
-    pyrefly
 
     # Formatter
     rustfmt
