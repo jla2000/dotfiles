@@ -29,11 +29,6 @@
       url = "github:jla2000/nvim-bundle";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    zuban = {
-      # https://github.com/zubanls/zuban/pull/16
-      url = "github:marcelarie/zuban";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:

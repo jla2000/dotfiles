@@ -41,7 +41,6 @@
 
       # Use rust coreutils
       environment.systemPackages = [
-        inputs.zuban.packages.${pkgs.system}.default
         pkgs.uutils-coreutils-noprefix
       ];
 

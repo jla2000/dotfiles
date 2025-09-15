@@ -172,6 +172,7 @@
 
     # LSP's
     zls
+    zuban
     clang-tools
     nixd
     taplo
