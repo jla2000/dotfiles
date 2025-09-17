@@ -2,6 +2,7 @@
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
+    inputs.determinate.nixosModules.default
     inputs.nixos-wsl.nixosModules.default
     inputs.stylix.nixosModules.stylix
     inputs.nix-index-database.nixosModules.nix-index
@@ -114,8 +115,11 @@
         polarity = "dark";
         base16Scheme = "${inputs.base16-schemes}/base16/catppuccin-mocha.yaml";
         fonts = {
-          monospace.name = "Iosevka Nerd Font";
-          sizes.terminal = 14;
+          monospace = {
+            name = "JetbrainsMono Nerd Font";
+            package = pkgs.nerd-fonts.jetbrains-mono;
+          };
+          sizes.terminal = 13;
         };
       };
 

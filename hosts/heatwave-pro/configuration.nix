@@ -18,7 +18,6 @@ in
       email = "jan.lafferton@vector.com";
       home = {
         imports = [
-          ../../home-manager/ghostty.nix
           ../../home-manager/alacritty.nix
         ];
       };
