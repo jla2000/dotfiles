@@ -65,6 +65,11 @@
           specialArgs = { inherit inputs; };
           modules = [ ./hosts/heatwave-pro/configuration.nix ];
         };
+        "zephyrus" = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = { inherit inputs; };
+          modules = [ ./hosts/zephyrus/configuration.nix ];
+        };
         "framefumbler" = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs; };
