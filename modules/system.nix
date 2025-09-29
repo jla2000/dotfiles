@@ -2,7 +2,6 @@
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
-    inputs.determinate.nixosModules.default
     inputs.nixos-wsl.nixosModules.default
     inputs.stylix.nixosModules.stylix
     inputs.nix-index-database.nixosModules.nix-index
