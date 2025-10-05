@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 {
   imports = [
     ./atuin.nix
@@ -6,7 +6,7 @@
     ./starship.nix
   ];
 
-  neovim.configPath = "/home/${config.home.homeDirectory}/dev/nvim-bundle/nvim";
+  # neovim.configPath = "/home/${config.home.homeDirectory}/dev/nvim-bundle/nvim";
 
   programs.yazi = {
     enable = true;
@@ -193,5 +193,8 @@
     nixpkgs-fmt
     shfmt
     clippy
+
+    # Neovim
+    inputs.nvim-bundle.packages.${system}.default
   ];
 }

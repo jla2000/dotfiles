@@ -47,7 +47,7 @@
       ];
 
       homes.modules = with inputs; [
-        nvim-bundle.homeManagerModules.neovim
+        # nvim-bundle.homeManagerModules.neovim
       ];
     };
 }
