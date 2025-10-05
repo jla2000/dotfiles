@@ -19,7 +19,7 @@
     };
     nvim-bundle = {
       url = "github:jla2000/nvim-bundle";
-      inputs.nixpkgs.follows = "nixpkgs";
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
     base16-schemes = {
       url = "github:tinted-theming/schemes";
