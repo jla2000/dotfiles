@@ -7,6 +7,8 @@
     ./starship.nix
   ];
 
+  neovim.configPath = "/home/${config.snowfall.user.name}/dev/nvim-bundle/nvim";
+
   programs.yazi = {
     enable = true;
     enableFishIntegration = true;
@@ -29,7 +31,7 @@
       MANROFFOPT = "-c";
       MANPAGER = "nvim +Man!";
       COLORTERM = "truecolor";
-      NH_FLAKE = "${config.home.homeDirectory}/dev/dotfiles";
+      NH_FLAKE = "${config.snowfall.user.home}/dev/dotfiles";
       EDITOR = "nvim";
     };
     shellAliases = {

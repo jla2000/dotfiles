@@ -7,28 +7,18 @@ let
 in
 {
   imports = [
-    ../../modules/system.nix
     "${nixpkgs-vector}/modules/vector/default.nix"
   ];
 
-  system = {
-    hostName = "heatwave-pro";
-    user = {
-      name = "jlafferton";
-      email = "jan.lafferton@vector.com";
-      home = {
-        imports = [
-          ../../home-manager/alacritty.nix
-        ];
-      };
-    };
-    wsl = true;
-    stylix = true;
-  };
-
   home-manager.users.${config.system.user.name} = {
-    programs.git.userName = lib.mkForce "Lafferton, Jan";
-    programs.jujutsu.settings.user.name = lib.mkForce "Lafferton, Jan";
+    programs.git = {
+      userName = lib.mkForce "Lafferton, Jan";
+      userEmail = "jan.lafferton@vector.com";
+    };
+    programs.jujutsu.settings.user = {
+      name = lib.mkForce "Lafferton, Jan";
+      email = "jan.lafferton@vector.com";
+    };
   };
 
   nix.settings = {
@@ -44,6 +34,9 @@ in
       "SSL_CERT_FILE=\"/etc/ssl/certs/ca-certificates.crt\""
     ];
   };
+
+  wsl.enable = true;
+  stylix.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
