@@ -3,11 +3,10 @@
   imports = [
     ./atuin.nix
     ./tmux.nix
-    ./helix.nix
     ./starship.nix
   ];
 
-  neovim.configPath = "/home/${config.snowfall.user.name}/dev/nvim-bundle/nvim";
+  neovim.configPath = "/home/${config.home.homeDirectory}/dev/nvim-bundle/nvim";
 
   programs.yazi = {
     enable = true;
@@ -31,7 +30,7 @@
       MANROFFOPT = "-c";
       MANPAGER = "nvim +Man!";
       COLORTERM = "truecolor";
-      NH_FLAKE = "${config.snowfall.user.home}/dev/dotfiles";
+      NH_FLAKE = "${config.home.homeDirectory}/dev/dotfiles";
       EDITOR = "nvim";
     };
     shellAliases = {
