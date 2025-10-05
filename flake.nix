@@ -45,9 +45,5 @@
         stylix.nixosModules.stylix
         nix-index-database.nixosModules.nix-index
       ];
-
-      homes.modules = with inputs; [
-        # nvim-bundle.homeManagerModules.neovim
-      ];
     };
 }
