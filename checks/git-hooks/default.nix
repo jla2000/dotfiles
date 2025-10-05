@@ -1,7 +1,7 @@
 { inputs, system, ... }:
 
 inputs.git-hooks.lib.${system}.run {
-  src = ../.;
+  src = ./.;
   hooks = {
     editorconfig-checker.enable = true;
     nixpkgs-fmt.enable = true;
