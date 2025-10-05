@@ -1,4 +1,4 @@
-{ config, inputs, lib, pkgs, ... }:
+{ lib, ... }:
 let
   nixpkgs-vector = builtins.fetchGit {
     url = "https://github1.vg.vector.int/fbuehler/nixpkgs-vector.git";
@@ -10,7 +10,7 @@ in
     "${nixpkgs-vector}/modules/vector/default.nix"
   ];
 
-  home-manager.users.${config.system.user.name} = {
+  snowfallorg.users.jan.home.config = {
     programs.git = {
       userName = lib.mkForce "Lafferton, Jan";
       userEmail = "jan.lafferton@vector.com";
