@@ -89,8 +89,8 @@
 
   programs.git = {
     enable = true;
-    userName = "Jan Lafferton";
-    userEmail = "jan@lafferton.de";
+    userName = lib.mkDefault "Jan Lafferton";
+    userEmail = lib.mkDefault "jan@lafferton.de";
     signing = {
       key = "~/.ssh/id_ed25519.pub";
       signByDefault = true;
@@ -108,8 +108,8 @@
     enable = true;
     settings = {
       user = {
-        name = "Jan Lafferton";
-        email = "jan@lafferton.de";
+        name = lib.mkDefault "Jan Lafferton";
+        email = lib.mkDefault "jan@lafferton.de";
       };
       ui = {
         pager = ":builtin";

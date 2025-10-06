@@ -35,6 +35,8 @@ in
     ];
   };
 
+  snowfallorg.users.jan.home.config.home.stateVersion = "24.11";
+
   wsl.enable = true;
   stylix.enable = true;
 
