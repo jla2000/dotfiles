@@ -10,14 +10,17 @@ in
     "${nixpkgs-vector}/modules/vector/default.nix"
   ];
 
-  snowfallorg.users.jan.home.config = {
-    programs.git = {
-      userName = lib.mkForce "Lafferton, Jan";
-      userEmail = "jan.lafferton@vector.com";
-    };
-    programs.jujutsu.settings.user = {
-      name = lib.mkForce "Lafferton, Jan";
-      email = "jan.lafferton@vector.com";
+  snowfallorg.users.jan.home = {
+    stateVersion = "24.11";
+    config = {
+      programs.git = {
+        userName = lib.mkForce "Lafferton, Jan";
+        userEmail = "jan.lafferton@vector.com";
+      };
+      programs.jujutsu.settings.user = {
+        name = lib.mkForce "Lafferton, Jan";
+        email = "jan.lafferton@vector.com";
+      };
     };
   };
 
@@ -34,8 +37,6 @@ in
       "SSL_CERT_FILE=\"/etc/ssl/certs/ca-certificates.crt\""
     ];
   };
-
-  snowfallorg.users.jan.home.config.home.stateVersion = "24.11";
 
   wsl.enable = true;
   stylix.enable = true;
