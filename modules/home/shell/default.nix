@@ -195,6 +195,6 @@
     clippy
 
     # Neovim
-    inputs.nvim-bundle.packages.${system}.default
+    inputs.nvim-bundle.packages.${system}.neovim
   ];
 }
