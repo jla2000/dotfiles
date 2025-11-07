@@ -158,7 +158,7 @@
     man-pages
     man-pages-posix
     gh
-    glxinfo
+    mesa-demos
     xclip
     xdg-utils
     htop-vim
