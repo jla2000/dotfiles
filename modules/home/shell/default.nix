@@ -88,18 +88,20 @@
 
   programs.git = {
     enable = true;
-    userName = lib.mkDefault "Jan Lafferton";
-    userEmail = lib.mkDefault "jan@lafferton.de";
-    signing = {
-      key = "~/.ssh/id_ed25519.pub";
-      signByDefault = true;
-    };
-    extraConfig = {
+    settings = {
+      user = {
+        name = lib.mkDefault "Jan Lafferton";
+        email = lib.mkDefault "jan@lafferton.de";
+      };
       core.whitespace = "error";
       pull.rebase = true;
       gpg.format = "ssh";
       merge.tool = "vimdiff";
       diff.tool = "vimdiff";
+    };
+    signing = {
+      key = "~/.ssh/id_ed25519.pub";
+      signByDefault = true;
     };
   };
 
@@ -194,6 +196,6 @@
     clippy
 
     # Neovim
-    inputs.nvim-bundle.packages.${system}.neovim
+    inputs.nvim-bundle.packages.${stdenv.hostPlatform.system}.neovim
   ];
 }

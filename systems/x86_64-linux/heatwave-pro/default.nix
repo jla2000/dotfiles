@@ -12,9 +12,9 @@ in
 
   snowfallorg.users.jan.home.config = {
     home.stateVersion = "24.11";
-    programs.git = {
-      userName = lib.mkForce "Lafferton, Jan";
-      userEmail = "jan.lafferton@vector.com";
+    programs.git.settings.user = {
+      name = lib.mkForce "Lafferton, Jan";
+      email = "jan.lafferton@vector.com";
     };
     programs.jujutsu.settings.user = {
       name = lib.mkForce "Lafferton, Jan";
