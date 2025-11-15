@@ -4,6 +4,15 @@
     ./configuration.nix
     inputs.nixos-hardware.nixosModules.asus-zephyrus-ga402
   ];
+
+  services.supergfxd = {
+    settings = {
+      vfio_enable = true;
+    };
+  };
+
+  boot.initrd.kernelModules = [ "amdgpu" ];
+
   stylix.enable = true;
   environment.systemPackages = [ pkgs.fuzzel ];
 
