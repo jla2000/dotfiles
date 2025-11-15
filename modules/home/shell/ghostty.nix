@@ -1,4 +1,10 @@
-{ lib, ... }:
+{ pkgs, lib, ... }:
+let
+  shader = pkgs.fetchurl {
+    url = "https://raw.githubusercontent.com/KroneCorylus/ghostty-shader-playground/refs/heads/main/public/shaders/sparks.glsl";
+    hash = "sha256-3kFi8M9dZePf4UbYr8hgquP+aWv4id3cNDmj5uvs8Cc=";
+  };
+in
 {
   programs.ghostty = {
     enable = true;
@@ -10,11 +16,7 @@
       window-width = 135;
       window-height = 34;
       confirm-close-surface = "false";
+      custom-shader = "${shader}";
     };
-  };
-
-  xdg.desktopEntries.ghostty = {
-    name = "Ghostty";
-    exec = "GALLIUM_DRIVER=d3d12 LD_LIBRARY_PATH=/usr/lib/wsl/lib/ MESA_D3D12_DEFAULT_ADAPTER_NAME=nvidia ghostty";
   };
 }
