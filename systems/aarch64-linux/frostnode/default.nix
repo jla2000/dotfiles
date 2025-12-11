@@ -7,6 +7,10 @@
     ./modules/sshd.nix
   ];
 
+  snowfallorg.users.root.home.config = {
+    home.stateVersion = "24.11";
+  };
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   services.getty.autologinUser = "root";
