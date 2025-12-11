@@ -29,5 +29,5 @@
   };
 
   virtualisation.docker.enable = true;
-  users.users.jan.extraGroups = [ "docker" ];
+  # users.users.jan.extraGroups = [ "docker" ];
 }
