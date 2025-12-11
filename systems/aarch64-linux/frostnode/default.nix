@@ -13,6 +13,7 @@
 
   users.users.root = {
     isSystemUser = true;
+    isNormalUser = false;
     shell = lib.mkForce pkgs.bash;
   };
 
