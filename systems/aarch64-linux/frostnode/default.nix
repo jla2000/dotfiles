@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, lib, ... }:
 {
   imports = [
     ./hardware-configuration.nix
@@ -10,6 +10,8 @@
   snowfallorg.users.root.home.config = {
     home.stateVersion = "24.11";
   };
+
+  users.users.root.shell = lib.mkForce pkgs.bash;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
