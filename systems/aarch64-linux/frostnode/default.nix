@@ -11,7 +11,10 @@
     home.stateVersion = "24.11";
   };
 
-  users.users.root.shell = lib.mkForce pkgs.bash;
+  users.users.root = {
+    isSystemUser = true;
+    shell = lib.mkForce pkgs.bash;
+  };
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
