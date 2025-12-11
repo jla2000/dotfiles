@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/*";
     snowfall-lib = {
       url = "github:snowfallorg/lib";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -45,6 +46,7 @@
         nixos-wsl.nixosModules.default
         stylix.nixosModules.stylix
         nix-index-database.nixosModules.nix-index
+        determinate.nixosModules.default
       ];
     };
 }
