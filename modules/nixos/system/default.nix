@@ -11,7 +11,6 @@
   # Use rust coreutils
   environment.systemPackages = with pkgs; [
     uutils-coreutils-noprefix
-    attic-client
   ];
 
   # Global nix settings

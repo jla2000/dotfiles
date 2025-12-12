@@ -172,6 +172,7 @@
     devenv
     jjui
     lazyjj
+    attic-client
 
     # LSP's
     zls
