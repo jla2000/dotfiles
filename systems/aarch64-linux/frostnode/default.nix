@@ -5,6 +5,7 @@
     ./modules/minecraft.nix
     ./modules/wireguard.nix
     ./modules/sshd.nix
+    ./modules/atticd.nix
   ];
 
   snowfallorg.users.root.home.config = {
