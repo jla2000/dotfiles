@@ -20,6 +20,8 @@
       auto-optimise-store = true;
       experimental-features = [ "nix-command" "flakes" ];
       trusted-users = [ "jan" ];
+      substituters = [ "http://frostnode.de:8080/default" ];
+      trusted-public-keys = [ "default:+ivN2fN1gVC8Y2VnZRj8Wtan4+YplYc7Ii1Q5hHylXc=" ];
     };
   };
 
