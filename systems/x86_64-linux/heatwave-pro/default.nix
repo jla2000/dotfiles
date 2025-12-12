@@ -26,7 +26,6 @@ in
     substituters = [ "http://vistrpesbul1041.vi.vector.int:8080/fenet" ];
     trusted-public-keys = [ "fenet:wgmgt7W5UYsB6UK9izZ1do1aF5xm7R3WAvDw4vEX4Ts=" ];
   };
-  environment.systemPackages = [ pkgs.attic-client ];
 
   vector.proxy-settings.enable = true;
 

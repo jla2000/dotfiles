@@ -9,8 +9,9 @@
   programs.nix-index-database.comma.enable = true;
 
   # Use rust coreutils
-  environment.systemPackages = [
-    pkgs.uutils-coreutils-noprefix
+  environment.systemPackages = with pkgs; [
+    uutils-coreutils-noprefix
+    attic-client
   ];
 
   # Global nix settings
