@@ -41,6 +41,7 @@
     inputs.snowfall-lib.mkFlake {
       inherit inputs;
       src = ./.;
+      channels-config.allowUnfree = true;
 
       systems.modules.nixos = with inputs; [
         nixos-wsl.nixosModules.default

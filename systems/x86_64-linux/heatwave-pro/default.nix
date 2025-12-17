@@ -20,6 +20,10 @@ in
       name = lib.mkForce "Lafferton, Jan";
       email = "jan.lafferton@vector.com";
     };
+    home.packages = with pkgs; [
+      github-copilot-cli
+      copilot-language-server
+    ];
   };
 
   nix.settings = {
