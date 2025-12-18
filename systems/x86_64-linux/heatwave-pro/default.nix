@@ -21,8 +21,10 @@ in
       email = "jan.lafferton@vector.com";
     };
     home.packages = with pkgs; [
+      jiratui
       github-copilot-cli
       copilot-language-server
+      opencode
     ];
   };
 
