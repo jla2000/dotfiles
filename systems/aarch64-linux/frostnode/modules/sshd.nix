@@ -8,6 +8,8 @@
     };
   };
   users.users.root.openssh.authorizedKeys.keys = [
+    # Zephyrus
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGblR6muDT3qYK2I/B1ba+Z1XbTe4yM3S1jtJgUVGEbu jan@nixos"
     # NixOS-Unstable
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDbi4nQxiQN/2HFX7mx0GL1TsNbfHFuZXfDyuN1/noIC jlafferton@nixos"
     # Windows
