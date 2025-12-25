@@ -6,6 +6,7 @@
     ./modules/wireguard.nix
     ./modules/sshd.nix
     ./modules/atticd.nix
+    ./modules/n8n.nix
   ];
 
   snowfallorg.users.root.home.config = {
