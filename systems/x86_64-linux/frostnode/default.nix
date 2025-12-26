@@ -22,8 +22,6 @@
 
   services.getty.autologinUser = "root";
 
-  stylix.enable = true;
-
   system.stateVersion = "24.05";
 }
 
