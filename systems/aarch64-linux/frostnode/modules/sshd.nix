@@ -5,6 +5,7 @@
     settings = {
       PermitRootLogin = "yes";
       PasswordAuthentication = false;
+      X11Forwarding = true;
     };
   };
   users.users.root.openssh.authorizedKeys.keys = [
