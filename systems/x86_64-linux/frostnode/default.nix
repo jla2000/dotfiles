@@ -11,8 +11,14 @@
     # ./modules/n8n.nix
   ];
 
-  snowfallorg.users.jan.home.config = {
+  snowfallorg.users.root.home.config = {
     home.stateVersion = "24.11";
+  };
+
+  users.users.root = {
+    shell = pkgs.bash;
+    isNormalUser = false;
+    isSystemUser = true;
   };
 
   boot.loader.grub = {
