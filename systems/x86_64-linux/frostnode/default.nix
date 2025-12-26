@@ -15,8 +15,11 @@
     home.stateVersion = "24.11";
   };
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub = {
+    efiSupport = true;
+    efiInstallAsRemovable = true;
+  };
+
   services.getty.autologinUser = "root";
 
   stylix.enable = true;
