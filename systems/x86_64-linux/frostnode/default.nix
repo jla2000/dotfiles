@@ -1,22 +1,18 @@
-{ pkgs, lib, ... }:
+{ inputs, pkgs, lib, ... }:
 {
   imports = [
+    inputs.disko.nixosModules.disko
+    ./disk-config.nix
     ./hardware-configuration.nix
     ./modules/minecraft.nix
     ./modules/wireguard.nix
     ./modules/sshd.nix
     ./modules/atticd.nix
-    ./modules/n8n.nix
+    # ./modules/n8n.nix
   ];
 
-  snowfallorg.users.root.home.config = {
+  snowfallorg.users.jan.home.config = {
     home.stateVersion = "24.11";
-  };
-
-  users.users.root = {
-    isSystemUser = true;
-    isNormalUser = false;
-    shell = lib.mkForce pkgs.bash;
   };
 
   boot.loader.systemd-boot.enable = true;
