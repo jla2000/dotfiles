@@ -8,11 +8,8 @@
     ./modules/wireguard.nix
     ./modules/sshd.nix
     ./modules/atticd.nix
-    ./modules/n8n.nix
+    ./modules/ai.nix
   ];
-
-  services.ollama.enable = true;
-  services.qdrant.enable = true;
 
   swapDevices = [{
     device = "/swapfile";
