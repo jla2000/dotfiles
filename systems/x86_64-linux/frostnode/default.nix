@@ -8,8 +8,16 @@
     ./modules/wireguard.nix
     ./modules/sshd.nix
     ./modules/atticd.nix
-    # ./modules/n8n.nix
+    ./modules/n8n.nix
   ];
+
+  services.ollama.enable = true;
+  services.qdrant.enable = true;
+
+  swapDevices = [{
+    device = "/swapfile";
+    size = 16 * 1024;
+  }];
 
   snowfallorg.users.root.home.config = {
     home.stateVersion = "24.11";
