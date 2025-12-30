@@ -1,8 +1,8 @@
 { pkgs, lib, ... }:
 let
   shader = pkgs.fetchurl {
-    url = "https://raw.githubusercontent.com/KroneCorylus/ghostty-shader-playground/refs/heads/main/public/shaders/sparks.glsl";
-    hash = "sha256-3kFi8M9dZePf4UbYr8hgquP+aWv4id3cNDmj5uvs8Cc=";
+    url = "https://raw.githubusercontent.com/KroneCorylus/ghostty-shader-playground/refs/heads/main/public/shaders/cursor_blaze.glsl";
+    hash = "sha256-3kFi8M9dZePf4UbYr8hgquP+aWv4id3cNDmj5uvs8Ca=";
   };
 in
 {
