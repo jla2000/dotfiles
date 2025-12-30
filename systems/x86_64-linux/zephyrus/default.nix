@@ -16,6 +16,11 @@
   stylix.enable = true;
   environment.systemPackages = [ pkgs.fuzzel ];
 
+  swapDevices = [{
+    device = "/swapfile";
+    size = 16 * 1024;
+  }];
+
   snowfallorg.users.jan.home.config = {
     home.stateVersion = "25.11";
   };
