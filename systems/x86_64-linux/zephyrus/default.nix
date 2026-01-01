@@ -11,8 +11,6 @@
     };
   };
 
-  boot.initrd.kernelModules = [ "amdgpu" ];
-
   stylix.enable = true;
   environment.systemPackages = [ pkgs.fuzzel ];
 
