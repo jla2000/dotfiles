@@ -35,17 +35,20 @@
   services.sslh = {
     enable = true;
     settings.protocols = [
+      # Ssh
       {
         name = "ssh";
         host = "localhost";
         port = "22";
         service = "ssh";
       }
+      # Caddy
       {
         name = "tls";
         host = "localhost";
         port = "4430";
       }
+      # Caddy
       {
         name = "http";
         host = "localhost";
