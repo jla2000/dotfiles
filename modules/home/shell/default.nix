@@ -34,7 +34,7 @@
       EDITOR = "nvim";
     };
     shellAliases = {
-      gs = "git status -s";
+      ports = "ss -tulnp";
     };
   };
 
