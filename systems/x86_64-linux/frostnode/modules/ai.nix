@@ -11,11 +11,14 @@
   services.caddy = {
     enable = true;
     virtualHosts = {
-      "n8n.frostnode.de".extraConfig = ''
-        reverse_proxy http://127.0.0.1:5678
-      '';
+      "n8n.frostnode.de" = {
+        host = "n8n.frostnode.de:443";
+        extraConfig = ''
+          reverse_proxy http://127.0.0.1:5678
+        '';
+      };
     };
   };
 
-  networking.firewall.allowedTCPPorts = [ 80 443 ];
+  networking.firewall.allowedTCPPorts = [ 443 ];
 }
