@@ -12,7 +12,7 @@
     enable = true;
     virtualHosts = {
       "n8n.frostnode.de" = {
-        host = "n8n.frostnode.de:443";
+        hostName = "n8n.frostnode.de:443";
         extraConfig = ''
           reverse_proxy http://127.0.0.1:5678
         '';
