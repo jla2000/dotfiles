@@ -1,7 +1,7 @@
 {
   services.openssh = {
     enable = true;
-    ports = [ 22 443 ];
+    ports = [ 22 ];
     settings = {
       PermitRootLogin = "yes";
       PasswordAuthentication = false;
@@ -19,5 +19,5 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINT2Uf7Nxm8XzIeE2P1ZWO4X9UPfi5ad2gSfQQYwA8/+ root@nixos"
   ];
 
-  networking.firewall.allowedTCPPorts = [ 22 443 ];
+  networking.firewall.allowedTCPPorts = [ 22 ];
 }

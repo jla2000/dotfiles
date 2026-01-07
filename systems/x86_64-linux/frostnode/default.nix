@@ -31,6 +31,23 @@
     efiInstallAsRemovable = true;
   };
 
+  services.sslh = {
+    enable = true;
+    settings.protocols = [
+      {
+        host = "localhost";
+        port = "22";
+        service = "ssh";
+      }
+      {
+        host = "localhost";
+        port = "5678";
+        service = "tls";
+      }
+    ];
+  };
+  networking.firewall.allowedTCPPorts = [ 443 ];
+
   services.getty.autologinUser = "root";
 
   system.stateVersion = "24.05";
