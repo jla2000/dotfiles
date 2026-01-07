@@ -31,6 +31,7 @@
     efiInstallAsRemovable = true;
   };
 
+  services.fail2ban.enable = true;
   services.sslh = {
     enable = true;
     settings.protocols = [
