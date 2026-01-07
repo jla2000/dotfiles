@@ -1,5 +1,5 @@
 { channels, ... }:
 
 final: prev: {
-  inherit (channels.stable) n8n;
+  inherit (channels.stable) n8n sslh;
 }
