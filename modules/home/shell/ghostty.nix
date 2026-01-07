@@ -11,7 +11,7 @@
       window-height = 34;
       confirm-close-surface = "false";
       # https://github.com/KroneCorylus/ghostty-shader-playground
-      custom-shader = ./cursor_smear.glsl;
+      custom-shader = "${./cursor_smear.glsl}";
     };
   };
 }
