@@ -35,14 +35,20 @@
     enable = true;
     settings.protocols = [
       {
+        name = "ssh";
         host = "localhost";
         port = "22";
         service = "ssh";
       }
       {
+        name = "tls";
         host = "localhost";
-        port = "5678";
-        service = "tls";
+        port = "4430";
+      }
+      {
+        name = "http";
+        host = "localhost";
+        port = "4430";
       }
     ];
   };
