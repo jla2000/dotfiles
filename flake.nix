@@ -1,40 +1,56 @@
 {
-  description = "Standalone bundled neovim";
-
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
-    neovim = {
-      url = "github:neovim/neovim";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    stable.url = "github:nixos/nixpkgs/nixos-25.11";
+    snowfall-lib = {
+      url = "github:snowfallorg/lib";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nvim-bundle = {
+      url = "github:jla2000/nvim-bundle";
+      # inputs.nixpkgs.follows = "nixpkgs";
+    };
+    base16-schemes = {
+      url = "github:tinted-theming/schemes";
       flake = false;
     };
+    git-hooks = {
+      url = "github:cachix/git-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixos-hardware.url = "github:nixos/nixos-hardware";
   };
 
   outputs = inputs:
-    inputs.flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = inputs.nixpkgs.legacyPackages.${system};
-        neovim-unstable = pkgs.neovim-unwrapped.overrideAttrs {
-          version = "0.12.0-dev";
-          src = inputs.neovim;
-        };
-      in
-      {
-        packages = rec {
-          neovim-bundle = pkgs.wrapNeovimUnstable neovim-unstable {
-            luaRcContent = ''
-              vim.opt.rtp:prepend("${./nvim}")
-              dofile("${./nvim/init.lua}")
-            '';
-            vimAlias = true;
-            viAlias = true;
-          };
-          neovim = pkgs.wrapNeovimUnstable neovim-unstable {
-            wrapRc = false;
-            vimAlias = true;
-            viAlias = true;
-          };
-          default = neovim-bundle;
-        };
-      });
+    inputs.snowfall-lib.mkFlake {
+      inherit inputs;
+      src = ./.;
+      channels-config.allowUnfree = true;
+
+      systems.modules.nixos = with inputs; [
+        nixos-wsl.nixosModules.default
+        stylix.nixosModules.stylix
+        nix-index-database.nixosModules.nix-index
+      ];
+    };
 }
