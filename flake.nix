@@ -26,10 +26,6 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nvim-bundle = {
-      url = "github:jla2000/nvim-bundle";
-      # inputs.nixpkgs.follows = "nixpkgs";
-    };
     base16-schemes = {
       url = "github:tinted-theming/schemes";
       flake = false;

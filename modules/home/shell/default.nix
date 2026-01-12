@@ -193,8 +193,5 @@
     nixpkgs-fmt
     shfmt
     clippy
-
-    # Neovim
-    inputs.nvim-bundle.packages.${stdenv.hostPlatform.system}.neovim
   ];
 }
