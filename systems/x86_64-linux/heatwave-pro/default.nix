@@ -26,6 +26,7 @@ in
       copilot-language-server
       opencode
     ];
+    neovim.symlinkConfig = true;
   };
 
   nix.settings = {
