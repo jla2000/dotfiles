@@ -27,11 +27,8 @@
 
   home = {
     sessionVariables = {
-      MANROFFOPT = "-c";
-      MANPAGER = "nvim +Man!";
       COLORTERM = "truecolor";
       NH_FLAKE = "${config.home.homeDirectory}/dev/dotfiles";
-      EDITOR = "nvim";
     };
     shellAliases = {
       ports = "ss -tulnp";
