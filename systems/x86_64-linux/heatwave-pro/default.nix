@@ -10,25 +10,6 @@ in
     "${nixpkgs-vector}/modules/vector/default.nix"
   ];
 
-  snowfallorg.users.jan.home.config = {
-    home.stateVersion = "24.11";
-    programs.git.settings.user = {
-      name = lib.mkForce "Lafferton, Jan";
-      email = "jan.lafferton@vector.com";
-    };
-    programs.jujutsu.settings.user = {
-      name = lib.mkForce "Lafferton, Jan";
-      email = "jan.lafferton@vector.com";
-    };
-    home.packages = with pkgs; [
-      jiratui
-      github-copilot-cli
-      copilot-language-server
-      opencode
-    ];
-    neovim.symlinkConfig = true;
-  };
-
   nix.settings = {
     substituters = [ "http://vistrpesbul1041.vi.vector.int:8080/fenet" ];
     trusted-public-keys = [ "fenet:wgmgt7W5UYsB6UK9izZ1do1aF5xm7R3WAvDw4vEX4Ts=" ];
