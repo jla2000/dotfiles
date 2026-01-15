@@ -27,7 +27,4 @@
     enable = true;
     binfmt = true;
   };
-
-  virtualisation.docker.enable = true;
-  # users.users.jan.extraGroups = [ "docker" ];
 }

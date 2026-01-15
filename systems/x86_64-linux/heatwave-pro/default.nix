@@ -24,6 +24,9 @@ in
     ];
   };
 
+  virtualisation.docker.enable = true;
+  users.users.jan.extraGroups = [ "docker" ];
+
   wsl.enable = true;
   stylix.enable = true;
 

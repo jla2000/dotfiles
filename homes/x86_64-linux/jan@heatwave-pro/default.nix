@@ -33,6 +33,7 @@
     };
   };
   programs.noctalia-shell.enable = true;
+  programs.distrobox.enable = true;
 
   home.stateVersion = "24.11";
 }
