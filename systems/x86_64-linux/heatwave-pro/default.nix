@@ -1,6 +1,6 @@
-{ pkgs, lib, ... }:
+{ ... }:
 let
-  nixpkgs-vector = builtins.fetchGit {
+  nixpkgs-vector = fetchGit {
     url = "https://github1.vg.vector.int/fbuehler/nixpkgs-vector.git";
     rev = "3a8fce1c2fd2f03eb5f62f2a896e80cbce5f3ffc";
   };
