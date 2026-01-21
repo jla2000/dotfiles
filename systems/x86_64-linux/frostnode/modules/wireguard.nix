@@ -47,12 +47,17 @@ in
     ];
   };
 
-  services.pihole-ftl = {
+  services.dnsmasq = {
     enable = true;
-    settings.dns = {
-      interface = wireguardInterface;
-      listeningMode = "ALL";
-      upstreams = [ "8.8.8.8" ];
-    };
+    settings.interface = wireguardInterface;
   };
+
+  # services.pihole-ftl = {
+  #   enable = true;
+  #   settings.dns = {
+  #     interface = wireguardInterface;
+  #     listeningMode = "ALL";
+  #     upstreams = [ "8.8.8.8" ];
+  #   };
+  # };
 }
