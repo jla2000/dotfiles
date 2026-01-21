@@ -47,13 +47,11 @@ in
     ];
   };
 
-  services.dnsmasq = {
-    # enable = true;
-    settings.interface = wireguardInterface;
-  };
-
   services.pihole-ftl = {
     enable = true;
-    useDnsmasqConfig = true;
+    settings.dns = {
+      interface = wireguardInterface;
+      listeningMode = "BIND";
+    };
   };
 }
