@@ -48,8 +48,8 @@ in
     ];
   };
 
-  services.pihole = {
+  services.pihole-ftl = {
     enable = true;
-    interface = wireguardInterface;
+    settings.interface = wireguardInterface;
   };
 }
