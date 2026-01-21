@@ -52,6 +52,7 @@ in
     settings.dns = {
       interface = wireguardInterface;
       listeningMode = "BIND";
+      upstreams = [ "8.8.8.8" ];
     };
   };
 }
