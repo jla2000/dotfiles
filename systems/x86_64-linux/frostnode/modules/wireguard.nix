@@ -47,7 +47,7 @@ in
 
   services.dnsmasq = {
     enable = true;
-    interface = wireguardInterface;
+    settings.interface = wireguardInterface;
   };
   #
   # services.pihole-ftl = {
