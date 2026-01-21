@@ -48,8 +48,8 @@ in
     ];
   };
 
-  services.dnsmasq = {
+  services.pihole = {
     enable = true;
-    settings.interface = wireguardInterface;
+    interface = wireguardInterface;
   };
 }
