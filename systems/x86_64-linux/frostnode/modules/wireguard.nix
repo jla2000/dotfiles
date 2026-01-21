@@ -9,7 +9,9 @@ in
   networking.nat.enableIPv6 = true;
   networking.nat.externalInterface = networkInterface;
   networking.nat.internalInterfaces = [ wireguardInterface ];
-  networking.firewall.allowedUDPPorts = [ listenPort ];
+
+  networking.firewall.allowedTCPPorts = [ 53 ];
+  networking.firewall.allowedUDPPorts = [ 53 listenPort ];
 
   networking.wireguard.interfaces.${wireguardInterface} = {
     ips = [ "10.10.0.1/24" "fdc9:281f:04d7:9ee9::1/64" ];
