@@ -48,12 +48,12 @@ in
   };
 
   services.dnsmasq = {
-    enable = true;
+    # enable = true;
     settings.interface = wireguardInterface;
   };
-  #
-  # services.pihole-ftl = {
-  #   enable = true;
-  #   settings.dns.interface = wireguardInterface;
-  # };
+
+  services.pihole-ftl = {
+    enable = true;
+    useDnsmasqConfig = true;
+  };
 }
