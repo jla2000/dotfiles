@@ -50,6 +50,6 @@ in
 
   services.pihole-ftl = {
     enable = true;
-    settings.interface = wireguardInterface;
+    settings.dns.interface = wireguardInterface;
   };
 }
