@@ -17,7 +17,11 @@
     jiratui
     github-copilot-cli
     copilot-language-server
-    opencode
+    (opencode.overrideAttrs (old: {
+      node_modules = opencode.node_modules.overrideAttrs (old: {
+        env = (old.env or { }) // { NODE_TLS_REJECT_UNAUTHORIZED = "0"; };
+      });
+    }))
   ];
   neovim.symlinkConfig = true;
 
