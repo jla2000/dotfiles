@@ -2,8 +2,8 @@
 {
   imports = [
     ./tmux.nix
-    ./starship.nix
     ./ghostty.nix
+    # ./starship.nix
   ];
 
   # neovim.configPath = "/home/${config.home.homeDirectory}/dev/nvim-bundle/nvim";
