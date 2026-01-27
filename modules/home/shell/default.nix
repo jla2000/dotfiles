@@ -151,9 +151,8 @@
     fastfetch
     scc
     duf
-    cargo
-    rustc
     zig
+    rustup
     killall
     man-pages
     man-pages-posix
@@ -178,20 +177,17 @@
     nixd
     taplo
     lua-language-server
-    rust-analyzer
     wgsl-analyzer
     lldb
     glsl_analyzer
     nodePackages.vscode-json-languageserver
 
     # Formatter
-    rustfmt
     stylua
     nodePackages.prettier
     marksman
     markdownlint-cli2
     nixpkgs-fmt
     shfmt
-    clippy
   ];
 }
