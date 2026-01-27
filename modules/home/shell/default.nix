@@ -169,6 +169,7 @@
     jjui
     lazyjj
     attic-client
+    helix
 
     # LSP's
     zls
