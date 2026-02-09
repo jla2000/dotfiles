@@ -1,4 +1,9 @@
-{ pkgs, lib, config, ... }:
+{
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 let
   tomlFormat = pkgs.formats.toml { };
   lldb-dap = pkgs.writeShellScriptBin "lldb-dap" /* sh */ ''
@@ -74,35 +79,45 @@ in
           auto-format = false;
           formatter = {
             command = lib.getExe pkgs.cmake-format;
-            args = [ "--enable-markup=false" "--autosort=true" "-" ];
+            args = [
+              "--enable-markup=false"
+              "--autosort=true"
+              "-"
+            ];
           };
         }
         {
           name = "nix";
           auto-format = true;
-          formatter.command = lib.getExe pkgs.nixpkgs-fmt;
+          formatter.command = lib.getExe pkgs.nixfmt-rfc-style;
         }
         {
           name = "python";
           auto-format = true;
           formatter = {
             command = lib.getExe pkgs.black;
-            args = [ "-" "--quiet" ];
+            args = [
+              "-"
+              "--quiet"
+            ];
           };
         }
         {
           name = "jinja";
           auto-format = false;
           scope = "source.jinja";
-          file-types = [ "jinja" { glob = "*.cpp.j2"; } { glob = "*.h.j2"; } ];
+          file-types = [
+            "jinja"
+            { glob = "*.cpp.j2"; }
+            { glob = "*.h.j2"; }
+          ];
           grammar = "cpp";
         }
         {
           name = "xml";
-          file-types = [{ glob = "*.arxml"; }];
+          file-types = [ { glob = "*.arxml"; } ];
         }
       ];
     };
   };
 }
-

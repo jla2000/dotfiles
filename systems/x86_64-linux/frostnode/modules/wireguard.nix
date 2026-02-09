@@ -11,10 +11,16 @@ in
   networking.nat.internalInterfaces = [ wireguardInterface ];
 
   networking.firewall.allowedTCPPorts = [ 53 ];
-  networking.firewall.allowedUDPPorts = [ 53 listenPort ];
+  networking.firewall.allowedUDPPorts = [
+    53
+    listenPort
+  ];
 
   networking.wireguard.interfaces.${wireguardInterface} = {
-    ips = [ "10.10.0.1/24" "fdc9:281f:04d7:9ee9::1/64" ];
+    ips = [
+      "10.10.0.1/24"
+      "fdc9:281f:04d7:9ee9::1/64"
+    ];
     inherit listenPort;
 
     privateKeyFile = "/root/wireguard-keys/private";
@@ -37,12 +43,18 @@ in
       # Zephyrus
       {
         publicKey = "M3sd2dVfWfdH3CaTR4OYe0Zf4AtM9Zk5jjqULNPR0zk=";
-        allowedIPs = [ "10.10.0.2/32" "fdc9:281f:04d7:9ee9::2/128" ];
+        allowedIPs = [
+          "10.10.0.2/32"
+          "fdc9:281f:04d7:9ee9::2/128"
+        ];
       }
       # Framefumbler
       {
         publicKey = "CLuTqo00YHqsIz6q8pkI6R8L4xmArU7fPdezq98EgQ4=";
-        allowedIPs = [ "10.10.0.3/32" "fdc9:281f:04d7:9ee9::3/128" ];
+        allowedIPs = [
+          "10.10.0.3/32"
+          "fdc9:281f:04d7:9ee9::3/128"
+        ];
       }
     ];
   };

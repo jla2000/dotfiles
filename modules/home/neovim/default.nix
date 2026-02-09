@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   options.neovim.symlinkConfig = lib.mkOption {
@@ -8,17 +13,20 @@
 
   config = {
     home.packages = [
-      (pkgs.wrapNeovimUnstable pkgs.neovim-unwrapped ({
-        wrapRc = !config.neovim.symlinkConfig;
-        viAlias = true;
-        vimAlias = true;
-        vimdiffAlias = true;
-      } // lib.optionalAttrs (!config.neovim.symlinkConfig) {
-        luaRcContent = ''
-          vim.opt.rtp:prepend("${./nvim}")
-          dofile("${./nvim/init.lua}")
-        '';
-      }))
+      (pkgs.wrapNeovimUnstable pkgs.neovim-unwrapped (
+        {
+          wrapRc = !config.neovim.symlinkConfig;
+          viAlias = true;
+          vimAlias = true;
+          vimdiffAlias = true;
+        }
+        // lib.optionalAttrs (!config.neovim.symlinkConfig) {
+          luaRcContent = ''
+            vim.opt.rtp:prepend("${./nvim}")
+            dofile("${./nvim/init.lua}")
+          '';
+        }
+      ))
     ];
 
     xdg.configFile."nvim" = lib.mkIf config.neovim.symlinkConfig {

@@ -1,4 +1,9 @@
-{ pkgs, lib, inputs, ... }:
+{
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 {
   imports = [
     ./configuration.nix
@@ -14,10 +19,12 @@
   stylix.enable = true;
   environment.systemPackages = [ pkgs.fuzzel ];
 
-  swapDevices = [{
-    device = "/swapfile";
-    size = 16 * 1024;
-  }];
+  swapDevices = [
+    {
+      device = "/swapfile";
+      size = 16 * 1024;
+    }
+  ];
 
   snowfallorg.users.jan.home.config = {
     home.stateVersion = "25.11";

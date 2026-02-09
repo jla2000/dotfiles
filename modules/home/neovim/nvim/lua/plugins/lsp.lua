@@ -88,7 +88,7 @@ return {
       require("conform").setup({
         formatters_by_ft = {
           lua = { "stylua" },
-          nix = { "nixpkgs_fmt", "injected" },
+          nix = { "nixfmt", "injected" },
           rust = { "rustfmt" },
           python = { "black" },
           toml = { "taplo" },

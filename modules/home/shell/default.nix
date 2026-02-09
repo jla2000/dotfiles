@@ -1,4 +1,10 @@
-{ config, pkgs, lib, inputs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  inputs,
+  ...
+}:
 {
   imports = [
     ./tmux.nix
@@ -68,13 +74,21 @@
 
   programs.fish = {
     enable = true;
-    interactiveShellInit = (lib.mkOrder 0 /* fish */ ''
-      fish_hybrid_key_bindings
-    '');
+    interactiveShellInit = (
+      lib.mkOrder 0 /* fish */ ''
+        fish_hybrid_key_bindings
+      ''
+    );
 
     plugins = with pkgs.fishPlugins; [
-      { name = "bass"; src = bass.src; }
-      { name = "autopair"; src = autopair.src; }
+      {
+        name = "bass";
+        src = bass.src;
+      }
+      {
+        name = "autopair";
+        src = autopair.src;
+      }
     ];
   };
 
@@ -188,7 +202,7 @@
     nodePackages.prettier
     marksman
     markdownlint-cli2
-    nixpkgs-fmt
+    nixfmt-rfc-style
     shfmt
   ];
 }

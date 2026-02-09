@@ -1,4 +1,9 @@
-{ inputs, pkgs, lib, ... }:
+{
+  inputs,
+  pkgs,
+  lib,
+  ...
+}:
 {
   imports = [
     inputs.disko.nixosModules.disko
@@ -11,10 +16,12 @@
     ./modules/ai.nix
   ];
 
-  swapDevices = [{
-    device = "/swapfile";
-    size = 16 * 1024;
-  }];
+  swapDevices = [
+    {
+      device = "/swapfile";
+      size = 16 * 1024;
+    }
+  ];
 
   snowfallorg.users.root.home.config = {
     home.stateVersion = "24.11";
@@ -62,4 +69,3 @@
 
   system.stateVersion = "24.05";
 }
-
