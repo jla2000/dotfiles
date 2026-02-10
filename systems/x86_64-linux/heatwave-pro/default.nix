@@ -27,9 +27,9 @@ in
   # GPU acceleration not working by default
   # https://github.com/nix-community/NixOS-WSL/issues/454
   environment.sessionVariables = {
-    LD_LIBRARY_PATH = [ "/run/opengl-driver/lib" ];
-    GALLIUM_DRIVER = "d3d12";
-    MESA_D3D12_DEFAULT_ADAPTER_NAME = "Nvidia";
+    # LD_LIBRARY_PATH = [ "/run/opengl-driver/lib" ];
+    # GALLIUM_DRIVER = "d3d12";
+    # MESA_D3D12_DEFAULT_ADAPTER_NAME = "Nvidia";
   };
 
   virtualisation.docker.enable = true;
