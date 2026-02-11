@@ -186,7 +186,7 @@
     helix
 
     # LSP's
-    zls
+    # zls broken
     zuban
     clang-tools
     nixd
