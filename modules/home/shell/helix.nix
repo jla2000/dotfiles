@@ -1,24 +1,5 @@
+{ pkgs, lib, config, ... }:
 {
-  pkgs,
-  lib,
-  config,
-  ...
-}:
-let
-  tomlFormat = pkgs.formats.toml { };
-  lldb-dap = pkgs.writeShellScriptBin "lldb-dap" /* sh */ ''
-    ${pkgs.lldb}/bin/lldb-vscode "$@"
-  '';
-in
-{
-  options.helix.cpp.formatter = lib.mkOption {
-    type = tomlFormat.type;
-    default = {
-      command = "clang-format";
-      args = [ "-style=file" ];
-    };
-  };
-
   config = {
     programs.helix = {
       enable = true;
@@ -70,6 +51,8 @@ in
           };
         }
         {
+          <<<<<<< Conflict 2 of 3
+          %%%%%%% Changes from base to side #1
           name = "cpp";
           auto-format = true;
           formatter = config.helix.cpp.formatter;
@@ -79,14 +62,18 @@ in
           auto-format = false;
           formatter = {
             command = lib.getExe pkgs.cmake-format;
-            args = [
-              "--enable-markup=false"
-              "--autosort=true"
-              "-"
+            -            args = [ "--enable-markup=false" "--autosort=true" "-" ];
+            +            args = [
+              +              "--enable-markup=false"
+              +              "--autosort=true"
+              +              "-"
+              +
             ];
           };
         }
         {
+          +++++++ Contents of side #2
+          >>>>>>> Conflict 2 of 3 ends
           name = "nix";
           auto-format = true;
           formatter.command = lib.getExe pkgs.nixfmt-rfc-style;
@@ -102,21 +89,41 @@ in
             ];
           };
         }
+        <<<<<<< Conflict
+        3
+        of
+        3
+        %%%%%%% Changes
+        from
+        base
+        to
+        side #1
         {
           name = "jinja";
           auto-format = false;
           scope = "source.jinja";
-          file-types = [
-            "jinja"
-            { glob = "*.cpp.j2"; }
-            { glob = "*.h.j2"; }
+          -          file-types = [ "jinja" { glob = "*.cpp.j2"; } { glob = "*.h.j2"; } ];
+          +          file-types = [
+            +            "jinja"
+            +            { glob = "*.cpp.j2"; }
+            +            { glob = "*.h.j2"; }
+            +
           ];
           grammar = "cpp";
         }
         {
           name = "xml";
-          file-types = [ { glob = "*.arxml"; } ];
+          -          file-types = [{ glob = "*.arxml"; }];
+          +          file-types = [{ glob = "*.arxml"; }];
         }
+        +++++++ Contents
+        of
+        side #2
+        >>>>>>> Conflict
+        3
+        of
+        3
+        ends
       ];
     };
   };

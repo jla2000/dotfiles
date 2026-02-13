@@ -1,15 +1,15 @@
-{
-  config,
-  pkgs,
-  lib,
-  inputs,
-  ...
+{ config
+, pkgs
+, lib
+, inputs
+, ...
 }:
 {
   imports = [
     ./tmux.nix
     ./ghostty.nix
     # ./starship.nix
+    ./helix.nix
   ];
 
   # neovim.configPath = "/home/${config.home.homeDirectory}/dev/nvim-bundle/nvim";
