@@ -47,7 +47,6 @@ return {
             cargo = {
               features = "all",
             },
-            checkOnSave = true,
             files = {
               excludeDirs = {
                 ".direnv",
