@@ -42,7 +42,7 @@
       "src": "https://github.com/neanias/everforest-nvim"
     },
     "fff.nvim": {
-      "rev": "5ab271ea9da084495d18e3f90f47aa6a87289b01",
+      "rev": "434344f6e94ac8596fd6323ea653c05900c9affa",
       "src": "https://github.com/dmtrKovalenko/fff.nvim"
     },
     "fidget.nvim": {
