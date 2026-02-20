@@ -51,29 +51,6 @@
           };
         }
         {
-          <<<<<<< Conflict 2 of 3
-          %%%%%%% Changes from base to side #1
-          name = "cpp";
-          auto-format = true;
-          formatter = config.helix.cpp.formatter;
-        }
-        {
-          name = "cmake";
-          auto-format = false;
-          formatter = {
-            command = lib.getExe pkgs.cmake-format;
-            -            args = [ "--enable-markup=false" "--autosort=true" "-" ];
-            +            args = [
-              +              "--enable-markup=false"
-              +              "--autosort=true"
-              +              "-"
-              +
-            ];
-          };
-        }
-        {
-          +++++++ Contents of side #2
-          >>>>>>> Conflict 2 of 3 ends
           name = "nix";
           auto-format = true;
           formatter.command = lib.getExe pkgs.nixfmt-rfc-style;
@@ -89,41 +66,6 @@
             ];
           };
         }
-        <<<<<<< Conflict
-        3
-        of
-        3
-        %%%%%%% Changes
-        from
-        base
-        to
-        side #1
-        {
-          name = "jinja";
-          auto-format = false;
-          scope = "source.jinja";
-          -          file-types = [ "jinja" { glob = "*.cpp.j2"; } { glob = "*.h.j2"; } ];
-          +          file-types = [
-            +            "jinja"
-            +            { glob = "*.cpp.j2"; }
-            +            { glob = "*.h.j2"; }
-            +
-          ];
-          grammar = "cpp";
-        }
-        {
-          name = "xml";
-          -          file-types = [{ glob = "*.arxml"; }];
-          +          file-types = [{ glob = "*.arxml"; }];
-        }
-        +++++++ Contents
-        of
-        side #2
-        >>>>>>> Conflict
-        3
-        of
-        3
-        ends
       ];
     };
   };
