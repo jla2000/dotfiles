@@ -166,7 +166,8 @@
     scc
     duf
     zig
-    rustup
+    cargo
+    rustc
     killall
     man-pages
     man-pages-posix
