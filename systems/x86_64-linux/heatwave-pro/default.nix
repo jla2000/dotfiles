@@ -1,8 +1,8 @@
 { ... }:
 let
   nixpkgs-vector = fetchGit {
-    url = "https://github1.vg.vector.int/fbuehler/nixpkgs-vector.git";
-    rev = "3a8fce1c2fd2f03eb5f62f2a896e80cbce5f3ffc";
+    url = "https://github1.vg.vector.int/jlafferton/nixpkgs-vector.git";
+    rev = "fcca28d71886c073d3685e7479c3fc58e6b9f2f9";
   };
 in
 {
