@@ -168,6 +168,8 @@
     zig
     cargo
     rustc
+    rust-analyzer
+    rustfmt
     killall
     man-pages
     man-pages-posix
@@ -193,7 +195,7 @@
     nixd
     taplo
     lua-language-server
-    wgsl-analyzer
+    # wgsl-analyzer
     lldb
     glsl_analyzer
     nodePackages.vscode-json-languageserver
