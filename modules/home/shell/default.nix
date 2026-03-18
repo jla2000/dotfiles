@@ -187,6 +187,7 @@
     lazyjj
     attic-client
     helix
+    python3
 
     # LSP's
     # zls broken
