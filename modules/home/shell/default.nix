@@ -166,10 +166,7 @@
     scc
     duf
     zig
-    cargo
-    rustc
-    rust-analyzer
-    rustfmt
+    rustup
     killall
     man-pages
     man-pages-posix
