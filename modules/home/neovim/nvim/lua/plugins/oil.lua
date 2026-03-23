@@ -15,11 +15,11 @@ return {
       default_file_explorer = true,
       skip_confirm_for_simple_edits = true,
       delete_to_trash = true,
-      columns = {
-        "permissions",
-        "size",
-        "icon",
-      },
+      -- columns = {
+      --   "permissions",
+      --   "size",
+      --   "icon",
+      -- },
       keymaps = {
         ["<ESC>"] = "actions.close",
       },
