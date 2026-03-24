@@ -13,9 +13,9 @@ in
         "${nixpkgs-vector}/modules/vector/default.nix"
         self.nixosModules.common
         self.nixosModules.wsl
-        self.nixosModules.neovim
         self.nixosModules.tmux
         self.nixosModules.tools
+        self.nixosModules.stylix
       ];
 
       networking.hostName = "heatwave-pro";
@@ -39,6 +39,9 @@ in
             name = "Lafferton, Jan";
             email = "jan.lafferton@vector.com";
           };
+        })
+        (self.packages.${pkgs.stdenv.hostPlatform.system}.neovim.wrap {
+          settings.config_directory = "/home/jan/dev/dotfiles/modules/features/neovim-config";
         })
       ];
 

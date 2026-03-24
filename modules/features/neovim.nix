@@ -11,7 +11,7 @@
     };
 
   perSystem =
-    { pkgs, ... }:
+    { pkgs, lib, ... }:
     {
       packages.neovim = inputs.wrapper-modules.wrappers.neovim.wrap {
         inherit pkgs;
@@ -19,7 +19,7 @@
           version = "0.12.0-dev";
           src = inputs.neovim;
         };
-        settings.config_directory = ./neovim-config;
+        settings.config_directory = lib.mkDefault ./neovim-config;
       };
     };
 
