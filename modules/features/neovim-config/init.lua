@@ -2,15 +2,6 @@ require("config.options")
 require("config.keymaps")
 require("config.autocmds")
 
-vim.api.nvim_create_autocmd("PackChanged", {
-  callback = function(event)
-    if event.data.updated then
-      require("fff.download").download_binary()
-      vim.cmd.TSUpdate()
-    end
-  end,
-})
-
 vim.pack.add({
   "https://github.com/2KAbhishek/nerdy.nvim",
   "https://github.com/KijitoraFinch/nanode.nvim",
@@ -18,7 +9,6 @@ vim.pack.add({
   "https://github.com/MunifTanjim/nui.nvim",
   "https://github.com/Wansmer/symbol-usage.nvim",
   "https://github.com/christoomey/vim-tmux-navigator",
-  "https://github.com/dmtrKovalenko/fff.nvim",
   "https://github.com/esmuellert/codediff.nvim",
   "https://github.com/folke/flash.nvim",
   "https://github.com/folke/lazydev.nvim",
