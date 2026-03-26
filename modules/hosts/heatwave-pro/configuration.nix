@@ -41,7 +41,7 @@ in
           };
         })
         (self.packages.${pkgs.stdenv.hostPlatform.system}.neovim.wrap {
-          settings.config_directory = "/home/jan/dev/dotfiles/modules/features/neovim-config";
+          settings.config_directory = "/home/jan/.config/nvim";
         })
       ];
 
