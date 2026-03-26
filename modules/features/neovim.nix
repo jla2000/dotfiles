@@ -5,7 +5,6 @@
     {
       programs.neovim = {
         enable = true;
-        defaultEditor = true;
         package = self.packages.${pkgs.stdenv.hostPlatform.system}.neovim;
       };
     };
@@ -19,7 +18,13 @@
           version = "0.12.0-dev";
           src = inputs.neovim;
         };
-        settings.config_directory = lib.mkDefault ./neovim-config;
+        settings = {
+          config_directory = lib.mkDefault ./neovim-config;
+          aliases = [
+            "vi"
+            "vim"
+          ];
+        };
       };
     };
 

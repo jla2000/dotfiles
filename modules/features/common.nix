@@ -14,6 +14,8 @@
         uutils-coreutils-noprefix
       ];
 
+      environment.variables.EDITOR = "nvim";
+
       # Allow unfree packages
       nixpkgs.config.allowUnfree = true;
 
