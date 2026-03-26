@@ -23,6 +23,7 @@
         modeKeys = "vi";
         statusKeys = "vi";
         configAfter = /* tmux */ ''
+          set -g status-style "bg=default,fg=default"
           set -g focus-events on
           set -ag terminal-overrides ",xterm-256color:RGB"
 
