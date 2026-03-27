@@ -1,7 +1,7 @@
 { self, ... }:
 {
   flake.nixosModules.frostnode =
-    { pkgs, ... }:
+    { ... }:
     {
       imports = [
         self.nixosModules.common
@@ -38,12 +38,6 @@
           size = 16 * 1024;
         }
       ];
-
-      users.users.root = {
-        shell = pkgs.bash;
-        isNormalUser = false;
-        isSystemUser = true;
-      };
 
       boot.loader.grub = {
         efiSupport = true;
