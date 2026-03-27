@@ -46,7 +46,6 @@
 
       programs.fish = {
         enable = true;
-        package = pkgs.fishMinimal;
         interactiveShellInit = (
           lib.mkOrder 0 /* fish */ ''
             fish_hybrid_key_bindings
@@ -70,6 +69,6 @@
         fishPlugins.fzf
       ];
 
-      users.defaultUserShell = pkgs.fishMinimal;
+      users.defaultUserShell = pkgs.fish;
     };
 }
