@@ -47,6 +47,7 @@
 
       environment.systemPackages = with pkgs; [
         uutils-coreutils-noprefix
+        eza
         htop-vim
         fzf
         file
