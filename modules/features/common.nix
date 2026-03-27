@@ -61,6 +61,7 @@
         file
         killall
         ripgrep
+        duf
         man-pages
         man-pages-posix
         python3

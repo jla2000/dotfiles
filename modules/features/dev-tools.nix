@@ -23,7 +23,6 @@
         tree
         fastfetch
         scc
-        duf
         zig
         cargo
         rustc

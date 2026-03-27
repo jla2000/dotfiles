@@ -11,6 +11,7 @@
         self.nixosModules.wireguard
       ];
 
+      networking.hostName = "frostnode";
       services.ollama.enable = true;
       services.openssh = {
         enable = true;
