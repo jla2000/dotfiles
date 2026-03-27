@@ -8,6 +8,4 @@
 
 TODO's
 
-- Use disko
-- Use deploy-rs
 - Use agenix or sops-nix
