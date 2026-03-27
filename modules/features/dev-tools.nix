@@ -1,24 +1,9 @@
 { inputs, ... }:
 {
-  flake.nixosModules.tools =
+  flake.nixosModules.dev-tools =
     { pkgs, lib, ... }:
     {
       programs.bat.enable = true;
-
-      programs.zoxide = {
-        enable = true;
-        enableFishIntegration = true;
-        enableBashIntegration = true;
-      };
-
-      programs.bash = {
-        enable = true;
-        completion.enable = true;
-        shellInit = /* bash */ ''
-          bind 'TAB:menu-complete'
-          set -o vi
-        '';
-      };
 
       programs.fish = {
         enable = true;
@@ -36,16 +21,12 @@
       };
 
       environment.systemPackages = with pkgs; [
-        fzf
-        btop
         eza
         fd
         gdb
-        ripgrep
         nh
         nix-output-monitor
         sd
-        file
         gcc
         gnumake
         tree
@@ -54,24 +35,17 @@
         duf
         zig
         rustup
-        killall
-        man-pages
-        man-pages-posix
         gh
         mesa-demos
         xclip
         xdg-utils
-        htop-vim
         unixtools.xxd
         bacon
         rusty-man
-        presenterm
-        devenv
         jjui
         lazyjj
         attic-client
         helix
-        python3
         fishPlugins.bass
         fishPlugins.autopair
         fishPlugins.fzf

@@ -14,7 +14,7 @@ in
         self.nixosModules.common
         self.nixosModules.wsl
         self.nixosModules.tmux
-        self.nixosModules.tools
+        self.nixosModules.dev-tools
         self.nixosModules.stylix
       ];
 
@@ -59,7 +59,12 @@ in
 
       nixpkgs.hostPlatform = "x86_64-linux";
       virtualisation.docker.enable = true;
-      users.users.jan.extraGroups = [ "docker" ];
+
+      users.users.jan = {
+        isNormalUser = true;
+        description = "Jan";
+        extraGroups = [ "docker" ];
+      };
 
       # This value determines the NixOS release from which the default
       # settings for stateful data, like file locations and database versions

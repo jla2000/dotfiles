@@ -12,11 +12,6 @@
       # Allow running non-nix binaries
       programs.nix-ld.enable = true;
 
-      # Use rust coreutils
-      environment.systemPackages = with pkgs; [
-        uutils-coreutils-noprefix
-      ];
-
       environment.variables.EDITOR = "nvim";
 
       # Allow unfree packages
@@ -35,9 +30,31 @@
         };
       };
 
-      users.users.jan = {
-        isNormalUser = true;
-        description = "Jan";
+      programs.zoxide = {
+        enable = true;
+        enableFishIntegration = true;
+        enableBashIntegration = true;
       };
+
+      programs.bash = {
+        enable = true;
+        completion.enable = true;
+        shellInit = /* bash */ ''
+          bind 'TAB:menu-complete'
+          set -o vi
+        '';
+      };
+
+      environment.systemPackages = with pkgs; [
+        uutils-coreutils-noprefix
+        htop-vim
+        fzf
+        file
+        killall
+        ripgrep
+        man-pages
+        man-pages-posix
+        python3
+      ];
     };
 }

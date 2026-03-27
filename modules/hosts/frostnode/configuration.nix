@@ -6,7 +6,6 @@
       imports = [
         self.nixosModules.common
         self.nixosModules.neovim
-        self.nixosModules.tools
         self.nixosModules.disk-config
         self.nixosModules.wireguard
       ];
