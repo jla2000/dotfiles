@@ -1,7 +1,7 @@
 { inputs, ... }:
 {
   flake.nixosModules.common =
-    { pkgs, ... }:
+    { pkgs, lib, ... }:
     {
       imports = [ inputs.nix-index-database.nixosModules.default ];
       programs.nix-index-database.comma.enable = true;
@@ -33,7 +33,6 @@
       programs.zoxide = {
         enable = true;
         enableFishIntegration = true;
-        enableBashIntegration = true;
       };
 
       programs.bash = {
@@ -43,6 +42,16 @@
           bind 'TAB:menu-complete'
           set -o vi
         '';
+      };
+
+      programs.fish = {
+        enable = true;
+        package = pkgs.fishMinimal;
+        interactiveShellInit = (
+          lib.mkOrder 0 /* fish */ ''
+            fish_hybrid_key_bindings
+          ''
+        );
       };
 
       environment.systemPackages = with pkgs; [
@@ -56,6 +65,11 @@
         man-pages
         man-pages-posix
         python3
+        fishPlugins.bass
+        fishPlugins.autopair
+        fishPlugins.fzf
       ];
+
+      users.defaultUserShell = pkgs.fishMinimal;
     };
 }

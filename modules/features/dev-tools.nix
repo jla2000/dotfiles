@@ -5,15 +5,6 @@
     {
       programs.bat.enable = true;
 
-      programs.fish = {
-        enable = true;
-        interactiveShellInit = (
-          lib.mkOrder 0 /* fish */ ''
-            fish_hybrid_key_bindings
-          ''
-        );
-      };
-
       programs.direnv = {
         enable = true;
         nix-direnv.enable = true;
@@ -46,9 +37,6 @@
         lazyjj
         attic-client
         helix
-        fishPlugins.bass
-        fishPlugins.autopair
-        fishPlugins.fzf
 
         # LSP's
         zls
