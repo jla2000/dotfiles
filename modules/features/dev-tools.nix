@@ -25,7 +25,9 @@
         scc
         duf
         zig
-        rustup
+        cargo
+        rustc
+        rust-analyzer
         gh
         mesa-demos
         xclip
