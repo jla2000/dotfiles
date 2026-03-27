@@ -37,6 +37,9 @@
     inputs:
     inputs.flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [ (inputs.import-tree ./modules) ];
-      systems = [ "x86_64-linux" ];
+      systems = [
+        "aarch64-linux"
+        "x86_64-linux"
+      ];
     };
 }
