@@ -19,7 +19,10 @@
         escapeTime = 10;
         terminal = "tmux-256color";
         shell = "${pkgs.fish}/bin/fish";
-        plugins = [ pkgs.tmuxPlugins.vim-tmux-navigator ];
+        plugins = with pkgs.tmuxPlugins; [
+          vim-tmux-navigator
+          fingers
+        ];
         modeKeys = "vi";
         statusKeys = "vi";
         configAfter = /* tmux */ ''

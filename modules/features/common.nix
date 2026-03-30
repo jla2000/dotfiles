@@ -46,11 +46,7 @@
 
       programs.fish = {
         enable = true;
-        interactiveShellInit = (
-          lib.mkOrder 0 /* fish */ ''
-            fish_hybrid_key_bindings
-          ''
-        );
+        interactiveShellInit = "fish_vi_key_bindings";
       };
 
       environment.systemPackages = with pkgs; [
