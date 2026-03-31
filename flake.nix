@@ -28,8 +28,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     neovim = {
-      url = "github:neovim/neovim";
-      flake = false;
+      url = "github:nix-community/neovim-nightly-overlay";
+      # Don't override as it will build from source
+      # inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -39,4 +40,11 @@
       imports = [ (inputs.import-tree ./modules) ];
       systems = [ "x86_64-linux" ];
     };
+
+  nixConfig = {
+    extra-substituters = [ "https://nix-community.cachix.org" ];
+    extra-trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    ];
+  };
 }

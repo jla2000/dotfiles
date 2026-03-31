@@ -10,14 +10,16 @@
     };
 
   perSystem =
-    { pkgs, lib, ... }:
+    {
+      pkgs,
+      lib,
+      system,
+      ...
+    }:
     {
       packages.neovim = inputs.wrapper-modules.wrappers.neovim.wrap {
         inherit pkgs;
-        package = pkgs.neovim-unwrapped.overrideAttrs {
-          version = "0.12.0-dev";
-          src = inputs.neovim;
-        };
+        package = inputs.neovim.packages.${system}.default;
         settings = {
           config_directory = lib.mkDefault ./neovim-config;
           aliases = [
