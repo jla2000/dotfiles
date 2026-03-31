@@ -11,6 +11,11 @@
         self.nixosModules.wireguard
       ];
 
+      nixpkgs.config.permittedInsecurePackages = [
+        "openclaw-2026.3.12"
+      ];
+      environment.systemPackages = [ pkgs.openclaw ];
+
       networking.hostName = "frostnode";
       services.ollama.enable = true;
       services.openssh = {
