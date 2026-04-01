@@ -40,8 +40,11 @@ in
             email = "jan.lafferton@vector.com";
           };
         })
-        (self.packages.${pkgs.stdenv.hostPlatform.system}.neovim.wrap {
-          settings.config_directory = "/home/jan/.config/nvim";
+        # (self.packages.${pkgs.stdenv.hostPlatform.system}.neovim.wrap {
+        #   settings.config_directory = "/home/jan/.config/nvim";
+        # })
+        (self.packages.${pkgs.stdenv.hostPlatform.system}.neovim.overrideAttrs {
+          wrapRc = false;
         })
       ];
 
