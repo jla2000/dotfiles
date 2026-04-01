@@ -24,6 +24,11 @@
             streampager.interface = "quit-quickly-or-clear-output";
             merge-editor = "vimdiff";
           };
+          signing = {
+            behavior = "own";
+            backend = "ssh";
+            key = "~/.ssh/id_ed25519.pub";
+          };
         };
       };
     };
