@@ -14,6 +14,8 @@ enable_treesitter("lua")
 enable_treesitter("rust")
 enable_treesitter("toml")
 enable_treesitter("markdown")
+enable_treesitter("python")
+enable_treesitter("yaml")
 
 return {
   {
