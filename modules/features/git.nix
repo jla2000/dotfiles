@@ -18,10 +18,12 @@
           user = {
             name = lib.mkDefault "Jan Lafferton";
             email = lib.mkDefault "jan@lafferton.de";
+            signingKey = "~/.ssh/id_ed25519.pub";
           };
           core.whitespace = "error";
           pull.rebase = true;
           gpg.format = "ssh";
+          commit.gpgsign = true;
           merge.tool = "vimdiff";
           diff.tool = "vimdiff";
         };
