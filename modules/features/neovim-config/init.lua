@@ -55,4 +55,4 @@ vim.cmd.packadd("nui.nvim")
 
 require("lz.n").load("plugins")
 
-vim.cmd.colorscheme("catppuccin-mocha")
+vim.cmd.colorscheme("retrobox")
