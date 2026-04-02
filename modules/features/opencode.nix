@@ -15,7 +15,7 @@
         inherit pkgs;
         settings = {
           "$schema" = "https://opencode.ai/config.json";
-          "theme" = "catppuccin-macchiato";
+          "theme" = "catppuccin-mocha";
           "plugin" = [ "@ekroon/opencode-copilot-instructions" ];
         };
       };
