@@ -16,6 +16,7 @@ in
         self.nixosModules.tmux
         self.nixosModules.dev-tools
         self.nixosModules.stylix
+        self.nixosModules.opencode
       ];
 
       networking.hostName = "heatwave-pro";
@@ -25,7 +26,6 @@ in
         distrobox
         github-copilot-cli
         copilot-language-server
-        opencode
 
         # TODO: does not work yet
         (self.packages.${pkgs.stdenv.hostPlatform.system}.jujutsu.wrap {
