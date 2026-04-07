@@ -1,7 +1,13 @@
-{ self, ... }:
+{ self, inputs, ... }:
 {
+  flake.nixosConfigurations.frostnode = inputs.nixpkgs.lib.nixosSystem {
+    modules = [
+      self.nixosModules.frostnode
+    ];
+  };
+
   flake.nixosModules.frostnode =
-    { pkgs, lib, ... }:
+    { pkgs, ... }:
     {
       imports = [
         self.nixosModules.common

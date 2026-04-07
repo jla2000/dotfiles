@@ -21,7 +21,7 @@
         inherit pkgs;
         package = inputs.neovim.packages.${system}.default;
         settings = {
-          config_directory = lib.mkDefault ./neovim-config;
+          config_directory = lib.mkDefault ../neovim-config;
           aliases = [
             "vi"
             "vim"

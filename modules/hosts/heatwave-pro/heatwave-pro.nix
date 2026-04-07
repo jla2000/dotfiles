@@ -1,4 +1,4 @@
-{ self, ... }:
+{ self, inputs, ... }:
 let
   nixpkgs-vector = fetchGit {
     url = "https://github1.vg.vector.int/jlafferton/nixpkgs-vector.git";
@@ -6,6 +6,12 @@ let
   };
 in
 {
+  flake.nixosConfigurations.heatwave-pro = inputs.nixpkgs.lib.nixosSystem {
+    modules = [
+      self.nixosModules.heatwave-pro
+    ];
+  };
+
   flake.nixosModules.heatwave-pro =
     { pkgs, ... }:
     {
