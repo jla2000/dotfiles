@@ -49,11 +49,9 @@
         wgsl-analyzer
         lldb
         glsl_analyzer
-        nodePackages.vscode-json-languageserver
 
         # Formatter
         stylua
-        nodePackages.prettier
         marksman
         markdownlint-cli2
         shfmt
