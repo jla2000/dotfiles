@@ -1,58 +1,102 @@
-require("config.options")
-require("config.keymaps")
-require("config.autocmds")
+vim.g.mapleader = " "
 
-vim.pack.add({
-  "https://github.com/2KAbhishek/nerdy.nvim",
-  "https://github.com/KijitoraFinch/nanode.nvim",
-  "https://github.com/MeanderingProgrammer/render-markdown.nvim",
-  "https://github.com/MunifTanjim/nui.nvim",
-  "https://github.com/Wansmer/symbol-usage.nvim",
-  "https://github.com/christoomey/vim-tmux-navigator",
-  "https://github.com/esmuellert/codediff.nvim",
-  "https://github.com/folke/flash.nvim",
-  "https://github.com/folke/lazydev.nvim",
-  "https://github.com/folke/persistence.nvim",
-  "https://github.com/folke/sidekick.nvim",
-  "https://github.com/folke/snacks.nvim",
-  "https://github.com/folke/tokyonight.nvim",
-  "https://github.com/folke/which-key.nvim",
-  "https://github.com/ibhagwan/fzf-lua",
-  "https://github.com/j-hui/fidget.nvim",
-  "https://github.com/jpwol/thorn.nvim",
-  "https://github.com/kylechui/nvim-surround",
-  "https://github.com/kyza0d/xeno.nvim",
-  "https://github.com/lewis6991/gitsigns.nvim",
-  "https://github.com/lucasadelino/conifer.nvim",
-  "https://github.com/lumen-oss/lz.n",
-  "https://github.com/mfussenegger/nvim-lint",
-  "https://github.com/navarasu/onedark.nvim",
-  "https://github.com/neanias/everforest-nvim",
-  "https://github.com/neovim/nvim-lspconfig",
-  "https://github.com/nvim-tree/nvim-web-devicons",
-  "https://github.com/nvim-treesitter/nvim-treesitter",
-  "https://github.com/nvim-treesitter/nvim-treesitter-context",
-  "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
-  "https://github.com/oskarnurm/koda.nvim",
-  "https://github.com/saecki/crates.nvim",
-  "https://github.com/saecki/live-rename.nvim",
-  "https://github.com/serhez/bento.nvim",
-  "https://github.com/slugbyte/lackluster.nvim",
-  "https://github.com/stevearc/conform.nvim",
-  "https://github.com/stevearc/oil.nvim",
-  "https://github.com/tiagovla/tokyodark.nvim",
-  "https://github.com/windwp/nvim-autopairs",
-  "https://github.com/y9san9/y9nika.nvim",
-  { src = "https://github.com/Saghen/blink.cmp", version = "v1.7.0" },
-  { src = "https://github.com/catppuccin/nvim", name = "catppuccin-nvim" },
-  { src = "https://github.com/rose-pine/neovim", name = "rose-pine" },
-}, { load = function() end })
+vim.opt.number = true
+vim.opt.cursorline = true
+vim.opt.undofile = true
+vim.opt.shiftwidth = 2
+vim.opt.smarttab = true
+vim.opt.smartindent = true
+vim.opt.tabstop = 4
+vim.opt.expandtab = true
+vim.opt.signcolumn = "yes:1"
+vim.opt.scrolloff = 8
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.wrap = false
+vim.opt.swapfile = false
+vim.opt.confirm = true
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.opt.foldtext = ""
+vim.opt.foldlevel = 99
+vim.opt.jumpoptions = "stack"
+vim.opt.grepprg = "rg --vimgrep --hidden -g '!.git/*'"
 
-vim.cmd.packadd("lz.n")
-vim.cmd.packadd("nvim-treesitter")
-vim.cmd.packadd("nvim-web-devicons")
-vim.cmd.packadd("nui.nvim")
+vim.opt.wildmenu = true
+vim.opt.wildmode = "lastused,full"
+vim.opt.completeopt = "menu,menuone,popup,noinsert"
+vim.opt.autocomplete = true
 
-require("lz.n").load("plugins")
+vim.keymap.set("n", "<esc>", "<cmd>nohl<cr><esc>")
+vim.keymap.set("n", "<tab>", "<cmd>bn<cr>")
+vim.keymap.set("n", "<s-tab>", "<cmd>bp<cr>")
+vim.keymap.set("n", "<leader>bd", "<cmd>bd<cr>")
 
-vim.cmd.colorscheme("retrobox")
+require("vim._core.ui2").enable({})
+vim.cmd.colorscheme("catppuccin")
+
+vim.lsp.enable("nixd")
+vim.lsp.enable("lua_ls")
+vim.lsp.enable("rust_analyzer")
+
+vim.lsp.config("lua_ls", {
+  settings = {
+    Lua = {
+      diagnostics = { globals = { "vim" } },
+      workspace = { library = { vim.env.VIMRUNTIME } },
+    },
+  },
+})
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  group = vim.api.nvim_create_augroup("lsp_completion", { clear = true }),
+  callback = function(args)
+    local client_id = args.data.client_id
+    if not client_id then
+      return
+    end
+
+    local client = vim.lsp.get_client_by_id(client_id)
+    if not client then
+      return
+    end
+
+    if client:supports_method("textDocument/completion") then
+      vim.lsp.completion.enable(true, client_id, args.buf, { autotrigger = true })
+    end
+
+    if client:supports_method("textDocument/inlayHint") then
+      vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "c", "markdown", "nix", "lua", "toml", "rust", "zig" },
+  callback = function()
+    vim.treesitter.start()
+  end,
+})
+
+require("oil").setup({
+  default_file_explorer = true,
+  delete_to_trash = true,
+})
+vim.keymap.set("n", "-", "<cmd>Oil<CR>")
+
+require("flash").setup()
+vim.keymap.set({ "n", "x", "o" }, "s", function() require("flash").jump() end)
+
+require("fzf-lua").register_ui_select()
+vim.keymap.set("n", "<leader>ff", function() require("fzf-lua").files() end)
+vim.keymap.set("n", "<leader>fr", function() require("fzf-lua").oldfiles() end)
+vim.keymap.set("n", "<leader>fb", function() require("fzf-lua").buffers() end)
+vim.keymap.set("n", "<leader>sg", function() require("fzf-lua").live_grep() end)
+vim.keymap.set("n", "<leader>ss", function() require("fzf-lua").lsp_document_symbols() end)
+vim.keymap.set("n", "<leader>sS", function() require("fzf-lua").lsp_workspace_symbols() end)
+vim.keymap.set("n", "<leader>d", function() require("fzf-lua").lsp_workspace_diagnostics() end)
+vim.keymap.set("n", "grr", function() require("fzf-lua").lsp_references() end)
+vim.keymap.set("n", "gra", function() require("fzf-lua").lsp_code_actions() end)
+vim.keymap.set("n", "gd", function() require("fzf-lua").lsp_definitions() end)

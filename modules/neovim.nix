@@ -10,24 +10,47 @@
     };
 
   perSystem =
-    {
-      pkgs,
-      lib,
-      system,
-      ...
-    }:
+    { pkgs, lib, ... }:
     {
       packages.neovim = inputs.wrapper-modules.wrappers.neovim.wrap {
         inherit pkgs;
-        package = inputs.neovim.packages.${system}.default;
+        specs = {
+          start = with pkgs.vimPlugins; [
+            nvim-lspconfig
+            (nvim-treesitter.withPlugins (
+              p: with p; [
+                nix
+                lua
+                toml
+                rust
+                zig
+              ]
+            ))
+            oil-nvim
+            vim-tmux-navigator
+            flash-nvim
+            fzf-lua
+          ];
+        };
         settings = {
-          config_directory = lib.mkDefault ../neovim-config;
           aliases = [
             "vi"
             "vim"
           ];
+          config_directory = lib.mkDefault ../neovim-config;
         };
-        extraPackages = [ pkgs.tree-sitter ];
+        extraPackages = with pkgs; [
+          lua-language-server
+          markdownlint-cli2
+          marksman
+          nixd
+          nixfmt
+          rust-analyzer
+          shfmt
+          stylua
+          taplo
+          zls
+        ];
       };
     };
 

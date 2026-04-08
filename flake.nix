@@ -27,11 +27,6 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    neovim = {
-      url = "github:nix-community/neovim-nightly-overlay";
-      # Don't override as it will build from source
-      # inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
