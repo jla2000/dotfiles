@@ -26,8 +26,16 @@ vim.opt.grepprg = "rg --vimgrep --hidden -g '!.git/*'"
 vim.opt.wildmenu = true
 vim.opt.wildmode = "lastused,full"
 vim.opt.shortmess:append("c")
-vim.opt.completeopt = "menu,menuone,popup,noinsert"
+vim.opt.completeopt = "menuone,noinsert"
 vim.opt.autocomplete = true
+
+local on_jump = function(diagnostic, bufnr)
+  if not diagnostic then return end
+  vim.diagnostic.show(diagnostic.namespace, bufnr, { diagnostic }, {
+    virtual_lines = { current_line = true },
+  })
+end
+vim.diagnostic.config({ jump = { on_jump = on_jump } })
 
 vim.keymap.set("n", "<esc>", "<cmd>nohl<cr><esc>")
 vim.keymap.set("n", "<tab>", "<cmd>bn<cr>")
@@ -86,9 +94,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "c", "markdown", "nix", "lua", "toml", "rust", "zig" },
+  pattern = { "*" },
   callback = function()
-    vim.treesitter.start()
+    pcall(vim.treesitter.start)
   end,
 })
 
@@ -139,6 +147,9 @@ require("fzf-lua").setup({
     }
   }
 })
+
+require("live-rename").setup()
+vim.keymap.set("n", "grn", function() require("live-rename").rename() end)
 
 require("fzf-lua").register_ui_select()
 vim.keymap.set("n", "<leader>ff", function() require("fzf-lua").files() end)

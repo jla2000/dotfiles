@@ -16,23 +16,16 @@
         inherit pkgs;
         specs = {
           start = with pkgs.vimPlugins; [
-            nvim-lspconfig
-            (nvim-treesitter.withPlugins (
-              p: with p; [
-                nix
-                lua
-                toml
-                rust
-                zig
-              ]
-            ))
-            nvim-treesitter-context
-            nvim-treesitter-textobjects
-            nvim-autopairs
-            oil-nvim
-            vim-tmux-navigator
             flash-nvim
             fzf-lua
+            live-rename-nvim
+            nvim-autopairs
+            nvim-lspconfig
+            nvim-treesitter-context
+            nvim-treesitter-textobjects
+            nvim-treesitter.withAllGrammars
+            oil-nvim
+            vim-tmux-navigator
           ];
         };
         settings = {
