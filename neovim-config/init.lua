@@ -34,6 +34,12 @@ vim.keymap.set("n", "<tab>", "<cmd>bn<cr>")
 vim.keymap.set("n", "<s-tab>", "<cmd>bp<cr>")
 vim.keymap.set("n", "<leader>bd", "<cmd>bd<cr>")
 
+vim.api.nvim_create_autocmd("TextYankPost", {
+  callback = function()
+    vim.highlight.on_yank()
+  end
+})
+
 require("vim._core.ui2").enable({})
 vim.cmd.colorscheme("catppuccin")
 
@@ -125,6 +131,14 @@ vim.keymap.set("n", "-", "<cmd>Oil<CR>")
 
 require("flash").setup()
 vim.keymap.set({ "n", "x", "o" }, "s", function() require("flash").jump() end)
+
+require("fzf-lua").setup({
+  keymap = {
+    fzf = {
+      ["ctrl-q"] = "select-all+accept"
+    }
+  }
+})
 
 require("fzf-lua").register_ui_select()
 vim.keymap.set("n", "<leader>ff", function() require("fzf-lua").files() end)
