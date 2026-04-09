@@ -23,9 +23,9 @@ vim.opt.foldtext = ""
 vim.opt.foldlevel = 99
 vim.opt.jumpoptions = "stack"
 vim.opt.grepprg = "rg --vimgrep --hidden -g '!.git/*'"
-
 vim.opt.wildmenu = true
 vim.opt.wildmode = "lastused,full"
+vim.opt.shortmess:append("c")
 vim.opt.completeopt = "menu,menuone,popup,noinsert"
 vim.opt.autocomplete = true
 
