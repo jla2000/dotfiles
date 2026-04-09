@@ -24,6 +24,7 @@
             nvim-treesitter-context
             nvim-treesitter-textobjects
             nvim-treesitter.withAllGrammars
+            nvim-surround
             oil-nvim
             vim-tmux-navigator
           ];
