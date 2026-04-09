@@ -73,12 +73,49 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
+vim.api.nvim_create_autocmd("BufWritePre", {
+  callback = function()
+    vim.lsp.buf.format({ async = false })
+  end
+})
+
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "c", "markdown", "nix", "lua", "toml", "rust", "zig" },
   callback = function()
     vim.treesitter.start()
   end,
 })
+
+require("nvim-treesitter-textobjects").setup({
+  select = { lookahead = true },
+  move = { set_jumps = true },
+})
+
+-- Select
+local select = function(object)
+  return function() require("nvim-treesitter-textobjects.select").select_textobject(object, "textobjects") end
+end
+vim.keymap.set({ "x", "o" }, "af", select("@function.outer"))
+vim.keymap.set({ "x", "o" }, "if", select("@function.inner"))
+vim.keymap.set({ "x", "o" }, "ac", select("@class.outer"))
+vim.keymap.set({ "x", "o" }, "ic", select("@class.inner"))
+vim.keymap.set({ "x", "o" }, "aa", select("@parameter.outer"))
+vim.keymap.set({ "x", "o" }, "ia", select("@parameter.inner"))
+
+-- Swap
+vim.keymap.set("n", "<leader>a", function()
+  require("nvim-treesitter-textobjects.swap").swap_next("@parameter.inner")
+end)
+
+-- Move
+vim.keymap.set({ "n", "x", "o" }, "]f",
+  function() require("nvim-treesitter-textobjects.move").goto_next_start("@function.outer", "textobjects") end)
+vim.keymap.set({ "n", "x", "o" }, "[f",
+  function() require("nvim-treesitter-textobjects.move").goto_previous_start("@function.outer", "textobjects") end)
+vim.keymap.set({ "n", "x", "o" }, "]a",
+  function() require("nvim-treesitter-textobjects.move").goto_next_start("@parameter.outer", "textobjects") end)
+vim.keymap.set({ "n", "x", "o" }, "[a",
+  function() require("nvim-treesitter-textobjects.move").goto_previous_start("@parameter.outer", "textobjects") end)
 
 require("oil").setup({
   default_file_explorer = true,
@@ -100,3 +137,5 @@ vim.keymap.set("n", "<leader>d", function() require("fzf-lua").lsp_workspace_dia
 vim.keymap.set("n", "grr", function() require("fzf-lua").lsp_references() end)
 vim.keymap.set("n", "gra", function() require("fzf-lua").lsp_code_actions() end)
 vim.keymap.set("n", "gd", function() require("fzf-lua").lsp_definitions() end)
+
+require("nvim-autopairs").setup()

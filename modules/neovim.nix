@@ -26,6 +26,9 @@
                 zig
               ]
             ))
+            nvim-treesitter-context
+            nvim-treesitter-textobjects
+            nvim-autopairs
             oil-nvim
             vim-tmux-navigator
             flash-nvim
