@@ -50,6 +50,12 @@ return {
       vim.keymap.set({ "x", "o" }, "ic", function()
         require("nvim-treesitter-textobjects.select").select_textobject("@class.inner", "textobjects")
       end)
+      vim.keymap.set({ "x", "o" }, "aa", function()
+        require("nvim-treesitter-textobjects.select").select_textobject("@parameter.outer", "textobjects")
+      end)
+      vim.keymap.set({ "x", "o" }, "ia", function()
+        require("nvim-treesitter-textobjects.select").select_textobject("@parameter.inner", "textobjects")
+      end)
 
       -- Swap
       vim.keymap.set("n", "<leader>a", function()
