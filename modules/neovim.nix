@@ -19,7 +19,6 @@
             flash-nvim
             fzf-lua
             live-rename-nvim
-            nvim-autopairs
             nvim-lspconfig
             nvim-treesitter-context
             nvim-treesitter-textobjects
@@ -27,6 +26,9 @@
             nvim-surround
             oil-nvim
             vim-tmux-navigator
+            blink-indent
+            blink-cmp
+            blink-pairs
           ];
         };
         settings = {

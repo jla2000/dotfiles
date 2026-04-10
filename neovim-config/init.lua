@@ -6,7 +6,7 @@ vim.opt.undofile = true
 vim.opt.shiftwidth = 2
 vim.opt.smarttab = true
 vim.opt.smartindent = true
-vim.opt.tabstop = 4
+vim.opt.tabstop = 2
 vim.opt.expandtab = true
 vim.opt.signcolumn = "yes:1"
 vim.opt.scrolloff = 8
@@ -25,9 +25,6 @@ vim.opt.jumpoptions = "stack"
 vim.opt.grepprg = "rg --vimgrep --hidden -g '!.git/*'"
 vim.opt.wildmenu = true
 vim.opt.wildmode = "lastused,full"
-vim.opt.shortmess:append("c")
-vim.opt.completeopt = "menuone,noinsert"
-vim.opt.autocomplete = true
 
 local on_jump = function(diagnostic, bufnr)
   if not diagnostic then return end
@@ -54,6 +51,9 @@ vim.cmd.colorscheme("catppuccin")
 vim.lsp.enable("nixd")
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("rust_analyzer")
+vim.lsp.enable("zls")
+vim.lsp.enable("taplo")
+vim.lsp.enable("marksman")
 
 vim.lsp.config("lua_ls", {
   settings = {
@@ -77,10 +77,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
       return
     end
 
-    if client:supports_method("textDocument/completion") then
-      vim.lsp.completion.enable(true, client_id, args.buf, { autotrigger = true })
-    end
-
     if client:supports_method("textDocument/inlayHint") then
       vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
     end
@@ -98,6 +94,10 @@ vim.api.nvim_create_autocmd("FileType", {
   callback = function()
     pcall(vim.treesitter.start)
   end,
+})
+
+require("treesitter-context").setup({
+  max_lines = 2
 })
 
 require("nvim-treesitter-textobjects").setup({
@@ -163,4 +163,9 @@ vim.keymap.set("n", "grr", function() require("fzf-lua").lsp_references() end)
 vim.keymap.set("n", "gra", function() require("fzf-lua").lsp_code_actions() end)
 vim.keymap.set("n", "gd", function() require("fzf-lua").lsp_definitions() end)
 
-require("nvim-autopairs").setup()
+require("blink.cmp").setup({})
+require("blink.pairs").setup({ highlights = { enabled = false } })
+require("blink.indent").setup({
+  scope = { char = "│" },
+  static = { char = "│" },
+})
