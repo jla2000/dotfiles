@@ -25,7 +25,8 @@
           gpg.format = "ssh";
           commit.gpgsign = true;
           merge.tool = "vimdiff";
-          diff.tool = "vimdiff";
+          diff.tool = "nvim_difftool";
+          difftool."nvim_difftool".cmd = "nvim -c \"packadd nvim.difftool\" -c \"DiffTool $LOCAL $REMOTE\"";
         };
       };
     };
