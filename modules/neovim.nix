@@ -45,6 +45,7 @@
           nixd
           nixfmt
           rust-analyzer
+          rustfmt
           shfmt
           stylua
           taplo
