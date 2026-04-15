@@ -1,5 +1,18 @@
 { inputs, ... }:
 {
+  # flake-parts perSystem provides its own pkgs (bare legacyPackages) which
+  # does not inherit the NixOS nixpkgs.config.allowUnfree setting. Without
+  # this override, packages built through perSystem (e.g. the neovim wrapper)
+  # will fail to evaluate unfree dependencies like copilot-language-server.
+  perSystem =
+    { system, ... }:
+    {
+      _module.args.pkgs = import inputs.nixpkgs {
+        inherit system;
+        config.allowUnfree = true;
+      };
+    };
+
   flake.nixosModules.common =
     { pkgs, ... }:
     {
