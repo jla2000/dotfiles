@@ -26,6 +26,7 @@
         settings = {
           "$schema" = "https://opencode.ai/config.json";
           "theme" = "catppuccin";
+          "model" = "copilot/claude-opus-4-6";
           "instructions" = [
             ".github/instructions/*.md"
             cavemen-instructions
