@@ -28,12 +28,16 @@ in
       networking.hostName = "heatwave-pro";
       vector.proxy-settings.enable = true;
 
+      nixpkgs.config.permittedInsecurePackages = [
+        "openclaw-2026.4.2"
+      ];
+
       environment.systemPackages = with pkgs; [
         distrobox
         github-copilot-cli
         copilot-language-server
+        openclaw
 
-        # TODO: does not work yet
         (self.packages.${pkgs.stdenv.hostPlatform.system}.jujutsu.wrap {
           settings.user = {
             name = "Lafferton, Jan";
@@ -50,6 +54,15 @@ in
           settings.config_directory = "/home/jan/.config/nvim";
         })
       ];
+
+      services.ollama.enable = true;
+      services.xserver.videoDrivers = [ "nvidia" ];
+      hardware.nvidia.open = true;
+
+      environment.sessionVariables = {
+        LD_LIBRARY_PATH = "/usr/lib/wsl/lib";
+        MESA_D3D12_DEFAULT_ADAPTER_NAME = "Nvidia";
+      };
 
       nix.settings = {
         substituters = [ "http://vistrpesbul1041.vi.vector.int:8080/fenet" ];

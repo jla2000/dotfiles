@@ -8,7 +8,7 @@
       wsl = {
         enable = true;
         startMenuLaunchers = true;
-        # useWindowsDriver = true;
+        useWindowsDriver = true;
         interop.register = true;
         defaultUser = "jan";
         wslConf = {
