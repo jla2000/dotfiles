@@ -25,7 +25,7 @@
         inherit pkgs;
         settings = {
           "$schema" = "https://opencode.ai/config.json";
-          "theme" = "gruvbox";
+          "theme" = "catppuccin";
           "instructions" = [
             ".github/instructions/*.md"
             cavemen-instructions
