@@ -29,6 +29,7 @@
             blink-indent
             blink-cmp
             blink-pairs
+            sidekick-nvim
           ];
         };
         settings = {

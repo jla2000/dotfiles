@@ -23,8 +23,9 @@ vim.opt.foldtext = ""
 vim.opt.foldlevel = 99
 vim.opt.jumpoptions = "stack"
 vim.opt.grepprg = "rg --vimgrep --hidden -g '!.git/*'"
-vim.opt.wildmenu = true
-vim.opt.wildmode = "lastused,full"
+
+vim.cmd.packadd "cfilter"
+vim.cmd.packadd "nvim.undotree"
 
 local on_jump = function(diagnostic, bufnr)
   if not diagnostic then return end
@@ -79,6 +80,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     if client:supports_method("textDocument/inlayHint") then
       vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
+    end
+    if client:supports_method("textDocument/inlineCompletion") then
+      vim.lsp.inline_completion.enable(true, { bufnr = args.buf })
     end
   end,
 })
@@ -139,6 +143,14 @@ vim.keymap.set("n", "-", "<cmd>Oil<CR>")
 
 require("flash").setup()
 vim.keymap.set({ "n", "x", "o" }, "s", function() require("flash").jump() end)
+
+require("sidekick").setup({})
+vim.keymap.set({ "n", "x" }, "<leader>aa", function() require("sidekick.cli").toggle() end)
+vim.keymap.set({ "n", "x" }, "<leader>ad", function() require("sidekick.cli").close({ msg = "{this}" }) end)
+vim.keymap.set({ "n", "x" }, "<leader>at", function() require("sidekick.cli").send({ msg = "{this}" }) end)
+vim.keymap.set({ "n", "x" }, "<leader>af", function() require("sidekick.cli").send({ msg = "{file}" }) end)
+vim.keymap.set({ "n", "x" }, "<leader>av", function() require("sidekick.cli").send({ msg = "{selection}" }) end)
+vim.keymap.set({ "n", "x" }, "<leader>ap", function() require("sidekick.cli").prompt() end)
 
 require("fzf-lua").setup({
   keymap = {
