@@ -28,15 +28,10 @@ in
       networking.hostName = "heatwave-pro";
       vector.proxy-settings.enable = true;
 
-      nixpkgs.config.permittedInsecurePackages = [
-        "openclaw-2026.4.2"
-      ];
-
       environment.systemPackages = with pkgs; [
         distrobox
         github-copilot-cli
         copilot-language-server
-        openclaw
 
         (self.packages.${pkgs.stdenv.hostPlatform.system}.jujutsu.wrap {
           settings.user = {
