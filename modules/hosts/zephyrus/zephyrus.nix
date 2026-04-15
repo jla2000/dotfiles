@@ -18,6 +18,7 @@
         self.nixosModules.dev-tools
         self.nixosModules.stylix
         self.nixosModules.zephyrus-hardware
+        self.nixosModules.opencode
         inputs.nixos-hardware.nixosModules.asus-zephyrus-ga402
       ];
 
@@ -29,6 +30,7 @@
       boot.kernelPackages = pkgs.linuxPackages_latest;
 
       programs.niri.enable = true;
+      services.ollama.enable = true;
       programs.dms-shell = {
         enable = true;
         quickshell.package = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.quickshell;
