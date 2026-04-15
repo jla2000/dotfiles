@@ -146,7 +146,7 @@ vim.keymap.set({ "n", "x", "o" }, "s", function() require("flash").jump() end)
 
 require("sidekick").setup({})
 vim.keymap.set({ "n", "x" }, "<leader>aa", function() require("sidekick.cli").toggle() end)
-vim.keymap.set({ "n", "x" }, "<leader>ad", function() require("sidekick.cli").close({ msg = "{this}" }) end)
+vim.keymap.set({ "n", "x" }, "<leader>ad", function() require("sidekick.cli").close() end)
 vim.keymap.set({ "n", "x" }, "<leader>at", function() require("sidekick.cli").send({ msg = "{this}" }) end)
 vim.keymap.set({ "n", "x" }, "<leader>af", function() require("sidekick.cli").send({ msg = "{file}" }) end)
 vim.keymap.set({ "n", "x" }, "<leader>av", function() require("sidekick.cli").send({ msg = "{selection}" }) end)
