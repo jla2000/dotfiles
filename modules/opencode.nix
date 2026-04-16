@@ -31,6 +31,8 @@
             ".github/instructions/*.md"
             cavemen-instructions
           ];
+          # Fix until https://github.com/anomalyco/opencode/issues/13533 is resolved
+          "agent"."compaction"."model" = "github-copilot/gpt-5.4";
         };
       };
     };
