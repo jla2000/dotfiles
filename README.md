@@ -1,6 +1,6 @@
 <div align="center">
 
-# `dotfiles`
+# `nixconf`
 
 **Personal dotfiles repo, written in Nix**
 
