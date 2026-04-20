@@ -200,12 +200,16 @@ vim.opt.scrollback = 1000000
 vim.opt.path = ".,**"
 
 vim.keymap.set("t", "<esc><esc>", "<C-\\><C-n>")
+vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w>k")
+vim.keymap.set("t", "<C-j>", "<C-\\><C-n><C-w>j")
+vim.keymap.set("t", "<C-h>", "<C-\\><C-n><C-w>h")
+vim.keymap.set("t", "<C-l>", "<C-\\><C-n><C-w>l")
 vim.keymap.set("n", "]t", "<cmd>tabn<cr>")
 vim.keymap.set("n", "[t", "<cmd>tabp<cr>")
 vim.keymap.set("n", "<leader>tc", "<cmd>tabnew<cr>")
 vim.keymap.set("n", "<leader>td", "<cmd>tabc<cr>")
 vim.keymap.set("n", "<leader>tp", "<cmd>split | terminal<cr><cmd>startinsert<cr>")
-vim.keymap.set({ "n", "v", "x", "i" }, "<C-g>", function()
+vim.keymap.set({ "t", "n", "v", "x", "i" }, "<C-g>", function()
   vim.cmd("tabnew | terminal jjui")
   vim.cmd("startinsert")
 end)
