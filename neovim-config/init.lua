@@ -204,12 +204,11 @@ require("blink.indent").setup({
 vim.opt.scrollback = 1000000
 vim.opt.path = ".,**"
 
-vim.keymap.set("t", "<esc><esc>", "<C-\\><C-n>")
+vim.keymap.set("t", "<C-s>", "<C-\\><C-n>")
 vim.keymap.set("n", "]t", "<cmd>tabn<cr>")
 vim.keymap.set("n", "[t", "<cmd>tabp<cr>")
-vim.keymap.set("n", "<leader>tc", "<cmd>tabnew<cr>")
-vim.keymap.set("n", "<leader>td", "<cmd>tabc<cr>")
-vim.keymap.set("n", "<leader>tp", "<cmd>split | terminal<cr><cmd>startinsert<cr>")
+vim.keymap.set("n", "<leader>tc", "<cmd>tabnew | terminal<cr><cmd>startinsert<cr>")
+vim.keymap.set("n", "<leader>tx", "<cmd>tabc<cr>")
 vim.keymap.set({ "t", "n", "v", "x", "i" }, "<C-g>", function()
   -- TODO: get current buffer path and open that in jjui
   vim.cmd("split | terminal jjui")
@@ -223,13 +222,6 @@ vim.api.nvim_create_autocmd({ "BufEnter", "TermEnter", "TermLeave" }, {
     local cwd = vim.fn.resolve("/proc/" .. vim.b.terminal_job_pid .. "/cwd")
     if vim.fn.isdirectory(cwd) == 0 then return end
     vim.cmd("lcd " .. cwd)
-  end
-})
-
-vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = "term://*",
-  callback = function()
-    vim.cmd("startinsert")
   end
 })
 
