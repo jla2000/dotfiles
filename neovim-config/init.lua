@@ -42,6 +42,11 @@ vim.keymap.set("n", "<tab>", "<cmd>bn<cr>")
 vim.keymap.set("n", "<s-tab>", "<cmd>bp<cr>")
 vim.keymap.set("n", "<leader>bd", "<cmd>bd<cr>")
 
+vim.keymap.set("n", "<C-k>", "<C-w>k")
+vim.keymap.set("n", "<C-j>", "<C-w>j")
+vim.keymap.set("n", "<C-h>", "<C-w>h")
+vim.keymap.set("n", "<C-l>", "<C-w>l")
+
 vim.api.nvim_create_autocmd("TextYankPost", {
   callback = function()
     vim.highlight.on_yank()
@@ -200,10 +205,6 @@ vim.opt.scrollback = 1000000
 vim.opt.path = ".,**"
 
 vim.keymap.set("t", "<esc><esc>", "<C-\\><C-n>")
-vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w>k")
-vim.keymap.set("t", "<C-j>", "<C-\\><C-n><C-w>j")
-vim.keymap.set("t", "<C-h>", "<C-\\><C-n><C-w>h")
-vim.keymap.set("t", "<C-l>", "<C-\\><C-n><C-w>l")
 vim.keymap.set("n", "]t", "<cmd>tabn<cr>")
 vim.keymap.set("n", "[t", "<cmd>tabp<cr>")
 vim.keymap.set("n", "<leader>tc", "<cmd>tabnew<cr>")
@@ -211,7 +212,6 @@ vim.keymap.set("n", "<leader>td", "<cmd>tabc<cr>")
 vim.keymap.set("n", "<leader>tp", "<cmd>split | terminal<cr><cmd>startinsert<cr>")
 vim.keymap.set({ "t", "n", "v", "x", "i" }, "<C-g>", function()
   vim.cmd("tabnew | terminal jjui")
-  vim.cmd("startinsert")
 end)
 
 vim.api.nvim_create_autocmd({ "BufEnter", "TermEnter", "TermLeave" }, {
@@ -222,6 +222,19 @@ vim.api.nvim_create_autocmd({ "BufEnter", "TermEnter", "TermLeave" }, {
     vim.cmd("lcd " .. cwd)
   end
 })
+
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "term://*",
+  callback = function()
+    vim.cmd("startinsert")
+  end
+})
+
+vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w>k")
+vim.keymap.set("t", "<C-j>", "<C-\\><C-n><C-w>j")
+vim.keymap.set("t", "<C-h>", "<C-\\><C-n><C-w>h")
+vim.keymap.set("t", "<C-l>", "<C-\\><C-n><C-w>l")
+
 
 if vim.g.neovide then
   vim.fn.chdir("~")
