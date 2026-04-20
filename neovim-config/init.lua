@@ -206,7 +206,7 @@ vim.keymap.set("n", "<leader>tc", "<cmd>tabnew<cr>")
 vim.keymap.set("n", "<leader>td", "<cmd>tabc<cr>")
 vim.keymap.set("n", "<leader>tp", "<cmd>split | terminal<cr><cmd>startinsert<cr>")
 vim.keymap.set({ "n", "v", "x", "i" }, "<C-g>", function()
-  vim.cmd("split | terminal jjui")
+  vim.cmd("tabnew | terminal jjui")
   vim.cmd("startinsert")
 end)
 
