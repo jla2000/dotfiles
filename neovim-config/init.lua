@@ -211,9 +211,12 @@ vim.keymap.set("n", "<leader>tc", "<cmd>tabnew<cr>")
 vim.keymap.set("n", "<leader>td", "<cmd>tabc<cr>")
 vim.keymap.set("n", "<leader>tp", "<cmd>split | terminal<cr><cmd>startinsert<cr>")
 vim.keymap.set({ "t", "n", "v", "x", "i" }, "<C-g>", function()
-  vim.cmd("tabnew | terminal jjui")
+  -- TODO: get current buffer path and open that in jjui
+  vim.cmd("split | terminal jjui")
+  vim.cmd("startinsert")
 end)
 
+-- TODO: sync with cd
 vim.api.nvim_create_autocmd({ "BufEnter", "TermEnter", "TermLeave" }, {
   pattern = "term://*",
   callback = function()
@@ -234,7 +237,6 @@ vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w>k")
 vim.keymap.set("t", "<C-j>", "<C-\\><C-n><C-w>j")
 vim.keymap.set("t", "<C-h>", "<C-\\><C-n><C-w>h")
 vim.keymap.set("t", "<C-l>", "<C-\\><C-n><C-w>l")
-
 
 if vim.g.neovide then
   vim.fn.chdir("~")
