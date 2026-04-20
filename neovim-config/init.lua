@@ -23,6 +23,8 @@ vim.opt.foldtext = ""
 vim.opt.foldlevel = 99
 vim.opt.jumpoptions = "stack"
 vim.opt.grepprg = "rg --vimgrep --hidden -g '!.git/*'"
+vim.opt.termguicolors = true
+vim.opt.timeoutlen = 300
 
 vim.cmd.packadd "cfilter"
 vim.cmd.packadd "nvim.undotree"
@@ -176,9 +178,49 @@ vim.keymap.set("n", "grr", function() require("fzf-lua").lsp_references() end)
 vim.keymap.set("n", "gra", function() require("fzf-lua").lsp_code_actions() end)
 vim.keymap.set("n", "gd", function() require("fzf-lua").lsp_definitions() end)
 
+require("fzf-lua").setup({
+  buffers = {
+    actions = {
+      ["ctrl-d"] = function(selected)
+        require("fzf-lua.actions").buf_del(selected)
+      end,
+    },
+  },
+})
+
 require("blink.cmp").setup({})
 require("blink.pairs").setup({ highlights = { enabled = false } })
 require("blink.indent").setup({
   scope = { char = "│" },
   static = { char = "│" },
 })
+
+-- Neovim as terminal multiplexer
+vim.opt.scrollback = 1000000
+vim.opt.path = ".,**"
+
+vim.keymap.set("t", "<esc><esc>", "<C-\\><C-n>")
+vim.keymap.set("n", "]t", "<cmd>tabn<cr>")
+vim.keymap.set("n", "[t", "<cmd>tabp<cr>")
+vim.keymap.set("n", "<leader>tc", "<cmd>tabnew<cr>")
+vim.keymap.set("n", "<leader>td", "<cmd>tabc<cr>")
+vim.keymap.set("n", "<leader>tp", "<cmd>split | terminal<cr><cmd>startinsert<cr>")
+vim.keymap.set({ "n", "v", "x", "i" }, "<C-g>", function()
+  vim.cmd("split | terminal jjui")
+  vim.cmd("startinsert")
+end)
+
+vim.api.nvim_create_autocmd({ "BufEnter", "TermEnter", "TermLeave" }, {
+  pattern = "term://*",
+  callback = function()
+    local cwd = vim.fn.resolve("/proc/" .. vim.b.terminal_job_pid .. "/cwd")
+    if vim.fn.isdirectory(cwd) == 0 then return end
+    vim.cmd("lcd " .. cwd)
+  end
+})
+
+if vim.g.neovide then
+  vim.fn.chdir("~")
+  vim.g.neovide_cursor_animation_length = 0.05
+  vim.g.neovide_scroll_animation_length = 0.15
+end
