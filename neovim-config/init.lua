@@ -205,10 +205,8 @@ vim.opt.scrollback = 1000000
 vim.opt.path = ".,**"
 
 vim.keymap.set("t", "<C-s>", "<C-\\><C-n>")
-vim.keymap.set("n", "]t", "<cmd>tabn<cr>")
-vim.keymap.set("n", "[t", "<cmd>tabp<cr>")
 vim.keymap.set("n", "<leader>tc", "<cmd>tabnew | terminal<cr><cmd>startinsert<cr>")
-vim.keymap.set("n", "<leader>tx", "<cmd>tabc<cr>")
+vim.keymap.set("n", "<leader>td", "<cmd>tabc<cr>")
 vim.keymap.set({ "t", "n", "v", "x", "i" }, "<C-g>", function()
   -- TODO: get current buffer path and open that in jjui
   vim.cmd("split | terminal jjui")
