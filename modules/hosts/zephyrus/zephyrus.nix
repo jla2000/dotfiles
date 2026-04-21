@@ -22,7 +22,7 @@
         inputs.nixos-hardware.nixosModules.asus-zephyrus-ga402
       ];
 
-      environment.variables.EDITOR = lib.mkForce "nvr -cc split --remote-wait";
+      environment.variables.EDITOR = lib.mkForce "nvr --remote-wait";
       hardware.bluetooth.enable = true;
 
       # Bootloader.
