@@ -11,8 +11,8 @@
 
   perSystem =
     { pkgs, lib, ... }:
-    let
-      neovim = inputs.wrapper-modules.wrappers.neovim.wrap {
+    {
+      packages.neovim = inputs.wrapper-modules.wrappers.neovim.wrap {
         inherit pkgs;
         specs = {
           start = with pkgs.vimPlugins; [
@@ -53,18 +53,5 @@
           zls
         ];
       };
-      v = pkgs.writeShellScriptBin "v" ''
-        if [ -n "$NVIM" ]; then
-          realpath --zero "$@" | xargs -0 -n1 nvim --server "$NVIM" --remote
-        elif [ "$#" -eq "0" ]; then
-          nvim +terminal
-        else
-          nvim "$@"
-        fi
-      '';
-    in
-    {
-      packages.neovim = neovim;
-      packages.v = v;
     };
 }

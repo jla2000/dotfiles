@@ -7,7 +7,7 @@
   };
 
   flake.nixosModules.zephyrus =
-    { pkgs, ... }:
+    { pkgs, lib, ... }:
     {
       imports = [
         self.nixosModules.common
@@ -22,6 +22,7 @@
         inputs.nixos-hardware.nixosModules.asus-zephyrus-ga402
       ];
 
+      environment.variables.EDITOR = lib.mkForce "nvr -cc split --remote-wait";
       hardware.bluetooth.enable = true;
 
       # Bootloader.
@@ -53,6 +54,7 @@
         ghostty
         cups-pk-helper
         dsearch
+        neovim-remote
       ];
 
       services.upower.enable = true;
