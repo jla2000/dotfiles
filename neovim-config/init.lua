@@ -209,7 +209,7 @@ vim.keymap.set("n", "<leader>tc", "<cmd>tabnew | terminal<cr><cmd>startinsert<cr
 vim.keymap.set("n", "<leader>td", "<cmd>tabc<cr>")
 vim.keymap.set({ "t", "n", "v", "x", "i" }, "<C-g>", function()
   -- TODO: get current buffer path and open that in jjui
-  vim.cmd("split | terminal jjui")
+  vim.cmd("terminal jjui")
   vim.cmd("startinsert")
 end)
 
