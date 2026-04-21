@@ -52,6 +52,7 @@
       environment.systemPackages = with pkgs; [
         ghostty
         cups-pk-helper
+        dsearch
       ];
 
       services.upower.enable = true;
