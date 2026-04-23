@@ -48,7 +48,6 @@ in
         (self.packages.${pkgs.stdenv.hostPlatform.system}.neovim.wrap {
           settings.config_directory = "/home/jan/.config/nvim";
         })
-        self.packages.${pkgs.stdenv.hostPlatform.system}.v
       ];
 
       services.ollama.enable = true;
