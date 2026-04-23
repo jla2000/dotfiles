@@ -13,7 +13,7 @@ in
   };
 
   flake.nixosModules.heatwave-pro =
-    { pkgs, ... }:
+    { pkgs, lib, ... }:
     {
       imports = [
         "${nixpkgs-vector}/modules/vector/default.nix"
@@ -28,7 +28,9 @@ in
       networking.hostName = "heatwave-pro";
       vector.proxy-settings.enable = true;
 
+      environment.variables.EDITOR = lib.mkForce "nvr --remote-wait";
       environment.systemPackages = with pkgs; [
+        neovim-remote
         distrobox
         github-copilot-cli
         copilot-language-server
