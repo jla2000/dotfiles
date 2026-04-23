@@ -223,6 +223,16 @@ vim.api.nvim_create_autocmd({ "BufEnter", "TermEnter", "TermLeave" }, {
   end
 })
 
+vim.api.nvim_create_autocmd({ "TermRequest" }, {
+  callback = function(ev)
+    local pwd, n = string.gsub(ev.data.sequence, '\027]7;file://[^/]*', '')
+    if n <= 0 then return end
+    if vim.fn.isdirectory(pwd) == 0 then return end
+    if vim.api.nvim_get_current_buf() ~= ev.buf then return end
+    vim.cmd.lcd(pwd)
+  end
+})
+
 vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w>k")
 vim.keymap.set("t", "<C-j>", "<C-\\><C-n><C-w>j")
 vim.keymap.set("t", "<C-h>", "<C-\\><C-n><C-w>h")
