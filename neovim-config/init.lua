@@ -200,6 +200,11 @@ require("blink.indent").setup({
   static = { char = "│" },
 })
 
+require("persistence").setup()
+vim.keymap.set("n", "<leader>ql", function()
+  require("persistence").load({ last = true })
+end)
+
 -- Neovim as terminal multiplexer
 vim.opt.scrollback = 1000000
 vim.opt.path = ".,**"

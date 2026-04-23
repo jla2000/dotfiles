@@ -44,6 +44,7 @@
               blink-pairs
               sidekick-nvim
               direnv-nvim
+              persistence-nvim
             ];
         };
         settings = {
