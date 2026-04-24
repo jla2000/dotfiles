@@ -24,7 +24,7 @@ vim.opt.foldlevel = 99
 vim.opt.jumpoptions = "stack"
 vim.opt.grepprg = "rg --vimgrep --hidden -g '!.git/*'"
 vim.opt.termguicolors = true
-vim.opt.timeoutlen = 300
+-- vim.opt.timeoutlen = 300
 
 vim.cmd.packadd "cfilter"
 vim.cmd.packadd "nvim.undotree"
@@ -164,7 +164,14 @@ require("fzf-lua").setup({
     fzf = {
       ["ctrl-q"] = "select-all+accept"
     }
-  }
+  },
+  buffers = {
+    actions = {
+      ["ctrl-d"] = function(selected)
+        require("fzf-lua.actions").buf_del(selected)
+      end,
+    },
+  },
 })
 
 require("live-rename").setup()
@@ -182,16 +189,6 @@ vim.keymap.set("n", "<leader>d", function() require("fzf-lua").lsp_workspace_dia
 vim.keymap.set("n", "grr", function() require("fzf-lua").lsp_references() end)
 vim.keymap.set("n", "gra", function() require("fzf-lua").lsp_code_actions() end)
 vim.keymap.set("n", "gd", function() require("fzf-lua").lsp_definitions() end)
-
-require("fzf-lua").setup({
-  buffers = {
-    actions = {
-      ["ctrl-d"] = function(selected)
-        require("fzf-lua.actions").buf_del(selected)
-      end,
-    },
-  },
-})
 
 require("blink.cmp").setup({})
 require("blink.pairs").setup({ highlights = { enabled = false } })
@@ -211,6 +208,7 @@ vim.opt.path = ".,**"
 
 vim.keymap.set("t", "<C-s>", "<C-\\><C-n>")
 vim.keymap.set("n", "<leader>tc", "<cmd>tabnew | terminal<cr><cmd>startinsert<cr>")
+vim.keymap.set("n", "<leader>tn", "<cmd>tabnew<cr>")
 vim.keymap.set("n", "<leader>td", "<cmd>tabc<cr>")
 vim.keymap.set({ "t", "n", "v", "x", "i" }, "<C-g>", function()
   -- TODO: get current buffer path and open that in jjui
@@ -224,7 +222,7 @@ vim.api.nvim_create_autocmd({ "BufEnter", "TermEnter", "TermLeave" }, {
   callback = function()
     local cwd = vim.fn.resolve("/proc/" .. vim.b.terminal_job_pid .. "/cwd")
     if vim.fn.isdirectory(cwd) == 0 then return end
-    vim.cmd("lcd " .. cwd)
+    vim.cmd.lcd(cwd)
   end
 })
 
