@@ -29,6 +29,10 @@
       # GL/Vulkan is 810 MiB; nothing 32-bit (Steam, Wine) runs here.
       hardware.graphics.enable32Bit = false;
 
+      environment.systemPackages = with pkgs; [
+        chromium
+      ];
+
       # The dGPU is bound to vfio-pci in the initrd (see zephyrus-gpu-passthrough),
       # so supergfxd has nothing left to manage. Leaving it on is actively harmful:
       # it writes its own /etc/supergfxd.conf at runtime (ignoring the settings
