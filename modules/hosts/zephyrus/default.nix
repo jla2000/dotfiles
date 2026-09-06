@@ -7,7 +7,7 @@
   };
 
   flake.nixosModules.zephyrus =
-    { ... }:
+    { pkgs, lib, ... }:
     {
       imports = [
         self.nixosModules.desktop
@@ -21,6 +21,18 @@
 
       profile.neovim.configDirectory = "/home/jan/.config/nvim";
 
+      boot.plymouth = {
+        enable = true;
+        theme = lib.mkForce "bgrt";
+      };
+      boot.kernelParams = [
+        "quiet"
+        "splash"
+        "loglevel=3"
+        "rd.systemd.show_status=false"
+        "rd.udev.log_level=3"
+      ];
+      boot.loader.timeout = 0;
       boot.loader.systemd-boot.enable = true;
       boot.loader.efi.canTouchEfiVariables = true;
 
